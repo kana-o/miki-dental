@@ -1,5 +1,130 @@
+<!-- ========================================
+  Footer
+======================================== -->
 <footer class="footer">
-  <div class="inner footer__inner">
+  <div class="footer__inner inner">
+    <div class="footer__info">
+      <p class="footer__logo">@@include('./logo-footer.html')</p>
 
+      <address class="footer__address">
+        <p class="footer__address-main">〒350-0822 埼玉県川越市山田339-3</p>
+        <p class="footer__address-sub">東武東上線川越駅よりバスで約15分</p>
+        <p class="footer__address-sub">「康正会病院前」バス停下車 徒歩約3分</p>
+      </address>
+
+      <a href="/access/" class="more footer__access">
+        <span class="more__text">アクセス</span>
+        <span class="more__icon" aria-hidden="true"></span>
+      </a>
+
+      <p class="footer__tel">TEL : <a href="tel:049-225-3373" class="footer__tel-link">049-225-3373</a></p>
+
+      <a href="#" class="footer__sns" target="_blank" rel="noopener noreferrer">
+        <picture class="pic">
+          <source srcset="/assets/img/common/icon-instagram.webp" type="image/webp" />
+          <img src="/assets/img/common/icon-instagram.png" alt="Instagram" width="100" height="100" loading="lazy" />
+        </picture>
+      </a>
+
+      <div class="footer__hours">
+        <p class="footer__hours-label">予約制</p>
+        <table class="footer__table">
+          <thead>
+            <tr>
+              <th scope="col">診療時間</th>
+              <th scope="col">月</th>
+              <th scope="col">火</th>
+              <th scope="col">水</th>
+              <th scope="col">木</th>
+              <th scope="col">金</th>
+              <th scope="col">土</th>
+              <th scope="col">日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">9 : 30 - 13 : 00</th>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>／</td>
+            </tr>
+            <tr>
+              <th scope="row">14 : 30 - 19 : 00</th>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>●</td>
+              <td>△</td>
+              <td>／</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="footer__note">
+          <li class="footer__note-item">△ 土曜は、9 : 30 - 13 : 00 / 14 : 00 - 18 : 30</li>
+          <li class="footer__note-item">休診日 : 日曜 / 祝日</li>
+        </ul>
+      </div>
+    </div>
+
+    <nav class="footer__nav" aria-label="フッターナビゲーション">
+      <div class="footer__nav-col">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item"><a href="/" class="footer__nav-link footer__nav-link--top">TOP</a></li>
+          <li class="footer__nav-item"><a href="/about/" class="footer__nav-link">当院について</a></li>
+          <li class="footer__nav-item">
+            <a href="/general/" class="footer__nav-link">一般歯科</a>
+            <ul class="footer__nav-sublist">
+              <li><a href="/general/" class="footer__nav-sublink">一般歯科 TOP</a></li>
+              <li><a href="/general/periodontal/" class="footer__nav-sublink">歯周病</a></li>
+              <li><a href="/general/implant/" class="footer__nav-sublink">インプラント</a></li>
+              <li><a href="/general/aesthetic/" class="footer__nav-sublink">審美歯科</a></li>
+              <li><a href="/general/whitening/" class="footer__nav-sublink">ホワイトニング</a></li>
+              <li><a href="/general/preventive/" class="footer__nav-sublink">予防歯科・ブラッシング指導（TBI）</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__nav-col">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item">
+            <a href="/pediatric/" class="footer__nav-link">小児歯科</a>
+            <ul class="footer__nav-sublist">
+              <li><a href="/pediatric/" class="footer__nav-sublink">小児歯科 TOP</a></li>
+              <li><a href="/pediatric/preventive/" class="footer__nav-sublink">予防歯科</a></li>
+              <li><a href="/pediatric/orthodontics/" class="footer__nav-sublink">小児矯正</a></li>
+              <li><a href="/pediatric/space-maintainer/" class="footer__nav-sublink">保隙（ほげき）</a></li>
+              <li><a href="/pediatric/sealant/" class="footer__nav-sublink">シーラント</a></li>
+            </ul>
+          </li>
+          <li class="footer__nav-item"><a href="/clinic/" class="footer__nav-link">院内紹介</a></li>
+          <li class="footer__nav-item">
+            <a href="/staff/" class="footer__nav-link">スタッフ</a>
+            <ul class="footer__nav-sublist">
+              <li><a href="/staff/" class="footer__nav-sublink">スタッフ紹介</a></li>
+              <li><a href="/recruit/" class="footer__nav-sublink">スタッフ募集</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__nav-col footer__nav-col--narrow">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item"><a href="/news/" class="footer__nav-link">お知らせ</a></li>
+          <li class="footer__nav-item"><a href="/price/" class="footer__nav-link">料金</a></li>
+          <li class="footer__nav-item"><a href="/reservation/" class="footer__nav-link">予約・相談</a></li>
+          <li class="footer__nav-item"><a href="/access/" class="footer__nav-link">診療時間・アクセス</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
+
+  <p class="footer__copyright">© MIKI DENTAL CLINIC&nbsp; All Rights Reserved.</p>
+
+  <a href="#top" class="footer__pagetop" aria-label="ページ上部へ戻る"></a>
 </footer>

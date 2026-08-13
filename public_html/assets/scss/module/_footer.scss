@@ -1,1 +1,374 @@
 @use "global" as *;
+
+/* ========================================
+  Footer
+======================================== */
+
+// 背景写真の上に #145aa6 / 86% を重ねる（カンプの Rectangle 10 + オーバーレイ）
+.footer {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding-top: rem(159);
+  padding-bottom: rem(71);
+  // 背景画像は <picture> が使えないので image-set で WebP を出し分ける
+  background-image: image-set(
+    url("/assets/img/footer/footer-01.webp") type("image/webp"),
+    url("/assets/img/footer/footer-01.jpg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgba($color-accent, 0.86);
+  }
+
+  @include mq("sp") {
+    padding-top: rem(80);
+    padding-bottom: rem(62);
+  }
+}
+
+// .inner（1080 / 左右20）に併記して、フッターだけSPの左右余白をカンプの15pxにする
+.footer__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: rem(40);
+
+  @include mq("sp") {
+    display: block;
+    padding-inline: rem(15);
+  }
+}
+
+.footer__info {
+  width: rem(498);
+
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+// ロゴ
+.footer__logo {
+  width: fit-content;
+}
+
+// 住所
+.footer__address {
+  margin-top: rem(36);
+  font-style: normal;
+
+  @include mq("sp") {
+    margin-top: rem(27);
+  }
+}
+
+.footer__address-main {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    font-size: rem(14);
+  }
+}
+
+.footer__address-sub {
+  font-size: rem(13);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.8;
+}
+
+.footer__address-main + .footer__address-sub {
+  margin-top: rem(6);
+
+  @include mq("sp") {
+    margin-top: rem(4);
+  }
+}
+
+// アクセスへのリンク
+.footer__access {
+  margin-top: rem(19);
+
+  @include mq("sp") {
+    margin-top: rem(23);
+    margin-left: rem(5);
+  }
+}
+
+// 電話番号
+.footer__tel {
+  margin-top: rem(20);
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    margin-left: rem(5);
+  }
+}
+
+.footer__tel-link {
+  color: inherit;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(2);
+  }
+}
+
+// Instagram
+.footer__sns {
+  display: block;
+  width: rem(20);
+  height: rem(20);
+  margin-top: rem(21);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(4);
+  }
+
+  @include mq("sp") {
+    width: rem(28);
+    height: rem(28);
+    margin-top: rem(26);
+  }
+}
+
+// 診療時間
+.footer__hours {
+  margin-top: rem(36);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.footer__hours-label {
+  width: rem(100);
+  padding-block: rem(7);
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-accent;
+  letter-spacing: 0.3em;
+  line-height: 1;
+  text-align: center;
+  text-indent: 0.3em; // 字間が末尾にも付くぶんを打ち消して中央に見せる
+  background-color: $color-bg;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    width: rem(89);
+    padding-block: rem(6);
+    font-size: rem(13);
+  }
+}
+
+.footer__table {
+  width: 100%;
+  margin-top: rem(16);
+  border-top: rem(2) dotted $color-text-inverse;
+  border-bottom: rem(2) dotted $color-text-inverse;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  @include mq("sp") {
+    margin-top: rem(14);
+  }
+}
+
+.footer__table th,
+.footer__table td {
+  padding-block: rem(6);
+  font-family: $en-font;
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    padding-block: rem(4);
+    font-size: rem(10);
+  }
+}
+
+.footer__table thead th {
+  padding-block: rem(11);
+  border-bottom: rem(2) dotted $color-text-inverse;
+
+  @include mq("sp") {
+    padding-block: rem(8);
+  }
+}
+
+.footer__table th:first-child {
+  width: 32%;
+}
+
+.footer__note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(10) rem(28);
+  margin-top: rem(11);
+  padding-left: rem(28);
+
+  @include mq("sp") {
+    gap: rem(6) rem(10);
+    margin-top: rem(9);
+    padding-left: rem(6);
+  }
+}
+
+.footer__note-item {
+  font-family: $en-font;
+  font-size: rem(13);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+
+  @include mq("sp") {
+    font-size: rem(10);
+  }
+}
+
+// フッターナビ（カンプは 955 / 1105 / 1255 の150px間隔・各列100px）
+.footer__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: rem(50);
+  width: rem(382);
+
+  @include mq("sp") {
+    gap: rem(10);
+    width: rem(326);
+    margin-top: rem(60);
+    margin-inline: auto;
+  }
+}
+
+.footer__nav-col {
+  width: rem(100);
+
+  @include mq("sp") {
+    width: rem(105);
+  }
+}
+
+// 「診療時間・アクセス」がカンプと同じ位置で折り返るよう、最終列だけ狭くする
+.footer__nav-col--narrow {
+  width: rem(82);
+
+  @include mq("sp") {
+    width: rem(90);
+  }
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(50);
+}
+
+.footer__nav-link {
+  display: block;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.5;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(2);
+  }
+}
+
+.footer__nav-link--top {
+  font-size: rem(18);
+}
+
+.footer__nav-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: rem(17);
+  margin-top: rem(30);
+}
+
+.footer__nav-sublink {
+  display: block;
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.4;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(2);
+  }
+}
+
+// コピーライト
+.footer__copyright {
+  margin-top: rem(123);
+  font-family: $en-font;
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(70);
+    font-size: rem(8);
+  }
+}
+
+// ページトップ
+.footer__pagetop {
+  position: absolute;
+  z-index: 10;
+  right: rem(50);
+  bottom: rem(121);
+  display: block;
+  width: rem(60);
+  height: rem(60);
+  background-image: url("/assets/img/common/icon-arrow-lg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(4);
+  }
+
+  @include mq("sp") {
+    right: rem(15);
+    bottom: rem(80);
+  }
+}
+
+@media (any-hover: hover) {
+  .footer__pagetop:hover {
+    transform: rotate(-90deg) translateX(rem(4));
+  }
+}

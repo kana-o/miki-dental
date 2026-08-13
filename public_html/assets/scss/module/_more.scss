@@ -1,0 +1,44 @@
+@use "global" as *;
+
+/* ========================================
+  More（テキスト＋丸矢印のリンク）
+======================================== */
+
+// 共通クラスは見た目のみ。配置・余白は併記するページ固有クラスで制御する。
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(8);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(4);
+  }
+}
+
+.more__text {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.4;
+}
+
+// 白丸＋青矢印。ホバーで少しだけ右に出す。
+.more__icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(35);
+  height: rem(35);
+  background-image: url("/assets/img/common/icon-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s;
+}
+
+@media (any-hover: hover) {
+  .more:hover .more__icon {
+    transform: translateX(rem(4));
+  }
+}
