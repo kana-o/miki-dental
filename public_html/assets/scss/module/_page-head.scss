@@ -37,9 +37,11 @@
 }
 
 .page-head__watermark {
+  // カンプ座標は PC (260, -371) 1081×1081 / SP (26, -23) 322×322。
+  // 以前は楕円マスクのオフセット(-385, -561)を足してしまっていた。
   position: absolute;
-  top: rem(190);
-  left: rem(645);
+  top: calc(#{rem(371)} * -1);
+  left: rem(260);
   display: block;
   width: rem(1081);
   height: rem(1081);
@@ -48,10 +50,10 @@
   background-repeat: no-repeat;
 
   @include mq("sp") {
-    top: rem(90);
-    left: rem(300);
-    width: rem(500);
-    height: rem(500);
+    top: calc(#{rem(23)} * -1);
+    left: rem(26);
+    width: rem(322);
+    height: rem(322);
   }
 }
 
