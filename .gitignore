@@ -2,3 +2,6 @@ node_modules
 config.local.md
 .coding-plan.md
 .design-extract/
+
+# カンプ画像（1枚10MB超・計32MB）。共有したい場合はこの行を削除する
+.page-info/designs/*.png

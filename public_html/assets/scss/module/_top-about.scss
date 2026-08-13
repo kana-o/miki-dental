@@ -48,7 +48,11 @@
   display: block;
   width: calc(50% + #{rem(432)});
   height: rem(411);
-  background-color: $color-bg-sub;
+  // カンプは単色ではなく青みグレーの細かいノイズ地。
+  // get_design_context は #f2f2f2 としか返さないため、カンプ画像から切り出したタイルを敷く。
+  background-color: #dfe4eb;
+  background-image: url("/assets/img/common/texture-gray.png");
+  background-repeat: repeat;
   border-radius: 0 rem(20) rem(20) 0;
 
   @include mq("sp") {

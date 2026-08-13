@@ -6,7 +6,9 @@
 
 .about-care {
   padding-top: rem(160);
-  background-color: $color-bg-sub;
+  background-color: #d1dbe7;
+  background-image: url("/assets/img/common/texture-gray.png");
+  background-repeat: repeat;
 
   @include mq("sp") {
     padding-top: rem(80);
@@ -308,9 +310,25 @@
   ABOUT / カウンセリング
 ======================================== */
 
+// カンプは青ベタではなく背景写真＋白40%のベール
 .about-counseling {
+  position: relative;
+  z-index: 0;
   padding-block: rem(174) rem(173);
-  background-color: $color-accent;
+  background-image: image-set(
+    url("/assets/img/counseling/counseling.webp") type("image/webp"),
+    url("/assets/img/counseling/counseling.jpg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgba($color-bg, 0.4);
+  }
 
   @include mq("sp") {
     padding-block: rem(70);
@@ -321,7 +339,7 @@
   font-family: $second-font;
   font-size: rem(32);
   font-weight: $bold;
-  color: $color-text-inverse;
+  color: $color-main;
   line-height: 1.4;
   text-align: center;
 
@@ -337,7 +355,7 @@
   margin-top: rem(40);
   font-size: rem(16);
   font-weight: $regular;
-  color: $color-text-inverse;
+  color: $color-main;
   line-height: 2;
 
   @include mq("sp") {

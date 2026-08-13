@@ -94,7 +94,10 @@
     left: 0;
     width: 100%;
     height: calc(100% - #{rem(29)});
-    background-color: $color-bg-sub;
+    // カンプは青いノイズ地（get_design_context は #f2f2f2 と返すが実際は画像塗り）
+    background-color: #6b8fc0;
+    background-image: url("/assets/img/common/texture-blue.png");
+    background-repeat: repeat;
   }
 
   @include mq("sp") {

@@ -8,7 +8,7 @@ body {
   font-family: $base-font;
   color: $color-text;
   font-weight: $regular;
-  background-color: $color-bg;
+  background-color: $color-bg-sub; // カンプのページ背景は #f2f2f2（白ではない）
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
