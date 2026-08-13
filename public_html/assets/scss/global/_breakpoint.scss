@@ -1,0 +1,21 @@
+$breakpoints: (
+  sp2: 375,
+  sp: 768,
+  tab: 1024,
+  pc: 1440,
+);
+
+//メディアクエリー
+$mediaqueries: (
+  sp2: "screen and (max-width: #{map-get($breakpoints,'sp2')}px)",
+  sp: "screen and (max-width: #{map-get($breakpoints,'sp')}px)",
+  tab: "screen and (max-width: #{map-get($breakpoints,'tab')}px)",
+  pc: "screen and (max-width: #{map-get($breakpoints,'pc')}px)",
+);
+
+// ブレイクポイントの設定
+@mixin mq($mediaquery: sp) {
+  @media #{map-get($mediaqueries, $mediaquery)} {
+    @content;
+  }
+}

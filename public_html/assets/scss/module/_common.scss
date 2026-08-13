@@ -1,0 +1,40 @@
+@use "global" as *;
+
+
+/* 共通パーツ */
+// 基準幅は 1080px。900 / 980 のセクションはページ固有クラスを併記して絞る。
+.inner {
+  width: 100%;
+  max-width: rem(1080);
+  padding-inline: rem(20);
+  margin-inline: auto;
+}
+
+.tab-none {
+  @include mq("tab") {
+    display: none;
+  }
+}
+
+.sp-none {
+  @include mq("sp") {
+    display: none;
+  }
+}
+
+.tab-show {
+  display: none;
+
+  @include mq("tab") {
+    display: block;
+  }
+}
+
+.sp-show {
+  display: none;
+
+  @include mq("sp") {
+    display: block;
+  }
+}
+

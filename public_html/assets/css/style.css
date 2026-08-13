@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+:root {
+  --rem-scale: 1;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #10355d;
+  font-weight: 400;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main {
+  container-type: inline-size;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a[href^="tel:"] {
+  pointer-events: none;
+}
+
+a {
+  transition: opacity 0.3s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+
+ul,
+ol {
+  padding: 0;
+}
+
+/* Remove default margin */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+
+img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* フォームリセット */
+
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+
+input[type=submit],
+input[type=button],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* 共通パーツ */
+
+.inner {
+  width: 100%;
+  max-width: clamp(47.25 * 1rem, 67.5 * 1rem * var(--rem-scale), 87.75 * 1rem);
+  padding-inline: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  margin-inline: auto;
+}
+
+.tab-show {
+  display: none;
+}
+
+.sp-show {
+  display: none;
+}
+
+.header {
+  width: 100%;
+  min-height: 100px;
+  background-color: #10355d;
+}
+
+.header__inner {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+  .tab-none {
+    display: none;
+  }
+
+  .tab-show {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    --rem-scale: calc(100cqi / 375px);
+  }
+
+  a[href^="tel:"] {
+    pointer-events: auto;
+  }
+
+  .sp-none {
+    display: none;
+  }
+
+  .sp-show {
+    display: block;
+  }
+}
+
+@media (any-hover: hover) {
+  a:hover {
+    opacity: 0.7;
+  }
+}
+/*# sourceMappingURL=style.css.map */
