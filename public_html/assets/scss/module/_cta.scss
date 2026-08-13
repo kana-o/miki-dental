@@ -1,0 +1,150 @@
+@use "global" as *;
+
+/* ========================================
+  CTA（電話予約の白カード）
+======================================== */
+
+// PC: 900×172 の横並び / SP: 330×260 の縦並び（カンプでは別コンポーネント）
+.cta {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(39);
+  width: 100%;
+  max-width: rem(900);
+  padding-block: rem(25) rem(24);
+  padding-inline: rem(41) rem(20);
+  margin-inline: auto;
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(19);
+    max-width: rem(330);
+    padding-block: rem(24);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.cta__mark {
+  flex-shrink: 0;
+  width: rem(128);
+  height: rem(128);
+
+  @include mq("sp") {
+    width: rem(68);
+    height: rem(68);
+  }
+}
+
+.cta__body {
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.cta__lead {
+  font-size: rem(20);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.4;
+
+  @include mq("sp") {
+    font-size: rem(16);
+    text-align: center;
+  }
+}
+
+.cta__tel {
+  display: flex;
+  align-items: center;
+  gap: rem(7);
+  margin-top: rem(9);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(4);
+  }
+
+  @include mq("sp") {
+    justify-content: center;
+    gap: rem(9);
+    margin-top: rem(19);
+  }
+}
+
+.cta__tel-icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(48);
+  height: rem(48);
+  background-color: $color-main;
+  mask-image: url("/assets/img/common/icon-tel-solid.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  @include mq("sp") {
+    width: rem(26);
+    height: rem(26);
+  }
+}
+
+.cta__tel-number {
+  font-size: rem(50);
+  font-weight: $bold;
+  color: $color-main;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  @include mq("sp") {
+    font-size: rem(30);
+  }
+}
+
+.cta__hours {
+  margin-top: rem(7);
+  font-size: rem(16);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.2;
+
+  @include mq("sp") {
+    margin-top: rem(16);
+    text-align: center;
+  }
+}
+
+// SPでは「お電話受付時間：」「時間」「休診」が3行に分かれる
+.cta__hours-label {
+  @include mq("sp") {
+    display: block;
+    font-size: rem(10);
+    line-height: 1.4;
+  }
+}
+
+.cta__hours-time {
+  @include mq("sp") {
+    display: block;
+    margin-top: rem(6);
+    font-size: rem(11);
+    line-height: 1.4;
+  }
+}
+
+.cta__hours-note {
+  @include mq("sp") {
+    display: block;
+    font-size: rem(11);
+    line-height: 1.4;
+  }
+}
+
+// SPで折り返すとき、括弧内の途中で切れないようにする
+.cta__hours-sat {
+  white-space: nowrap;
+}

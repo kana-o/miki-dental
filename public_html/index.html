@@ -215,6 +215,41 @@
   </a>
 </div>
 
+  <!-- ========================================
+  Fixed nav（PC: 右端の固定サイド / SP: 画面下部の固定CTA）
+  header / drawer と同じく .main の外に置く（container-type が fixed を壊すため）
+======================================== -->
+<div class="side-nav">
+  <a href="#" class="side-nav__item" target="_blank" rel="noopener noreferrer">
+    <picture class="pic">
+      <source srcset="/assets/img/common/icon-line.webp" type="image/webp" />
+      <img src="/assets/img/common/icon-line.png" alt="" class="side-nav__icon" width="100" height="100" loading="lazy" />
+    </picture>
+    <span class="side-nav__text">空き状況確認</span>
+  </a>
+  <a href="/access/" class="side-nav__item side-nav__item--divided">
+    <span class="side-nav__text">診療時間・アクセス</span>
+  </a>
+</div>
+
+<div class="sp-cta">
+  <div class="sp-cta__inner">
+    <a href="tel:049-225-3373" class="sp-cta__item sp-cta__item--icon" aria-label="電話をかける">
+      <span class="sp-cta__tel-icon" aria-hidden="true"></span>
+    </a>
+    <span class="sp-cta__divider" aria-hidden="true"></span>
+    <a href="#" class="sp-cta__item" target="_blank" rel="noopener noreferrer">
+      <picture class="pic">
+        <source srcset="/assets/img/common/icon-line.webp" type="image/webp" />
+        <img src="/assets/img/common/icon-line.png" alt="" class="sp-cta__line-icon" width="100" height="100" loading="lazy" />
+      </picture>
+      空き状況
+    </a>
+    <span class="sp-cta__divider" aria-hidden="true"></span>
+    <a href="/access/" class="sp-cta__item">診療時間・アクセス</a>
+  </div>
+</div>
+
 
   <main class="main">
 
@@ -252,6 +287,35 @@
             <span class="more__text">一般歯科はこちら</span>
             <span class="more__icon" aria-hidden="true"></span>
           </a>
+        </div>
+
+        <div class="showcase__row showcase__row--dark">
+          <h3 class="showcase__label showcase__label--inverse">電話予約カード .cta（PC 900×172 / SP 330×260）</h3>
+          <div class="cta">
+  <picture class="pic">
+    <source srcset="/assets/img/common/logo-mark.webp" type="image/webp" />
+    <img src="/assets/img/common/logo-mark.png" alt="" class="cta__mark" width="300" height="300" loading="lazy" />
+  </picture>
+
+  <div class="cta__body">
+    <p class="cta__lead">ご予約・ご相談はお電話にて承ります</p>
+
+    <a href="tel:049-225-3373" class="cta__tel">
+      <span class="cta__tel-icon" aria-hidden="true"></span>
+      <span class="cta__tel-number">049-225-3373</span>
+    </a>
+
+    <p class="cta__hours">
+      <span class="cta__hours-label">お電話受付時間：</span><span class="cta__hours-time">9:30～13:00 / 14:30～19:00<span class="cta__hours-sat">（土曜日は14:00～18:30）</span></span><span class="cta__hours-note">日・祝 休診</span>
+    </p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="showcase__row">
+          <h3 class="showcase__label">固定サイド .side-nav（PC・画面右端）／ 固定CTA .sp-cta（SP・画面下部）</h3>
+          <p class="showcase__note">この2つは画面に固定表示されています。PCは右端、SPは下部を確認してください。</p>
         </div>
       </div>
     </section>

@@ -19,6 +19,11 @@
   padding: rem(40);
   border: rem(1) dashed $color-border;
   border-radius: rem(10);
+
+  // SPは実寸に近い幅で確認できるよう枠の余白を詰める
+  @include mq("sp") {
+    padding: rem(15);
+  }
 }
 
 .showcase__row--dark {
@@ -35,4 +40,11 @@
 
 .showcase__label--inverse {
   color: $color-text-inverse;
+}
+
+.showcase__note {
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $color-text;
+  line-height: 1.8;
 }

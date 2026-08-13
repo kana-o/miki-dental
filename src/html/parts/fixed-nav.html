@@ -1,0 +1,34 @@
+<!-- ========================================
+  Fixed nav（PC: 右端の固定サイド / SP: 画面下部の固定CTA）
+  header / drawer と同じく .main の外に置く（container-type が fixed を壊すため）
+======================================== -->
+<div class="side-nav">
+  <a href="#" class="side-nav__item" target="_blank" rel="noopener noreferrer">
+    <picture class="pic">
+      <source srcset="/assets/img/common/icon-line.webp" type="image/webp" />
+      <img src="/assets/img/common/icon-line.png" alt="" class="side-nav__icon" width="100" height="100" loading="lazy" />
+    </picture>
+    <span class="side-nav__text">空き状況確認</span>
+  </a>
+  <a href="/access/" class="side-nav__item side-nav__item--divided">
+    <span class="side-nav__text">診療時間・アクセス</span>
+  </a>
+</div>
+
+<div class="sp-cta">
+  <div class="sp-cta__inner">
+    <a href="tel:049-225-3373" class="sp-cta__item sp-cta__item--icon" aria-label="電話をかける">
+      <span class="sp-cta__tel-icon" aria-hidden="true"></span>
+    </a>
+    <span class="sp-cta__divider" aria-hidden="true"></span>
+    <a href="#" class="sp-cta__item" target="_blank" rel="noopener noreferrer">
+      <picture class="pic">
+        <source srcset="/assets/img/common/icon-line.webp" type="image/webp" />
+        <img src="/assets/img/common/icon-line.png" alt="" class="sp-cta__line-icon" width="100" height="100" loading="lazy" />
+      </picture>
+      空き状況
+    </a>
+    <span class="sp-cta__divider" aria-hidden="true"></span>
+    <a href="/access/" class="sp-cta__item">診療時間・アクセス</a>
+  </div>
+</div>
