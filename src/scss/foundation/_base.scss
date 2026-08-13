@@ -6,9 +6,9 @@
 
 body {
   font-family: $base-font;
-  color: $base-color;
+  color: $color-text;
   font-weight: $regular;
-  background-color: $white;
+  background-color: $color-bg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

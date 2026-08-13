@@ -25,12 +25,21 @@
 ## SCSS変数一覧（src/scss/global/_color.scss / _font-family.scss定義）
 
 ### カラー（global/_color.scss）
-- `$navy`: #10355d（メインテキスト・ヘッダー背景。`$base-color` もこれ）
-- `$blue`: #145aa6（見出し・ボタン・罫線）
-- `$blue-light`: #1767be（特徴バッジ背景）
-- `$sky`: #61b8ff（SP固定CTA背景）
-- `$gray-bg`: #f2f2f2（セクション背景）
-- `$white`: #fff
+
+命名は「見た目の色名」ではなく**用途**で行う。**HEX 直書き禁止**。
+
+- `$color-main`: #10355d（ブランド基調の濃紺。ヘッダー背景・本文文字）
+- `$color-accent`: #145aa6（見出し・ボタン・罫線）
+- `$color-accent-sub`: #1767be（特徴バッジ背景）
+- `$color-cta`: #61b8ff（SP固定CTA背景）
+- `$color-bg`: #fff（ページ／カードの基本背景）
+- `$color-bg-sub`: #f2f2f2（セクション背景）
+- `$color-text`: `$color-main`（本文文字色）
+- `$color-text-inverse`: #fff（濃色背景上の白抜き文字）
+- `$color-border`: `$color-accent`（罫線・区切り線）
+
+> デザインに無い色が出たら、既存に寄せず**用途ベースの変数を追加**してから使う。
+> Figma Variables は未定義（空）のため、値は生値から採取している。
 
 > Figma 内に `#100e48`（1回）と `#a61490`（1回）が存在するが、配色から浮いており入力ミスの疑い。
 > **変数化しない**。実装で遭遇したら最寄りの変数に寄せ、ユーザーに報告する。

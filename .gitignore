@@ -1,1 +1,4 @@
 node_modules
+config.local.md
+.coding-plan.md
+.design-extract/

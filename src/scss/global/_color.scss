@@ -1,10 +1,13 @@
-// 三木歯科・小児歯科（Figma 実値。制作前チェックレポート「カラーパレット」準拠）
-$navy: #10355d; // メインテキスト・ヘッダー背景（濃紺）
-$blue: #145aa6; // 見出し・ボタン・罫線
-$blue-light: #1767be; // 特徴バッジ背景
-$sky: #61b8ff; // SP固定CTA背景
-$gray-bg: #f2f2f2; // セクション背景
-$white: #fff;
+// 三木歯科・小児歯科（Figma 実値。Figma Variables は未定義のため生値から採取）
+// 命名は「見た目の色名」ではなく「用途」で行う。HEX の直書きは禁止。
+// デザインに無い色が出たら、既存に寄せずここへ用途ベースの変数を追加してから使う。
 
-// 本文の既定色
-$base-color: $navy;
+$color-main: #10355d; // ブランド基調（濃紺）。ヘッダー背景・本文文字
+$color-accent: #145aa6; // 見出し・ボタン・罫線
+$color-accent-sub: #1767be; // 特徴バッジ背景
+$color-cta: #61b8ff; // SP固定CTA背景
+$color-bg: #fff; // ページ／カードの基本背景
+$color-bg-sub: #f2f2f2; // セクション背景（薄グレー）
+$color-text: $color-main; // 基本の本文文字色
+$color-text-inverse: #fff; // 濃色背景上の白抜き文字
+$color-border: $color-accent; // 罫線・区切り線
