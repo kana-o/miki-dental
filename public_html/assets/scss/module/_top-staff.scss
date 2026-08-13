@@ -91,7 +91,7 @@
   width: rem(374);
   height: rem(455);
   object-fit: cover;
-  object-position: bottom;
+  object-position: top;
   border-radius: rem(20);
 
   @include mq("sp") {

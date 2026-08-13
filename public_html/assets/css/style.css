@@ -1867,8 +1867,8 @@ select::-ms-expand {
   height: clamp(19.90625 * 1rem, 28.4375 * 1rem * var(--rem-scale), 36.96875 * 1rem);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  -o-object-position: top;
+     object-position: top;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
 }
 
@@ -3685,6 +3685,7 @@ select::-ms-expand {
   }
 
   .top-about__block--reverse .top-about__band {
+    height: clamp(22.75 * 1rem, 32.5 * 1rem * var(--rem-scale), 42.25 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) 0 0 clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -3694,7 +3695,7 @@ select::-ms-expand {
 
   .top-about__card {
     margin-left: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
-    padding-block: 0 clamp(1.61875 * 1rem, 2.3125 * 1rem * var(--rem-scale), 3.00625 * 1rem);
+    padding-block: 0 clamp(1.09375 * 1rem, 1.5625 * 1rem * var(--rem-scale), 2.03125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) 0 0 clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -4497,8 +4498,10 @@ select::-ms-expand {
   }
 
   .about-care__fear-note {
+    width: clamp(11.76875 * 1rem, 16.8125 * 1rem * var(--rem-scale), 21.85625 * 1rem);
     min-height: 0;
     margin-top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+    margin-inline: auto;
     padding-block: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
     padding-inline: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
     font-size: clamp(0.6125 * 1rem, 0.875 * 1rem * var(--rem-scale), 1.1375 * 1rem);
@@ -4506,12 +4509,13 @@ select::-ms-expand {
   }
 
   .about-care__fear-note::before {
-    top: calc(clamp(3.5 * 1rem, 5 * 1rem * var(--rem-scale), 6.5 * 1rem) * -1);
+    z-index: -1;
+    top: calc(clamp(4.85625 * 1rem, 6.9375 * 1rem * var(--rem-scale), 9.01875 * 1rem) * -1);
     bottom: auto;
-    left: 50%;
-    width: clamp(3.9375 * 1rem, 5.625 * 1rem * var(--rem-scale), 7.3125 * 1rem);
-    height: clamp(3.98125 * 1rem, 5.6875 * 1rem * var(--rem-scale), 7.39375 * 1rem);
-    transform: translateX(-50%);
+    left: clamp(8.3125 * 1rem, 11.875 * 1rem * var(--rem-scale), 15.4375 * 1rem);
+    width: clamp(4.8125 * 1rem, 6.875 * 1rem * var(--rem-scale), 8.9375 * 1rem);
+    height: clamp(4.85625 * 1rem, 6.9375 * 1rem * var(--rem-scale), 9.01875 * 1rem);
+    transform: none;
   }
 
   .about-care__measure {
@@ -4556,15 +4560,22 @@ select::-ms-expand {
   }
 
   .about-counseling {
+    padding-block: clamp(4.2875 * 1rem, 6.125 * 1rem * var(--rem-scale), 7.9625 * 1rem) clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
+  }
+
+  .about-counseling {
     padding-block: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
   }
 
   .about-counseling__title {
-    font-size: clamp(0.9625 * 1rem, 1.375 * 1rem * var(--rem-scale), 1.7875 * 1rem);
+    font-size: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
   }
 
   .about-counseling__text {
+    width: clamp(14.4375 * 1rem, 20.625 * 1rem * var(--rem-scale), 26.8125 * 1rem);
     margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+    margin-inline: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem) auto;
+    gap: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
   }
 
   .about-other {
@@ -4632,9 +4643,10 @@ select::-ms-expand {
   }
 
   .about-vow__item {
-    align-items: flex-start;
-    gap: clamp(0.525 * 1rem, 0.75 * 1rem * var(--rem-scale), 0.975 * 1rem);
-    padding: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+    padding: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem);
   }
 
   .about-vow__num {

@@ -193,21 +193,25 @@
     background-position: bottom;
   }
 
+  // SPカンプは帯が幅269pxで中央。人物は帯の右上に乗り、重なりは帯より後ろ。
   @include mq("sp") {
+    width: rem(269);
     min-height: 0;
     margin-top: rem(70);
+    margin-inline: auto;
     padding-block: rem(16);
     padding-inline: rem(16);
     font-size: rem(14);
     text-align: center;
 
     &::before {
-      top: calc(#{rem(80)} * -1);
+      z-index: -1;
+      top: calc(#{rem(111)} * -1);
       bottom: auto;
-      left: 50%;
-      width: rem(90);
-      height: rem(91);
-      transform: translateX(-50%);
+      left: rem(190);
+      width: rem(110);
+      height: rem(111);
+      transform: none;
     }
   }
 }
@@ -342,6 +346,10 @@
   }
 
   @include mq("sp") {
+    padding-block: rem(98) rem(100);
+  }
+
+  @include mq("sp") {
     padding-block: rem(70);
   }
 }
@@ -355,7 +363,7 @@
   text-align: center;
 
   @include mq("sp") {
-    font-size: rem(22);
+    font-size: rem(30);
   }
 }
 
@@ -369,8 +377,11 @@
   color: $color-main;
   line-height: 2;
 
-  // SPカンプは 16px・行送り32px
+  // SPカンプは 16px・行送り32px・幅330px
   @include mq("sp") {
+    width: rem(330);
     margin-top: rem(24);
+    margin-inline: rem(8) auto;
+    gap: rem(8);
   }
 }

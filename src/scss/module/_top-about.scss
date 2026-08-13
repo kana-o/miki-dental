@@ -68,7 +68,9 @@
   left: auto;
   border-radius: rem(20) 0 0 rem(20);
 
+  // SPカンプは2ブロック目だけ帯が短い（520px）
   @include mq("sp") {
+    height: rem(520);
     border-radius: rem(10) 0 0 rem(10);
   }
 }
@@ -89,7 +91,7 @@
 
   @include mq("sp") {
     margin-left: rem(15);
-    padding-block: 0 rem(37);
+    padding-block: 0 rem(25);
     border-radius: rem(10) 0 0 rem(10);
   }
 }

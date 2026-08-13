@@ -207,10 +207,12 @@
   background-color: $color-bg-light;
   border-radius: rem(10);
 
+  // SPカンプは丸バッジが上・中央で、本文はその下（幅309px）
   @include mq("sp") {
-    align-items: flex-start;
-    gap: rem(12);
-    padding: rem(16);
+    flex-direction: column;
+    align-items: center;
+    gap: rem(16);
+    padding: rem(20) rem(18);
   }
 }
 
