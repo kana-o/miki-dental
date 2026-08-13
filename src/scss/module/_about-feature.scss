@@ -1,0 +1,97 @@
+@use "global" as *;
+
+/* ========================================
+  ABOUT / 特徴
+======================================== */
+
+// 背景写真の上に半透明の白カードを重ねる
+.about-feature {
+  position: relative;
+  z-index: 0;
+  padding-block: rem(140) rem(112);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: rem(45);
+    left: 0;
+    width: 100%;
+    height: rem(601);
+    background-image: image-set(
+      url("/assets/img/about/about-05.webp") type("image/webp"),
+      url("/assets/img/about/about-05.jpg") type("image/jpeg")
+    );
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include mq("sp") {
+    padding-block: rem(70) rem(60);
+
+    &::before {
+      top: rem(30);
+      height: rem(420);
+    }
+  }
+}
+
+.about-feature__title {
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.about-feature__line {
+  display: block;
+}
+
+.about-feature__accent {
+  color: $color-accent;
+}
+
+.about-feature__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(24);
+  width: 100%;
+  max-width: rem(730);
+  margin-top: rem(80);
+  margin-inline: auto;
+  padding-block: rem(44) rem(48);
+  padding-inline: rem(46);
+  background-color: rgba($color-bg, 0.86);
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    gap: rem(16);
+    max-width: calc(100% - #{rem(30)});
+    margin-top: rem(40);
+    padding-block: rem(28) rem(30);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.about-feature__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+  width: 100%;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.6;
+
+  @include mq("sp") {
+    font-size: rem(14);
+    line-height: 1.8;
+  }
+}

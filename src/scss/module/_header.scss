@@ -37,6 +37,8 @@
   border-radius: rem(16);
 
   @include mq("sp") {
+    // width:100% のままだと margin-inline の分だけ横にあふれる
+    width: auto;
     max-width: none;
     height: rem(70);
     margin-top: rem(8);
@@ -50,6 +52,8 @@
   flex-shrink: 0;
 }
 
+// PCナビは8項目＋ドロップダウンで幅を要するため、tab(1024px)以下は
+// ハンバーガー＋ドロワーに切り替える（カンプに中間幅の指定が無いため実装判断）
 .header__contents {
   display: flex;
   flex: 1;
@@ -57,7 +61,7 @@
   justify-content: center;
   gap: rem(21);
 
-  @include mq("sp") {
+  @include mq("tab") {
     display: none;
   }
 }
@@ -151,7 +155,7 @@
   height: rem(44);
   margin-left: auto;
 
-  @include mq("sp") {
+  @include mq("tab") {
     display: block;
   }
 

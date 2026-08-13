@@ -1,0 +1,216 @@
+@use "global" as *;
+
+/* ========================================
+  ABOUT / 院内環境・通いやすさ
+======================================== */
+
+.about-env {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.about-env__tag {
+  margin-top: rem(30);
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(20);
+  }
+}
+
+// 青帯＋本文＋散らし配置の写真3枚。奇数/偶数で左右反転。
+.about-env__block {
+  position: relative;
+  z-index: 0;
+  margin-top: rem(50);
+  padding-block: rem(39) rem(27);
+
+  @include mq("sp") {
+    margin-top: rem(40);
+    padding-block: rem(24);
+  }
+}
+
+.about-env__band {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  max-width: 100%;
+  display: block;
+  width: calc(50% + #{rem(542)});
+  height: 100%;
+  background-color: $color-accent;
+  border-radius: rem(20) 0 0 rem(20);
+
+  @include mq("sp") {
+    width: calc(100% - #{rem(15)});
+    border-radius: rem(10) 0 0 rem(10);
+  }
+}
+
+.about-env__block--reverse .about-env__band {
+  right: auto;
+  left: 0;
+  border-radius: 0 rem(20) rem(20) 0;
+
+  @include mq("sp") {
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+.about-env__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  padding-block: rem(50);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(24);
+    padding-block: rem(24);
+  }
+}
+
+.about-env__block--reverse .about-env__inner {
+  flex-direction: row-reverse;
+
+  @include mq("sp") {
+    flex-direction: column;
+  }
+}
+
+.about-env__body {
+  flex-shrink: 0;
+  width: rem(392);
+
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.about-env__text {
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 2;
+
+  @include mq("sp") {
+    margin-top: rem(20);
+    font-size: rem(14);
+    line-height: 1.9;
+  }
+}
+
+// 写真は散らし配置。カンプの寸法・位置を1080px基準の%で置いている。
+.about-env__photos {
+  position: relative;
+  z-index: 0;
+  flex: 1;
+  height: rem(420);
+
+  @include mq("sp") {
+    display: flex;
+    gap: rem(8);
+    width: 100%;
+    height: auto;
+  }
+}
+
+.about-env__photo {
+  position: absolute;
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    position: static;
+    width: 33.33%;
+    height: rem(120);
+    border-radius: rem(10);
+  }
+}
+
+/* --- 1ブロック目（子ども） --- */
+.about-env__photos--a .about-env__photo--1 {
+  top: calc(#{rem(89)} * -1);
+  right: rem(11);
+  width: rem(299);
+  height: rem(337);
+}
+
+.about-env__photos--a .about-env__photo--2 {
+  top: rem(140);
+  right: rem(335);
+  width: rem(271);
+  height: rem(295);
+}
+
+.about-env__photos--a .about-env__photo--3 {
+  top: rem(276);
+  right: 0;
+  width: rem(262);
+  height: rem(169);
+}
+
+/* --- 2ブロック目（大人） --- */
+.about-env__photos--b .about-env__photo--1 {
+  top: calc(#{rem(89)} * -1);
+  left: 0;
+  width: rem(432);
+  height: rem(314);
+}
+
+.about-env__photos--b .about-env__photo--2 {
+  top: rem(240);
+  left: rem(367);
+  width: rem(241);
+  height: rem(168);
+}
+
+.about-env__photos--b .about-env__photo--3 {
+  top: rem(273);
+  left: rem(57);
+  width: rem(273);
+  height: rem(169);
+}
+
+/* --- 3ブロック目（託児） --- */
+.about-env__photos--c .about-env__photo--1 {
+  top: rem(154);
+  right: 0;
+  width: rem(392);
+  height: rem(285);
+}
+
+.about-env__photos--c .about-env__photo--2 {
+  top: calc(#{rem(89)} * -1);
+  right: rem(294);
+  width: rem(271);
+  height: rem(187);
+}
+
+.about-env__photos--c .about-env__photo--3 {
+  top: rem(123);
+  right: rem(429);
+  width: rem(176);
+  height: rem(226);
+}
+
+// SPは散らし配置をやめて横3列にする。
+// 位置指定（--a/--b/--c）の方が詳細度が高いため、ここで明示的に打ち消す。
+@include mq("sp") {
+  .about-env__photos--a .about-env__photo,
+  .about-env__photos--b .about-env__photo,
+  .about-env__photos--c .about-env__photo {
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    width: 33.33%;
+    height: rem(120);
+  }
+}

@@ -1,0 +1,249 @@
+@use "global" as *;
+
+/* ========================================
+  ABOUT / 他にも
+======================================== */
+
+// カンプではこのブロックの本文が白文字。背景の指定がフレームに無いため、
+// 直前のカウンセリング（青ベタ）から続く濃色面として実装している。
+.about-other {
+  padding-block: rem(160);
+  background-color: $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+
+.about-other__title {
+  font-family: $second-font;
+  font-size: rem(32);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(22);
+  }
+}
+
+.about-other__list {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(45);
+  margin-top: rem(114);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(40);
+    margin-top: rem(40);
+  }
+}
+
+.about-other__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(330);
+
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.about-other__img {
+  width: 100%;
+  height: rem(261);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(200);
+    border-radius: rem(10);
+  }
+}
+
+.about-other__item-title {
+  margin-top: rem(30);
+}
+
+.about-other__item-title .tag {
+  padding-inline: rem(6);
+  line-height: 2;
+}
+
+.about-other__text {
+  width: 100%;
+  margin-top: rem(24);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(20);
+    font-size: rem(14);
+  }
+}
+
+/* ========================================
+  ABOUT / 宣言文
+======================================== */
+
+.about-pledge {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(70);
+  }
+}
+
+.about-pledge__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: rem(426);
+  padding-block: rem(80);
+  padding-inline: rem(100);
+  background-color: $color-bg-sub;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    min-height: 0;
+    padding-block: rem(40);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.about-pledge__title {
+  font-family: $second-font;
+  font-size: rem(32);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(22);
+  }
+}
+
+.about-pledge__text {
+  margin-top: rem(50);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2.25;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    font-size: rem(14);
+    line-height: 1.9;
+  }
+}
+
+/* ========================================
+  ABOUT / ななつの誓い
+======================================== */
+
+.about-vow {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(70);
+  }
+}
+
+.about-vow__title {
+  margin-bottom: rem(114);
+
+  @include mq("sp") {
+    margin-bottom: rem(40);
+  }
+}
+
+.about-vow__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+}
+
+.about-vow__item {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+  padding: rem(20);
+  background-color: $color-bg-sub;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    align-items: flex-start;
+    gap: rem(12);
+    padding: rem(16);
+  }
+}
+
+// カンプは丸の中に「ひとつ」等が入り、背後に数字が薄く重なる
+.about-vow__num {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: rem(70);
+  height: rem(70);
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1;
+  background-color: $color-accent;
+  border-radius: 50%;
+
+  @include mq("sp") {
+    width: rem(56);
+    height: rem(56);
+    font-size: rem(13);
+  }
+}
+
+.about-vow__text {
+  flex: 1;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    font-size: rem(14);
+  }
+}
+
+/* ========================================
+  ABOUT / 予約・相談
+======================================== */
+
+.about-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+
+.about-reserve__title {
+  margin-bottom: rem(50);
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-bottom: rem(30);
+    font-size: rem(24);
+  }
+}

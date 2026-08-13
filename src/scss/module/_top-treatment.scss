@@ -221,3 +221,33 @@
     line-height: 1.8;
   }
 }
+
+// 中間幅（769〜1024px）: 固定幅のままだと横にあふれるので伸縮させる。
+// flex アイテムは min-width:auto のままだと縮まないので 0 にする。
+@include mq("tab") {
+  .top-treatment__cards {
+    gap: rem(30);
+  }
+
+  .top-treatment__card {
+    width: 50%;
+    height: auto;
+    aspect-ratio: 510 / 327;
+  }
+
+  .top-treatment__list {
+    gap: rem(20);
+  }
+
+  .top-treatment__item {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    padding-inline: rem(24);
+  }
+
+  .top-treatment__item-body {
+    width: 100%;
+  }
+}

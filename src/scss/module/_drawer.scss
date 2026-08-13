@@ -20,10 +20,14 @@
   container-type: inline-size;
   transition: opacity 0.3s, visibility 0.3s;
 
+  // ヘッダーと同じく tab(1024px)以下で有効化する
+  @include mq("tab") {
+    display: flex;
+  }
+
+  // 画面幅追従は SP のみ
   @include mq("sp") {
     --rem-scale: calc(100cqi / 375px);
-
-    display: flex;
   }
 }
 

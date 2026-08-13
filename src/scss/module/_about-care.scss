@@ -1,0 +1,304 @@
+@use "global" as *;
+
+/* ========================================
+  ABOUT / 治療体制
+======================================== */
+
+.about-care {
+  padding-top: rem(160);
+  background-color: $color-bg-sub;
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.about-care__tag {
+  margin-top: rem(30);
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(20);
+  }
+}
+
+// 写真の上に白40%を重ね、その上に本文を置く
+.about-care__hero {
+  position: relative;
+  z-index: 0;
+  margin-top: rem(50);
+  padding-block: rem(194) rem(155);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgba($color-bg, 0.4);
+  }
+
+  @include mq("sp") {
+    margin-top: rem(40);
+    padding-block: rem(60);
+  }
+}
+
+.about-care__hero-img {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-care__lead-title {
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.about-care__lead {
+  width: rem(551);
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2;
+
+  @include mq("sp") {
+    width: 100%;
+    margin-top: rem(20);
+    font-size: rem(14);
+  }
+}
+
+.about-care__sup {
+  font-size: 0.645em;
+}
+
+.about-care__note {
+  margin-top: rem(12);
+  font-size: rem(10);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.6;
+}
+
+/* --- 歯医者さんが怖い理由 --- */
+.about-care__fear {
+  margin-top: rem(48);
+  text-align: center;
+}
+
+.about-care__fear-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(30);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    gap: rem(16);
+  }
+}
+
+// カンプは吹き出しイラスト。角丸＋しっぽで近似している。
+.about-care__fear-item {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(200);
+  min-height: rem(125);
+  padding: rem(16);
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+  background-color: $color-bg;
+  border: rem(2) solid $color-accent;
+  border-radius: rem(16);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: rem(-10);
+    left: 50%;
+    width: rem(16);
+    height: rem(12);
+    background-color: $color-accent;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform: translateX(-50%);
+  }
+
+  @include mq("sp") {
+    width: calc(50% - #{rem(8)});
+    min-height: rem(100);
+    font-size: rem(13);
+  }
+}
+
+.about-care__fear-note {
+  margin-top: rem(50);
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(30);
+    font-size: rem(15);
+  }
+}
+
+/* --- 具体的な対策 --- */
+.about-care__measure {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: rem(90);
+  padding-block: rem(93) rem(120);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+    padding-block: rem(50) rem(70);
+  }
+}
+
+// 背面の楕円（カンプ 2114×1129・top 170）
+.about-care__measure-bg {
+  position: absolute;
+  z-index: -1;
+  top: rem(170);
+  left: 50%;
+  display: block;
+  width: rem(2114);
+  height: rem(1129);
+  background-color: $color-bg-light;
+  border-radius: 50%;
+  transform: translateX(-50%);
+
+  @include mq("sp") {
+    top: rem(120);
+    width: rem(1020);
+    height: rem(1020);
+  }
+}
+
+.about-care__measure-tag {
+  margin-bottom: rem(50);
+  text-align: center;
+
+  @include mq("sp") {
+    margin-bottom: rem(30);
+  }
+}
+
+.about-care__measure-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: rem(37);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(30);
+  }
+}
+
+.about-care__measure-item {
+  width: rem(335);
+
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.about-care__measure-img {
+  width: 100%;
+  height: rem(215);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(200);
+    border-radius: rem(10);
+  }
+}
+
+.about-care__measure-text {
+  margin-top: rem(20);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    font-size: rem(14);
+  }
+}
+
+.about-care__conclusion {
+  margin-top: rem(57);
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.6;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(40);
+    font-size: rem(17);
+  }
+}
+
+/* ========================================
+  ABOUT / カウンセリング
+======================================== */
+
+.about-counseling {
+  padding-block: rem(174) rem(173);
+  background-color: $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+
+.about-counseling__title {
+  font-family: $second-font;
+  font-size: rem(32);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(22);
+  }
+}
+
+.about-counseling__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+  margin-top: rem(40);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 2;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    font-size: rem(14);
+    line-height: 1.9;
+  }
+}

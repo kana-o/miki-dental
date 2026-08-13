@@ -77,7 +77,8 @@
 
 // 青いカード（.inner の左端から画面右端まで伸ばす）
 .top-about__card {
-  margin-left: calc(50% - #{rem(540)});
+  // 中間幅で負の値にならないようにする（負だと inner がはみ出す）
+  margin-left: max(0px, calc(50% - #{rem(540)}));
   padding-block: rem(41) rem(54);
   background-color: $color-accent;
   border-radius: rem(20) 0 0 rem(20);
@@ -90,7 +91,7 @@
 }
 
 .top-about__block--reverse .top-about__card {
-  margin-right: calc(50% - #{rem(540)});
+  margin-right: max(0px, calc(50% - #{rem(540)}));
   margin-left: 0;
   border-radius: 0 rem(20) rem(20) 0;
 
@@ -278,5 +279,39 @@
 
   @include mq("sp") {
     margin-top: rem(30);
+  }
+}
+
+// 中間幅（769〜1024px）: 1080px 固定のままだと横にあふれるので伸縮させる
+@include mq("tab") {
+  .top-about__card-inner,
+  .top-about__block--reverse .top-about__card-inner {
+    width: 100%;
+    padding-inline: rem(30);
+  }
+
+  .top-about__body,
+  .top-about__block--pair .top-about__body {
+    flex: 1;
+    width: auto;
+  }
+
+  .top-about__photos {
+    width: 38%;
+  }
+
+  .top-about__photo {
+    height: auto;
+    aspect-ratio: 530 / 376;
+  }
+
+  .top-about__block--pair .top-about__photos {
+    width: 38%;
+  }
+
+  .top-about__block--pair .top-about__photo {
+    width: 50%;
+    height: auto;
+    aspect-ratio: 240 / 360;
   }
 }

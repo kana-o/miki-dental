@@ -1,0 +1,47 @@
+@use "global" as *;
+
+/* ========================================
+  ABOUT / 診療体制・連携
+======================================== */
+
+.about-team {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+// 2枚の写真。2枚目は85px下げる（カンプ 128 / 213）
+.about-team__photos {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: rem(20);
+
+  @include mq("sp") {
+    gap: rem(15);
+    width: 100%;
+  }
+}
+
+.about-team__photo {
+  width: rem(190);
+  height: rem(260);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: 50%;
+    height: rem(200);
+    border-radius: rem(10);
+  }
+}
+
+.about-team__photo:last-child {
+  margin-top: rem(85);
+
+  @include mq("sp") {
+    margin-top: rem(40);
+  }
+}
