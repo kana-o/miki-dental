@@ -91,13 +91,6 @@
   flex-direction: row-reverse;
 }
 
-// カンプは「大人も子どもも心地よく過ごせる／空間」の2行で折り返す（15文字＋左右padding=320px）
-.top-clinic__tag {
-  @include mq("sp") {
-    max-width: rem(335);
-  }
-}
-
 .top-clinic__body {
   width: rem(425);
 

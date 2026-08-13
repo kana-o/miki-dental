@@ -26,6 +26,16 @@
   display: none;
 }
 
+// SPだけ改行する <br>。カンプのタグは1行ずつ手動で改行されているため、
+// 自動折り返しでは1文字ずれる箇所にこれを入れる。
+.br-sp {
+  display: none;
+
+  @include mq("sp") {
+    display: inline;
+  }
+}
+
 .tab-none {
   @include mq("tab") {
     display: none;

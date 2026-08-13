@@ -21,9 +21,7 @@
 
   // SPカンプは見出し下端からチップ上端まで37px（帯の余白7pxぶん引いて30）
   @include mq("sp") {
-    max-width: rem(280);
     margin-top: rem(30);
-    margin-inline: auto;
   }
 }
 

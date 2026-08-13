@@ -175,6 +175,10 @@ select::-ms-expand {
   display: none;
 }
 
+.br-sp {
+  display: none;
+}
+
 .tab-show {
   display: none;
 }
@@ -3280,6 +3284,10 @@ select::-ms-expand {
 
   .inner {
     padding-inline: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
+  }
+
+  .br-sp {
+    display: inline;
   }
 
   .sp-none {

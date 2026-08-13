@@ -174,11 +174,8 @@
   margin-top: rem(80);
   text-align: center;
 
-  // SPカンプは幅286pxの枠で3行に折り返す
   @include mq("sp") {
-    max-width: rem(286);
     margin-top: rem(50);
-    margin-inline: auto;
   }
 }
 
