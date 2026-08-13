@@ -75,11 +75,14 @@
   }
 }
 
+// SPカンプでは院長と副院長の間に点線の区切りが入る（PCは無し）
 .top-staff__doctor + .top-staff__doctor {
   margin-top: rem(50);
 
   @include mq("sp") {
-    margin-top: rem(40);
+    margin-top: rem(28);
+    padding-top: rem(40);
+    border-top: rem(2) dashed $color-text-inverse;
   }
 }
 
@@ -109,10 +112,10 @@
   color: $color-text-inverse;
   line-height: 2;
 
+  // SPカンプは 16px・行送り35px（PCと同じ字送りで行間だけ広い）
   @include mq("sp") {
     margin-top: rem(24);
-    font-size: rem(14);
-    line-height: 2;
+    line-height: 2.2;
   }
 }
 
@@ -123,8 +126,11 @@
   color: $color-text-inverse;
   line-height: 1.6;
 
+  // SPカンプでは氏名だけ右寄せ（文字揃えは左のまま）
   @include mq("sp") {
-    margin-top: rem(24);
+    width: fit-content;
+    margin-top: rem(16);
+    margin-inline-start: auto;
   }
 }
 
@@ -136,10 +142,6 @@
 .top-staff__person {
   display: block;
   font-size: rem(20);
-
-  @include mq("sp") {
-    font-size: rem(18);
-  }
 }
 
 /* --- 推薦バナー（平面化した1枚画像で支給） --- */
@@ -172,8 +174,11 @@
   margin-top: rem(80);
   text-align: center;
 
+  // SPカンプは幅286pxの枠で3行に折り返す
   @include mq("sp") {
+    max-width: rem(286);
     margin-top: rem(50);
+    margin-inline: auto;
   }
 }
 
@@ -184,9 +189,10 @@
   color: $color-text-inverse;
   line-height: 1.8;
 
+  // SPカンプは 16px・行送り32px
   @include mq("sp") {
     margin-top: rem(24);
-    font-size: rem(14);
+    line-height: 2;
   }
 }
 

@@ -19,8 +19,11 @@
   margin-top: rem(30);
   text-align: center;
 
+  // SPカンプは見出し下端からチップ上端まで37px（帯の余白7pxぶん引いて30）
   @include mq("sp") {
-    margin-top: rem(20);
+    max-width: rem(280);
+    margin-top: rem(30);
+    margin-inline: auto;
   }
 }
 
@@ -41,7 +44,7 @@
 
   @include mq("sp") {
     margin-top: rem(40);
-    padding-block: rem(60);
+    padding-block: rem(128) rem(127);
   }
 }
 
@@ -74,10 +77,11 @@
   color: $color-main;
   line-height: 2;
 
+  // SPカンプは 16px・行送り35px
   @include mq("sp") {
     width: 100%;
     margin-top: rem(20);
-    font-size: rem(14);
+    line-height: 2.2;
   }
 }
 
@@ -106,10 +110,12 @@
   border-radius: rem(20);
   text-align: center;
 
+  // SPカンプは幅330px（x=24〜354）で中身は中央寄せ
   @include mq("sp") {
+    max-width: rem(330);
     margin-top: rem(30);
     padding-block: rem(30);
-    padding-inline: rem(15);
+    padding-inline: 0;
     border-radius: rem(10);
   }
 }
@@ -125,7 +131,9 @@
   margin-inline: auto;
 
   @include mq("sp") {
-    gap: rem(16);
+    flex-direction: column;
+    align-items: center;
+    gap: rem(9);
   }
 }
 
@@ -147,10 +155,11 @@
   background-repeat: no-repeat;
 
   @include mq("sp") {
-    width: calc(50% - #{rem(8)});
-    height: rem(105);
-    padding-inline: rem(16);
-    font-size: rem(12);
+    width: rem(185);
+    height: rem(116);
+    padding-inline: rem(10);
+    font-size: rem(15);
+    line-height: 1.3;
   }
 }
 
@@ -275,7 +284,7 @@
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(200);
+    height: rem(222);
     border-radius: rem(10);
   }
 }
@@ -358,9 +367,8 @@
   color: $color-main;
   line-height: 2;
 
+  // SPカンプは 16px・行送り32px
   @include mq("sp") {
     margin-top: rem(24);
-    font-size: rem(14);
-    line-height: 1.9;
   }
 }

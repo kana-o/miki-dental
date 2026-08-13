@@ -19,9 +19,11 @@
   align-items: flex-start;
   gap: rem(20);
 
+  // SPカンプは 252px 幅で右寄せ（右端 x=349）
   @include mq("sp") {
-    gap: rem(15);
-    width: 100%;
+    gap: rem(12);
+    width: rem(252);
+    margin-inline: auto rem(11);
   }
 }
 
@@ -32,9 +34,16 @@
   border-radius: rem(20);
 
   @include mq("sp") {
-    width: 50%;
-    height: rem(200);
+    width: rem(120);
+    height: rem(164);
     border-radius: rem(10);
+  }
+}
+
+// カンプでは2枚目だけ53px下げる
+.about-team__photos .pic:last-child .about-team__photo {
+  @include mq("sp") {
+    margin-top: rem(53);
   }
 }
 

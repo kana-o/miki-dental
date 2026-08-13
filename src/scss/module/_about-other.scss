@@ -24,7 +24,7 @@
   text-align: center;
 
   @include mq("sp") {
-    font-size: rem(22);
+    font-size: rem(32);
   }
 }
 
@@ -36,7 +36,7 @@
 
   @include mq("sp") {
     flex-direction: column;
-    gap: rem(40);
+    gap: rem(30);
     margin-top: rem(40);
   }
 }
@@ -48,6 +48,7 @@
   width: rem(330);
 
   @include mq("sp") {
+    align-items: flex-start;
     width: 100%;
   }
 }
@@ -59,7 +60,7 @@
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(200);
+    height: rem(273);
     border-radius: rem(10);
   }
 }
@@ -71,6 +72,12 @@
 .about-other__item-title .tag {
   padding-inline: rem(6);
   line-height: 2;
+
+  @include mq("sp") {
+    padding-block: rem(2);
+    font-size: rem(20);
+    line-height: 1.6;
+  }
 }
 
 .about-other__text {
@@ -81,9 +88,9 @@
   color: $color-text-inverse;
   line-height: 1.8;
 
+  // SPカンプも 16px・行送り29px（PCと同じ）
   @include mq("sp") {
-    margin-top: rem(20);
-    font-size: rem(14);
+    margin-top: rem(14);
   }
 }
 
@@ -127,11 +134,13 @@
     background-color: rgba($color-bg, 0.6);
   }
 
+  // SPカンプは 345×536・見出しy=100・本文y=184（見出し下40px）
   @include mq("sp") {
-    gap: rem(24);
-    min-height: 0;
-    padding-block: rem(40);
-    padding-inline: rem(20);
+    gap: rem(40);
+    min-height: rem(536);
+    justify-content: center;
+    padding-block: rem(100);
+    padding-inline: rem(22);
     border-radius: rem(10);
   }
 }
@@ -145,7 +154,7 @@
   text-align: center;
 
   @include mq("sp") {
-    font-size: rem(22);
+    font-size: rem(32);
   }
 }
 
@@ -157,9 +166,10 @@
   color: $color-main;
   line-height: 2;
 
+  // SPカンプは 16px・行送り36px
   @include mq("sp") {
-    font-size: rem(14);
-    line-height: 1.9;
+    font-size: rem(16);
+    line-height: 2.25;
   }
 }
 
@@ -254,8 +264,9 @@
   color: $color-main;
   line-height: 1.8;
 
+  // SPカンプは 16px・行送り32px
   @include mq("sp") {
-    font-size: rem(14);
+    line-height: 2;
   }
 }
 

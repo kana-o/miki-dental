@@ -9,6 +9,11 @@
   max-width: rem(1120);
   padding-inline: rem(20);
   margin-inline: auto;
+
+  // SPカンプの内容は x=15〜360（幅345）。左右余白は 15px。
+  @include mq("sp") {
+    padding-inline: rem(15);
+  }
 }
 
 // <picture> はレイアウトに影響させない（中の <img> をそのまま flex/grid アイテムにする）

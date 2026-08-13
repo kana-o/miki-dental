@@ -24,10 +24,6 @@
   font-size: rem(18);
   color: $color-main;
   background-color: $color-bg;
-
-  @include mq("sp") {
-    font-size: rem(16);
-  }
 }
 
 // 青地・白文字（淡色背景の上で使う。院内紹介）
@@ -36,7 +32,20 @@
   color: $color-text-inverse;
   background-color: $color-accent;
 
+  // SPカンプの帯は高さ42px・帯どうしのピッチ49px
   @include mq("sp") {
-    font-size: rem(16);
+    padding-block: rem(7);
+    line-height: 2.45;
+  }
+}
+
+// 大サイズ（スタッフ紹介）。SPカンプ実測は 20px・帯の高さ42px・帯どうしのピッチ49px。
+// PCカンプは --light と同じ18pxなので、SPだけ上書きする。
+// --light / --fill の後ろに置いて font-size を上書きする。
+.tag--lg {
+  @include mq("sp") {
+    padding-block: rem(7);
+    font-size: rem(20);
+    line-height: 2.45;
   }
 }

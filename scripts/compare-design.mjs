@@ -22,7 +22,9 @@ const design = await Jimp.read(designPath);
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width, height: 1000 } });
 await page.goto(url, { waitUntil: 'networkidle' });
-await page.addStyleTag({ content: '#__bs_notify__{display:none !important;}' });
+// 比較対象外の要素を隠す（環境変数 HIDE にセレクタをカンマ区切りで指定）
+const hide = ['#__bs_notify__', ...(process.env.HIDE ? process.env.HIDE.split(',') : [])].join(',');
+await page.addStyleTag({ content: `${hide}{display:none !important;}` });
 // loading="lazy" のままだと fullPage 撮影で描画されないことがあるため、
 // 全画像を eager に切り替えてデコード完了まで待つ
 await page.evaluate(async () => {

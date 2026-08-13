@@ -75,11 +75,14 @@
   }
 }
 
+// SPカンプでは院長と副院長の間に点線の区切りが入る（PCは無し）
 .top-staff__doctor + .top-staff__doctor {
   margin-top: rem(50);
 
   @include mq("sp") {
-    margin-top: rem(40);
+    margin-top: rem(28);
+    padding-top: rem(40);
+    border-top: rem(2) dashed $color-text-inverse;
   }
 }
 
@@ -109,10 +112,10 @@
   color: $color-text-inverse;
   line-height: 2;
 
+  // SPカンプは 16px・行送り35px（PCと同じ字送りで行間だけ広い）
   @include mq("sp") {
     margin-top: rem(24);
-    font-size: rem(14);
-    line-height: 2;
+    line-height: 2.2;
   }
 }
 
@@ -123,8 +126,11 @@
   color: $color-text-inverse;
   line-height: 1.6;
 
+  // SPカンプでは氏名だけ右寄せ（文字揃えは左のまま）
   @include mq("sp") {
-    margin-top: rem(24);
+    width: fit-content;
+    margin-top: rem(16);
+    margin-inline-start: auto;
   }
 }
 
@@ -136,24 +142,13 @@
 .top-staff__person {
   display: block;
   font-size: rem(20);
-
-  @include mq("sp") {
-    font-size: rem(18);
-  }
 }
 
-/* --- 推薦バナー ---------------------------------
-  カンプは写真・帯・テクスチャ文字などを重ねた1枚の広告バナー。
-  本来は平面化した画像での支給が望ましいが、支給が無いため
-  Figmaの各パーツを重ねて再現している。
------------------------------------------------- */
+/* --- 推薦バナー（平面化した1枚画像で支給） --- */
 .top-staff__banner {
-  position: relative;
-  z-index: 0;
   overflow: hidden;
   display: block;
   width: rem(630);
-  height: rem(190);
   margin-top: rem(80);
   margin-inline: auto;
   border-radius: rem(10);
@@ -165,148 +160,13 @@
 
   @include mq("sp") {
     width: rem(330);
-    height: rem(100);
     margin-top: rem(50);
   }
 }
 
-.top-staff__banner-photo {
-  position: absolute;
-  max-width: none;
-  object-fit: cover;
-}
-
-.top-staff__banner-photo--a {
-  top: calc(#{rem(44)} * -1);
-  right: calc(#{rem(99)} * -1);
-  width: rem(458);
-  height: rem(306);
-  transform: scaleX(-1);
-}
-
-.top-staff__banner-photo--b {
-  top: calc(#{rem(91)} * -1);
-  left: rem(306);
-  width: rem(406);
-  height: rem(271);
-}
-
-// 白い斜めの面
-.top-staff__banner-shape {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  display: block;
-  width: rem(542);
-  height: rem(203);
-  background-image: url("/assets/img/staff/banner-shape.svg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
-// 左からの白いグラデーション（文字の可読性確保）
-.top-staff__banner-veil {
-  position: absolute;
-  z-index: 2;
-  top: rem(68);
-  left: 0;
-  display: block;
-  width: rem(488);
-  height: rem(79);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8) 92.31%, rgba(255, 255, 255, 0));
-}
-
-.top-staff__banner-ribbon {
-  position: absolute;
-  z-index: 3;
-  top: rem(29);
-  left: 0;
-  display: block;
-  width: rem(379);
-  height: rem(47);
-  background-image: url("/assets/img/staff/banner-ribbon.svg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
-.top-staff__banner-sub {
-  position: absolute;
-  z-index: 4;
-  top: rem(37);
-  left: rem(24);
-  font-size: rem(16);
-  font-weight: $regular;
-  color: $color-text-inverse;
-  letter-spacing: 0.1em;
-  line-height: 1.5;
-  white-space: nowrap;
-}
-
-.top-staff__banner-year {
-  position: absolute;
-  z-index: 4;
-  top: rem(10);
-  left: rem(24);
-  font-size: rem(13);
-  font-weight: $semi-bold;
-  color: $color-banner;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-// テクスチャ画像を文字で切り抜く（カンプの金色の質感）
-.top-staff__banner-main {
-  position: absolute;
-  z-index: 4;
-  top: rem(90);
-  left: rem(24);
-  font-family: $second-font;
-  font-size: rem(30);
-  font-weight: $bold;
-  color: transparent;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  white-space: nowrap;
-  background-image: url("/assets/img/staff/banner-texture.png");
-  background-size: cover;
-  background-position: center;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.top-staff__banner-bar {
-  position: absolute;
-  z-index: 4;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.top-staff__banner-img {
   width: 100%;
-  height: rem(43);
-  padding-right: rem(20);
-  background-color: $color-banner;
-}
-
-.top-staff__banner-link {
-  display: flex;
-  align-items: center;
-  gap: rem(10);
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $color-text-inverse;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-  white-space: nowrap;
-
-  &::after {
-    content: "";
-    width: rem(11);
-    height: rem(15);
-    background-color: $color-text-inverse;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-  }
+  height: auto;
 }
 
 /* --- スタッフ一同 ------------------------------- */
@@ -314,8 +174,11 @@
   margin-top: rem(80);
   text-align: center;
 
+  // SPカンプは幅286pxの枠で3行に折り返す
   @include mq("sp") {
+    max-width: rem(286);
     margin-top: rem(50);
+    margin-inline: auto;
   }
 }
 
@@ -326,9 +189,10 @@
   color: $color-text-inverse;
   line-height: 1.8;
 
+  // SPカンプは 16px・行送り32px
   @include mq("sp") {
     margin-top: rem(24);
-    font-size: rem(14);
+    line-height: 2;
   }
 }
 

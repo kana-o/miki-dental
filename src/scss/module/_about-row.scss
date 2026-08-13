@@ -14,7 +14,7 @@
   text-align: center;
 
   @include mq("sp") {
-    font-size: rem(24);
+    font-size: rem(30);
   }
 }
 
@@ -42,8 +42,8 @@
 
   @include mq("sp") {
     top: rem(24);
-    width: calc(100% - #{rem(30)});
-    height: rem(240);
+    width: rem(279);
+    height: rem(250);
     border-radius: 0 rem(10) rem(10) 0;
   }
 }
@@ -56,6 +56,10 @@
   border-radius: rem(20) 0 0 rem(20);
 
   @include mq("sp") {
+    top: auto;
+    bottom: 0;
+    width: rem(265);
+    height: rem(217);
     border-radius: rem(10) 0 0 rem(10);
   }
 }
@@ -74,8 +78,15 @@
 .about-row--reverse .about-row__inner {
   flex-direction: row-reverse;
 
+  // SPカンプは反転行だけ本文が先・写真が後
   @include mq("sp") {
-    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+}
+
+.about-row--reverse {
+  @include mq("sp") {
+    padding-bottom: rem(24);
   }
 }
 
@@ -87,8 +98,9 @@
   border-radius: rem(20);
 
   @include mq("sp") {
-    width: 100%;
-    height: rem(240);
+    width: rem(252);
+    height: rem(251);
+    margin-inline: rem(27) auto;
     border-radius: rem(10);
   }
 }
@@ -107,10 +119,11 @@
   color: $color-main;
   line-height: 2;
 
+  // SPカンプは 16px・行送り35px・段落間8px
   @include mq("sp") {
+    gap: rem(8);
     margin-top: rem(20);
-    font-size: rem(14);
-    line-height: 1.9;
+    line-height: 2.2;
   }
 }
 

@@ -80,19 +80,13 @@
   }
 }
 
-/* --- Instagramバナー ---------------------------
-  カンプは写真・グラデーション・テクスチャ文字を重ねた広告バナー。
-  本来は平面化した画像での支給が望ましいが、支給が無いため各パーツを重ねている。
-  枠色 #a61490 は制作前チェックで「用途不明」と挙がっていた色だが、
-  実データを追ったところ Instagram バナーの意匠色だった。
------------------------------------------------- */
+/* --- Instagramバナー（平面化した1枚画像で支給） --- */
 .top-news__banner {
+  overflow: hidden;
   display: block;
   width: rem(700);
   margin-top: rem(100);
   margin-inline: auto;
-  padding: rem(7);
-  background-color: $color-instagram;
   border-radius: rem(10);
 
   &:focus-visible {
@@ -103,95 +97,10 @@
   @include mq("sp") {
     width: 100%;
     margin-top: rem(60);
-    padding: rem(4);
-  }
-}
-
-.top-news__banner-inner {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: rem(30);
-  height: rem(122);
-  background-color: $color-bg;
-  border-radius: rem(6);
-
-  @include mq("sp") {
-    flex-direction: column;
-    gap: rem(8);
-    height: auto;
-    padding-block: rem(16);
   }
 }
 
 .top-news__banner-img {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.top-news__banner-veil {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  display: block;
-  background-image: linear-gradient(to left, rgba(255, 194, 230, 0.3) 0%, $color-bg 60.1%);
-}
-
-.top-news__banner-text {
-  font-size: rem(20);
-  font-weight: $medium;
-  color: $color-instagram;
-  letter-spacing: 0.05em;
-  line-height: 1.4;
-  white-space: nowrap;
-
-  @include mq("sp") {
-    font-size: rem(14);
-  }
-}
-
-.top-news__banner-en {
-  font-family: $second-font;
-  font-size: rem(26);
-  font-weight: $bold;
-  letter-spacing: 0.05em;
-
-  @include mq("sp") {
-    font-size: rem(18);
-  }
-}
-
-.top-news__banner-follow {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: rem(10);
-  padding-block: rem(8);
-  padding-inline: rem(20);
-  font-family: $second-font;
-  font-size: rem(20);
-  font-weight: $bold;
-  color: $color-text-inverse;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-  background-color: $color-instagram;
-  border-radius: rem(999);
-
-  @include mq("sp") {
-    padding-block: rem(6);
-    padding-inline: rem(16);
-    font-size: rem(16);
-  }
-}
-
-.top-news__banner-icon {
-  width: rem(20);
-  height: rem(20);
+  height: auto;
 }

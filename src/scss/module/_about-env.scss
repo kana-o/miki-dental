@@ -17,7 +17,9 @@
   text-align: center;
 
   @include mq("sp") {
-    margin-top: rem(20);
+    max-width: rem(255);
+    margin-top: rem(40);
+    margin-inline: auto;
   }
 }
 
@@ -29,8 +31,8 @@
   padding-block: rem(39) rem(27);
 
   @include mq("sp") {
-    margin-top: rem(40);
-    padding-block: rem(24);
+    margin-top: rem(33);
+    padding-block: 0 rem(27);
   }
 }
 
@@ -46,8 +48,12 @@
   background-color: $color-accent;
   border-radius: rem(20) 0 0 rem(20);
 
+  // 青カードは写真の37px下から始まる
   @include mq("sp") {
+    top: rem(36);
     width: calc(100% - #{rem(15)});
+    height: auto;
+    bottom: 0;
     border-radius: rem(10) 0 0 rem(10);
   }
 }
@@ -68,10 +74,11 @@
   gap: rem(40);
   padding-block: rem(50);
 
+  // SPカンプは写真が上・本文が下
   @include mq("sp") {
-    flex-direction: column;
-    gap: rem(24);
-    padding-block: rem(24);
+    flex-direction: column-reverse;
+    gap: 0;
+    padding-block: 0;
   }
 }
 
@@ -79,7 +86,7 @@
   flex-direction: row-reverse;
 
   @include mq("sp") {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 
@@ -87,8 +94,17 @@
   flex-shrink: 0;
   width: rem(392);
 
+  // カンプは写真の下・幅311px
   @include mq("sp") {
-    width: 100%;
+    width: rem(311);
+    margin-top: rem(30);
+    margin-inline: rem(18) auto;
+  }
+}
+
+.about-env__block--reverse .about-env__body {
+  @include mq("sp") {
+    margin-inline: rem(15) auto;
   }
 }
 
@@ -99,10 +115,10 @@
   color: $color-text-inverse;
   line-height: 2;
 
+  // SPカンプは 16px・行送り35px
   @include mq("sp") {
-    margin-top: rem(20);
-    font-size: rem(14);
-    line-height: 1.9;
+    margin-top: rem(24);
+    line-height: 2.2;
   }
 }
 
@@ -113,11 +129,24 @@
   flex: 1;
   height: rem(420);
 
+  // SPも散らし配置のまま。カンプのグループ寸法は 252×220。
   @include mq("sp") {
-    display: flex;
-    gap: rem(8);
-    width: 100%;
-    height: auto;
+    flex: none;
+    width: rem(252);
+    height: rem(220);
+    margin-inline: auto 0;
+  }
+}
+
+.about-env__block--reverse .about-env__photos {
+  @include mq("sp") {
+    margin-inline: rem(15) auto;
+  }
+}
+
+.about-env__photos--c {
+  @include mq("sp") {
+    margin-inline: rem(18) auto;
   }
 }
 
@@ -127,9 +156,6 @@
   border-radius: rem(20);
 
   @include mq("sp") {
-    position: static;
-    width: 33.33%;
-    height: rem(120);
     border-radius: rem(10);
   }
 }
@@ -140,6 +166,14 @@
   right: rem(11);
   width: rem(299);
   height: rem(337);
+
+  @include mq("sp") {
+    top: rem(0);
+    right: auto;
+    left: rem(123);
+    width: rem(125);
+    height: rem(140);
+  }
 }
 
 .about-env__photos--a .about-env__photo--2 {
@@ -147,6 +181,14 @@
   right: rem(335);
   width: rem(271);
   height: rem(295);
+
+  @include mq("sp") {
+    top: rem(95);
+    right: auto;
+    left: rem(0);
+    width: rem(113);
+    height: rem(123);
+  }
 }
 
 .about-env__photos--a .about-env__photo--3 {
@@ -154,6 +196,14 @@
   right: 0;
   width: rem(262);
   height: rem(169);
+
+  @include mq("sp") {
+    top: rem(152);
+    right: auto;
+    left: rem(143);
+    width: rem(109);
+    height: rem(71);
+  }
 }
 
 /* --- 2ブロック目（大人） --- */
@@ -162,6 +212,14 @@
   left: 0;
   width: rem(432);
   height: rem(314);
+
+  @include mq("sp") {
+    top: rem(0);
+    right: auto;
+    left: rem(0);
+    width: rem(179);
+    height: rem(130);
+  }
 }
 
 .about-env__photos--b .about-env__photo--2 {
@@ -169,6 +227,14 @@
   left: rem(367);
   width: rem(241);
   height: rem(168);
+
+  @include mq("sp") {
+    top: rem(136);
+    right: auto;
+    left: rem(152);
+    width: rem(100);
+    height: rem(70);
+  }
 }
 
 .about-env__photos--b .about-env__photo--3 {
@@ -176,6 +242,14 @@
   left: rem(57);
   width: rem(273);
   height: rem(169);
+
+  @include mq("sp") {
+    top: rem(150);
+    right: auto;
+    left: rem(24);
+    width: rem(113);
+    height: rem(70);
+  }
 }
 
 /* --- 3ブロック目（託児） --- */
@@ -184,6 +258,14 @@
   right: 0;
   width: rem(392);
   height: rem(285);
+
+  @include mq("sp") {
+    top: rem(101);
+    right: auto;
+    left: rem(89);
+    width: rem(163);
+    height: rem(119);
+  }
 }
 
 .about-env__photos--c .about-env__photo--2 {
@@ -191,6 +273,14 @@
   right: rem(294);
   width: rem(271);
   height: rem(187);
+
+  @include mq("sp") {
+    top: rem(0);
+    right: auto;
+    left: rem(17);
+    width: rem(113);
+    height: rem(78);
+  }
 }
 
 .about-env__photos--c .about-env__photo--3 {
@@ -198,19 +288,13 @@
   right: rem(429);
   width: rem(176);
   height: rem(226);
-}
 
-// SPは散らし配置をやめて横3列にする。
-// 位置指定（--a/--b/--c）の方が詳細度が高いため、ここで明示的に打ち消す。
-@include mq("sp") {
-  .about-env__photos--a .about-env__photo,
-  .about-env__photos--b .about-env__photo,
-  .about-env__photos--c .about-env__photo {
-    position: static;
-    top: auto;
+  @include mq("sp") {
+    top: rem(88);
     right: auto;
-    left: auto;
-    width: 33.33%;
-    height: rem(120);
+    left: rem(0);
+    width: rem(73);
+    height: rem(94);
   }
 }
+

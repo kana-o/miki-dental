@@ -214,18 +214,20 @@
   width: rem(530);
   margin-top: calc(#{rem(114)} * -1);
 
-  // SPは本文より上（カード上端から52px上にはみ出す）
+  // SPは本文より上（カード上端から52px上にはみ出す）。
+  // カンプの写真は x=93〜343。カード内側（左18px）より右端が32px内側に入る。
   @include mq("sp") {
     order: -1;
     width: rem(252);
     margin-top: calc(#{rem(52)} * -1);
-    margin-inline: auto rem(12);
+    margin-inline: auto rem(32);
   }
 }
 
+// 左右反転ブロックはカンプで x=22〜。本文（左30px）より8px外にはみ出す。
 .top-about__block--reverse .top-about__photos {
   @include mq("sp") {
-    margin-inline: 0 auto;
+    margin-inline: calc(#{rem(8)} * -1) auto;
   }
 }
 
@@ -253,7 +255,7 @@
     gap: rem(13);
     width: rem(253);
     margin-top: calc(#{rem(52)} * -1);
-    margin-inline: auto rem(15);
+    margin-inline: auto rem(32);
   }
 }
 
@@ -287,7 +289,7 @@
 }
 
 // 中間幅（769〜1024px）: 1080px 固定のままだと横にあふれるので伸縮させる
-@include mq("tab") {
+@include mq("tab-only") {
   .top-about__card-inner,
   .top-about__block--reverse .top-about__card-inner {
     width: 100%;

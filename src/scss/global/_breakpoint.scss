@@ -11,6 +11,8 @@ $mediaqueries: (
   sp: "screen and (max-width: #{map-get($breakpoints,'sp')}px)",
   tab: "screen and (max-width: #{map-get($breakpoints,'tab')}px)",
   pc: "screen and (max-width: #{map-get($breakpoints,'pc')}px)",
+  // 中間幅だけに当てる。max-width だけの "tab" は SP にも適用されてしまうため。
+  tab-only: "screen and (min-width: #{map-get($breakpoints,'sp') + 1}px) and (max-width: #{map-get($breakpoints,'tab')}px)",
 );
 
 // ブレイクポイントの設定

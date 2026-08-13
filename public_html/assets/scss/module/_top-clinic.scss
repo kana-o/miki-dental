@@ -28,8 +28,9 @@
   z-index: 0;
   padding-bottom: rem(41);
 
+  // 青帯は写真の下端から25px下まで伸びる
   @include mq("sp") {
-    padding-bottom: rem(24);
+    padding-bottom: rem(25);
   }
 }
 
@@ -53,8 +54,10 @@
   background-color: $color-accent;
   border-radius: rem(20) 0 0 rem(20);
 
+  // SPは写真が本文の下に来るので、行の下端を基準にする（上端固定だと本文に被る）
   @include mq("sp") {
-    top: rem(268);
+    top: auto;
+    bottom: 0;
     left: rem(66);
     height: rem(186);
     border-radius: rem(10) 0 0 rem(10);
@@ -88,6 +91,13 @@
   flex-direction: row-reverse;
 }
 
+// カンプは「大人も子どもも心地よく過ごせる／空間」の2行で折り返す（15文字＋左右padding=320px）
+.top-clinic__tag {
+  @include mq("sp") {
+    max-width: rem(335);
+  }
+}
+
 .top-clinic__body {
   width: rem(425);
 
@@ -119,14 +129,22 @@
   }
 }
 
+// SPカンプの写真列は 309px 幅。通常行は右寄せ・反転行は左寄せ。
 .top-clinic__photos {
   display: flex;
   flex-shrink: 0;
   gap: rem(10);
 
   @include mq("sp") {
+    justify-content: flex-end;
     gap: rem(5);
     margin-top: rem(24);
+  }
+}
+
+.top-clinic__row--reverse .top-clinic__photos {
+  @include mq("sp") {
+    justify-content: flex-start;
   }
 }
 
@@ -155,7 +173,7 @@
 }
 
 // 中間幅: 本文＋写真3枚が横に収まらないので縮める
-@include mq("tab") {
+@include mq("tab-only") {
   .top-clinic__inner {
     gap: rem(30);
   }

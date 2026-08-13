@@ -227,7 +227,7 @@
 
 // 中間幅（769〜1024px）: 固定幅のままだと横にあふれるので伸縮させる。
 // flex アイテムは min-width:auto のままだと縮まないので 0 にする。
-@include mq("tab") {
+@include mq("tab-only") {
   .top-treatment__cards {
     gap: rem(30);
   }
