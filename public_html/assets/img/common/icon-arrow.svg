@@ -1,10 +1,10 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="35.3516" height="35.3516" viewBox="0 0 35.3516 35.3516" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="arw">
-<circle id="Ellipse 14" cx="17.6758" cy="17.6758" r="17.6758" fill="white"/>
+<circle id="Ellipse 14" cx="25.5" cy="25.5" r="25.5" fill="#145AA6"/>
 <g id="arw_2">
-<path id="Line 23" d="M11.0938 17.8115H24.9571" stroke="#145AA6" stroke-width="1.38634" stroke-linecap="round"/>
-<path id="Line 24" d="M18.9258 11.7842L24.8927 17.7511" stroke="#145AA6" stroke-width="1.38634" stroke-linecap="round"/>
-<path id="Line 25" d="M18.9258 23.7783L24.8927 17.8114" stroke="#145AA6" stroke-width="1.38634" stroke-linecap="round"/>
+<path id="Line 23" d="M16 25.6952H36" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path id="Line 24" d="M27.3047 16.9999L35.9129 25.6082" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path id="Line 25" d="M27.3047 34.3046L35.9129 25.6964" stroke="white" stroke-width="2" stroke-linecap="round"/>
 </g>
 </g>
 </svg>

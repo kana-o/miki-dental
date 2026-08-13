@@ -218,6 +218,44 @@
 
   <main class="main">
 
+    <!-- ========================================
+      ⚠ 共通パーツ確認用（Phase 3）。ページ実装に入ったら丸ごと削除する
+    ======================================== -->
+    <section class="showcase">
+      <div class="inner">
+        <h2 class="section-title">共通パーツ確認</h2>
+
+        <div class="showcase__row">
+          <h3 class="showcase__label">セクション見出し .section-title（PC 50px / SP 30px）</h3>
+          <p class="section-title">当院について</p>
+        </div>
+
+        <div class="showcase__row">
+          <h3 class="showcase__label">丸矢印リンク .more（淡色背景用）</h3>
+          <a href="/about/" class="more">
+            <span class="more__text">もっと詳しく</span>
+            <span class="more__icon" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="showcase__row showcase__row--dark">
+          <h3 class="showcase__label showcase__label--inverse">丸矢印リンク .more.more--light（濃色背景用）</h3>
+          <a href="/access/" class="more more--light">
+            <span class="more__text">アクセス</span>
+            <span class="more__icon" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="showcase__row showcase__row--dark">
+          <h3 class="showcase__label showcase__label--inverse">ボタン .more.btn</h3>
+          <a href="/general/" class="more btn">
+            <span class="more__text">一般歯科はこちら</span>
+            <span class="more__icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ========================================
@@ -244,7 +282,7 @@
         <p class="footer__address-sub">「康正会病院前」バス停下車 徒歩約3分</p>
       </address>
 
-      <a href="/access/" class="more footer__access">
+      <a href="/access/" class="more more--light footer__access">
         <span class="more__text">アクセス</span>
         <span class="more__icon" aria-hidden="true"></span>
       </a>
