@@ -1,0 +1,48 @@
+@use "global" as *;
+
+/* ========================================
+  Logo
+======================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: rem(2);
+  width: rem(300);
+  height: rem(68);
+  padding-inline: rem(9) rem(17);
+  background-color: $color-bg;
+  border-radius: rem(10);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+
+  @include mq("sp") {
+    width: rem(198);
+    height: rem(45);
+    padding-inline: rem(6) rem(11);
+    border-radius: rem(4);
+  }
+}
+
+.logo__mark {
+  flex-shrink: 0;
+  width: rem(53);
+  height: rem(53);
+
+  @include mq("sp") {
+    width: rem(35);
+    height: rem(35);
+  }
+}
+
+.logo__text {
+  width: rem(219);
+  height: auto;
+
+  @include mq("sp") {
+    width: rem(145);
+  }
+}

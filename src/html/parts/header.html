@@ -1,5 +1,167 @@
+<!-- ========================================
+  Header
+======================================== -->
 <header class="header">
-  <div class="inner header__inner">
+  <div class="header__bar">
+    @@if (isTop === true) {
+    <h1 class="header__logo">@@include('./logo.html')</h1>
+    }
+    @@if (isTop !== true) {
+    <p class="header__logo">@@include('./logo.html')</p>
+    }
 
+    <div class="header__contents">
+      <div class="header__utility">
+        <ul class="header__badge-list">
+          <li class="header__badge">駐車場完備</li>
+          <li class="header__badge">バリアフリー</li>
+          <li class="header__badge">保育スペース有</li>
+          <li class="header__badge">車イス有</li>
+        </ul>
+        <a href="#" class="header__sns" target="_blank" rel="noopener noreferrer">
+          <picture class="pic">
+            <source srcset="/assets/img/common/icon-instagram.webp" type="image/webp" />
+            <img src="/assets/img/common/icon-instagram.png" alt="Instagram" width="100" height="100" />
+          </picture>
+        </a>
+        <a href="tel:049-225-3373" class="header__tel">
+          <span class="header__tel-icon" aria-hidden="true"></span>
+          049-225-3373
+        </a>
+      </div>
+
+      <nav class="header__nav" aria-label="グローバルナビゲーション">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="/about/" class="header__nav-link">当院について</a></li>
+          <li class="header__nav-item header__nav-item--parent">
+            <a href="/general/" class="header__nav-link">一般歯科</a>
+            <div class="dropdown">
+              <a href="/general/" class="dropdown__top">一般歯科 TOP</a>
+              <ul class="dropdown__list">
+                <li class="dropdown__item"><a href="/general/cavity/" class="dropdown__link">むし歯</a></li>
+                <li class="dropdown__item"><a href="/general/implant/" class="dropdown__link">インプラント</a></li>
+                <li class="dropdown__item"><a href="/general/bite/" class="dropdown__link">噛み合わせ</a></li>
+                <li class="dropdown__item"><a href="/general/denture/" class="dropdown__link">入れ歯</a></li>
+                <li class="dropdown__item"><a href="/general/periodontal/" class="dropdown__link">歯周病</a></li>
+                <li class="dropdown__item"><a href="/general/aesthetic/" class="dropdown__link">審美歯科</a></li>
+                <li class="dropdown__item"><a href="/general/whitening/" class="dropdown__link">ホワイトニング</a></li>
+                <li class="dropdown__item"><a href="/general/orthodontics/" class="dropdown__link">矯正歯科</a></li>
+                <li class="dropdown__item"><a href="/general/preventive/" class="dropdown__link">予防歯科・ブラッシング指導（TBI）</a></li>
+                <li class="dropdown__item"><a href="/general/sedation/" class="dropdown__link">笑気麻酔・減痛治療</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__nav-item header__nav-item--parent">
+            <a href="/pediatric/" class="header__nav-link">小児歯科</a>
+            <div class="dropdown">
+              <a href="/pediatric/" class="dropdown__top">小児歯科 TOP</a>
+              <ul class="dropdown__list">
+                <li class="dropdown__item"><a href="/pediatric/preventive/" class="dropdown__link">予防歯科</a></li>
+                <li class="dropdown__item"><a href="/pediatric/orthodontics/" class="dropdown__link">小児矯正</a></li>
+                <li class="dropdown__item"><a href="/pediatric/space-maintainer/" class="dropdown__link">保隙（ほげき）</a></li>
+                <li class="dropdown__item"><a href="/pediatric/fluorine/" class="dropdown__link">フッ素</a></li>
+                <li class="dropdown__item"><a href="/pediatric/sealant/" class="dropdown__link">シーラント</a></li>
+                <li class="dropdown__item"><a href="/pediatric/tbi/" class="dropdown__link">ブラッシング指導（TBI）</a></li>
+                <li class="dropdown__item"><a href="/pediatric/painless/" class="dropdown__link">痛みが少ない治療</a></li>
+                <li class="dropdown__item"><a href="/pediatric/age-care/" class="dropdown__link">年齢別ケア</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__nav-item"><a href="/clinic/" class="header__nav-link">院内紹介</a></li>
+          <li class="header__nav-item header__nav-item--parent">
+            <a href="/staff/" class="header__nav-link">スタッフ</a>
+            <div class="dropdown">
+              <ul class="dropdown__list">
+                <li class="dropdown__item"><a href="/staff/" class="dropdown__link">スタッフ紹介</a></li>
+                <li class="dropdown__item"><a href="/recruit/" class="dropdown__link">スタッフ募集</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="header__nav-item"><a href="/news/" class="header__nav-link">お知らせ</a></li>
+          <li class="header__nav-item"><a href="/price/" class="header__nav-link">料金</a></li>
+          <li class="header__nav-item"><a href="/reservation/" class="header__nav-link">予約・相談</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <button type="button" class="header__hamburger js-drawer-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
+      <span class="header__hamburger-line" aria-hidden="true"></span>
+      <span class="header__hamburger-line" aria-hidden="true"></span>
+    </button>
   </div>
 </header>
+
+<!-- ========================================
+  Drawer (SP)
+======================================== -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav class="drawer__nav" aria-label="モバイルナビゲーション">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="/about/" class="drawer__link">当院について</a></li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle js-accordion-toggle" aria-expanded="false" aria-controls="drawer-general">
+          一般歯科
+          <span class="drawer__toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="drawer__panel" id="drawer-general" hidden>
+          <a href="/general/" class="dropdown__top">一般歯科 TOP</a>
+          <ul class="dropdown__list">
+            <li class="dropdown__item"><a href="/general/cavity/" class="dropdown__link">むし歯</a></li>
+            <li class="dropdown__item"><a href="/general/implant/" class="dropdown__link">インプラント</a></li>
+            <li class="dropdown__item"><a href="/general/bite/" class="dropdown__link">噛み合わせ</a></li>
+            <li class="dropdown__item"><a href="/general/denture/" class="dropdown__link">入れ歯</a></li>
+            <li class="dropdown__item"><a href="/general/periodontal/" class="dropdown__link">歯周病</a></li>
+            <li class="dropdown__item"><a href="/general/aesthetic/" class="dropdown__link">審美歯科</a></li>
+            <li class="dropdown__item"><a href="/general/whitening/" class="dropdown__link">ホワイトニング</a></li>
+            <li class="dropdown__item"><a href="/general/orthodontics/" class="dropdown__link">矯正歯科</a></li>
+            <li class="dropdown__item"><a href="/general/preventive/" class="dropdown__link">予防歯科・ブラッシング指導（TBI）</a></li>
+            <li class="dropdown__item"><a href="/general/sedation/" class="dropdown__link">笑気麻酔・減痛治療</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle js-accordion-toggle" aria-expanded="false" aria-controls="drawer-pediatric">
+          小児歯科
+          <span class="drawer__toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="drawer__panel" id="drawer-pediatric" hidden>
+          <a href="/pediatric/" class="dropdown__top">小児歯科 TOP</a>
+          <ul class="dropdown__list">
+            <li class="dropdown__item"><a href="/pediatric/preventive/" class="dropdown__link">予防歯科</a></li>
+            <li class="dropdown__item"><a href="/pediatric/orthodontics/" class="dropdown__link">小児矯正</a></li>
+            <li class="dropdown__item"><a href="/pediatric/space-maintainer/" class="dropdown__link">保隙（ほげき）</a></li>
+            <li class="dropdown__item"><a href="/pediatric/fluorine/" class="dropdown__link">フッ素</a></li>
+            <li class="dropdown__item"><a href="/pediatric/sealant/" class="dropdown__link">シーラント</a></li>
+            <li class="dropdown__item"><a href="/pediatric/tbi/" class="dropdown__link">ブラッシング指導（TBI）</a></li>
+            <li class="dropdown__item"><a href="/pediatric/painless/" class="dropdown__link">痛みが少ない治療</a></li>
+            <li class="dropdown__item"><a href="/pediatric/age-care/" class="dropdown__link">年齢別ケア</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="drawer__item"><a href="/clinic/" class="drawer__link">院内紹介</a></li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle js-accordion-toggle" aria-expanded="false" aria-controls="drawer-staff">
+          スタッフ
+          <span class="drawer__toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="drawer__panel" id="drawer-staff" hidden>
+          <ul class="dropdown__list">
+            <li class="dropdown__item"><a href="/staff/" class="dropdown__link">スタッフ紹介</a></li>
+            <li class="dropdown__item"><a href="/recruit/" class="dropdown__link">スタッフ募集</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="drawer__item"><a href="/news/" class="drawer__link">お知らせ</a></li>
+      <li class="drawer__item"><a href="/price/" class="drawer__link">料金</a></li>
+      <li class="drawer__item"><a href="/reservation/" class="drawer__link">予約・相談</a></li>
+    </ul>
+  </nav>
+
+  <a href="tel:049-225-3373" class="drawer__tel">
+    <span class="drawer__tel-icon" aria-hidden="true"></span>
+    049-225-3373
+  </a>
+  <a href="#" class="drawer__sns" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/img/common/icon-instagram.png" alt="Instagram" width="100" height="100" />
+  </a>
+</div>

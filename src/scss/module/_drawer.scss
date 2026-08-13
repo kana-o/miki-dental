@@ -1,0 +1,149 @@
+@use "global" as *;
+
+/* ========================================
+  Drawer（SPナビ）
+======================================== */
+
+// header より下、ページより上。header の外に置くことで .header の container 影響を受けない
+.drawer {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  visibility: hidden;
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: rem(86);
+  padding-bottom: rem(40);
+  opacity: 0;
+  background-color: $color-main;
+  container-type: inline-size;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  @include mq("sp") {
+    --rem-scale: calc(100cqi / 375px);
+
+    display: flex;
+  }
+}
+
+.drawer.is-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drawer__nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer__list {
+  width: rem(330);
+}
+
+.drawer__item {
+  border-bottom: rem(2) dashed $color-accent;
+}
+
+.drawer__link {
+  display: block;
+  width: 100%;
+  padding-block: rem(20);
+  padding-inline: rem(8);
+  font-size: rem(18);
+  font-weight: $medium;
+  color: $color-text-inverse;
+  line-height: 1.4;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: calc(#{rem(2)} * -1);
+  }
+}
+
+.drawer__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: rem(20);
+  padding-inline: rem(8);
+  font-size: rem(18);
+  font-weight: $medium;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  text-align: left;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: calc(#{rem(2)} * -1);
+  }
+}
+
+// カンプの「く」の字（14.313×7.071 / 線幅2）を CSS で再現
+.drawer__toggle-icon {
+  flex-shrink: 0;
+  width: rem(11);
+  height: rem(11);
+  border-right: rem(2) solid $color-text-inverse;
+  border-bottom: rem(2) solid $color-text-inverse;
+  transform: translateY(calc(#{rem(3)} * -1)) rotate(45deg);
+  transition: transform 0.3s;
+}
+
+.drawer__toggle[aria-expanded="true"] .drawer__toggle-icon {
+  transform: translateY(rem(2)) rotate(-135deg);
+}
+
+.drawer__panel {
+  margin-top: rem(4);
+  margin-bottom: rem(20);
+  padding: rem(20);
+  background-color: $color-bg-light;
+  border-radius: rem(20);
+}
+
+.drawer__tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(10);
+  margin-top: rem(40);
+  font-size: rem(22);
+  font-weight: $medium;
+  color: $color-text-inverse;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(4);
+  }
+}
+
+.drawer__tel-icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(21);
+  height: rem(21);
+  background-color: $color-text-inverse;
+  mask-image: url("/assets/img/common/icon-tel.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.drawer__sns {
+  display: block;
+  width: rem(20);
+  height: rem(20);
+  margin-top: rem(26);
+  margin-inline: auto;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: rem(4);
+  }
+}

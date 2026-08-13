@@ -10,6 +10,11 @@
   margin-inline: auto;
 }
 
+// <picture> はレイアウトに影響させない（中の <img> をそのまま flex/grid アイテムにする）
+.pic {
+  display: contents;
+}
+
 .tab-none {
   @include mq("tab") {
     display: none;

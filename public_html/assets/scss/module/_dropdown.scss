@@ -1,0 +1,101 @@
+@use "global" as *;
+
+/* ========================================
+  Dropdown（PCグローバルナビ / SPドロワー共通の中身）
+======================================== */
+
+// カンプではパネル左端＝ナビ文字の左端、上端＝ヘッダー下端（y=120）。
+// ナビ項目の下端は y≈98 なので 22px 下げる。
+.dropdown {
+  position: absolute;
+  z-index: 110;
+  top: calc(100% + #{rem(22)});
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  width: rem(342);
+  padding: rem(30);
+  background-color: $color-bg-light;
+  border-radius: rem(20);
+  transition: opacity 0.3s, visibility 0.3s;
+
+  // ナビ項目とパネルの間の隙間を埋め、ホバーが途切れないようにする
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: rem(22);
+  }
+}
+
+.header__nav-item--parent:focus-within .dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (any-hover: hover) {
+  .header__nav-item--parent:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.dropdown__top {
+  display: flex;
+  align-items: center;
+  gap: rem(6);
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.49;
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    width: rem(11);
+    height: rem(11);
+    background-color: $color-accent;
+    border-radius: 50%;
+  }
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+}
+
+.dropdown__top + .dropdown__list {
+  margin-top: rem(22);
+}
+
+.dropdown__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+}
+
+.dropdown__link {
+  display: flex;
+  align-items: center;
+  gap: rem(6);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.4;
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    width: rem(11);
+    height: rem(2);
+    background-color: $color-accent;
+    border-radius: rem(1);
+  }
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+}
