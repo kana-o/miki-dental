@@ -1,0 +1,196 @@
+@use "global" as *;
+
+/* ========================================
+  TOP / FV
+======================================== */
+
+.top-fv {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  height: rem(900);
+
+  @include mq("sp") {
+    height: rem(794);
+  }
+}
+
+// 背景の楕円（カンプは #145aa6 のベタ塗り楕円なのでCSSで描く）
+.top-fv__bg {
+  position: absolute;
+  top: calc(#{rem(422)} * -1);
+  left: 50%;
+  overflow: hidden;
+  width: rem(2114);
+  height: rem(1129);
+  background-color: $color-accent;
+  border-radius: 50%;
+  transform: translateX(-50%);
+
+  @include mq("sp") {
+    top: calc(#{rem(542)} * -1);
+    width: rem(1200);
+    height: rem(1200);
+  }
+}
+
+// 楕円の中に敷く透かしロゴ（白 6%）
+.top-fv__watermark {
+  position: absolute;
+  top: rem(352);
+  left: rem(1229);
+  display: block;
+  width: rem(699);
+  height: rem(699);
+  background-image: url("/assets/img/fv/fv-watermark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include mq("sp") {
+    top: rem(605);
+    left: rem(528);
+    width: rem(464);
+    height: rem(464);
+  }
+}
+
+// 特徴バッジ（SPのみ。PCはヘッダー内にある）
+.top-fv__badges {
+  display: none;
+
+  @include mq("sp") {
+    position: absolute;
+    z-index: 10;
+    top: rem(86);
+    left: rem(15);
+    display: flex;
+    width: calc(100% - #{rem(30)});
+  }
+}
+
+.top-fv__body {
+  position: relative;
+  z-index: 10;
+  padding-top: rem(282);
+
+  @include mq("sp") {
+    padding-top: rem(232);
+  }
+}
+
+.top-fv__catch {
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(27);
+    line-height: 1.5;
+  }
+}
+
+.top-fv__lead {
+  margin-top: rem(12);
+  font-family: $second-font;
+  font-size: rem(20);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(15);
+    font-size: rem(15);
+    line-height: 1.69;
+  }
+}
+
+// PCは1行、SPは2行に分かれる（<br> を使わず span の display で切り替える）
+.top-fv__catch-line,
+.top-fv__lead-line {
+  display: inline;
+
+  @include mq("sp") {
+    display: block;
+  }
+}
+
+// スライダー
+.top-fv__slider {
+  position: absolute;
+  z-index: 10;
+  top: rem(506);
+  left: 0;
+  width: 100%;
+
+  @include mq("sp") {
+    top: rem(538);
+  }
+}
+
+// 等速で流し続けるため、Swiper の既定イージングを打ち消す
+.top-fv__slider .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+// 歯型にマスクした写真。スライド幅はカンプのマスク実寸。
+.top-fv__slide {
+  position: relative;
+  overflow: hidden;
+  width: rem(323);
+  height: rem(393);
+  mask-image: url("/assets/img/fv/mask-tooth.svg");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+
+  @include mq("sp") {
+    width: rem(211);
+    height: rem(256);
+  }
+}
+
+// 画像の寸法・位置はマスク枠に対する％。SPはPCの0.652倍の相似なので同じ値が使える。
+.top-fv__img {
+  position: absolute;
+  max-width: none;
+}
+
+.top-fv__img--01 {
+  top: -2.55%;
+  left: -70.64%;
+  width: 227.5%;
+  height: 125.04%;
+}
+
+.top-fv__img--02 {
+  top: 0;
+  left: -28.13%;
+  width: 181.77%;
+  height: 100.08%;
+}
+
+.top-fv__img--03 {
+  top: -22.16%;
+  left: -59.81%;
+  width: 225.66%;
+  height: 124.02%;
+}
+
+.top-fv__img--04 {
+  top: -45.08%;
+  left: -50.69%;
+  width: 283.16%;
+  height: 170.36%;
+}
+
+.top-fv__img--05 {
+  top: -15.03%;
+  left: -51.15%;
+  width: 215.15%;
+  height: 118.16%;
+}

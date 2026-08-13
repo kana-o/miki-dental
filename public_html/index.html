@@ -8,8 +8,8 @@
   <meta name="format-detection" content="telephone=no" />
 
   <!-- meta情報 -->
-  <title>タイトル</title>
-  <meta name="description" content="" />
+  <title>三木歯科・小児歯科｜川越市の歯を“守る”歯医者【駐車場・バリアフリー完備】</title>
+  <meta name="description" content="川越市の三木歯科・小児歯科です。日本小児歯科学会認定の小児歯科専門医が在籍し、大人と子どもで待合室・診療室を分けた院内環境をご用意。1986年開業、親子二代の連携で幅広い年代の治療に対応します。" />
 
   <!-- ogp -->
   <meta property="og:title" content="" />
@@ -31,9 +31,11 @@
     rel="stylesheet" />
 
   <!-- css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="/assets/css/style.css" />
 
   <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="/assets/js/script.js" defer></script>
 </head>
 
@@ -61,11 +63,11 @@
 
     <div class="header__contents">
       <div class="header__utility">
-        <ul class="header__badge-list">
-          <li class="header__badge">駐車場完備</li>
-          <li class="header__badge">バリアフリー</li>
-          <li class="header__badge">保育スペース有</li>
-          <li class="header__badge">車イス有</li>
+        <ul class="badge-list">
+          <li class="badge">駐車場完備</li>
+          <li class="badge">バリアフリー</li>
+          <li class="badge">保育スペース有</li>
+          <li class="badge">車イス有</li>
         </ul>
         <a href="#" class="header__sns" target="_blank" rel="noopener noreferrer">
           <picture class="pic">
@@ -254,71 +256,64 @@
   <main class="main">
 
     <!-- ========================================
-      ⚠ 共通パーツ確認用（Phase 3）。ページ実装に入ったら丸ごと削除する
+      FV
     ======================================== -->
-    <section class="showcase">
-      <div class="inner">
-        <h2 class="section-title">共通パーツ確認</h2>
+    <div class="top-fv">
+      <div class="top-fv__bg" aria-hidden="true">
+        <span class="top-fv__watermark"></span>
+      </div>
 
-        <div class="showcase__row">
-          <h3 class="showcase__label">セクション見出し .section-title（PC 50px / SP 30px）</h3>
-          <p class="section-title">当院について</p>
-        </div>
+      <ul class="badge-list top-fv__badges">
+        <li class="badge">駐車場完備</li>
+        <li class="badge">バリアフリー</li>
+        <li class="badge">保育スペース有</li>
+        <li class="badge">車イス有</li>
+      </ul>
 
-        <div class="showcase__row">
-          <h3 class="showcase__label">丸矢印リンク .more（淡色背景用）</h3>
-          <a href="/about/" class="more">
-            <span class="more__text">もっと詳しく</span>
-            <span class="more__icon" aria-hidden="true"></span>
-          </a>
-        </div>
+      <div class="top-fv__body">
+        <p class="top-fv__catch">
+          <span class="top-fv__catch-line">歯を“治す”のではなく、</span><span class="top-fv__catch-line">歯を“守る”歯医者</span>
+        </p>
+        <p class="top-fv__lead">
+          <span class="top-fv__lead-line">大人も子どもも安心して通える、</span><span class="top-fv__lead-line">それぞれに最適な環境とやさしい治療を</span>
+        </p>
+      </div>
 
-        <div class="showcase__row showcase__row--dark">
-          <h3 class="showcase__label showcase__label--inverse">丸矢印リンク .more.more--light（濃色背景用）</h3>
-          <a href="/access/" class="more more--light">
-            <span class="more__text">アクセス</span>
-            <span class="more__icon" aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div class="showcase__row showcase__row--dark">
-          <h3 class="showcase__label showcase__label--inverse">ボタン .more.btn</h3>
-          <a href="/general/" class="more btn">
-            <span class="more__text">一般歯科はこちら</span>
-            <span class="more__icon" aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div class="showcase__row showcase__row--dark">
-          <h3 class="showcase__label showcase__label--inverse">電話予約カード .cta（PC 900×172 / SP 330×260）</h3>
-          <div class="cta">
-  <picture class="pic">
-    <source srcset="/assets/img/common/logo-mark.webp" type="image/webp" />
-    <img src="/assets/img/common/logo-mark.png" alt="" class="cta__mark" width="300" height="300" loading="lazy" />
-  </picture>
-
-  <div class="cta__body">
-    <p class="cta__lead">ご予約・ご相談はお電話にて承ります</p>
-
-    <a href="tel:049-225-3373" class="cta__tel">
-      <span class="cta__tel-icon" aria-hidden="true"></span>
-      <span class="cta__tel-number">049-225-3373</span>
-    </a>
-
-    <p class="cta__hours">
-      <span class="cta__hours-label">お電話受付時間：</span><span class="cta__hours-time">9:30～13:00 / 14:30～19:00<span class="cta__hours-sat">（土曜日は14:00～18:30）</span></span><span class="cta__hours-note">日・祝 休診</span>
-    </p>
-  </div>
-</div>
-
-        </div>
-
-        <div class="showcase__row">
-          <h3 class="showcase__label">固定サイド .side-nav（PC・画面右端）／ 固定CTA .sp-cta（SP・画面下部）</h3>
-          <p class="showcase__note">この2つは画面に固定表示されています。PCは右端、SPは下部を確認してください。</p>
+      <div class="top-fv__slider swiper js-fv-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide top-fv__slide">
+            <picture class="pic">
+              <source srcset="/assets/img/fv/fv-01.webp" type="image/webp" />
+              <img src="/assets/img/fv/fv-01.jpg" alt="患者様を診療する歯科医師" class="top-fv__img top-fv__img--01" width="1024" height="683" fetchpriority="high" />
+            </picture>
+          </div>
+          <div class="swiper-slide top-fv__slide">
+            <picture class="pic">
+              <source srcset="/assets/img/fv/fv-02.webp" type="image/webp" />
+              <img src="/assets/img/fv/fv-02.jpg" alt="受付カウンターと待合スペース" class="top-fv__img top-fv__img--02" width="1024" height="683" />
+            </picture>
+          </div>
+          <div class="swiper-slide top-fv__slide">
+            <picture class="pic">
+              <source srcset="/assets/img/fv/fv-03.webp" type="image/webp" />
+              <img src="/assets/img/fv/fv-03.jpg" alt="歯の模型を使って説明する歯科医師" class="top-fv__img top-fv__img--03" width="1024" height="683" />
+            </picture>
+          </div>
+          <div class="swiper-slide top-fv__slide">
+            <picture class="pic">
+              <source srcset="/assets/img/fv/fv-04.webp" type="image/webp" />
+              <img src="/assets/img/fv/fv-04.jpg" alt="動物の壁画とバランスボールがある小児用スペース" class="top-fv__img top-fv__img--04" width="1024" height="683" />
+            </picture>
+          </div>
+          <div class="swiper-slide top-fv__slide">
+            <picture class="pic">
+              <source srcset="/assets/img/fv/fv-05.webp" type="image/webp" />
+              <img src="/assets/img/fv/fv-05.jpg" alt="歯の模型を持って説明する歯科衛生士" class="top-fv__img top-fv__img--05" width="1024" height="683" />
+            </picture>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
   </main>
 

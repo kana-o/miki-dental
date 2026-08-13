@@ -1,0 +1,33 @@
+@use "global" as *;
+
+/* ========================================
+  Badge（駐車場完備・バリアフリー等の特徴バッジ）
+======================================== */
+
+// PCはヘッダー内、SPはヘッダー直下に置かれる（カンプの配置が異なるだけで意匠は共通）
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: rem(10);
+
+  @include mq("sp") {
+    justify-content: center;
+    gap: rem(8);
+  }
+}
+
+.badge {
+  padding-block: rem(4);
+  padding-inline: rem(8);
+  font-size: rem(13);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  background-color: $color-accent-sub;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    font-size: rem(11);
+  }
+}

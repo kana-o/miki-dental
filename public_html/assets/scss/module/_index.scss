@@ -1,5 +1,6 @@
 @use "common";
 @use "logo";
+@use "badge";
 @use "section-title";
 @use "more";
 @use "btn";
@@ -10,4 +11,4 @@
 @use "dropdown";
 @use "drawer";
 @use "footer";
-@use "showcase"; // ⚠ Phase 3 の確認用。ページ実装時に削除する
+@use "top-fv";

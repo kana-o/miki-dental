@@ -71,24 +71,6 @@
   gap: rem(16);
 }
 
-.header__badge-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: rem(10);
-}
-
-.header__badge {
-  padding-block: rem(4);
-  padding-inline: rem(8);
-  font-size: rem(13);
-  font-weight: $regular;
-  color: $color-text-inverse;
-  line-height: 1.4;
-  background-color: $color-accent-sub;
-  border-radius: rem(4);
-}
-
 .header__sns {
   display: block;
   flex-shrink: 0;

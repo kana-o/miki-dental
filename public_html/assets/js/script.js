@@ -55,6 +55,38 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ========================================
+    FVスライダー（途切れず横に流れ続ける）
+  ======================================== */
+  const fvSlider = document.querySelector('.js-fv-slider');
+
+  if (fvSlider && typeof Swiper !== 'undefined') {
+    new Swiper(fvSlider, {
+      slidesPerView: 'auto',
+      spaceBetween: 29, // SP（カンプ 29.337）
+      loop: true,
+      speed: 8000,
+      allowTouchMove: false,
+      observer: true,
+      observeParents: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      // 等速で流し続ける
+      freeMode: {
+        enabled: true,
+        momentum: false,
+      },
+      breakpoints: {
+        // CSS の @include mq("sp") が max-width:768px なので 769 以上を PC とする
+        769: {
+          spaceBetween: 45,
+        },
+      },
+    });
+  }
+
+  /* ========================================
     Accordion（ドロワー内の下層メニュー）
   ======================================== */
   document.querySelectorAll('.js-accordion-toggle').forEach(function (toggle) {
