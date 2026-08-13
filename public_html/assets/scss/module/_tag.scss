@@ -1,0 +1,42 @@
+@use "global" as *;
+
+/* ========================================
+  Tag（見出し下の小見出しラベル）
+======================================== */
+
+// カンプでは折り返すと帯が行ごとに分かれる（1つの矩形にならない）。
+// そのため inline + box-decoration-break: clone で組む。
+// 帯の高さは padding-block、帯どうしの間隔は line-height で決まる。
+.tag {
+  display: inline;
+  padding-block: rem(9);
+  padding-inline: rem(10);
+  font-family: $second-font;
+  font-weight: $bold;
+  line-height: 2.6;
+  border-radius: rem(4);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+// 白地・紺文字（青カードの上で使う。当院について）
+.tag--light {
+  font-size: rem(18);
+  color: $color-main;
+  background-color: $color-bg;
+
+  @include mq("sp") {
+    font-size: rem(16);
+  }
+}
+
+// 青地・白文字（淡色背景の上で使う。院内紹介）
+.tag--fill {
+  font-size: rem(20);
+  color: $color-text-inverse;
+  background-color: $color-accent;
+
+  @include mq("sp") {
+    font-size: rem(16);
+  }
+}

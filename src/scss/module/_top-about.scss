@@ -161,22 +161,12 @@
   }
 }
 
+// 見た目は共通の .tag--light。ここでは余白だけ持つ。
 .top-about__badge {
-  display: inline-flex;
-  align-items: center;
   margin-top: rem(16);
-  padding-inline: rem(10);
-  font-family: $second-font;
-  font-size: rem(18);
-  font-weight: $bold;
-  color: $color-main;
-  line-height: 2.2;
-  background-color: $color-bg;
-  border-radius: rem(4);
 
   @include mq("sp") {
     margin-top: rem(11);
-    font-size: rem(16);
   }
 }
 

@@ -87,6 +87,42 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ========================================
+    パララックス（2枚の帯が逆方向にずれる）
+  ======================================== */
+  const parallax = document.querySelector('.js-parallax');
+
+  if (parallax && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const imgs = [...parallax.querySelectorAll('.js-parallax-img')];
+    const MAX_SHIFT = 60; // px。カンプに移動量の指定が無いため実装側で決めた値
+    let ticking = false;
+
+    const update = function () {
+      const rect = parallax.getBoundingClientRect();
+      const total = rect.height + window.innerHeight;
+      // 画面に入ってから出るまでを 0〜1 に正規化
+      const progress = Math.min(Math.max((window.innerHeight - rect.top) / total, 0), 1);
+      const shift = (progress - 0.5) * 2 * MAX_SHIFT;
+
+      imgs.forEach(function (img, i) {
+        const dir = i % 2 === 0 ? 1 : -1;
+        img.style.transform = `translate(calc(-50% + ${shift * dir}px), -50%)`;
+      });
+      ticking = false;
+    };
+
+    const onScroll = function () {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+
+  /* ========================================
     Accordion（ドロワー内の下層メニュー）
   ======================================== */
   document.querySelectorAll('.js-accordion-toggle').forEach(function (toggle) {

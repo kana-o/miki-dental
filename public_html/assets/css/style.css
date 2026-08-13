@@ -162,7 +162,7 @@ select::-ms-expand {
 
 .inner {
   width: 100%;
-  max-width: clamp(47.25 * 1rem, 67.5 * 1rem * var(--rem-scale), 87.75 * 1rem);
+  max-width: clamp(49 * 1rem, 70 * 1rem * var(--rem-scale), 91 * 1rem);
   padding-inline: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
   margin-inline: auto;
 }
@@ -252,6 +252,34 @@ select::-ms-expand {
 }
 
 /* ========================================
+  Tag（見出し下の小見出しラベル）
+======================================== */
+
+.tag {
+  display: inline;
+  padding-block: clamp(0.39375 * 1rem, 0.5625 * 1rem * var(--rem-scale), 0.73125 * 1rem);
+  padding-inline: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  line-height: 2.6;
+  border-radius: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.tag--light {
+  font-size: clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem);
+  color: #10355d;
+  background-color: #fff;
+}
+
+.tag--fill {
+  font-size: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  color: #fff;
+  background-color: #145aa6;
+}
+
+/* ========================================
   Marker（本文中の太字＋マーカー帯）
 ======================================== */
 
@@ -263,6 +291,10 @@ select::-ms-expand {
   background-position: 0 92%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+.marker--light {
+  background-image: linear-gradient(#fff 0 0);
 }
 
 /* ========================================
@@ -1436,17 +1468,7 @@ select::-ms-expand {
 }
 
 .top-about__badge {
-  display: inline-flex;
-  align-items: center;
   margin-top: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
-  padding-inline: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem);
-  font-weight: 700;
-  color: #10355d;
-  line-height: 2.2;
-  background-color: #fff;
-  border-radius: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
 }
 
 .top-about__text {
@@ -1662,6 +1684,123 @@ select::-ms-expand {
   line-height: 1.5;
 }
 
+/* ========================================
+  TOP / パララックス
+======================================== */
+
+.top-parallax {
+  overflow: hidden;
+}
+
+.top-parallax__band {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1600/770;
+}
+
+.top-parallax__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* ========================================
+  TOP / 院内紹介
+======================================== */
+
+.top-clinic {
+  padding-block: clamp(7 * 1rem, 10 * 1rem * var(--rem-scale), 13 * 1rem) clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  background-color: #f2f2f2;
+}
+
+.top-clinic__title {
+  margin-bottom: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+}
+
+.top-clinic__row {
+  position: relative;
+  z-index: 0;
+  padding-bottom: clamp(1.79375 * 1rem, 2.5625 * 1rem * var(--rem-scale), 3.33125 * 1rem);
+}
+
+.top-clinic__row + .top-clinic__row {
+  margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+}
+
+.top-clinic__band {
+  position: absolute;
+  z-index: -1;
+  top: clamp(3.10625 * 1rem, 4.4375 * 1rem * var(--rem-scale), 5.76875 * 1rem);
+  right: 0;
+  left: calc(50% + clamp(0.91875 * 1rem, 1.3125 * 1rem * var(--rem-scale), 1.70625 * 1rem));
+  display: block;
+  height: clamp(14.21875 * 1rem, 20.3125 * 1rem * var(--rem-scale), 26.40625 * 1rem);
+  background-color: #145aa6;
+  border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) 0 0 clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+}
+
+.top-clinic__row--reverse .top-clinic__band {
+  right: calc(50% - clamp(0.91875 * 1rem, 1.3125 * 1rem * var(--rem-scale), 1.70625 * 1rem));
+  left: 0;
+  border-radius: 0 clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) 0;
+}
+
+.top-clinic__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+}
+
+.top-clinic__row--reverse .top-clinic__inner {
+  flex-direction: row-reverse;
+}
+
+.top-clinic__body {
+  width: clamp(18.59375 * 1rem, 26.5625 * 1rem * var(--rem-scale), 34.53125 * 1rem);
+}
+
+.top-clinic__text {
+  margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
+  font-size: clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem);
+  font-weight: 400;
+  color: #10355d;
+  line-height: 2;
+}
+
+.top-clinic__text--narrow {
+  line-height: 1.8;
+}
+
+.top-clinic__photos {
+  display: flex;
+  flex-shrink: 0;
+  gap: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
+}
+
+.top-clinic__photo {
+  width: clamp(8.53125 * 1rem, 12.1875 * 1rem * var(--rem-scale), 15.84375 * 1rem);
+  height: clamp(15.53125 * 1rem, 22.1875 * 1rem * var(--rem-scale), 28.84375 * 1rem);
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+}
+
+.top-clinic__more {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: clamp(0.83125 * 1rem, 1.1875 * 1rem * var(--rem-scale), 1.54375 * 1rem);
+  margin-left: auto;
+}
+
 @media screen and (max-width: 1024px) {
   .tab-none {
     display: none;
@@ -1728,6 +1867,14 @@ select::-ms-expand {
 
   .badge {
     font-size: clamp(0.48125 * 1rem, 0.6875 * 1rem * var(--rem-scale), 0.89375 * 1rem);
+  }
+
+  .tag--light {
+    font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+  }
+
+  .tag--fill {
+    font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
   }
 
   .section-title {
@@ -2078,7 +2225,6 @@ select::-ms-expand {
 
   .top-about__badge {
     margin-top: clamp(0.48125 * 1rem, 0.6875 * 1rem * var(--rem-scale), 0.89375 * 1rem);
-    font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
   }
 
   .top-about__text {
@@ -2192,6 +2338,77 @@ select::-ms-expand {
 
   .top-treatment__item-body--narrow .top-treatment__item-text {
     line-height: 1.8;
+  }
+
+  .top-parallax__band {
+    aspect-ratio: 375/794;
+  }
+
+  .top-parallax__img {
+    width: 180%;
+  }
+
+  .top-clinic {
+    padding-block: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem) clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
+  }
+
+  .top-clinic__title {
+    margin-bottom: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
+  }
+
+  .top-clinic__row {
+    padding-bottom: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+  }
+
+  .top-clinic__row + .top-clinic__row {
+    margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
+  }
+
+  .top-clinic__band {
+    top: clamp(11.725 * 1rem, 16.75 * 1rem * var(--rem-scale), 21.775 * 1rem);
+    left: clamp(2.8875 * 1rem, 4.125 * 1rem * var(--rem-scale), 5.3625 * 1rem);
+    height: clamp(8.1375 * 1rem, 11.625 * 1rem * var(--rem-scale), 15.1125 * 1rem);
+    border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) 0 0 clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
+  }
+
+  .top-clinic__row--reverse .top-clinic__band {
+    right: clamp(2.8875 * 1rem, 4.125 * 1rem * var(--rem-scale), 5.3625 * 1rem);
+    left: 0;
+    border-radius: 0 clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) 0;
+  }
+
+  .top-clinic__inner {
+    display: block;
+    padding-inline: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
+  }
+
+  .top-clinic__body {
+    width: 100%;
+  }
+
+  .top-clinic__text {
+    margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+    font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+    line-height: 1.9;
+  }
+
+  .top-clinic__text--narrow {
+    line-height: 1.9;
+  }
+
+  .top-clinic__photos {
+    gap: clamp(0.21875 * 1rem, 0.3125 * 1rem * var(--rem-scale), 0.40625 * 1rem);
+    margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+  }
+
+  .top-clinic__photo {
+    width: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
+    height: clamp(7.9625 * 1rem, 11.375 * 1rem * var(--rem-scale), 14.7875 * 1rem);
+    border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
+  }
+
+  .top-clinic__more {
+    margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
   }
 }
 

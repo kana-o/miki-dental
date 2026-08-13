@@ -15,3 +15,8 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+
+// 淡色背景の上で使う白い帯（院内紹介）
+.marker--light {
+  background-image: linear-gradient($color-bg 0 0);
+}
