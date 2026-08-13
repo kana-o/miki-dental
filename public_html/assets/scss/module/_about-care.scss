@@ -56,7 +56,7 @@
   font-family: $second-font;
   font-size: rem(40);
   font-weight: $bold;
-  color: $color-main;
+  color: $color-accent;
   line-height: 1.5;
 
   @include mq("sp") {
@@ -92,9 +92,24 @@
 }
 
 /* --- 歯医者さんが怖い理由 --- */
+// カンプは全体が白い大カード（980×461・角丸20）
 .about-care__fear {
-  margin-top: rem(48);
+  width: 100%;
+  max-width: rem(980);
+  margin-top: calc(#{rem(45)} * -1);
+  margin-inline: auto;
+  padding-block: rem(48) rem(47);
+  padding-inline: rem(43);
+  background-color: $color-bg;
+  border-radius: rem(20);
   text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(30);
+    padding-block: rem(30);
+    padding-inline: rem(15);
+    border-radius: rem(10);
+  }
 }
 
 .about-care__fear-list {
@@ -103,59 +118,88 @@
   justify-content: center;
   gap: rem(30);
   margin-top: rem(30);
+  // 200×4 + 30×3 = 890。カンプの行幅894に収める
+  max-width: rem(894);
+  margin-inline: auto;
 
   @include mq("sp") {
     gap: rem(16);
   }
 }
 
-// カンプは吹き出しイラスト。角丸＋しっぽで近似している。
+// カンプはもくもくした雲形の吹き出し（SVG）
 .about-care__fear-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(200);
+  height: rem(125);
+  padding-inline: rem(24);
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.6;
+  background-image: url("/assets/img/care/cloud.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  @include mq("sp") {
+    width: calc(50% - #{rem(8)});
+    height: rem(105);
+    padding-inline: rem(16);
+    font-size: rem(12);
+  }
+}
+
+// カンプは水色の帯に院長の切り抜き写真が左から重なる
+.about-care__fear-note {
   position: relative;
   z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: rem(200);
-  min-height: rem(125);
-  padding: rem(16);
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $color-main;
-  line-height: 1.5;
-  background-color: $color-bg;
-  border: rem(2) solid $color-accent;
-  border-radius: rem(16);
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: rem(-10);
-    left: 50%;
-    width: rem(16);
-    height: rem(12);
-    background-color: $color-accent;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transform: translateX(-50%);
-  }
-
-  @include mq("sp") {
-    width: calc(50% - #{rem(8)});
-    min-height: rem(100);
-    font-size: rem(13);
-  }
-}
-
-.about-care__fear-note {
-  margin-top: rem(50);
+  min-height: rem(101);
+  margin-top: rem(65);
+  padding-block: rem(20);
+  padding-inline: rem(200) rem(40);
   font-size: rem(20);
-  font-weight: $bold;
+  font-weight: $medium;
   color: $color-main;
   line-height: 1.8;
+  text-align: left;
+  background-color: $color-bg-light;
+  border-radius: rem(10);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: rem(33);
+    width: rem(152);
+    height: rem(154);
+    background-image: url("/assets/img/care/care-doctor.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
 
   @include mq("sp") {
-    margin-top: rem(30);
-    font-size: rem(15);
+    min-height: 0;
+    margin-top: rem(70);
+    padding-block: rem(16);
+    padding-inline: rem(16);
+    font-size: rem(14);
+    text-align: center;
+
+    &::before {
+      top: calc(#{rem(80)} * -1);
+      bottom: auto;
+      left: 50%;
+      width: rem(90);
+      height: rem(91);
+      transform: translateX(-50%);
+    }
   }
 }
 

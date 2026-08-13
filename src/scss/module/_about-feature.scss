@@ -5,10 +5,13 @@
 ======================================== */
 
 // 背景写真の上に半透明の白カードを重ねる
+// カンプは見出しがセクション上端(y=0)、背景写真がその45px下から始まる。
+// セクション自体には上余白を持たせず、margin で前の要素との間隔をとる。
 .about-feature {
   position: relative;
   z-index: 0;
-  padding-block: rem(140) rem(112);
+  margin-top: rem(141);
+  padding-block: 0 rem(112);
 
   &::before {
     content: "";
@@ -27,7 +30,8 @@
   }
 
   @include mq("sp") {
-    padding-block: rem(70) rem(60);
+    margin-top: rem(60);
+    padding-block: 0 rem(60);
 
     &::before {
       top: rem(30);

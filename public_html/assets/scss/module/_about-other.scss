@@ -99,18 +99,36 @@
   }
 }
 
+// カンプは木目の背景写真（フッターと同じ画像）＋白60%のベール
 .about-pledge__card {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: rem(70);
   min-height: rem(426);
-  padding-block: rem(80);
+  padding-block: rem(100) rem(104);
   padding-inline: rem(100);
-  background-color: $color-bg-sub;
+  background-image: image-set(
+    url("/assets/img/footer/footer-01.webp") type("image/webp"),
+    url("/assets/img/footer/footer-01.jpg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
   border-radius: rem(20);
 
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-color: rgba($color-bg, 0.6);
+  }
+
   @include mq("sp") {
+    gap: rem(24);
     min-height: 0;
     padding-block: rem(40);
     padding-inline: rem(20);
@@ -120,7 +138,7 @@
 
 .about-pledge__title {
   font-family: $second-font;
-  font-size: rem(32);
+  font-size: rem(40);
   font-weight: $bold;
   color: $color-main;
   line-height: 1.4;
@@ -132,14 +150,14 @@
 }
 
 .about-pledge__text {
-  margin-top: rem(50);
-  font-size: rem(16);
-  font-weight: $regular;
+  width: 100%;
+  max-width: rem(848);
+  font-size: rem(18);
+  font-weight: $bold;
   color: $color-main;
-  line-height: 2.25;
+  line-height: 2;
 
   @include mq("sp") {
-    margin-top: rem(24);
     font-size: rem(14);
     line-height: 1.9;
   }
@@ -176,7 +194,7 @@
   align-items: center;
   gap: rem(16);
   padding: rem(20);
-  background-color: $color-bg-sub;
+  background-color: $color-bg-light;
   border-radius: rem(10);
 
   @include mq("sp") {
@@ -186,8 +204,11 @@
   }
 }
 
-// カンプは丸の中に「ひとつ」等が入り、背後に数字が薄く重なる
+// カンプは青丸の中に「ひとつ」等が入り、その背面に大きな数字が薄く重なる。
+// 数字は data-num から疑似要素で描き、読み上げ対象から外す。
 .about-vow__num {
+  position: relative;
+  z-index: 0;
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -202,10 +223,27 @@
   background-color: $color-accent;
   border-radius: 50%;
 
+  &::before {
+    content: attr(data-num) / "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    font-size: rem(56);
+    font-weight: $bold;
+    color: rgba($color-bg, 0.25);
+    line-height: 1;
+    transform: translate(-50%, -50%);
+  }
+
   @include mq("sp") {
     width: rem(56);
     height: rem(56);
     font-size: rem(13);
+
+    &::before {
+      font-size: rem(44);
+    }
   }
 }
 
