@@ -292,6 +292,7 @@
   text-align: center;
 
   @include mq("sp") {
+    display: none;
     margin-bottom: rem(30);
     font-size: rem(24);
   }

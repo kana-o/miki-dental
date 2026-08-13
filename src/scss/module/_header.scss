@@ -110,6 +110,7 @@
   height: rem(19);
   background-color: $color-text-inverse;
   mask-image: url("/assets/img/common/icon-tel.png");
+  transform: scaleY(-1);
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;

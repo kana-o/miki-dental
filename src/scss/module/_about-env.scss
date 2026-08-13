@@ -13,7 +13,7 @@
 }
 
 .about-env__tag {
-  margin-top: rem(30);
+  margin-top: rem(70);
   text-align: center;
 
   @include mq("sp") {
@@ -25,7 +25,7 @@
 .about-env__block {
   position: relative;
   z-index: 0;
-  margin-top: rem(50);
+  margin-top: rem(40);
   padding-block: rem(39) rem(27);
 
   @include mq("sp") {
@@ -37,12 +37,12 @@
 .about-env__band {
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: rem(39);
   right: 0;
+  bottom: rem(27);
   max-width: 100%;
   display: block;
   width: calc(50% + #{rem(542)});
-  height: 100%;
   background-color: $color-accent;
   border-radius: rem(20) 0 0 rem(20);
 
@@ -91,6 +91,7 @@
 .about-env__body {
   flex-shrink: 0;
   width: rem(392);
+  margin-left: rem(40);
 
   // カンプは写真の下・幅311px
   @include mq("sp") {
@@ -101,6 +102,9 @@
 }
 
 .about-env__block--reverse .about-env__body {
+  margin-right: rem(40);
+  margin-left: 0;
+
   @include mq("sp") {
     margin-inline: rem(15) auto;
   }
@@ -125,7 +129,7 @@
   position: relative;
   z-index: 0;
   flex: 1;
-  height: rem(420);
+  height: rem(368);
 
   // SPも散らし配置のまま。カンプのグループ寸法は 252×220。
   @include mq("sp") {

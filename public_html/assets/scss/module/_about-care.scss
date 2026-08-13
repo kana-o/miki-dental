@@ -16,7 +16,7 @@
 }
 
 .about-care__tag {
-  margin-top: rem(30);
+  margin-top: rem(48);
   text-align: center;
 
   // SPカンプは見出し下端からチップ上端まで37px（帯の余白7pxぶん引いて30）
@@ -30,7 +30,7 @@
   position: relative;
   z-index: 0;
   margin-top: rem(50);
-  padding-block: rem(194) rem(155);
+  padding-block: rem(194) rem(193);
 
   &::before {
     content: "";
@@ -239,10 +239,14 @@
   border-radius: 50%;
   transform: translateX(-50%);
 
+  // SPカンプは楕円ではなく直線で区切られた帯
   @include mq("sp") {
     top: rem(120);
-    width: rem(1020);
-    height: rem(1020);
+    left: 0;
+    width: 100%;
+    height: calc(100% - #{rem(120)});
+    border-radius: 0;
+    transform: none;
   }
 }
 

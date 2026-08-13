@@ -40,17 +40,12 @@
   }
 }
 
-// カンプでは2枚目だけ53px下げる
+// カンプでは2枚目だけ下げる（PC 85 / SP 53）。
+// .pic が display:contents なので .about-team__photo:last-child だと2枚とも一致してしまう。
 .about-team__photos .pic:last-child .about-team__photo {
-  @include mq("sp") {
-    margin-top: rem(53);
-  }
-}
-
-.about-team__photo:last-child {
   margin-top: rem(85);
 
   @include mq("sp") {
-    margin-top: rem(40);
+    margin-top: rem(53);
   }
 }
