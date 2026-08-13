@@ -9,6 +9,11 @@ $color-cta: #61b8ff; // SP固定CTA背景
 $color-bg: #fff; // ページ／カードの基本背景
 $color-bg-sub: #f2f2f2; // セクション背景（薄グレー）
 $color-bg-light: #d8ecfd; // 淡い水色の面（ナビのドロップダウン／アコーディオン）
+// バナー専用色。制作前チェックで「用途不明・1回のみ」と挙がっていたが、
+// 実データを追ったところ両方ともバナーの意匠色だった（入力ミスではない）。
+$color-instagram: #a61490; // Instagramバナーの枠
+$color-banner: #100e48; // 推薦バナーの帯
+
 $color-text: $color-main; // 基本の本文文字色
 $color-text-inverse: #fff; // 濃色背景上の白抜き文字
 $color-border: $color-accent; // 罫線・区切り線
