@@ -1,0 +1,292 @@
+@use "global" as *;
+
+/* ========================================
+  TOP / 当院について
+======================================== */
+
+.top-about {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(100);
+  }
+}
+
+.top-about__title {
+  margin-bottom: rem(70);
+
+  @include mq("sp") {
+    margin-bottom: rem(40);
+  }
+}
+
+// 1ブロック = グレー帯＋青カード＋写真。奇数/偶数で左右が入れ替わる。
+.top-about__block {
+  position: relative;
+  z-index: 0;
+  padding-top: rem(73);
+
+  @include mq("sp") {
+    padding-top: rem(52);
+  }
+}
+
+.top-about__block + .top-about__block {
+  margin-top: rem(40);
+
+  @include mq("sp") {
+    margin-top: rem(30);
+  }
+}
+
+// 背面のグレー帯（画面端まで伸ばす）
+.top-about__band {
+  position: absolute;
+  z-index: -1;
+  top: rem(36);
+  left: 0;
+  display: block;
+  width: calc(50% + #{rem(432)});
+  height: rem(411);
+  background-color: $color-bg-sub;
+  border-radius: 0 rem(20) rem(20) 0;
+
+  @include mq("sp") {
+    top: rem(15);
+    width: rem(360);
+    height: rem(537);
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+.top-about__block--reverse .top-about__band {
+  right: 0;
+  left: auto;
+  border-radius: rem(20) 0 0 rem(20);
+
+  @include mq("sp") {
+    border-radius: rem(10) 0 0 rem(10);
+  }
+}
+
+.top-about__block--pair .top-about__band {
+  @include mq("sp") {
+    height: rem(589);
+  }
+}
+
+// 青いカード（.inner の左端から画面右端まで伸ばす）
+.top-about__card {
+  margin-left: calc(50% - #{rem(540)});
+  padding-block: rem(41) rem(54);
+  background-color: $color-accent;
+  border-radius: rem(20) 0 0 rem(20);
+
+  @include mq("sp") {
+    margin-left: rem(15);
+    padding-block: 0 rem(37);
+    border-radius: rem(10) 0 0 rem(10);
+  }
+}
+
+.top-about__block--reverse .top-about__card {
+  margin-right: calc(50% - #{rem(540)});
+  margin-left: 0;
+  border-radius: 0 rem(20) rem(20) 0;
+
+  @include mq("sp") {
+    margin-right: rem(15);
+    margin-left: 0;
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+// カード内は .inner と同じ 1080px 幅。カード左端が .inner 左端と揃っているので中央寄せはしない。
+.top-about__card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(62);
+  width: rem(1080);
+  padding-left: rem(52);
+
+  // SPは「写真が上・本文が下」の縦積み（カンプの配置）
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(24);
+    width: 100%;
+    padding-inline: rem(18) 0;
+  }
+}
+
+.top-about__block--reverse .top-about__card-inner {
+  flex-direction: row-reverse;
+  width: rem(1080);
+  margin-left: auto;
+  padding-right: rem(52);
+  padding-left: 0;
+
+  @include mq("sp") {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    padding-inline: rem(30) 0;
+  }
+}
+
+.top-about__body {
+  width: rem(436);
+
+  @include mq("sp") {
+    width: rem(311);
+  }
+}
+
+.top-about__block--pair .top-about__body {
+  width: rem(472);
+
+  @include mq("sp") {
+    width: rem(311);
+  }
+}
+
+.top-about__heading {
+  font-family: $second-font;
+  font-size: rem(30);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.5;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.top-about__badge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: rem(16);
+  padding-inline: rem(10);
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 2.2;
+  background-color: $color-bg;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    margin-top: rem(11);
+    font-size: rem(16);
+  }
+}
+
+.top-about__text {
+  font-size: rem(18);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 2;
+
+  @include mq("sp") {
+    font-size: rem(16);
+    line-height: 2.2;
+  }
+}
+
+.top-about__badge + .top-about__text {
+  margin-top: rem(32);
+
+  @include mq("sp") {
+    margin-top: rem(28);
+  }
+}
+
+// 注釈の肩付き（カンプは本文18pxに対し11.61px = 0.645em）
+.top-about__sup {
+  font-size: 0.645em;
+}
+
+.top-about__note {
+  margin-top: rem(21);
+  font-size: rem(10);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.6;
+}
+
+// 写真
+.top-about__photos {
+  flex-shrink: 0;
+  width: rem(530);
+  margin-top: calc(#{rem(114)} * -1);
+
+  // SPは本文より上（カード上端から52px上にはみ出す）
+  @include mq("sp") {
+    order: -1;
+    width: rem(252);
+    margin-top: calc(#{rem(52)} * -1);
+    margin-inline: auto rem(12);
+  }
+}
+
+.top-about__block--reverse .top-about__photos {
+  @include mq("sp") {
+    margin-inline: 0 auto;
+  }
+}
+
+.top-about__photo {
+  width: 100%;
+  height: rem(376);
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(179);
+    border-radius: rem(10);
+  }
+}
+
+// 3ブロック目は写真が2枚。2枚目は83px下げる。
+.top-about__block--pair .top-about__photos {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(14);
+  width: rem(494);
+
+  @include mq("sp") {
+    gap: rem(13);
+    width: rem(253);
+    margin-top: calc(#{rem(52)} * -1);
+    margin-inline: auto rem(15);
+  }
+}
+
+.top-about__block--pair .top-about__photo {
+  width: rem(240);
+  height: rem(360);
+
+  @include mq("sp") {
+    width: rem(120);
+    height: rem(180);
+  }
+}
+
+.top-about__block--pair .pic:last-child .top-about__photo {
+  margin-top: rem(83);
+
+  @include mq("sp") {
+    margin-top: rem(42);
+  }
+}
+
+.top-about__more {
+  display: flex;
+  width: fit-content;
+  margin-top: rem(60);
+  margin-left: auto;
+
+  @include mq("sp") {
+    margin-top: rem(30);
+  }
+}
