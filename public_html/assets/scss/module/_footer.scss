@@ -19,6 +19,14 @@
   background-size: cover;
   background-position: center;
 
+  // SPカンプは縦位置の別トリミング。元画像から切り出したSP用を使う。
+  @include mq("sp") {
+    background-image: image-set(
+      url("/assets/img/footer/footer-sp.webp") type("image/webp"),
+      url("/assets/img/footer/footer-sp.jpg") type("image/jpeg")
+    );
+  }
+
   &::before {
     content: "";
     position: absolute;

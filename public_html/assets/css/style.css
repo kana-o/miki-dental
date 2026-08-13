@@ -3506,6 +3506,11 @@ select::-ms-expand {
   }
 
   .footer {
+    background-image: -webkit-image-set(url("/assets/img/footer/footer-sp.webp") type("image/webp"), url("/assets/img/footer/footer-sp.jpg") type("image/jpeg"));
+    background-image: image-set(url("/assets/img/footer/footer-sp.webp") type("image/webp"), url("/assets/img/footer/footer-sp.jpg") type("image/jpeg"));
+  }
+
+  .footer {
     padding-top: clamp(3.5 * 1rem, 5 * 1rem * var(--rem-scale), 6.5 * 1rem);
     padding-bottom: clamp(2.7125 * 1rem, 3.875 * 1rem * var(--rem-scale), 5.0375 * 1rem);
   }
@@ -4561,6 +4566,8 @@ select::-ms-expand {
 
   .about-counseling {
     padding-block: clamp(4.2875 * 1rem, 6.125 * 1rem * var(--rem-scale), 7.9625 * 1rem) clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
+    background-image: -webkit-image-set(url("/assets/img/counseling/counseling-sp.webp") type("image/webp"), url("/assets/img/counseling/counseling-sp.jpg") type("image/jpeg"));
+    background-image: image-set(url("/assets/img/counseling/counseling-sp.webp") type("image/webp"), url("/assets/img/counseling/counseling-sp.jpg") type("image/jpeg"));
   }
 
   .about-counseling {
@@ -4622,6 +4629,8 @@ select::-ms-expand {
     justify-content: center;
     padding-block: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
     padding-inline: clamp(0.9625 * 1rem, 1.375 * 1rem * var(--rem-scale), 1.7875 * 1rem);
+    background-image: -webkit-image-set(url("/assets/img/footer/pledge-sp.webp") type("image/webp"), url("/assets/img/footer/pledge-sp.jpg") type("image/jpeg"));
+    background-image: image-set(url("/assets/img/footer/pledge-sp.webp") type("image/webp"), url("/assets/img/footer/pledge-sp.jpg") type("image/jpeg"));
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 

@@ -345,8 +345,13 @@
     background-color: rgba($color-bg, 0.4);
   }
 
+  // SPカンプは縦位置の別トリミング。元画像から切り出したSP用を使う。
   @include mq("sp") {
     padding-block: rem(98) rem(100);
+    background-image: image-set(
+      url("/assets/img/counseling/counseling-sp.webp") type("image/webp"),
+      url("/assets/img/counseling/counseling-sp.jpg") type("image/jpeg")
+    );
   }
 
   @include mq("sp") {

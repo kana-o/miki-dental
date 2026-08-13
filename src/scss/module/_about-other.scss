@@ -134,13 +134,18 @@
     background-color: rgba($color-bg, 0.6);
   }
 
-  // SPカンプは 345×536・見出しy=100・本文y=184（見出し下40px）
+  // SPカンプは 345×536・見出しy=100・本文y=184（見出し下40px）。
+  // 背景写真も縦位置の別トリミングなので、元画像から切り出したSP用を使う。
   @include mq("sp") {
     gap: rem(40);
     min-height: rem(536);
     justify-content: center;
     padding-block: rem(100);
     padding-inline: rem(22);
+    background-image: image-set(
+      url("/assets/img/footer/pledge-sp.webp") type("image/webp"),
+      url("/assets/img/footer/pledge-sp.jpg") type("image/jpeg")
+    );
     border-radius: rem(10);
   }
 }
