@@ -25,7 +25,7 @@
   margin-top: rem(70);
 
   @include mq("sp") {
-    margin-top: rem(60);
+    margin-top: rem(40);
   }
 }
 
@@ -71,7 +71,7 @@
 
   @include mq("sp") {
     flex-direction: column;
-    gap: rem(24);
+    gap: rem(54);
   }
 }
 
@@ -81,6 +81,7 @@
   // SPカンプは反転行だけ本文が先・写真が後
   @include mq("sp") {
     flex-direction: column-reverse;
+    gap: rem(24);
   }
 }
 
@@ -122,7 +123,7 @@
   // SPカンプは 16px・行送り35px・段落間8px
   @include mq("sp") {
     gap: rem(8);
-    margin-top: rem(20);
+    margin-top: rem(24);
     line-height: 2.2;
   }
 }

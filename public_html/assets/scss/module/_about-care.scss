@@ -57,6 +57,13 @@
   width: 120.79%;
   max-width: none;
   height: auto;
+
+  // SPカンプは 375×483 の枠に 901×601 を (-263, -60) で置いている
+  @include mq("sp") {
+    top: -12.4%;
+    left: -70.1%;
+    width: 240.3%;
+  }
 }
 
 .about-care__lead-title {
@@ -112,10 +119,10 @@
   border-radius: rem(20);
   text-align: center;
 
-  // SPカンプは幅330px（x=24〜354）で中身は中央寄せ
+  // SPカンプは幅330px（x=24〜354）で中身は中央寄せ。hero写真に29px重なる。
   @include mq("sp") {
     max-width: rem(330);
-    margin-top: rem(30);
+    margin-top: calc(#{rem(29)} * -1);
     padding-block: rem(30);
     padding-inline: 0;
     border-radius: rem(10);
@@ -136,6 +143,7 @@
     flex-direction: column;
     align-items: center;
     gap: rem(9);
+    margin-top: rem(24);
   }
 }
 
@@ -160,8 +168,8 @@
     width: rem(185);
     height: rem(116);
     padding-inline: rem(10);
-    font-size: rem(15);
-    line-height: 1.3;
+    font-size: rem(13);
+    line-height: 1.52;
   }
 }
 
@@ -203,19 +211,20 @@
     min-height: 0;
     margin-top: rem(70);
     margin-inline: auto;
-    padding-block: rem(16);
+    padding-block: rem(20);
     padding-inline: rem(16);
-    font-size: rem(14);
+    font-size: rem(16);
+    line-height: 1.8125;
     text-align: center;
 
     &::before {
       z-index: -1;
       top: calc(#{rem(111)} * -1);
       bottom: auto;
-      left: rem(190);
+      left: 50%;
       width: rem(110);
       height: rem(111);
-      transform: none;
+      transform: translateX(-50%);
     }
   }
 }
