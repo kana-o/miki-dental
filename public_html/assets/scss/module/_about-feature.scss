@@ -33,9 +33,14 @@
     margin-top: rem(60);
     padding-block: 0 rem(60);
 
+    // SPカンプは写真帯が 375×788（見出しの25px下から）。写真も別トリミング。
     &::before {
-      top: rem(30);
-      height: rem(420);
+      top: rem(25);
+      height: rem(788);
+      background-image: image-set(
+        url("/assets/img/about/about-05-sp.webp") type("image/webp"),
+        url("/assets/img/about/about-05-sp.jpg") type("image/jpeg")
+      );
     }
   }
 }
@@ -95,8 +100,10 @@
   color: $color-main;
   line-height: 1.6;
 
-  // SPカンプも 16px・行送り25px（PCと同じ）。段落間だけ8pxに詰まる。
+  // SPカンプは 14px・行送り25px（290px幅に20文字入る）。段落間は8px。
   @include mq("sp") {
     gap: rem(8);
+    font-size: rem(14);
+    line-height: 1.786;
   }
 }

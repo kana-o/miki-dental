@@ -29,6 +29,7 @@
 .about-care__hero {
   position: relative;
   z-index: 0;
+  overflow: hidden;
   margin-top: rem(50);
   padding-block: rem(194) rem(193);
 
@@ -46,13 +47,16 @@
   }
 }
 
+// カンプは 1600×601 の枠に 1932.53×1289 の写真を top -155px で置いている。
+// object-fit: cover だと寄り方が変わるので、実寸比（幅120.79% / 上-25.8%）で合わせる。
 .about-care__hero-img {
   position: absolute;
   z-index: -2;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  top: -25.8%;
+  left: 0;
+  width: 120.79%;
+  max-width: none;
+  height: auto;
 }
 
 .about-care__lead-title {
@@ -334,8 +338,9 @@
     url("/assets/img/counseling/counseling.webp") type("image/webp"),
     url("/assets/img/counseling/counseling.jpg") type("image/jpeg")
   );
-  background-size: cover;
-  background-position: center;
+  // カンプは 1600×601 の枠に写真を 1798px 幅で置き、少し左上を見せている
+  background-size: 112.4% auto;
+  background-position: 46.4% 45.6%;
 
   &::before {
     content: "";
@@ -352,6 +357,8 @@
       url("/assets/img/counseling/counseling-sp.webp") type("image/webp"),
       url("/assets/img/counseling/counseling-sp.jpg") type("image/jpeg")
     );
+    background-size: cover;
+    background-position: center;
   }
 
   @include mq("sp") {

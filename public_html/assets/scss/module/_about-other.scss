@@ -32,7 +32,7 @@
   display: flex;
   align-items: flex-start;
   gap: rem(45);
-  margin-top: rem(114);
+  margin-top: rem(70);
 
   @include mq("sp") {
     flex-direction: column;
@@ -69,20 +69,17 @@
   margin-top: rem(30);
 }
 
+// カンプのラベルは 20px・帯の高さ32px・左右padding6px（PC/SP共通）
 .about-other__item-title .tag {
+  padding-block: rem(2);
   padding-inline: rem(6);
-  line-height: 2;
-
-  @include mq("sp") {
-    padding-block: rem(2);
-    font-size: rem(20);
-    line-height: 1.6;
-  }
+  font-size: rem(20);
+  line-height: 1.6;
 }
 
 .about-other__text {
   width: 100%;
-  margin-top: rem(24);
+  margin-top: rem(12);
   font-size: rem(16);
   font-weight: $regular;
   color: $color-text-inverse;
