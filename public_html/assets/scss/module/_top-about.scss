@@ -46,6 +46,8 @@
   top: rem(36);
   left: 0;
   display: block;
+  // 中間幅で 50%+432 が画面幅を超えるため上限をつける
+  max-width: 100%;
   width: calc(50% + #{rem(432)});
   height: rem(411);
   // カンプは単色ではなく青みグレーの細かいノイズ地。
