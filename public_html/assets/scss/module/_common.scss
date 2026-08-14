@@ -1,5 +1,10 @@
 @use "global" as *;
 
+/* ========================================
+  共通パーツ
+======================================== */
+
+/* --- レイアウト・ユーティリティ ------------------------------------------------ */
 
 /* 共通パーツ */
 // 基準幅は 1080px。900 / 980 のセクションはページ固有クラスを併記して絞る。
@@ -64,3 +69,683 @@
   }
 }
 
+/* --- ロゴ ------------------------------------------------ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: rem(2);
+  width: rem(300);
+  height: rem(68);
+  padding-inline: rem(9) rem(17);
+  background-color: $color-bg;
+  border-radius: rem(10);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+
+  @include mq("sp") {
+    width: rem(198);
+    height: rem(45);
+    padding-inline: rem(6) rem(11);
+    border-radius: rem(4);
+  }
+}
+
+// フッター用（ヘッダーより一回り大きい）
+.logo--footer {
+  width: rem(359);
+  height: rem(81);
+  padding-inline: rem(11) rem(20);
+
+  @include mq("sp") {
+    width: rem(263);
+    height: rem(59);
+    padding-inline: rem(9) rem(15);
+    border-radius: rem(7);
+  }
+}
+
+.logo__mark {
+  flex-shrink: 0;
+  width: rem(53);
+  height: rem(53);
+
+  @include mq("sp") {
+    width: rem(35);
+    height: rem(35);
+  }
+}
+
+.logo--footer .logo__mark {
+  width: rem(63);
+  height: rem(63);
+
+  @include mq("sp") {
+    width: rem(46);
+    height: rem(46);
+  }
+}
+
+.logo__text {
+  width: rem(219);
+  height: auto;
+
+  @include mq("sp") {
+    width: rem(145);
+  }
+}
+
+.logo--footer .logo__text {
+  width: rem(263);
+
+  @include mq("sp") {
+    width: rem(192);
+  }
+}
+
+/* --- バッジ（駐車場完備 等） ------------------------------------------------ */
+
+// PCはヘッダー内、SPはヘッダー直下に置かれる（カンプの配置が異なるだけで意匠は共通）
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: rem(10);
+
+  @include mq("sp") {
+    justify-content: center;
+    gap: rem(8);
+  }
+}
+
+.badge {
+  padding-block: rem(4);
+  padding-inline: rem(8);
+  font-size: rem(13);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  background-color: $color-accent-sub;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    font-size: rem(11);
+  }
+}
+
+/* --- タグ（見出し下の小見出しラベル） ------------------------------------------------ */
+
+// カンプでは折り返すと帯が行ごとに分かれる（1つの矩形にならない）。
+// そのため inline + box-decoration-break: clone で組む。
+// 帯の高さは padding-block、帯どうしの間隔は line-height で決まる。
+.tag {
+  display: inline;
+  padding-block: rem(8);
+  padding-inline: rem(10);
+  font-family: $second-font;
+  font-weight: $bold;
+  line-height: 2.6;
+  border-radius: rem(4);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+// 白地・紺文字（青カードの上で使う。当院について）
+.tag--light {
+  font-size: rem(18);
+  color: $color-main;
+  background-color: $color-bg;
+}
+
+// 青地・白文字（淡色背景の上で使う。院内紹介）
+.tag--fill {
+  font-size: rem(20);
+  color: $color-text-inverse;
+  background-color: $color-accent;
+
+  // SPカンプの帯は高さ42px・帯どうしのピッチ49px
+  @include mq("sp") {
+    padding-block: rem(7);
+    line-height: 2.45;
+  }
+}
+
+// 大サイズ（スタッフ紹介）。SPカンプ実測は 20px・帯の高さ42px・帯どうしのピッチ49px。
+// PCカンプは --light と同じ18pxなので、SPだけ上書きする。
+// --light / --fill の後ろに置いて font-size を上書きする。
+.tag--lg {
+  @include mq("sp") {
+    padding-block: rem(7);
+    font-size: rem(20);
+    line-height: 2.45;
+  }
+}
+
+/* --- マーカー（本文中の太字＋帯） ------------------------------------------------ */
+
+// カンプでは太字テキストの裏に #10355d の帯（高さ13px）が敷かれている。
+// 行をまたぐので box-decoration-break: clone で各行に帯を付ける。
+.marker {
+  font-weight: $bold;
+  background-image: linear-gradient($color-main 0 0);
+  background-size: 100% rem(13);
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+// 淡色背景の上で使う白い帯（院内紹介）
+.marker--light {
+  background-image: linear-gradient($color-bg 0 0);
+}
+
+/* --- セクション見出し ------------------------------------------------ */
+
+// 共通クラスは見た目のみ。上下の余白は併記するページ固有クラスで制御する。
+.section-title {
+  font-family: $second-font;
+  font-size: rem(50);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(30);
+  }
+}
+
+/* --- もっと詳しく／矢印リンク ------------------------------------------------ */
+
+// 共通クラスは見た目のみ。配置・余白は併記するページ固有クラスで制御する。
+// 既定は淡色背景用（青丸＋白矢印）。濃色背景では .more--light を併記する。
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(18);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(4);
+  }
+
+  @include mq("sp") {
+    gap: rem(16);
+  }
+}
+
+.more__text {
+  font-family: $second-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  @include mq("sp") {
+    font-size: rem(18);
+  }
+}
+
+.more__icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(51);
+  height: rem(51);
+  background-image: url("/assets/img/common/icon-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s;
+
+  @include mq("sp") {
+    width: rem(50);
+    height: rem(50);
+  }
+}
+
+// 濃色背景用（白丸＋青矢印・ひと回り小さい）
+.more--light .more__text {
+  font-size: rem(16);
+  color: $color-text-inverse;
+}
+
+.more--light .more__icon {
+  width: rem(35);
+  height: rem(35);
+  background-image: url("/assets/img/common/icon-arrow-white.svg");
+}
+
+.more--light {
+  gap: rem(8);
+
+  &:focus-visible {
+    outline-color: $color-text-inverse;
+  }
+}
+
+@media (any-hover: hover) {
+  .more:hover .more__icon {
+    transform: translateX(rem(4));
+  }
+}
+
+/* --- ボタン ------------------------------------------------ */
+
+// `.more` に併記して使う。`.more` が中身（テキスト＋丸矢印）、`.btn` が白い面を担う。
+// <a href="..." class="more btn"> … </a>
+.btn {
+  gap: rem(10);
+  padding-block: rem(18);
+  padding-inline: rem(22);
+  background-color: $color-bg;
+  border-radius: rem(6);
+
+  @include mq("sp") {
+    gap: rem(10);
+    padding: rem(14);
+  }
+}
+
+/* --- 予約CTA ------------------------------------------------ */
+
+// PC: 900×172 の横並び / SP: 330×260 の縦並び（カンプでは別コンポーネント）
+.cta {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(39);
+  width: 100%;
+  max-width: rem(900);
+  padding-block: rem(25) rem(24);
+  padding-inline: rem(41) rem(20);
+  margin-inline: auto;
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(19);
+    max-width: rem(330);
+    padding-block: rem(24);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.cta__mark {
+  flex-shrink: 0;
+  width: rem(128);
+  height: rem(128);
+
+  @include mq("sp") {
+    width: rem(68);
+    height: rem(68);
+  }
+}
+
+.cta__body {
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.cta__lead {
+  font-size: rem(20);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.4;
+
+  @include mq("sp") {
+    font-size: rem(16);
+    text-align: center;
+  }
+}
+
+.cta__tel {
+  display: flex;
+  align-items: center;
+  gap: rem(7);
+  margin-top: rem(9);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(4);
+  }
+
+  @include mq("sp") {
+    justify-content: center;
+    gap: rem(9);
+    margin-top: rem(19);
+  }
+}
+
+.cta__tel-icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(48);
+  height: rem(48);
+  background-color: $color-main;
+  mask-image: url("/assets/img/common/icon-tel-solid.png");
+  transform: scaleY(-1);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  @include mq("sp") {
+    width: rem(26);
+    height: rem(26);
+  }
+}
+
+.cta__tel-number {
+  font-size: rem(50);
+  font-weight: $bold;
+  color: $color-main;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  @include mq("sp") {
+    font-size: rem(30);
+  }
+}
+
+.cta__hours {
+  margin-top: rem(7);
+  font-size: rem(16);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.2;
+
+  @include mq("sp") {
+    margin-top: rem(16);
+    text-align: left;
+  }
+}
+
+// SPでは「お電話受付時間：」「時間」「休診」が3行に分かれる
+.cta__hours-label {
+  @include mq("sp") {
+    display: block;
+    font-size: rem(10);
+    line-height: 1.4;
+  }
+}
+
+.cta__hours-time {
+  @include mq("sp") {
+    display: block;
+    margin-top: rem(6);
+    font-size: rem(11);
+    line-height: 1.4;
+  }
+}
+
+.cta__hours-note {
+  @include mq("sp") {
+    display: block;
+    font-size: rem(11);
+    line-height: 1.4;
+  }
+}
+
+// SPで折り返すとき、括弧内の途中で切れないようにする
+.cta__hours-sat {
+  white-space: nowrap;
+}
+
+/* --- PC固定サイドナビ ------------------------------------------------ */
+
+.side-nav {
+  position: fixed;
+  z-index: 90;
+  top: 50%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(60);
+  padding-block: rem(17) rem(21);
+  background-color: $color-cta;
+  border-top-left-radius: rem(8);
+  border-bottom-left-radius: rem(8);
+  transform: translateY(-50%);
+
+  @include mq("sp") {
+    display: none;
+  }
+}
+
+.side-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: calc(#{rem(4)} * -1);
+  }
+}
+
+// 2項目目の上に白い区切り線（カンプは 36×1）
+.side-nav__item--divided {
+  position: relative;
+  z-index: 0;
+  margin-top: rem(19);
+  padding-top: rem(17);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: rem(36);
+    height: rem(1);
+    background-color: $color-text-inverse;
+    transform: translateX(-50%);
+  }
+}
+
+.side-nav__icon {
+  width: rem(32);
+  height: auto;
+  margin-bottom: rem(6);
+}
+
+// 縦書き
+.side-nav__text {
+  font-size: rem(16);
+  font-weight: $medium;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  writing-mode: vertical-rl;
+}
+
+/* --- SP固定CTA ------------------------------------------------ */
+
+// ⚠ 白文字 × #61b8ff はコントラスト比 2.14:1 で WCAG AA 不合格。
+// ユーザー判断でカンプどおりに実装している（改善はクライアント確認後）。
+.sp-cta {
+  position: fixed;
+  z-index: 90;
+  bottom: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: rem(60);
+  background-color: $color-cta;
+  container-type: inline-size;
+
+  @include mq("sp") {
+    --rem-scale: calc(100cqi / 375px);
+
+    display: block;
+  }
+}
+
+.sp-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: rem(330);
+  height: 100%;
+  margin-inline: auto;
+}
+
+.sp-cta__item {
+  display: flex;
+  align-items: center;
+  gap: rem(6);
+  height: rem(44);
+  font-size: rem(16);
+  font-weight: $medium;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-text-inverse;
+    outline-offset: calc(#{rem(2)} * -1);
+  }
+}
+
+// アイコンだけの項目もタップ領域44×44を確保する
+.sp-cta__item--icon {
+  justify-content: center;
+  min-width: rem(44);
+}
+
+.sp-cta__tel-icon {
+  display: block;
+  width: rem(20);
+  height: rem(20);
+  background-color: $color-text-inverse;
+  mask-image: url("/assets/img/common/icon-tel.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.sp-cta__line-icon {
+  width: rem(20);
+  height: auto;
+}
+
+.sp-cta__divider {
+  display: block;
+  flex-shrink: 0;
+  width: rem(1);
+  height: rem(44);
+  background-color: $color-text-inverse;
+}
+
+/* --- 下層ページのFV ------------------------------------------------ */
+
+// 下端が楕円のカーブになった青ベタ。
+// カンプは 2114×599 の楕円を top:-169 に置いて、その下端(y=430)がカーブになる。
+.page-head {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  height: rem(430);
+
+  @include mq("sp") {
+    height: rem(220);
+  }
+}
+
+.page-head__bg {
+  position: absolute;
+  top: calc(#{rem(169)} * -1);
+  left: 50%;
+  overflow: hidden;
+  display: block;
+  width: rem(2114);
+  height: rem(599);
+  background-color: $color-accent;
+  border-radius: 50%;
+  transform: translateX(-50%);
+
+  @include mq("sp") {
+    top: calc(#{rem(120)} * -1);
+    width: rem(1100);
+    height: rem(340);
+  }
+}
+
+.page-head__watermark {
+  // カンプ座標は PC (260, -371) 1081×1081 / SP (26, -23) 322×322。
+  // 以前は楕円マスクのオフセット(-385, -561)を足してしまっていた。
+  position: absolute;
+  top: calc(#{rem(371)} * -1);
+  left: rem(260);
+  display: block;
+  width: rem(1081);
+  height: rem(1081);
+  background-image: url("/assets/img/fv/fv-watermark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include mq("sp") {
+    top: calc(#{rem(23)} * -1);
+    left: rem(26);
+    width: rem(322);
+    height: rem(322);
+  }
+}
+
+.page-head__title {
+  position: relative;
+  z-index: 10;
+  padding-top: rem(231);
+  font-family: $second-font;
+  font-size: rem(36);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.5;
+  text-align: center;
+
+  @include mq("sp") {
+    padding-top: rem(120);
+    font-size: rem(24);
+  }
+}
+
+/* ========================================
+  Breadcrumb
+======================================== */
+
+.breadcrumb {
+  padding-top: rem(5);
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: rem(8);
+}
+
+.breadcrumb__item {
+  font-size: rem(12);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.4;
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+  content: ">";
+  margin-right: rem(8);
+}
+
+.breadcrumb__link {
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+}
