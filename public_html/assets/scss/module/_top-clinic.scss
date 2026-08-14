@@ -109,7 +109,7 @@
   @include mq("sp") {
     margin-top: rem(24);
     font-size: rem(16);
-    line-height: 1.9;
+    line-height: 2.2;
   }
 }
 
@@ -118,7 +118,7 @@
   line-height: 1.8;
 
   @include mq("sp") {
-    line-height: 1.9;
+    line-height: 2.2;
   }
 }
 

@@ -9,7 +9,7 @@
 // 帯の高さは padding-block、帯どうしの間隔は line-height で決まる。
 .tag {
   display: inline;
-  padding-block: rem(9);
+  padding-block: rem(8);
   padding-inline: rem(10);
   font-family: $second-font;
   font-weight: $bold;

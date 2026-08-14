@@ -127,7 +127,7 @@
 
   @include mq("sp") {
     padding-block: rem(16) rem(20);
-    padding-inline: rem(17);
+    padding-inline: rem(7.5);
   }
 }
 
@@ -146,6 +146,6 @@
   margin-top: rem(29);
 
   @include mq("sp") {
-    margin-top: rem(20);
+    margin-top: rem(24);
   }
 }

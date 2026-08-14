@@ -261,7 +261,7 @@ select::-ms-expand {
 
 .tag {
   display: inline;
-  padding-block: clamp(0.39375 * 1rem, 0.5625 * 1rem * var(--rem-scale), 0.73125 * 1rem);
+  padding-block: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
   padding-inline: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 700;
@@ -1488,7 +1488,7 @@ select::-ms-expand {
 }
 
 .top-about__badge + .top-about__text {
-  margin-top: clamp(1.4 * 1rem, 2 * 1rem * var(--rem-scale), 2.6 * 1rem);
+  margin-top: clamp(0.91875 * 1rem, 1.3125 * 1rem * var(--rem-scale), 1.70625 * 1rem);
 }
 
 .top-about__sup {
@@ -1496,7 +1496,7 @@ select::-ms-expand {
 }
 
 .top-about__note {
-  margin-top: clamp(0.91875 * 1rem, 1.3125 * 1rem * var(--rem-scale), 1.70625 * 1rem);
+  margin-top: clamp(0.525 * 1rem, 0.75 * 1rem * var(--rem-scale), 0.975 * 1rem);
   font-size: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   font-weight: 400;
   color: #fff;
@@ -3741,7 +3741,7 @@ select::-ms-expand {
   }
 
   .top-about__badge {
-    margin-top: clamp(0.48125 * 1rem, 0.6875 * 1rem * var(--rem-scale), 0.89375 * 1rem);
+    margin-top: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
   }
 
   .top-about__text {
@@ -3750,7 +3750,7 @@ select::-ms-expand {
   }
 
   .top-about__badge + .top-about__text {
-    margin-top: clamp(1.225 * 1rem, 1.75 * 1rem * var(--rem-scale), 2.275 * 1rem);
+    margin-top: clamp(0.74375 * 1rem, 1.0625 * 1rem * var(--rem-scale), 1.38125 * 1rem);
   }
 
   .top-about__photos {
@@ -3907,11 +3907,11 @@ select::-ms-expand {
   .top-clinic__text {
     margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
     font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
-    line-height: 1.9;
+    line-height: 2.2;
   }
 
   .top-clinic__text--narrow {
-    line-height: 1.9;
+    line-height: 2.2;
   }
 
   .top-clinic__photos {
@@ -4067,7 +4067,7 @@ select::-ms-expand {
 
   .top-faq__panel {
     padding-block: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem) clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
-    padding-inline: clamp(0.74375 * 1rem, 1.0625 * 1rem * var(--rem-scale), 1.38125 * 1rem);
+    padding-inline: clamp(0.328125 * 1rem, 0.46875 * 1rem * var(--rem-scale), 0.609375 * 1rem);
   }
 
   .top-faq__answer {
@@ -4075,7 +4075,7 @@ select::-ms-expand {
   }
 
   .top-faq__answer + .top-faq__answer {
-    margin-top: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+    margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
   }
 
   .top-reserve {
@@ -4088,7 +4088,7 @@ select::-ms-expand {
 
   .top-reserve__lead {
     margin-bottom: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
-    font-size: clamp(0.6125 * 1rem, 0.875 * 1rem * var(--rem-scale), 1.1375 * 1rem);
+    line-height: 2;
     text-align: left;
   }
 

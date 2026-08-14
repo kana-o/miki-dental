@@ -28,9 +28,10 @@
   line-height: 1.8;
   text-align: center;
 
+  // SPカンプは 16px・行送り32px（345px幅で5行 = 160px）
   @include mq("sp") {
     margin-bottom: rem(30);
-    font-size: rem(14);
+    line-height: 2;
     text-align: left;
   }
 }

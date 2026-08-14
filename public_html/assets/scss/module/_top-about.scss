@@ -175,7 +175,7 @@
   margin-top: rem(16);
 
   @include mq("sp") {
-    margin-top: rem(11);
+    margin-top: rem(15);
   }
 }
 
@@ -192,10 +192,10 @@
 }
 
 .top-about__badge + .top-about__text {
-  margin-top: rem(32);
+  margin-top: rem(21);
 
   @include mq("sp") {
-    margin-top: rem(28);
+    margin-top: rem(17);
   }
 }
 
@@ -205,7 +205,7 @@
 }
 
 .top-about__note {
-  margin-top: rem(21);
+  margin-top: rem(12);
   font-size: rem(10);
   font-weight: $regular;
   color: $color-text-inverse;
