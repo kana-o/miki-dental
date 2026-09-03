@@ -601,11 +601,12 @@
   background-repeat: no-repeat;
   background-size: contain;
 
+  // カンプ実測（SP）: (47,34) 345x256
   @include mq("sp") {
-    top: rem(60);
-    left: rem(-20);
-    width: rem(360);
-    height: rem(268);
+    top: rem(34);
+    left: rem(47);
+    width: rem(345);
+    height: rem(256);
   }
 }
 
@@ -625,8 +626,8 @@
 
   @include mq("sp") {
     // カンプ実測（4枚クラスター）
-    top: 0;
-    left: rem(189);
+    top: rem(110);
+    left: rem(79);
     width: rem(124);
     height: rem(89);
   }
@@ -639,8 +640,8 @@
   height: rem(240);
 
   @include mq("sp") {
-    top: rem(110);
-    left: rem(32);
+    top: rem(129);
+    left: rem(236);
     width: rem(124);
     height: rem(89);
   }
@@ -653,8 +654,8 @@
   height: rem(240);
 
   @include mq("sp") {
-    top: rem(129);
-    left: rem(189);
+    top: rem(235);
+    left: rem(79);
     width: rem(124);
     height: rem(89);
   }
@@ -667,8 +668,8 @@
   height: rem(240);
 
   @include mq("sp") {
-    top: rem(235);
-    left: rem(32);
+    top: rem(0);
+    left: rem(236);
     width: rem(124);
     height: rem(89);
   }

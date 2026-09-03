@@ -847,7 +847,9 @@
   text-align: center;
 
   @include mq("sp") {
-    // カンプ実測: h1 は y=127 / fontSize 30（従来の120・24はカンプ未確認値）
+    // カンプ実測: h1 は y=127 / fontSize 30 / 折り返し幅 269px（全ページ共通）
+    max-width: rem(269);
+    margin-inline: auto;
     padding-top: rem(127);
     font-size: rem(30);
   }

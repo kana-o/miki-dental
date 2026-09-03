@@ -418,3 +418,8 @@
 .price-note-mark {
   color: $color-alert;
 }
+
+// カンプ実測: この行だけアイコンが付かず、本文が inner の左端から始まる
+.price-check-list__item--plain {
+  font-weight: $regular;
+}
