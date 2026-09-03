@@ -6749,12 +6749,11 @@ select::-ms-expand {
 .clinic-room__text {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
   margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
   font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
   font-weight: 400;
   color: #10355d;
-  line-height: 1.8;
+  line-height: 2;
 }
 
 .clinic-room--light .clinic-room__text {
@@ -10935,7 +10934,11 @@ select::-ms-expand {
 
   .clinic-room__text {
     margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
-    line-height: 1.7;
+    line-height: 2.2;
+  }
+
+  .clinic-room--light .clinic-room__text {
+    line-height: 1.8;
   }
 
   .clinic-room__photo {

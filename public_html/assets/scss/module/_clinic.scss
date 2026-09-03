@@ -201,19 +201,28 @@
   margin: 0;
 }
 
+// カンプは各ブロックの本文が1テキストノード（改行はノード内の手動改行）なので、
+// 段落間の隙間は持たせない。行間はカンプ実測で PC 200% / SP 220%。
 .clinic-room__text {
   display: flex;
   flex-direction: column;
-  gap: rem(4);
   margin-top: rem(24);
   font-size: rem(16);
   font-weight: $regular;
   color: $color-main;
-  line-height: 1.8;
+  line-height: 2;
 
   @include mq("sp") {
     margin-top: rem(24);
-    line-height: 1.7;
+    line-height: 2.2;
+  }
+}
+
+// 子どもエリアの3ブロック（プレイルーム／治療ルーム／デルフィーノ）だけ
+// カンプのSP行間が 180%（大人エリアの220%と異なる）
+.clinic-room--light .clinic-room__text {
+  @include mq("sp") {
+    line-height: 1.8;
   }
 }
 
