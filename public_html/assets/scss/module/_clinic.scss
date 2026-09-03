@@ -157,6 +157,37 @@
   }
 }
 
+// プレイルームだけ SP の並びが「タグ → 本文 → メイン写真 → サブ写真2枚」で、
+// 単純な column / column-reverse では作れない。body を display:contents にして
+// 中身を inner のフレックスに直接載せ、order で並べ替える。
+.clinic-room--photo-mid.clinic-room--reverse {
+  @include mq("sp") {
+    .clinic-room__inner {
+      flex-direction: column;
+    }
+
+    .clinic-room__body {
+      display: contents;
+    }
+
+    .clinic-room__tag {
+      order: 1;
+    }
+
+    .clinic-room__text {
+      order: 2;
+    }
+
+    .clinic-room__photo {
+      order: 3;
+    }
+
+    .clinic-room__sub-photo-group {
+      order: 4;
+    }
+  }
+}
+
 .clinic-room--light {
   margin-top: rem(60);
 
@@ -375,7 +406,7 @@
 
   @include mq("sp") {
     top: 0;
-    left: rem(179);
+    left: rem(164);
     width: rem(175);
     height: rem(124);
   }
@@ -388,9 +419,10 @@
   width: rem(268);
   height: rem(192);
 
+  // カンプ実測（SP）: グループ左端(15)から101px
   @include mq("sp") {
     top: rem(140);
-    left: rem(116);
+    left: rem(101);
     width: rem(158);
     height: rem(113);
   }

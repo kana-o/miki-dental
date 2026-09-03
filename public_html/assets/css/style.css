@@ -11121,6 +11121,30 @@ select::-ms-expand {
     display: none;
   }
 
+  .clinic-room--photo-mid.clinic-room--reverse .clinic-room__inner {
+    flex-direction: column;
+  }
+
+  .clinic-room--photo-mid.clinic-room--reverse .clinic-room__body {
+    display: contents;
+  }
+
+  .clinic-room--photo-mid.clinic-room--reverse .clinic-room__tag {
+    order: 1;
+  }
+
+  .clinic-room--photo-mid.clinic-room--reverse .clinic-room__text {
+    order: 2;
+  }
+
+  .clinic-room--photo-mid.clinic-room--reverse .clinic-room__photo {
+    order: 3;
+  }
+
+  .clinic-room--photo-mid.clinic-room--reverse .clinic-room__sub-photo-group {
+    order: 4;
+  }
+
   .clinic-room--light {
     margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
   }
@@ -11201,14 +11225,14 @@ select::-ms-expand {
 
   .clinic-room__sub-photo--a {
     top: 0;
-    left: clamp(7.83125 * 1rem, 11.1875 * 1rem * var(--rem-scale), 14.54375 * 1rem);
+    left: clamp(7.175 * 1rem, 10.25 * 1rem * var(--rem-scale), 13.325 * 1rem);
     width: clamp(7.65625 * 1rem, 10.9375 * 1rem * var(--rem-scale), 14.21875 * 1rem);
     height: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
   }
 
   .clinic-room__sub-photo--b {
     top: clamp(6.125 * 1rem, 8.75 * 1rem * var(--rem-scale), 11.375 * 1rem);
-    left: clamp(5.075 * 1rem, 7.25 * 1rem * var(--rem-scale), 9.425 * 1rem);
+    left: clamp(4.41875 * 1rem, 6.3125 * 1rem * var(--rem-scale), 8.20625 * 1rem);
     width: clamp(6.9125 * 1rem, 9.875 * 1rem * var(--rem-scale), 12.8375 * 1rem);
     height: clamp(4.94375 * 1rem, 7.0625 * 1rem * var(--rem-scale), 9.18125 * 1rem);
   }
