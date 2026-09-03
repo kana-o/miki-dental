@@ -4718,6 +4718,8 @@ select::-ms-expand {
 }
 
 .pedprev-flow__caption {
+  position: relative;
+  z-index: 3;
   width: clamp(9.625 * 1rem, 13.75 * 1rem * var(--rem-scale), 17.875 * 1rem);
   margin-top: calc(clamp(1.53125 * 1rem, 2.1875 * 1rem * var(--rem-scale), 2.84375 * 1rem) * -1);
   margin-inline: auto;
@@ -10022,7 +10024,7 @@ select::-ms-expand {
     margin-top: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     margin-left: 0;
     background-image: url("/assets/img/pedprev/arrow-sp.svg");
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(180deg);
   }
 
   .pedprev-flow__badge {
@@ -10039,6 +10041,7 @@ select::-ms-expand {
   .pedprev-flow__caption {
     width: clamp(9.31875 * 1rem, 13.3125 * 1rem * var(--rem-scale), 17.30625 * 1rem);
     margin-top: calc(clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem) * -1);
+    font-size: clamp(0.678125 * 1rem, 0.96875 * 1rem * var(--rem-scale), 1.259375 * 1rem);
   }
 
   .pedprev-reserve {

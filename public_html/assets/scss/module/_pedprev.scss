@@ -188,7 +188,8 @@
     margin-top: rem(10);
     margin-left: 0;
     background-image: url("/assets/img/pedprev/arrow-sp.svg");
-    transform: translateX(-50%);
+    // カンプ実測: SPの矢印は rotation 180°（下向き）。素材は上向きなので反転する
+    transform: translateX(-50%) rotate(180deg);
   }
 }
 
@@ -230,6 +231,9 @@
 }
 
 .pedprev-flow__caption {
+  // 白い地が写真の下に潜っていたので最前面に出す
+  position: relative;
+  z-index: 3;
   width: rem(220);
   margin-top: calc(#{rem(35)} * -1);
   margin-inline: auto;
@@ -243,9 +247,11 @@
   background-color: $color-bg;
   border-radius: rem(10);
 
+  // カンプ実測: SPは fontSize 15.5。16pxだと「しっかり綺麗になったよ」が2行に折り返す
   @include mq("sp") {
     width: rem(213);
     margin-top: calc(#{rem(30)} * -1);
+    font-size: rem(15.5);
   }
 }
 
