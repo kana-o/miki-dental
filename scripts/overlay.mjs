@@ -24,16 +24,28 @@ const br = await chromium.launch();
 const ctx = await br.newContext({ viewport: { width: W, height: 1000 }, deviceScaleFactor: 1 });
 const pg = await ctx.newPage();
 await pg.goto(url, { waitUntil: 'networkidle' });
-// lazy 画像を全部読ませる
+// 画像を確実に描画させてから撮る。
+// loading="lazy" のままスクロールで読ませる方式だと、撮影時にまだ描画が済んでおらず
+// 「画像が無い」という偽の差分が出る（TOPのスタッフ集合写真で実際に誤検出した）。
 await pg.evaluate(async () => {
+  document.querySelectorAll('img').forEach((i) => { i.loading = 'eager'; });
+  document.querySelectorAll('img[data-src]').forEach((i) => { i.src = i.dataset.src; });
   await new Promise((r) => {
     let y = 0;
     const t = setInterval(() => {
-      window.scrollTo(0, y); y += 600;
-      if (y > document.body.scrollHeight) { clearInterval(t); window.scrollTo(0, 0); setTimeout(r, 700); }
-    }, 60);
+      window.scrollTo(0, y); y += 500;
+      if (y > document.body.scrollHeight) { clearInterval(t); window.scrollTo(0, 0); r(); }
+    }, 50);
   });
+  // 全画像の読み込み完了を待つ
+  await Promise.all([...document.images].map((i) => i.complete
+    ? Promise.resolve()
+    : new Promise((r) => { i.onload = i.onerror = r; })));
+  // デコード完了まで待つ（complete だけでは描画が間に合わないことがある）
+  await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));
 });
+await pg.waitForLoadState('networkidle');
+await pg.waitForTimeout(600);
 const shotPath = path.join(outDir, '_impl.png');
 await pg.screenshot({ path: shotPath, fullPage: true });
 await br.close();
