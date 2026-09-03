@@ -72,11 +72,11 @@ window.addEventListener('DOMContentLoaded', function () {
         delay: 0,
         disableOnInteraction: false,
       },
-      // 等速で流し続ける
-      freeMode: {
-        enabled: true,
-        momentum: false,
-      },
+      // loop の位置補正（loopFix）に必要な余分なスライド。
+      // これが足りないと1周ごとに translate が約195px巻き戻り、8秒おきにカクつく。
+      // freeMode は loopFix と競合して同じ症状を起こすため使わない
+      // （等速化は .swiper-wrapper の transition-timing-function: linear が担当）。
+      loopAdditionalSlides: 5,
       breakpoints: {
         // CSS の @include mq("sp") が max-width:768px なので 769 以上を PC とする
         769: {
