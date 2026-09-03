@@ -487,7 +487,7 @@
 .pediatric-worry__inner {
   max-width: rem(980);
   padding-block: rem(48);
-  background-color: rgb(255 255 255 / 86%);
+  background-color: rgba($color-bg, 0.86);
   border-radius: rem(20);
 
   @include mq("sp") {
