@@ -245,6 +245,13 @@
   background-color: $color-bg-sub;
   background-image: url("/assets/img/common/texture-gray.png");
   background-repeat: repeat;
+
+  // カンプ実測（SP）: 薄い帯は 360px幅・上から15px、青い帯とは15pxずれる
+  @include mq("sp") {
+    top: rem(15);
+    width: rem(360);
+    height: calc(100% - #{rem(15)});
+  }
 }
 
 // 青い帯（右端まで抜ける）
@@ -257,16 +264,35 @@
   left: rem(258);
   height: calc(100% - #{rem(70)});
   background-color: $color-accent;
+
+  // カンプ実測（SP）: 青い帯は 15px 右にずれて右端まで
+  @include mq("sp") {
+    top: rem(52);
+    left: rem(15);
+    height: calc(100% - #{rem(52)});
+  }
 }
 
 .recruit-charm__item--reverse::before {
   right: 0;
   left: auto;
+
+  // カンプ実測（SP）: 薄い帯が右に15pxずれる
+  @include mq("sp") {
+    right: 0;
+    left: auto;
+  }
 }
 
 .recruit-charm__item--reverse::after {
   right: rem(258);
   left: 0;
+
+  // カンプ実測（SP）: 青い帯は左端から360px
+  @include mq("sp") {
+    right: rem(15);
+    left: 0;
+  }
 }
 
 .recruit-charm__inner {
@@ -304,10 +330,20 @@
   object-fit: cover;
   border-radius: rem(20);
 
+  // カンプ実測（SP）: 幅252で右寄り（reverse は左寄り）に置かれる
   @include mq("sp") {
-    width: 100%;
+    width: rem(252);
     height: rem(179);
+    margin-right: rem(30);
+    margin-left: auto;
     border-radius: rem(10);
+  }
+}
+
+.recruit-charm__item--reverse .recruit-charm__photo {
+  @include mq("sp") {
+    margin-right: auto;
+    margin-left: rem(30);
   }
 }
 
@@ -333,7 +369,10 @@
 }
 
 .recruit-charm__label {
-  display: inline-block;
+  // カンプは折り返した行ごとに白地が付く（2行目も白箱になる）
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   margin-bottom: rem(20);
   padding-block: rem(2);
   padding-inline: rem(10);
