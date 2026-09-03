@@ -533,7 +533,9 @@
 /* --- 治療ユニットの写真クラスター（4枚重ね＋装飾） ------------------------------------------------ */
 
 .clinic-unit-cluster {
-  margin-top: rem(40);
+  // カンプでは4枚のクラスターが治療ユニットの青帯に食い込む（右上の写真 y=1526 は
+  // 帯の範囲 1338〜1755 の内側）。実装は帯の下に置いていたため約200px下がっていた。
+  margin-top: rem(-209);
 
   @include mq("sp") {
     margin-top: rem(30);
@@ -543,7 +545,8 @@
 .clinic-unit-cluster__inner {
   position: relative;
   z-index: 0;
-  height: rem(700);
+  // カンプ実測: 右上写真の上端(1526)〜左下写真の下端(2400) = 874
+  height: rem(874);
 
   @include mq("sp") {
     height: rem(324);
@@ -555,18 +558,24 @@
 // そのため repeating-radial-gradient によるスパイラル近似は廃止し、他セクションの
 // .clinic-room__band と同じ「単色パネル」表現に統一する。
 .clinic-unit-cluster__deco {
+  // カンプ実測: 青い矩形ではなく渦巻き模様のベクター（Group 1538:54242）。
+  // 930x692 を (518,1682) に配置＝コンテナ左端(240)から278・上端(1526)から156
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 0;
+  top: rem(156);
+  left: rem(278);
   display: block;
-  width: 55%;
-  height: 100%;
-  background-color: $color-accent;
-  border-radius: 0 rem(20) rem(20) 0;
+  width: rem(930);
+  height: rem(692);
+  background-image: url("/assets/img/clinic-page/unit-swirl.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 
   @include mq("sp") {
-    border-radius: 0 rem(10) rem(10) 0;
+    top: rem(60);
+    left: rem(-20);
+    width: rem(360);
+    height: rem(268);
   }
 }
 
@@ -579,8 +588,8 @@
 }
 
 .clinic-unit-cluster__photo--1 {
-  top: 0;
-  left: rem(430);
+  top: rem(296);
+  left: rem(343);
   width: rem(335);
   height: rem(240);
 
@@ -594,8 +603,8 @@
 }
 
 .clinic-unit-cluster__photo--2 {
-  top: rem(70);
-  left: rem(800);
+  top: rem(348);
+  left: rem(766);
   width: rem(335);
   height: rem(240);
 
@@ -608,8 +617,8 @@
 }
 
 .clinic-unit-cluster__photo--3 {
-  top: rem(340);
-  left: rem(430);
+  top: rem(634);
+  left: rem(343);
   width: rem(335);
   height: rem(240);
 
@@ -622,8 +631,8 @@
 }
 
 .clinic-unit-cluster__photo--4 {
-  top: rem(280);
-  left: rem(0);
+  top: rem(0);
+  left: rem(766);
   width: rem(335);
   height: rem(240);
 
