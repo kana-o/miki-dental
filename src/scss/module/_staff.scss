@@ -143,16 +143,34 @@
   display: flex;
   flex-direction: column;
   gap: rem(18);
+  position: relative;
   padding-right: rem(36);
-  border-right: rem(3) dashed $color-accent;
+
+  // カンプ実測: 破線ではなく丸ドット（strokeCap: ROUND / 直径3px・ピッチ11px）
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    @include dot-line($color-accent, 3, 8, vertical);
+  }
 
   @include mq("sp") {
     gap: rem(14);
     width: 100%;
     padding-right: 0;
     padding-bottom: rem(20);
-    border-right: 0;
-    border-bottom: rem(2) dashed $color-accent;
+
+    &::after {
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      @include dot-line($color-accent, 3, 8);
+    }
   }
 }
 
@@ -238,6 +256,11 @@
 .staff-doctor__note-title {
   font-weight: $bold;
   font-size: rem(12);
+
+  // カンプ実測: SPも左寄せ（中央寄せではない）
+  @include mq("sp") {
+    text-align: left;
+  }
 }
 
 /* --- スタッフ ------------------------------------------------ */
@@ -305,6 +328,11 @@
 
 .staff-team__item-title {
   margin-top: rem(30);
+
+  // カンプ実測: SPも左寄せ
+  @include mq("sp") {
+    text-align: left;
+  }
 }
 
 .staff-team__item-text {
@@ -333,15 +361,21 @@
   }
 }
 
+// カンプ実測: 枠 PC 1600x681 / SP 600x255（比率2.35）。
+// 素材は Figma の imageTransform どおり上下をトリミングして書き出し済みなので、
+// object-position の調整は不要。
 .staff-team__group-img {
   display: block;
   width: 100%;
   height: rem(681);
   object-fit: cover;
-  object-position: bottom;
 
+  // カンプSPは画面幅(375)より広い600pxで中央配置
   @include mq("sp") {
+    width: rem(600);
     height: rem(255);
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
 }
 
