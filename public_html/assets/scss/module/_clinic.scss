@@ -89,8 +89,10 @@
   margin-top: rem(60);
   background-image: url(/assets/img/clinic-page/wave-deco.svg);
   background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 100% 100%;
+  background-position: top center;
+  // SVGは 1748x400（波の描画は上から342pxまで）。100% 100% だと要素の高さ343に合わせて
+  // 縦に約86%まで潰れてしまうので、横幅基準で自然な比率のまま描く
+  background-size: 100% auto;
   transform: translateX(-50%);
 
   @include mq("sp") {
@@ -144,7 +146,9 @@
 .clinic-room__band {
   position: absolute;
   z-index: -1;
-  top: rem(20);
+  // カンプ実測: 青帯の上端はタグの下端（タグ上端+42px）にそろう。
+  // .clinic-room の上端はタグ上端より20px上なので 20+42=62。
+  top: rem(62);
   right: 0;
   display: block;
   width: 50%;
@@ -647,7 +651,8 @@
 
 .clinic-amenity__item {
   display: flex;
-  align-items: center;
+  // カンプ実測: 写真の上端とラベルの上端が揃う（中央揃えではない）
+  align-items: flex-start;
   gap: rem(16);
 }
 
@@ -745,14 +750,40 @@
 // カンプ実測: 項目間の見た目の間隔は各項目自身の上下パディング（46/25）で作られており、
 // リスト自体のgapは0（項目フレーム同士が隙間なく積み上がる）。
 .clinic-equip-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0;
   margin-top: rem(100);
 
+  // ペア（トレーニングルーム／セミナールーム）との境界にも同じ区切り線が入る
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(#{rem(50)} * -1);
+    left: 0;
+    width: 100%;
+    @include dot-line($color-accent, 3, 5);
+  }
+
   @include mq("sp") {
     gap: 0;
     margin-top: rem(50);
+  }
+}
+
+// カンプ実測: 各項目の境界に丸ドットの区切り線（#145aa6・直径3px・ピッチ8px）。
+// Figma上は各フレームの stroke（strokeDashes [0.1, 8] / strokeCap ROUND）として入っている。
+.clinic-equip-list__item + .clinic-equip-list__item {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include dot-line($color-accent, 3, 5);
   }
 }
 
