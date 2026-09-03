@@ -65,10 +65,10 @@ const imageWebp = () => {
     .pipe(gulp.dest(distPath.img));
 };
 
-// 画像（svg/png/jpg/gif）をそのままコピー（SVGや元画像の参照を有効にする）
+// 画像（svg/png/jpg/gif/ico）をそのままコピー（SVGや元画像・ファビコンの参照を有効にする）
 const imageCopy = () => {
   return gulp
-    .src(srcBase + '/img/**/*.+(jpg|jpeg|png|gif|svg)', { encoding: false })
+    .src(srcBase + '/img/**/*.+(jpg|jpeg|png|gif|svg|ico)', { encoding: false })
     .pipe(gulp.dest(distPath.img));
 };
 

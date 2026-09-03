@@ -1,0 +1,262 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（保隙・ほげき）
+======================================== */
+
+/* --- 見出し帯（青バッジ）------------------------------------------------ */
+// 3ブロック（保隙（ほげき）治療／保隙装置ってどんな装置なの？／実際はこんな装置です）で共通の見出し。
+// 意匠は module/_common.scss の .heading-band と完全一致のため、HTMLに .heading-band を併記する。
+
+/* --- 小見出し（下線）------------------------------------------------ */
+// 見た目は module/_common.scss の .heading-sub と共通。
+// margin-topのほか、SPのpadding-blockのみ実測でrem(10)のまま（他ページはrem(4)）なのでページ固有で上書き。
+.spacer-subheading {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    padding-block: rem(10);
+  }
+}
+
+/* --- 保隙治療をしなかった場合 ------------------------------------------------ */
+
+.spacer-intro {
+  // カンプ実測: パンくず下端から本文開始まで138px（PC）/ 73px（SP）
+  padding-top: rem(138);
+
+  @include mq("sp") {
+    padding-top: rem(73);
+  }
+}
+
+/* --- 保隙装置ってどんな装置なの？ ------------------------------------------------ */
+
+.spacer-device {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.spacer-device__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- 実際はこんな装置です ------------------------------------------------ */
+
+.spacer-actual {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.spacer-actual__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.spacer-actual__img {
+  flex-shrink: 0;
+  width: rem(280);
+  height: rem(215);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(193.5);
+    border-radius: rem(10);
+  }
+}
+
+.spacer-actual__text {
+  flex: 1;
+  min-width: 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* --- 図解フロー（画像＋矢印の連なり。しなかった場合／どんな装置の2ブロックで共通）------------------------------------------------ */
+
+// PC: 横並び＋右向き矢印。TAB以下: 縦積み＋下向き矢印（カンプにTAB専用デザインは無いため、
+// 1080px固定行が中間幅で崩れるのを防ぐ暫定対応として縦積みに切り替える）。
+.spacer-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(13.5);
+  margin-top: rem(30);
+
+  @include mq("tab") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+  }
+
+  @include mq("sp") {
+    gap: rem(10);
+    margin-top: rem(24);
+  }
+}
+
+.spacer-flow__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: rem(310);
+  gap: rem(16);
+
+  @include mq("tab") {
+    width: 100%;
+    max-width: rem(310);
+    margin-inline: auto;
+  }
+
+  @include mq("sp") {
+    max-width: rem(252);
+    gap: rem(14);
+  }
+}
+
+// 「どんな装置なの？」ブロックは2枚のみで行幅923px（1080px幅の中で左詰め・右157pxは空き）。
+// カード幅410×2＋矢印48が広いぶん、隙間もしなかった場合ブロック（13.5px）より広い（実測26〜29pxの平均値）。
+.spacer-flow--device {
+  gap: rem(27);
+
+  @include mq("tab") {
+    gap: rem(24);
+  }
+
+  @include mq("sp") {
+    gap: rem(10);
+  }
+}
+
+// 「どんな装置なの？」ブロックの画像は一回り大きい（410×317 / SPは同じ252幅）
+.spacer-flow__figure--lg {
+  width: rem(410);
+
+  @include mq("tab") {
+    max-width: rem(410);
+  }
+
+  @include mq("sp") {
+    max-width: rem(252);
+  }
+}
+
+.spacer-flow__img {
+  width: 100%;
+  height: rem(252.84);
+  object-fit: cover;
+  border-radius: rem(28);
+
+  @include mq("sp") {
+    height: rem(205.54);
+    border-radius: rem(10);
+  }
+}
+
+.spacer-flow__figure--lg .spacer-flow__img {
+  height: rem(317);
+  border-radius: rem(29);
+
+  @include mq("sp") {
+    height: rem(231.55);
+    border-radius: rem(10);
+  }
+}
+
+.spacer-flow__text {
+  width: 100%;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+// SPカンプのみ「歯が抜けた状態」の1行キャプションが中央寄せ（他のキャプションは左寄せ）
+.spacer-flow__text--center {
+  @include mq("sp") {
+    text-align: center;
+  }
+}
+
+/* --- 矢印（1つのSVGをCSS回転でPC/SP共用。PCは90deg=右向き、SP/TABは180deg=下向き）------------------------------------------------ */
+
+// 外側: 回転後の実占有スペースを確保する箱（画像の高さに対して縦中央になる位置に margin-top で配置）
+.spacer-arrow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: rem(48);
+  height: rem(147);
+  // (画像高さ252.84 − 矢印147) ÷ 2 ＝ 52.92 ≈ 53
+  margin-top: rem(53);
+
+  @include mq("tab") {
+    width: auto;
+    height: auto;
+    margin-top: 0;
+  }
+}
+
+// 「どんな装置なの？」ブロックの矢印（画像高さ317用のオフセット）
+.spacer-arrow--lg {
+  // (画像高さ317 − 矢印147) ÷ 2 ＝ 85
+  margin-top: rem(85);
+
+  @include mq("tab") {
+    margin-top: 0;
+  }
+}
+
+// 内側: 回転前の原寸（横長の三角形）。回転してもトリミングされないよう外側とサイズを分けている。
+.spacer-arrow__shape {
+  display: block;
+  width: rem(147);
+  height: rem(48);
+  background-image: url("/assets/img/common/triangle-arrow.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: rotate(90deg);
+
+  @include mq("tab") {
+    width: rem(95.53);
+    height: rem(31.19);
+    transform: rotate(180deg);
+  }
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.spacer-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}

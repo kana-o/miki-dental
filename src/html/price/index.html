@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- meta情報 -->
+  <title>料金表｜三木歯科・小児歯科（川越市）</title>
+  <meta name="description" content="三木歯科・小児歯科（川越市）の料金表です。一般歯科・小児歯科の保険診療、審美治療やインプラント等の自費診療、保証制度の料金をご案内します。" />
+
+  <!-- ogp -->
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ファビコン -->
+  <link rel="icon" href="/assets/img/favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- css -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js" defer></script>
+</head>
+
+<body>
+
+  @@include('../parts/header.html', { "isTop": false })
+  @@include('../parts/fixed-nav.html')
+
+  <main class="main">
+
+    <!-- ========================================
+      ページヘッダー
+    ======================================== -->
+    <div class="page-head">
+      <div class="page-head__bg" aria-hidden="true">
+        <span class="page-head__watermark"></span>
+      </div>
+      <h1 class="page-head__title">料金</h1>
+    </div>
+
+    <nav class="breadcrumb" aria-label="パンくず">
+      <div class="inner">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">TOP</a></li>
+          <li class="breadcrumb__item" aria-current="page">料金</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ========================================
+      料金表 目次
+    ======================================== -->
+    <nav class="price-toc" aria-label="料金表 目次">
+      <div class="inner price-toc__inner">
+        <div class="price-toc__group">
+          <p class="price-band price-toc__label">一般歯科</p>
+          <ul class="price-toc__list">
+            <li class="price-toc__item"><a href="#cavity" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>むし歯治療・予防歯科（保険）</a></li>
+            <li class="price-toc__item"><a href="#crown" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>審美 クラウン（かぶせ物）</a></li>
+            <li class="price-toc__item"><a href="#core" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>コア（歯の土台）</a></li>
+            <li class="price-toc__item"><a href="#inlay" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>審美 インレー（詰め物）</a></li>
+            <li class="price-toc__item"><a href="#whitening" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>ホワイトニング</a></li>
+            <li class="price-toc__item"><a href="#implant" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>インプラント</a></li>
+            <li class="price-toc__item"><a href="#perio" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>歯周病・口腔外科</a></li>
+            <li class="price-toc__item"><a href="#denture" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>義歯（入れ歯・デンチャー）</a></li>
+            <li class="price-toc__item"><a href="#ortho" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>矯正歯科</a></li>
+          </ul>
+        </div>
+        <div class="price-toc__group">
+          <p class="price-band price-toc__label">小児歯科</p>
+          <ul class="price-toc__list">
+            <li class="price-toc__item"><a href="#child-cavity" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>むし歯治療・予防歯科（保険）</a></li>
+            <li class="price-toc__item"><a href="#child-self" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>小児 自費治療</a></li>
+          </ul>
+        </div>
+        <div class="price-toc__group">
+          <p class="price-band price-toc__label">保証制度</p>
+          <ul class="price-toc__list">
+            <li class="price-toc__item"><a href="#warranty-implant" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>インプラント保証制度</a></li>
+            <li class="price-toc__item"><a href="#warranty-crown" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>かぶせ物・つめ物（セラミック系）<br>保証制度</a></li>
+            <li class="price-toc__item"><a href="#warranty-bridge" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>ブリッジ保証制度</a></li>
+            <li class="price-toc__item"><a href="#warranty-crown-bridge" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>かぶせ物・つめ物・ブリッジ</a></li>
+            <li class="price-toc__item"><a href="#warranty-denture" class="price-toc__link"><span class="icon-check" aria-hidden="true"></span>義歯・入れ歯の保証制度</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========================================
+      お支払い方法
+    ======================================== -->
+    <section class="price-payment">
+      <div class="inner">
+        <h2 class="price-band">お支払い方法</h2>
+        <p class="text-body price-payment__text">保険診療のお支払いは現金のみとなっております。<br>自費治療はクレジットカードでのお支払いが可能です。</p>
+      </div>
+    </section>
+
+    <!-- ========================================
+      一般歯科
+    ======================================== -->
+    <section class="price-category">
+      <div class="inner">
+        <h2 class="price-band">一般歯科</h2>
+      </div>
+      <div class="price-table-block" id="cavity">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">むし歯治療・予防歯科（保険）</h3>
+          </div>
+          <p class="text-body price-table-block__note">保険適用3割負担金額表記（治療費はおおよその総額です）<br>当院は、歯科治療のセカンドオピニオンを受け付けております。随時ご相談を受け付けております。</p>
+          <table class="price-table">
+            <caption class="u-sr-only">むし歯治療・予防歯科（保険）の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">軽度のむし歯治療</th>
+                <td class="price-table__desc">軽度のむし歯は、歯と同色の白い材質でその場で修復</td>
+                <td class="price-table__price">初診2,000～5,000円 （主に白い樹脂で修復可能な場合）</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">中程度のむし歯治療</th>
+                <td class="price-table__desc">通院が2回必要な場合のむし歯治療の料金目安</td>
+                <td class="price-table__price">初診2,500～4,000円<br>2回目2,500円～6,000円<br>（修復の材質で変動）</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">重度のむし歯治療</th>
+                <td class="price-table__desc">痛みを伴い、神経を取る必要がある歯の治療など</td>
+                <td class="price-table__price">初診2,500～4,000円<br>2回目以降700円～1,200円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">CAD/CAM冠</th>
+                <td class="price-table__desc">セラミックと樹脂を混ぜ合わせた白い材質の被せ物での治療</td>
+                <td class="price-table__price">3割負担で約6,000～8,000円<br>当院は保険診療認可済み</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">腫れや痛みを伴う治療</th>
+                <td class="price-table__desc">処置の難易度で料金が変動します</td>
+                <td class="price-table__price">2,000円～5,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">クリーニング</th>
+                <td class="price-table__desc">歯石除去</td>
+                <td class="price-table__price">3,000円～5,000円 / 1回<br>（初診・レントゲン含む）</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">着色（たばこのヤニ、茶渋ステイン）除去<br>※まずは歯石の除去を受けてください</th>
+                <td class="price-table__desc"></td>
+                <td class="price-table__price">5,000円 / 1回</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="price-table-block__list">
+            <h4 class="price-table-block__list-title">保険内の治療について   ※ 川越市の中学校3年生までの患者様は治療費が0円になります。</h4>
+            <ul class="price-check-list">
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>保険治療はおおよその総額です。</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>保険料金は年2回改定があるので、おおよその目安として参考にしてください。</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>ブリッジや義歯など何度か通院する場合の料金は来院時にご相談ください。</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>各治療はレントゲン代や検査各種で変動いたします。</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>各治療は歯一本に対する参考料金です。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="price-table-block" id="crown">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">審美 クラウン（かぶせ物）</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <p class="text-body price-table-block__note">事前にお見積りいたします。（お見積り金額から増額することはございません）<br>当院ではクラウン（かぶせ物）、インレー（つめ物）に保証をお付けしております。</p>
+          <p class="text-body price-table-block__note">（2023年6月～の料金）</p>
+          <table class="price-table">
+            <caption class="u-sr-only">審美 クラウン（かぶせ物）の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">ジルコニアセラミック</th>
+                <td class="price-table__desc">ジルコニア（人工ダイヤモンド）にセラミックを焼き付けた被せ物。強度、審美性共に優れています</td>
+                <td class="price-table__price">99,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">オールセラミック</th>
+                <td class="price-table__desc">セラミックだけの被せ物。透明感に優れています</td>
+                <td class="price-table__price">110,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">E-maxセラミック</th>
+                <td class="price-table__desc">セラミックよりも強度が高く丈夫な素材。ほぼ天然の歯同様です</td>
+                <td class="price-table__price">99,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ゴールド</th>
+                <td class="price-table__desc">展性延性のあるゴールド。適合性に優れ隙間からのむし歯になりにくいです</td>
+                <td class="price-table__price">大臼歯 165,000円※</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-body price-table-block__note">※ 為替変動や材料費の高騰により上記料金と異なる場合がございます。</p>
+        </div>
+      </div>
+      <div class="price-table-block" id="core">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">コア（歯の土台）</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <p class="text-body price-table-block__note">事前にお見積りいたします。（お見積り金額から増額することはございません）</p>
+          <table class="price-table">
+            <caption class="u-sr-only">コア（歯の土台）の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">金パラコア</th>
+                <td class="price-table__desc">金銀パラジウム合金。保険の銀歯でも使用される丈夫な素材</td>
+                <td class="price-table__price">55,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ファイバーコア</th>
+                <td class="price-table__desc">前歯など見た目が重要な場合、歯の色に近いファイバーだと透明感があり変色の心配なし</td>
+                <td class="price-table__price">22,000円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="price-table-block" id="inlay">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">審美 インレー（つめ物）</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <p class="text-body price-table-block__note">事前にお見積りいたします。（お見積り金額から増額することはございません）<br>当院ではクラウン（かぶせ物）、インレー（つめ物）に保証をお付けしております。</p>
+          <table class="price-table">
+            <caption class="u-sr-only">審美 インレー（つめ物）の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">ジルコニア</th>
+                <td class="price-table__desc">人工ダイヤモンド素材の詰め物</td>
+                <td class="price-table__price">66,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">E-maxセラミック</th>
+                <td class="price-table__desc">セラミックよりも強度がかなり高く丈夫な素材。ほぼ天然の歯同様です</td>
+                <td class="price-table__price">55,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ゴールド</th>
+                <td class="price-table__desc">適合性に優れた（隙間が無いのでむし歯になり難い）金属です</td>
+                <td class="price-table__price">大臼歯 66,000円※</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-body price-table-block__note">※ 為替変動や材料費の高騰により上記料金と異なる場合がございます。</p>
+        </div>
+      </div>
+      <div class="price-table-block" id="whitening">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">ホワイトニング</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <p class="text-body price-table-block__note">最初に診察し、クリーニング後にホワイトニングのカウンセリングを受けていただきます。<br>薬剤の変更により、価格改定させていただく場合がございます。</p>
+          <table class="price-table">
+            <caption class="u-sr-only">ホワイトニングの料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">オフィスホワイトニング</th>
+                <td class="price-table__desc">医院にて特殊な薬剤とライトを併用しホワイトニングを行う方法です</td>
+                <td class="price-table__price">29,700円 / 1回のみ<br>27,500円 / 1年以内のリーピート<br>55,000円 / 2回セット</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ホームホワイトニング</th>
+                <td class="price-table__desc">医院にて歯型を取りオーダーメイドのカスタムトレーを作成し、ご自宅でホワイトニングを行う方法です</td>
+                <td class="price-table__price">33,000円 /<br>（マウスピース上下＋ジェル4本付）<br>1,650円 / 追加ジェル1本</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">デュアルホワイトニング</th>
+                <td class="price-table__desc">オフィスホワイトニング1回とホームホワイトニングを併用して行う方法です。短時間でホワイトニングの効果を出し長持ちさせたい方にオススメです</td>
+                <td class="price-table__price">61,000円 / 1セット<br>（ジェル4本付）</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">オパールエッセンスGO</th>
+                <td class="price-table__desc">既成のマウスピースを使用してご自宅でホワイトニングができます。診察を受けなくても購入可能です</td>
+                <td class="price-table__price">18,700円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="price-table-block" id="implant">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">インプラント</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <p class="text-body price-table-block__note">CT診断 + インフォームドコンセントの徹底しております。<br>インプラント相談は無料ですのでお気軽に相談にお越しください。</p>
+          <table class="price-table">
+            <caption class="u-sr-only">インプラントの料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">相談</th>
+                <td class="price-table__desc">他の治療法も含め相談させていただきます</td>
+                <td class="price-table__price">無料</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">総額制</th>
+                <td class="price-table__desc">当院のインプラントは、分かりやすいように検査からインプラント・上部構造（素材による増額無し）まで全て含めた料金になります</td>
+                <td class="price-table__price">総額<br>275,000円※</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">検査</th>
+                <td class="price-table__desc">基礎検査（歯と骨の状態）</td>
+                <td class="price-table__price">込み※</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">CT精密検査</th>
+                <td class="price-table__desc">CTスキャンでは、神経や血管を3D立体把握可能。検査結果を元にシミュレーションや手術用のガイドを作成する場合もあります</td>
+                <td class="price-table__price">込み※</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">手術（埋入）</th>
+                <td class="price-table__desc">局所麻酔にてチタンのインプラントを埋め込みます</td>
+                <td class="price-table__price">込み※</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ジルコニア</th>
+                <td class="price-table__desc">白い金属と呼ばれるジルコニア。強度と審美性共に優れてます。金属不使用なので、サビや金属アレルギーの心配もなく白くて美しい歯に修復可能</td>
+                <td class="price-table__price">込み※</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">メタルボンド</th>
+                <td class="price-table__desc">内側に金属、その上にセラミックを焼き付けた被せ物。強度に優れてます</td>
+                <td class="price-table__price">込み※</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <th colspan="3" scope="colgroup" class="price-table__group">オプション</th>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">サージカルガイド</th>
+                <td class="price-table__desc">CTシミュレーション通りに手術をするためのガイド</td>
+                <td class="price-table__price">33,000円～</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">GBR（骨が足りない方）</th>
+                <td class="price-table__desc">骨が足りない部位へ骨の代わりとなる材料を足す処置です</td>
+                <td class="price-table__price">33,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ソケットリフト（骨の高さが足りない方）</th>
+                <td class="price-table__desc">上あごの骨に奥行きを作る処置です</td>
+                <td class="price-table__price">33,000円</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-body price-table-block__note">※ ブリッジのようにインプラント埋入本数と上部構造（人工の歯）の数が違う場合は別途お見積りとなります。</p>
+        </div>
+      </div>
+      <div class="price-table-block" id="perio">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">歯周病・口腔外科</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <p class="text-body price-table-block__note">歯周病は地道なクリーニングから上記のような骨造成など、症状に合わせ様々な治療法がございます。</p>
+          <table class="price-table">
+            <caption class="u-sr-only">歯周病・口腔外科の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">エムドゲイン</th>
+                <td class="price-table__desc">顎の骨を増やす薬。骨を増やし歯を安定させます</td>
+                <td class="price-table__price">3歯未満 88,000円<br>3歯以上 110,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">GBR（骨が足りない方）</th>
+                <td class="price-table__desc">骨が足りない部位へ骨の代わりとなる材料を足す処置です</td>
+                <td class="price-table__price">33,000円～</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="price-table-block" id="denture">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">義歯（入れ歯・デンチャー）</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <table class="price-table">
+            <caption class="u-sr-only">義歯（入れ歯・デンチャー）の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">コバルトクロム金属床</th>
+                <td class="price-table__desc">床が金属の為、保険の義歯より薄いのに強度が強く、しゃべり易く熱伝道が良い。保険の入れ歯の厚み1/3で、温度感覚に優れます</td>
+                <td class="price-table__price">275,000 円 / 片顎</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">仮義歯法</th>
+                <td class="price-table__desc">1回仮の入れ歯を作成し、それを患者様のお口に合わせてより完成度の高い入れ歯を再度作成します。噛み合わせの安定した入れ歯がほしい方向けの方法</td>
+                <td class="price-table__price">330,000円 / 片顎</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ノンクラスプ</th>
+                <td class="price-table__desc">金属のバネが無いため目立ちません。耐久性も優れています</td>
+                <td class="price-table__price">110,000円 / 1～3本<br>143,000円 / 両側、4歯以上</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">アタッチメント</th>
+                <td class="price-table__desc">入れ歯を固定するためのアタッチメント</td>
+                <td class="price-table__price">55,000円 / 1個</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="price-table-block" id="ortho">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">矯正歯科</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <table class="price-table">
+            <caption class="u-sr-only">矯正歯科の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">カウンセリング</th>
+                <td class="price-table__desc">30分～45分</td>
+                <td class="price-table__price">55,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">検査・診断</th>
+                <td class="price-table__desc">分析・診断・治療内容の説明に必要なレントゲン写真・口腔内写真・歯列模型・口腔内審査等</td>
+                <td class="price-table__price">49,500円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">永久歯列（成人矯正）</th>
+                <td class="price-table__desc">表側の透明ブラケット治療</td>
+                <td class="price-table__price">上下両顎<br>770,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">第一期治療（混合歯列）</th>
+                <td class="price-table__desc">取り外し式装置や、表側の透明ブラケットによるこどもの矯正治療</td>
+                <td class="price-table__price">385,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">第二期治療（永久歯列）</th>
+                <td class="price-table__desc">表側の透明ブラケット治療。混合歯列期の1期治療からの継続診療の場合</td>
+                <td class="price-table__price">385,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">部分矯正</th>
+                <td class="price-table__desc">歯を動かす本数や使用する装置によって異なります。</td>
+                <td class="price-table__price">132,000円～</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">処置料・観察料</th>
+                <td class="price-table__desc">来院・診察時に毎に必要な料金</td>
+                <td class="price-table__price">5,500円 / 1回</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">保定装置</th>
+                <td class="price-table__desc">後戻りを防止する装置</td>
+                <td class="price-table__price">27,500 円/片顎</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+      小児歯科
+    ======================================== -->
+    <section class="price-category">
+      <div class="inner">
+        <h2 class="price-band">小児歯科</h2>
+      </div>
+      <div class="price-table-block" id="child-cavity">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">むし歯治療・予防歯科（保険）</h3>
+          </div>
+          <p class="text-body price-table-block__note">保険適用3割負担金額表記（治療費はおおよその総額です）</p>
+          <table class="price-table">
+            <caption class="u-sr-only">むし歯治療・予防歯科（保険）の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">軽度のむし歯治療</th>
+                <td class="price-table__desc">軽度のむし歯は、歯と同色の白い材質でその場で修復</td>
+                <td class="price-table__price">0円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">中程度のむし歯治療</th>
+                <td class="price-table__desc">通院が2回必要な場合のむし歯治療の料金目安</td>
+                <td class="price-table__price">0円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">重度のむし歯治療</th>
+                <td class="price-table__desc">痛みを伴い、神経を取る必要がある歯の治療など</td>
+                <td class="price-table__price">0円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">シーラント</th>
+                <td class="price-table__desc">むし歯にならないように歯の溝を埋めます。3歳くらいからが目安となります</td>
+                <td class="price-table__price">0円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">クリーニング</th>
+                <td class="price-table__desc">歯石とり</td>
+                <td class="price-table__price">0円</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="price-table-block__list">
+            <h4 class="price-table-block__list-title">保険内の治療について</h4>
+            <ul class="price-check-list">
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>川越市の乳幼児医療費受給者証をお持ちください。 市外の方は3割負担になります。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="price-table-block" id="child-self">
+        <div class="inner">
+          <div class="price-table-block__head">
+            <h3 class="price-table-block__title">小児 自費治療</h3>
+            <span class="price-table-block__badge">消費税込</span>
+          </div>
+          <table class="price-table">
+            <caption class="u-sr-only">小児 自費治療の料金表</caption>
+            <colgroup>
+              <col class="price-table__col--name" />
+              <col class="price-table__col--desc" />
+              <col class="price-table__col--price" />
+            </colgroup>            <thead>
+              <tr>
+                <th scope="col" class="u-sr-only">治療内容</th>
+                <th scope="col" class="u-sr-only">説明</th>
+                <th scope="col" class="u-sr-only">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="price-table__name">小児矯正 取り外し式装置</th>
+                <td class="price-table__desc">拡大床（片顎）</td>
+                <td class="price-table__price">66,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">調整料</th>
+                <td class="price-table__desc">少しずつ歯を移動してきます</td>
+                <td class="price-table__price">3,300円 / 1回</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">2×4</th>
+                <td class="price-table__desc">前歯だけなど8本以下の歯に付ける部分矯正</td>
+                <td class="price-table__price">165,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">ムーシールド</th>
+                <td class="price-table__desc">受け口（反対咬合）の改善を促すマウスピース型の装置</td>
+                <td class="price-table__price">33,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">リンガルアーチ（保隙）</th>
+                <td class="price-table__desc">下顎の歯がスムーズに生えてこられるように隙間を保つ装置</td>
+                <td class="price-table__price">33,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">Nanceホールディングアーチ（保隙）</th>
+                <td class="price-table__desc">上顎の歯がスムーズに生えてこられるように隙間を保つ装置</td>
+                <td class="price-table__price">33,000円</td>
+              </tr>
+              <tr>
+                <th scope="row" class="price-table__name">マイオブレース矯正</th>
+                <td class="price-table__desc">歯並びを悪くする根本原因（口呼吸・舌癖/飲み込みの癖 etc）を、口腔筋機能訓練とマウスピースで改善し、成長に合わせて顎の発達と自然な歯並びを促す小児予防矯正です</td>
+                <td class="price-table__price">440,000円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+      保証制度
+    ======================================== -->
+    <section class="price-warranty">
+      <div class="inner">
+        <h2 class="price-band">保証制度</h2>
+        <p class="text-body price-warranty__intro">当院では下記の期間、保証させていただいております。</p>
+      </div>
+      <div class="price-warranty__block" id="warranty-implant">
+        <div class="inner">
+          <h3 class="price-table-block__title">インプラント保証制度</h3>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">インプラント本体｜5年間｜無料</h4>
+            <p class="price-warranty__tier-text">破折、抜け落ち等、5年間無料で再治療いたします。<br>（再治療できない場合は期間に応じてご返金いたします）</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">インプラント上部構造｜5年間｜無料</h4>
+            <p class="price-warranty__tier-text">上部構造（被せ物）が壊れてしまった場合、5年間無料でジルコニアまたは金属で再治療いたします。<br>また、修理できるものは5年間無料修理いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">インプラント上部構造｜5年間｜自己負担50%</h4>
+            <p class="price-warranty__tier-text">上部構造（被せ物）が壊れてしまった場合、5年までは50％の料金でジルコニアまたは金属で再作成いたします。<br>また、修理できるものは5年間無料修理いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">インプラント上部構造｜5年～｜自己負担80%</h4>
+            <p class="price-warranty__tier-text">上部構造（被せ物）が壊れてしまった場合、5年以降は80％の料金でジルコニアまたは金属で再作成いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">インプラントと自歯の隙間</h4>
+            <p class="price-warranty__tier-text">インプラントは移動しないため、ご自分の歯が動くことにより隙間が生じることがあります。上部構造の修正により隙間を調整する場合は上記の金額にて対応させていただきます。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">＜保証がきかないケース＞</h4>
+            <ul class="price-check-list">
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>歯周病が進行した場合</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>必要な定期検診を受診しなかった（状態に応じて1～6か月に1度）</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>予期しえない口腔状況の変化（全身疾患など）</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>不注意、不慮の事故など当院の責任ではない場合</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>就寝時マウスピースを使用されなかった場合※</li>
+            </ul>
+            <p class="price-warranty__note">※ 患者様に合わせたマウスピースをお渡しします。就寝時は奥歯で体重の3倍ほどの力がかかっている場合があります。<br>インプラント治療後は就寝時にマウスピースを使用していただきます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="price-warranty__block" id="warranty-crown">
+        <div class="inner">
+          <h3 class="price-table-block__title">かぶせ物・つめ物（セラミック系）保証制度</h3>
+          <p class="text-body price-warranty__intro">ジルコニア・E-max・オールセラミック、メタルボンド等セラミック系のかぶせ物（クラウン）やつめ物（インレー）は、欠けるリスクがあります。</p>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">20%未満の欠け（修理）｜5年間｜無料</h4>
+            <p class="price-warranty__tier-text">欠けた部分が全体の1/5（20%）未満の場合は5年間無料で修理いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">20%以上の欠け（修理）｜5年間｜無料</h4>
+            <p class="price-warranty__tier-text">欠けた部分が全体の1/5（20%）以上でも再作成が不要な場合は5年間無料で修理いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">20%以上の欠け（再作成）｜3年間｜無料</h4>
+            <p class="price-warranty__tier-text">欠けた部分が全体の1/5（20%）以上で再作成する場合は3年間無料で再作成いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">20%以上の欠け（再作成）｜3年～5年｜自己負担50％</h4>
+            <p class="price-warranty__tier-text">欠けた部分が全体の1/5（20%）以上の場合は3年～5年までは50％の料金にて再作成いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">20%以上の欠け（再作成）｜5年～｜自己負担額80％</h4>
+            <p class="price-warranty__tier-text">欠けた部分が全体の1/5（20%）以上の場合は5年間の後は80％の料金にて再作成いたします。</p>
+          </div>
+        </div>
+      </div>
+      <div class="price-warranty__block" id="warranty-bridge">
+        <div class="inner">
+          <h3 class="price-table-block__title">ブリッジ保証制度</h3>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">破折・修理｜5年間｜無料</h4>
+            <p class="price-warranty__tier-text">修理で機能を取り戻せるような破折の場合は5年間無料で修理いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">再作成｜3年間｜無料</h4>
+            <p class="price-warranty__tier-text">ブリッジとしての機能を維持できない破折については3年間無料で再作成いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">再作成｜3年～5年｜50％</h4>
+            <p class="price-warranty__tier-text">ブリッジとしての機能を維持できない破折について3年～5年までは50％の料金にて再作成いたします。</p>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">再作成｜5年～｜自己負担額80％</h4>
+            <p class="price-warranty__tier-text">5年間の後は80％の料金にて再作成いたします。</p>
+          </div>
+        </div>
+      </div>
+      <div class="price-warranty__block" id="warranty-crown-bridge">
+        <div class="inner">
+          <h3 class="price-table-block__title">かぶせ物・つめ物・ブリッジ</h3>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">＜保証がきかないケース＞</h4>
+            <ul class="price-check-list">
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>新規むし歯</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>歯周病が進行した場合</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>必要な定期検診を受診しなかった（状態に応じて1～6か月に1度）</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>歯の破折</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>予期しえない口腔状況の変化（全身疾患など）</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>不注意、不慮の事故など当院の責任ではない場合</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>就寝時マウスピースを使用されなかった場合※</li>
+            </ul>
+            <p class="price-warranty__note">※ 患者様に合わせたマウスピースをお渡しします。就寝時は奥歯で体重の3倍ほどの力がかかっている場合があります。他の歯を守るためにも治療後は<br>就寝時にマウスピースを使用していただきます。</p>
+          </div>
+          <p class="price-warranty__note">歯の根っこや神経の治療等は保証に含まれません。（患者様に費用負担いただきます）</p>
+        </div>
+      </div>
+      <div class="price-warranty__block" id="warranty-denture">
+        <div class="inner">
+          <h3 class="price-table-block__title">義歯・入れ歯の保証制度</h3>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">義歯（入れ歯）｜3年間｜無料</h4>
+          </div>
+          <div class="price-warranty__tier">
+            <h4 class="price-warranty__tier-title">＜保証がきかないケース＞</h4>
+            <ul class="price-check-list">
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>患者の不注意や不慮の事故など、明らかに当院の責任でない場合</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>予期しえない口腔状況の変化（全身疾患など）</li>
+              <li class="price-check-list__item"><span class="icon-check" aria-hidden="true"></span>必要な定期検診を受診しなかった（最低年2回）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+      予約・相談
+    ======================================== -->
+    <div class="price-reserve">
+      <div class="inner">
+        @@include('../parts/cta.html')
+      </div>
+    </div>
+
+  </main>
+
+  @@include('../parts/footer.html')
+
+</body>
+</html>

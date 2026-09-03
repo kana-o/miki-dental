@@ -1,0 +1,269 @@
+@use "global" as *;
+
+/* ========================================
+  お知らせ一覧 / お知らせ詳細
+======================================== */
+
+/* --- ページ共通（900px幅のセクション） ------------------------------------------------ */
+
+// お知らせ一覧・詳細はカンプの内容幅が900px。.inner（1080px基準）に併記して絞る。
+.news-inner {
+  max-width: rem(940);
+}
+
+/* ========================================
+  お知らせ一覧（news-）
+======================================== */
+
+.news-list {
+  margin-top: rem(140);
+
+  @include mq("sp") {
+    margin-top: rem(78);
+  }
+}
+
+.news-list__item {
+  border-bottom: rem(2) dotted $color-accent;
+}
+
+// PC/SPとも日付＋タイトルを横並びのまま1行分の高さで揃える（カンプ実測 PC 900×87 / SP 345×87）
+.news-list__link {
+  display: grid;
+  grid-template-columns: minmax(0, rem(128)) minmax(0, 1fr);
+  column-gap: rem(20);
+  align-items: center;
+  min-height: rem(87);
+  padding-inline: rem(24);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: calc(#{rem(2)} * -1);
+  }
+
+  @include mq("sp") {
+    grid-template-columns: minmax(0, rem(78)) minmax(0, 1fr);
+    column-gap: rem(10);
+    padding-inline: rem(10);
+  }
+}
+
+.news-list__date {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.4;
+
+  @include mq("sp") {
+    font-size: rem(13);
+  }
+}
+
+.news-list__label {
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+/* --- ページネーション ------------------------------------------------ */
+
+.news-pagination {
+  margin-top: rem(60);
+
+  @include mq("sp") {
+    margin-top: rem(40);
+  }
+}
+
+.news-pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: rem(24);
+
+  @include mq("sp") {
+    gap: rem(6);
+  }
+}
+
+.news-pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem(44);
+  height: rem(44);
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+
+  &[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: rem(4);
+  }
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: calc(#{rem(2)} * -1);
+  }
+
+  @include mq("sp") {
+    font-size: rem(15);
+  }
+}
+
+.news-pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem(44);
+  height: rem(44);
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+
+  @include mq("sp") {
+    font-size: rem(15);
+  }
+}
+
+.news-pagination__arrow-icon {
+  display: block;
+  width: rem(10);
+  height: rem(16);
+  background-color: $color-main;
+  mask-image: url("/assets/img/news/news-icon-arrow.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.news-pagination__link--prev .news-pagination__arrow-icon {
+  transform: scaleX(-1);
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+
+.news-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+
+/* ========================================
+  お知らせ詳細（news-detail-）
+======================================== */
+
+.news-detail-article {
+  margin-top: rem(140);
+
+  @include mq("sp") {
+    margin-top: rem(78);
+  }
+}
+
+.news-detail-article__header {
+  padding-bottom: rem(24);
+  border-bottom: rem(2) solid $color-border;
+
+  @include mq("sp") {
+    // カンプ実測（Frame 58 paddingTop/Bottom）: 上下とも18px。従来は上パディングが無かったため追加。
+    padding-top: rem(18);
+    padding-bottom: rem(18);
+  }
+}
+
+.news-detail-article__date {
+  display: block;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.4;
+
+  @include mq("sp") {
+    font-size: rem(13);
+    // カンプ実測: lineHeightPx 15.6（fontSize比 約1.2）
+    line-height: 1.2;
+  }
+}
+
+.news-detail-article__title {
+  margin-top: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.6;
+
+  @include mq("sp") {
+    // カンプ実測: 日付→タイトルの間隔6px（従来8pxは実測より過大）
+    margin-top: rem(6);
+    font-size: rem(20);
+    // カンプ実測: lineHeightPercentFontSize 180%
+    line-height: 1.8;
+  }
+}
+
+.news-detail-article__body {
+  margin-top: rem(40);
+  font-size: rem(16);
+  // カンプ実測: 本文全体がfontWeight 700（bold）。SP/PC共通のためbase側を修正。
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    // カンプ実測: ヘッダー→本文の間隔40px（従来24pxは実測より過小）
+    margin-top: rem(40);
+  }
+}
+
+.news-detail-article__body p + p {
+  margin-top: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(14);
+  }
+}
+
+.news-detail-article__link {
+  font-weight: $bold;
+  color: inherit;
+  text-decoration: underline;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+}
+
+.news-detail-article__back {
+  width: fit-content;
+  margin-top: rem(60);
+  margin-inline: auto;
+
+  @include mq("sp") {
+    // カンプ実測: 本文→一覧へリンクの間隔50px（従来40pxは実測より過小）
+    margin-top: rem(50);
+  }
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+
+.news-detail-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    // カンプ実測: cta前後の余白は各100px（カンプのCTA枠自体は260pxだが、
+    // 共通パーツ parts/cta.html の実描画高さは279px。共通パーツ側は編集不可のため、
+    // このラッパーpaddingで合計スパン（余白100+CTA260+余白100=460px相当）に寄せる）
+    padding-block: rem(90);
+  }
+}
+

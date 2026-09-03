@@ -1,0 +1,798 @@
+@use "global" as *;
+
+/* ========================================
+  院内紹介ページ
+======================================== */
+
+/* --- 一般歯科（大人）エリア ------------------------------------------------ */
+
+.clinic-adult {
+  margin-top: rem(141);
+
+  @include mq("sp") {
+    margin-top: rem(70);
+  }
+}
+
+.clinic-adult__title {
+  // .section-title は見た目のみ。余白はページ固有クラスで付与する。
+}
+
+/* --- 小児歯科エリア ------------------------------------------------ */
+
+// カンプは楕円＋矩形の紺色パネルが背景全体を覆う。
+.clinic-child {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: rem(160);
+  padding-top: rem(99);
+  // カンプ実測: 波の装飾（.clinic-child__wave）がセクション最下部の visual な締めくくりのため、
+  // その後の追加パディングは持たない（波がそのまま設備エリアの背景に接する）。
+  padding-bottom: 0;
+
+  @include mq("sp") {
+    margin-top: rem(50);
+    padding-top: rem(60);
+    padding-bottom: 0;
+  }
+}
+
+.clinic-child__bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: rem(2114);
+  height: 100%;
+  min-height: rem(1083);
+  background-color: $color-main;
+  border-radius: 50% 50% 0 0 / rem(300) rem(300) 0 0;
+  transform: translateX(-50%);
+
+  @include mq("sp") {
+    border-radius: 50% 50% 0 0 / rem(150) rem(150) 0 0;
+  }
+}
+
+.clinic-child__title {
+  color: $color-text-inverse;
+}
+
+// プレイルーム〜デルフィーノとアメニティ一覧の間の点線区切り
+.clinic-child__divider {
+  display: block;
+  width: 100%;
+  max-width: rem(1080);
+  height: 0;
+  margin-block: rem(100);
+  margin-inline: auto;
+  border-top: rem(2) dashed rgba($color-text-inverse, 0.4);
+
+  @include mq("sp") {
+    margin-block: rem(50);
+  }
+}
+
+// 子どもエリア最下部の波の装飾（紺色→グレーの切り替わりを示す3層の波）。
+// Figma実データ（Layer_1, 3ベクター重ね）をSVGとして書き出して使用。
+.clinic-child__wave {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: rem(1748);
+  height: rem(343);
+  left: 50%;
+  margin-top: rem(60);
+  background-image: url(/assets/img/clinic-page/wave-deco.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 100%;
+  transform: translateX(-50%);
+
+  @include mq("sp") {
+    width: rem(603);
+    height: rem(118);
+    margin-top: rem(30);
+    background-image: url(/assets/img/clinic-page/wave-deco-sp.svg);
+  }
+}
+
+/* --- 設備・共通エリア ------------------------------------------------ */
+
+.clinic-equip {
+  margin-top: rem(0);
+  padding-top: rem(126);
+  background-color: $color-bg-sub;
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.clinic-equip__title {
+  // .section-title は見た目のみ。余白は clinic-equip の padding-top で付与済み。
+}
+
+/* --- room（写真＋タグ＋本文の共通ブロック） ------------------------------------------------ */
+/* 受付・待合室／治療ユニット／歯磨き洗面／プレイルーム／治療ルーム／
+   デルフィーノ／バリアフリー／カウンセリングルームで共用する。 */
+
+.clinic-room {
+  position: relative;
+  z-index: 0;
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// 濃色背景（小児歯科エリア）用。帯を持たず、テキストが白抜きになる。
+.clinic-room--light {
+  margin-top: rem(60);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// 背面に敷く色帯。既定は右半分（写真側）に敷く。
+.clinic-room__band {
+  position: absolute;
+  z-index: -1;
+  top: rem(20);
+  right: 0;
+  display: block;
+  width: 50%;
+  height: rem(417);
+  background-color: $color-accent;
+  border-radius: rem(20) 0 0 rem(20);
+
+  @include mq("sp") {
+    top: rem(16);
+    width: calc(100% - #{rem(15)});
+    height: rem(220);
+    border-radius: rem(10) 0 0 rem(10);
+  }
+}
+
+.clinic-room--reverse .clinic-room__band {
+  right: auto;
+  left: 0;
+  border-radius: 0 rem(20) rem(20) 0;
+
+  @include mq("sp") {
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+.clinic-room__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(49);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(24);
+  }
+}
+
+.clinic-room--reverse .clinic-room__inner {
+  // PCは row-reverse にしない。DOM順が「写真 → 本文」なので、そのままで
+  // カンプどおり「写真=左 / 本文=右（タグ x=900）」になる。
+  // row-reverse を当てると本文が左（x=260）に来てカンプと逆になっていた。
+
+  @include mq("sp") {
+    // カンプ実測: reverse系（治療ユニット／プレイルーム／デルフィーノ／カウンセリング）は
+    // SPでも「本文→写真」の順で表示される（PCのphoto-firstなDOM順を打ち消す）。
+    flex-direction: column-reverse;
+  }
+}
+
+.clinic-room__body {
+  flex: 1;
+  min-width: 0;
+  padding-top: rem(20);
+}
+
+.clinic-room__tag {
+  margin: 0;
+}
+
+.clinic-room__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4);
+  margin-top: rem(24);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    line-height: 1.7;
+  }
+}
+
+.clinic-room--light .clinic-room__text {
+  color: $color-text-inverse;
+}
+
+// 単一の大きい写真（治療ユニット・歯磨き洗面のペア相手・カウンセリング等）
+.clinic-room__photo {
+  flex-shrink: 0;
+  width: rem(591);
+  height: rem(411);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    // カンプ実測: 幅は100%ではなく345中270（右寄せ・背面の色帯を左に覗かせる構図）
+    width: rem(270);
+    height: rem(188);
+    margin-left: auto;
+    border-radius: rem(10);
+  }
+}
+
+// プレイルームの縦長メイン写真（SPでは左寄せ）
+.clinic-room__photo--tall {
+  // カンプ実測: 590×636
+  width: rem(590);
+  height: rem(636);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(271);
+    margin-left: 0;
+  }
+}
+
+// デルフィーノの正方形に近い写真（カンプ実測: 336×294。テキスト量の方が多く、ブロック高はテキスト側で決まる）
+.clinic-room__photo--square {
+  width: rem(336);
+  height: rem(294);
+
+  @include mq("sp") {
+    width: rem(270);
+    height: rem(238);
+  }
+}
+
+// 本文の下に添える小さな写真（受付・待合室／バリアフリー）
+// カンプ実測: 本文とのgapは40で共通。既定サイズはバリアフリー(220×172)に合わせる。
+.clinic-room__sub-photo {
+  display: block;
+  width: rem(220);
+  height: rem(172);
+  margin-top: rem(40);
+  object-fit: cover;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    // カンプ実測（バリアフリー equip-02: 160×125）
+    width: rem(160);
+    height: rem(125);
+    margin-top: rem(24);
+  }
+}
+
+// 受付・待合室のみ大きいサイズ（カンプ実測 335×240）
+.clinic-room__sub-photo--lg {
+  width: rem(335);
+  height: rem(240);
+
+  @include mq("sp") {
+    // カンプ実測（adult-02: 180×129）
+    width: rem(180);
+    height: rem(129);
+  }
+}
+
+// プレイルームの本文下に並ぶ2枚の小さな写真（カンプ実測: サイズ違いの2枚が縦にずれて重なる構図）
+.clinic-room__sub-photo-group {
+  position: relative;
+  width: rem(441);
+  height: rem(445);
+  margin-top: rem(40);
+
+  @include mq("sp") {
+    width: 100%;
+    height: rem(253);
+    margin-top: rem(24);
+  }
+}
+
+.clinic-room__sub-photo--a,
+.clinic-room__sub-photo--b {
+  display: block;
+  position: absolute;
+  object-fit: cover;
+  border-radius: rem(10);
+}
+
+// カンプ実測: 297×210（上・右寄り）
+.clinic-room__sub-photo--a {
+  top: 0;
+  left: rem(144);
+  width: rem(297);
+  height: rem(210);
+
+  @include mq("sp") {
+    top: 0;
+    left: rem(179);
+    width: rem(175);
+    height: rem(124);
+  }
+}
+
+// カンプ実測: 268×192（下・左寄り）
+.clinic-room__sub-photo--b {
+  top: rem(253);
+  left: rem(19);
+  width: rem(268);
+  height: rem(192);
+
+  @include mq("sp") {
+    top: rem(140);
+    left: rem(116);
+    width: rem(158);
+    height: rem(113);
+  }
+}
+
+/* --- room__cluster（写真2〜3枚の重ね配置） ------------------------------------------------ */
+
+.clinic-room__cluster {
+  position: relative;
+  z-index: 0;
+  flex-shrink: 0;
+  width: rem(591);
+  height: rem(480);
+
+  @include mq("sp") {
+    width: 100%;
+    height: rem(260);
+  }
+}
+
+.clinic-room__cluster-photo {
+  position: absolute;
+  object-fit: cover;
+  border-radius: rem(16);
+
+  @include mq("sp") {
+    border-radius: rem(8);
+  }
+}
+
+/* 歯磨き洗面スペース・お手洗い（横長写真＋縦長の小写真。カンプ実測: 縦長が下に重なる構図） */
+.clinic-room__cluster--wash .clinic-room__cluster-photo--1 {
+  // カンプ実測（adult-08、縦長）: 横長写真の下に重なる
+  top: rem(95);
+  left: rem(75);
+  width: rem(170);
+  height: rem(245);
+
+  @include mq("sp") {
+    top: rem(65);
+    left: rem(109);
+    width: rem(69);
+    height: rem(99);
+  }
+}
+
+.clinic-room__cluster--wash .clinic-room__cluster-photo--2 {
+  // カンプ実測（adult-09、横長）: クラスター上部・右端揃え
+  top: 0;
+  left: rem(266);
+  width: rem(325);
+  height: rem(235);
+
+  @include mq("sp") {
+    top: 0;
+    left: rem(190);
+    width: rem(143);
+    height: rem(103);
+  }
+}
+
+.clinic-room__cluster--wash {
+  // カンプ実測: 縦長写真の下端（95+245）が全体の高さを決める
+  height: rem(340);
+
+  @include mq("sp") {
+    height: rem(164);
+  }
+}
+
+/* 治療ルーム（大きい海モチーフ写真＋小さい写真2枚） */
+.clinic-room__cluster--treat {
+  // カンプ実測: 最下部の小写真の下端（660）が全体の高さを決める
+  width: rem(591);
+  height: rem(660);
+
+  @include mq("sp") {
+    // カンプ実測: SPは3枚とも1つのクラスターとして再配置される
+    width: 100%;
+    height: rem(420);
+  }
+}
+
+.clinic-room__cluster--treat .clinic-room__cluster-photo--1 {
+  // カンプ実測: メイン写真は591×411（他の部屋のRectangle20パターンと同一サイズ）
+  top: 0;
+  right: 0;
+  width: rem(591);
+  height: rem(411);
+
+  @include mq("sp") {
+    top: 0;
+    right: auto;
+    left: rem(47);
+    width: rem(298);
+    height: rem(207);
+  }
+}
+
+.clinic-room__cluster--treat .clinic-room__cluster-photo--2 {
+  bottom: 0;
+  left: 0;
+  width: rem(230);
+  height: rem(170);
+
+  @include mq("sp") {
+    top: rem(227);
+    bottom: auto;
+    left: 0;
+    width: rem(127);
+    height: rem(158);
+  }
+}
+
+.clinic-room__cluster--treat .clinic-room__cluster-photo--3 {
+  right: rem(20);
+  bottom: 0;
+  width: rem(210);
+  height: rem(150);
+
+  @include mq("sp") {
+    top: rem(298);
+    bottom: auto;
+    right: auto;
+    left: rem(146);
+    width: rem(143);
+    height: rem(113);
+  }
+}
+
+/* バリアフリー（大きい外観写真＋車イスの小写真） */
+.clinic-room__cluster--barrier {
+  // カンプ実測: 小写真(equip-03)の下端が全体の高さを決める（459）
+  width: rem(591);
+  height: rem(459);
+
+  @include mq("sp") {
+    height: rem(208);
+  }
+}
+
+.clinic-room__cluster--barrier .clinic-room__cluster-photo--1 {
+  // カンプ実測: 591×411（他の部屋のRectangle20パターンと同一サイズ）
+  top: 0;
+  right: 0;
+  width: rem(591);
+  height: rem(411);
+
+  @include mq("sp") {
+    // カンプ実測（equip-01、右寄せ）
+    width: rem(270);
+    height: rem(188);
+  }
+}
+
+.clinic-room__cluster--barrier .clinic-room__cluster-photo--2 {
+  bottom: 0;
+  left: rem(40);
+  width: rem(221);
+  height: rem(160);
+
+  @include mq("sp") {
+    // カンプ実測（equip-03）
+    left: rem(15);
+    width: rem(161);
+    height: rem(116);
+  }
+}
+
+/* --- 治療ユニットの写真クラスター（4枚重ね＋装飾） ------------------------------------------------ */
+
+.clinic-unit-cluster {
+  margin-top: rem(40);
+
+  @include mq("sp") {
+    margin-top: rem(30);
+  }
+}
+
+.clinic-unit-cluster__inner {
+  position: relative;
+  z-index: 0;
+  height: rem(700);
+
+  @include mq("sp") {
+    height: rem(324);
+  }
+}
+
+// Figma実データ確認済み: 「青い渦巻き装飾」に相当するベクターは存在せず、
+// 実際は $color-accent の単色パネル（右側だけ角丸）が写真クラスターの背面に敷かれているだけだった。
+// そのため repeating-radial-gradient によるスパイラル近似は廃止し、他セクションの
+// .clinic-room__band と同じ「単色パネル」表現に統一する。
+.clinic-unit-cluster__deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  width: 55%;
+  height: 100%;
+  background-color: $color-accent;
+  border-radius: 0 rem(20) rem(20) 0;
+
+  @include mq("sp") {
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+.clinic-unit-cluster__photo {
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  border-radius: rem(16);
+  box-shadow: 0 rem(4) rem(20) rgba($color-main, 0.12);
+}
+
+.clinic-unit-cluster__photo--1 {
+  top: 0;
+  left: rem(430);
+  width: rem(335);
+  height: rem(240);
+
+  @include mq("sp") {
+    // カンプ実測（4枚クラスター）
+    top: 0;
+    left: rem(189);
+    width: rem(124);
+    height: rem(89);
+  }
+}
+
+.clinic-unit-cluster__photo--2 {
+  top: rem(70);
+  left: rem(800);
+  width: rem(335);
+  height: rem(240);
+
+  @include mq("sp") {
+    top: rem(110);
+    left: rem(32);
+    width: rem(124);
+    height: rem(89);
+  }
+}
+
+.clinic-unit-cluster__photo--3 {
+  top: rem(340);
+  left: rem(430);
+  width: rem(335);
+  height: rem(240);
+
+  @include mq("sp") {
+    top: rem(129);
+    left: rem(189);
+    width: rem(124);
+    height: rem(89);
+  }
+}
+
+.clinic-unit-cluster__photo--4 {
+  top: rem(280);
+  left: rem(0);
+  width: rem(335);
+  height: rem(240);
+
+  @include mq("sp") {
+    top: rem(235);
+    left: rem(32);
+    width: rem(124);
+    height: rem(89);
+  }
+}
+
+/* --- アメニティ一覧（授乳室／子ども用トイレ／オムツ替え／ガチャガチャ） ------------------------------------------------ */
+
+.clinic-amenity {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(40);
+  row-gap: rem(45);
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+    row-gap: rem(30);
+  }
+}
+
+.clinic-amenity__item {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+}
+
+.clinic-amenity__photo {
+  flex-shrink: 0;
+  width: rem(270);
+  height: rem(219);
+  object-fit: cover;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    width: rem(152);
+    height: rem(123);
+  }
+}
+
+.clinic-amenity__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.clinic-amenity__label {
+  margin: 0;
+}
+
+.clinic-amenity__text {
+  margin: rem(12) 0 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.8;
+
+  // カンプ実測: fontSize16/lineHeight1.8（PC・SP共通、縮小していない）
+}
+
+/* --- トレーニングルーム・セミナールーム（2カラム） ------------------------------------------------ */
+
+.clinic-equip-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(40);
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+    row-gap: rem(30);
+    margin-top: rem(50);
+  }
+}
+
+.clinic-equip-pair__item {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+}
+
+.clinic-equip-pair__photo {
+  flex-shrink: 0;
+  width: rem(270);
+  height: rem(219);
+  object-fit: cover;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    width: rem(152);
+    height: rem(123);
+  }
+}
+
+.clinic-equip-pair__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.clinic-equip-pair__label {
+  margin: 0;
+}
+
+.clinic-equip-pair__text {
+  margin: rem(12) 0 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  // カンプ実測: fontSize16/lineHeight1.8（PC・SP共通、縮小していない）
+}
+
+/* --- 設備一覧（9項目・縦積み） ------------------------------------------------ */
+
+// カンプ実測: 項目間の見た目の間隔は各項目自身の上下パディング（46/25）で作られており、
+// リスト自体のgapは0（項目フレーム同士が隙間なく積み上がる）。
+.clinic-equip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    gap: 0;
+    margin-top: rem(50);
+  }
+}
+
+.clinic-equip-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(30);
+  padding-block: rem(46);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(30);
+    padding-block: rem(25);
+  }
+}
+
+.clinic-equip-list__photo {
+  flex-shrink: 0;
+  width: rem(270);
+  height: rem(219);
+  object-fit: cover;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(204);
+  }
+}
+
+.clinic-equip-list__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.clinic-equip-list__label {
+  margin: 0;
+}
+
+.clinic-equip-list__text {
+  margin: rem(12) 0 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  // カンプ実測: SPもfontSize16/lineHeight1.8のまま（PCと同じ、縮小していない）
+}
+
+.clinic-equip-list__text + .clinic-equip-list__text {
+  margin-top: rem(16);
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.clinic-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+

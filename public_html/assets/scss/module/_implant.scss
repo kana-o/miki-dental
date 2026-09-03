@@ -1,0 +1,432 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（インプラント）
+======================================== */
+
+/* --- 見出し（青バッジ）------------------------------------------------ */
+// 5ブロック（インプラントとは／成功の為に／治療法比較／どうして力を入れているか／保証制度）で共通の見出し。
+.implant-heading {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: rem(56);
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    height: auto;
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+/* --- サブ見出し（下線・素材名／番号見出し）------------------------------------------------ */
+.implant-subheading {
+  width: 100%;
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+  border-bottom: rem(2) solid $color-accent;
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- ラベル帯（メリット／デメリット／導入キャッチ）------------------------------------------------ */
+.implant-label {
+  display: flex;
+  align-items: center;
+  min-height: rem(43);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg-tint;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- チェックアイコン（丸チェック・共通）------------------------------------------------ */
+.implant-check-icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(24);
+  height: rem(24);
+  margin-top: rem(3);
+  background-image: url("/assets/img/implant/icon-check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* --- インプラントとは ------------------------------------------------ */
+
+.implant-intro {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// カンプは459×479の図版が左寄せで単独配置（全幅には広がらない）。
+// 紫（#bb37b5 / #d166cb）・青（#4aa3eb）は図版内部の配色のため、
+// ラベル・引き出し線ごと1枚の画像として書き出している（CSSでの色再現・SCSS変数化はしない）。
+.implant-intro__diagram {
+  display: block;
+  width: rem(479);
+  height: rem(479);
+  margin-top: rem(30);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(345);
+    height: rem(345);
+    margin-top: rem(24);
+    border-radius: rem(10);
+  }
+}
+
+.implant-intro__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- インプラント治療成功の為に ------------------------------------------------ */
+
+.implant-success {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* 歯科用CT完備 */
+.implant-ct {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.implant-ct__img {
+  display: block;
+  margin-top: rem(30);
+  width: rem(664);
+  height: rem(415);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    width: 100%;
+    height: rem(216);
+    border-radius: rem(10);
+  }
+}
+
+.implant-ct__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* シミュレーション */
+.implant-simulation {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.implant-simulation .implant-label {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.implant-simulation__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* 写真の横並び（シミュレーション3枚／サージカルガイド2枚で共通） */
+.implant-photo-row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(45);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+    margin-top: rem(24);
+  }
+}
+
+.implant-photo-row__item {
+  width: rem(330);
+
+  @include mq("sp") {
+    width: rem(252);
+  }
+}
+
+.implant-photo-row__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.implant-photo-row__img {
+  display: block;
+  width: 100%;
+  height: rem(261);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(199);
+    border-radius: rem(10);
+  }
+}
+
+.implant-photo-row__caption {
+  margin-top: rem(16);
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(8);
+    font-size: rem(14);
+  }
+}
+
+/* サージカルガイド（見出しなし・「シミュレーション」の続きとして配置） */
+.implant-guide {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.implant-guide__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.implant-guide__lead {
+  font-weight: $bold;
+}
+
+/* --- 治療法比較 ------------------------------------------------ */
+
+.implant-compare {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.implant-compare__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.implant-compare__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  margin-top: rem(30);
+
+  // カンプ実測（SP）: 見出し帯も本文ブロックも inner 幅いっぱいの左寄せ。写真だけ中央。
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.implant-compare__img {
+  flex-shrink: 0;
+  width: rem(352);
+  height: rem(280);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    margin-inline: auto;
+    width: rem(252);
+    height: rem(200);
+    border-radius: rem(10);
+  }
+}
+
+.implant-compare__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  min-width: 0;
+
+  // SPカンプは 画像 → メリット → デメリット が同列の縦積み（gap24）になる。
+  @include mq("sp") {
+    display: contents;
+  }
+}
+
+.implant-compare__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.implant-compare__points {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  margin-top: rem(14);
+}
+
+.implant-compare__point {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* --- どうしてインプラントに力を入れているの？ ------------------------------------------------ */
+
+.implant-reason {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.implant-reason__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.implant-reason__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- インプラント保証制度 ------------------------------------------------ */
+
+.implant-warranty {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.implant-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.implant-check-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8);
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+.implant-warranty__note {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.implant-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+

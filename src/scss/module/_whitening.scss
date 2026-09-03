@@ -1,0 +1,230 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（ホワイトニング）
+======================================== */
+
+/* --- チャプター見出し（青バッジ）------------------------------------------------ */
+// 5チャプター（こんな方におすすめ／オパールエッセンス／オフィス／ホーム／デュアル）で共通の見出し。
+.whitening-badge {
+  width: 100%;
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+/* --- チェックリスト共通（丸チェックアイコン＋テキスト）------------------------------------------------ */
+
+/* --- こんな方におすすめ ------------------------------------------------ */
+
+.whitening-recommend {
+  // カンプ実測（パンくず終端→コンテンツ開始）: 138px（従来160pxは実測より過大）
+  padding-top: rem(138);
+
+  @include mq("sp") {
+    padding-top: rem(100);
+  }
+}
+
+.whitening-recommend__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.whitening-recommend__photo {
+  flex-shrink: 0;
+  width: rem(285);
+  height: rem(217);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(192);
+    border-radius: rem(10);
+  }
+}
+
+.whitening-recommend__list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: rem(10);
+  width: 100%;
+}
+
+.whitening-recommend__item {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+
+  @include mq("sp") {
+    gap: rem(8);
+  }
+}
+
+.whitening-recommend__item p {
+  flex: 1;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* --- ホワイトニングシェアNo.1 オパールエッセンス使用 ------------------------------------------------ */
+
+.whitening-opal {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.whitening-opal__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- オフィスホワイトニング／ホームホワイトニング（共通パーツ） ------------------------------------------------ */
+
+.whitening-office,
+.whitening-home {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.whitening-lead {
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  // カンプ実測（PC）: lineHeightUnit INTRINSIC_%（明示的な行間指定なし、fontSize比 約1.2）
+  line-height: 1.2;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    // カンプ実測（SP）: lineHeightPercentFontSize 180%（PCと異なりSPは明示指定あり）
+    line-height: 1.8;
+  }
+}
+
+.whitening-merit {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.whitening-demerit {
+  margin-top: rem(24);
+}
+
+// メリット／デメリットのラベル帯（カンプは背景 #f2f2f2 でページ背景と同色。装飾として実装）
+.whitening-subheading {
+  width: 100%;
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg-tint;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+.whitening-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(14);
+  margin-top: rem(14);
+}
+
+.whitening-check-item {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  width: 100%;
+}
+
+.whitening-check-item p {
+  flex: 1;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+.whitening-note {
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  // カンプ実測（PC/SP共通）: lineHeightUnit INTRINSIC_%（明示的な行間指定なし、fontSize比 約1.2）
+  line-height: 1.2;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- デュアルホワイトニング ------------------------------------------------ */
+
+.whitening-dual {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.whitening-dual__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+
+.whitening-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}

@@ -1,0 +1,257 @@
+@use "global" as *;
+
+/* ========================================
+  予防歯科・ブラッシング指導（TBI）ページ
+======================================== */
+
+/* --- 共通レイアウト（このページ内で使い回す） ------------------------------------------------ */
+
+// 見出し＋本文が縦に並ぶ塊の共通ラッパー。カンプは常に flex縦積み・gap30(SP24)で統一されている。
+.preventive-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: rem(30);
+
+  @include mq("sp") {
+    gap: rem(24);
+  }
+}
+
+// 複数の<p>で構成される本文（文ごとに改行されているブロック）。段落間の余白のみここで持つ。
+.preventive-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+
+  @include mq("sp") {
+    gap: rem(8);
+  }
+}
+
+// セクション見出し（青地に白文字の帯）
+.preventive-label {
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+// 見出し下に罫線を引く小見出し（アコーディオン風の下線見出し）
+.preventive-caption {
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+  border-bottom: 2px solid $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(4);
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+// 本文テキストの基本スタイル（単独の<p>にも、.preventive-paragraphsの親にも使う）
+
+/* --- 予防歯科とは ------------------------------------------------ */
+
+// 見出し直下からの間隔（パンくず下端からの実測値）
+.preventive-intro {
+  margin-top: rem(141);
+
+  @include mq("sp") {
+    margin-top: rem(78);
+  }
+}
+
+/* --- 定期検診と残存歯 ------------------------------------------------ */
+
+.preventive-checkup {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// グラフ画像＋本文の横並び。図版内の配色（#4aa3eb #47a6e6 #ea3596 #bfddfe #eaf6ff 等）は
+// 画像として書き出し済みのため、CSS側では色・半端な文字サイズを一切再現しない。
+.preventive-checkup__chart {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem(24);
+  }
+}
+
+.preventive-checkup__chart-img {
+  flex-shrink: 0;
+  width: rem(600);
+  height: rem(432);
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(345);
+    height: rem(248);
+    border-radius: rem(10);
+  }
+}
+
+.preventive-checkup__chart .preventive-text {
+  flex: 1;
+}
+
+/* --- 歯周病検査の徹底 ------------------------------------------------ */
+
+.preventive-periodontal {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// PCは4枚横並び（space-between）、SPは縦積み
+.preventive-periodontal__list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+  }
+}
+
+.preventive-periodontal__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(16);
+  width: rem(240);
+
+  @include mq("sp") {
+    gap: rem(8);
+    width: rem(180);
+  }
+}
+
+.preventive-periodontal__img {
+  width: 100%;
+  height: rem(300);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(225);
+    border-radius: rem(10);
+  }
+}
+
+.preventive-periodontal__label {
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(13);
+  }
+}
+
+/* --- ブラッシング指導・TBI ／ PMTC（クリーニング） ------------------------------------------------ */
+// カンプ上でTBIとPMTCは同一レイアウト（写真＋本文の横並び）を共有する。
+
+.preventive-tbi {
+  margin-top: rem(100);
+
+  // SPカンプはこの2セクションと歯周病検査の徹底が24px間隔でまとまり、他ブロックより詰まっている
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.preventive-pmtc {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.preventive-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem(24);
+  }
+}
+
+.preventive-feature__img {
+  flex-shrink: 0;
+  width: rem(280);
+  height: rem(215);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  // SPは画像幅(252px)がコンテナ(345px)より狭いため中央寄せする
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(194);
+    margin-inline: auto;
+    border-radius: rem(10);
+  }
+}
+
+.preventive-feature .preventive-text {
+  flex: 1;
+}
+
+/* --- どのくらいの頻度で通院したらよいの？ ------------------------------------------------ */
+
+.preventive-frequency {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+
+// カンプにはこのページ専用の「予約・相談」見出しが無い（.cta と同じ位置・同じ高さのフレームのみ）。
+// 見出し階層を保つため<h2>は残しつつ、視覚的には非表示にする（サイト共通の目視できる見出しではないため）。
+.preventive-reserve {
+  margin-top: rem(150);
+
+  @include mq("sp") {
+    margin-top: rem(100);
+  }
+}
+

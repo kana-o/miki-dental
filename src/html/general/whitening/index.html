@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- meta情報 -->
+  <title>ホワイトニング｜三木歯科・小児歯科（川越市）</title>
+  <meta name="description" content="着色や加齢による変色を薬剤で白くするホワイトニング。白く健康的な口元を目指す方はお気軽にご相談ください。" />
+
+  <!-- ogp -->
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ファビコン -->
+  <link rel="icon" href="/assets/img/favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- css -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js" defer></script>
+</head>
+
+<body>
+
+  @@include('../../parts/header.html', { "isTop": false })
+  @@include('../../parts/fixed-nav.html')
+
+  <main class="main">
+
+    <!-- ========================================
+      ページヘッダー
+    ======================================== -->
+    <div class="page-head">
+      <div class="page-head__bg" aria-hidden="true">
+        <span class="page-head__watermark"></span>
+      </div>
+      <h1 class="page-head__title">ホワイトニング</h1>
+    </div>
+
+    <nav class="breadcrumb" aria-label="パンくず">
+      <div class="inner">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">TOP</a></li>
+          <li class="breadcrumb__item"><a href="/general/" class="breadcrumb__link">一般歯科</a></li>
+          <li class="breadcrumb__item" aria-current="page">ホワイトニング</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ========================================
+      こんな方におすすめ
+    ======================================== -->
+    <section class="whitening-recommend">
+      <div class="inner">
+        <h2 class="whitening-badge">こんな方におすすめ</h2>
+        <div class="whitening-recommend__row">
+          <picture class="pic">
+            <source srcset="/assets/img/whitening/whitening-01.webp" type="image/webp" />
+            <img src="/assets/img/whitening/whitening-01.jpg" alt="白い歯を見せて微笑む女性の口元" class="whitening-recommend__photo" width="1024" height="492" loading="lazy" />
+          </picture>
+          <ul class="whitening-recommend__list">
+            <li class="whitening-recommend__item"><span class="icon-check" aria-hidden="true"></span><p>歯の黄ばみが気になり出した方</p></li>
+            <li class="whitening-recommend__item"><span class="icon-check" aria-hidden="true"></span><p>いつまでも若々しい口元でいたい方</p></li>
+            <li class="whitening-recommend__item"><span class="icon-check" aria-hidden="true"></span><p>営業や人前に出ることが多い方</p></li>
+            <li class="whitening-recommend__item"><span class="icon-check" aria-hidden="true"></span><p>就職試験を控えている方</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+      ホワイトニングシェアNo.1 オパールエッセンス使用
+    ======================================== -->
+    <section class="whitening-opal">
+      <div class="inner">
+        <h2 class="whitening-badge">ホワイトニングシェアNo.1 オパールエッセンス使用</h2>
+        <p class="text-body whitening-opal__text">「オパールエッセンス」は過酸化尿素を主成分とした、世界的に高い実績とシェアを誇る米国・ウルトラデント社ホワイトニング薬剤です。米国の医薬品局・歯科医師会でもその安全性が認められています。</p>
+      </div>
+    </section>
+
+    <!-- ========================================
+      オフィスホワイトニング
+    ======================================== -->
+    <section class="whitening-office">
+      <div class="inner">
+        <h2 class="whitening-badge">オフィスホワイトニング</h2>
+        <p class="whitening-lead">医院にて特殊な薬剤とライトを併用しホワイトニングを行う方法です。</p>
+
+        <div class="whitening-merit">
+          <h3 class="whitening-subheading">メリット</h3>
+          <ul class="whitening-check-list">
+            <li class="whitening-check-item"><span class="icon-check" aria-hidden="true"></span><p>より効果の高い薬剤が使用出来るため効果が早く実感できる</p></li>
+          </ul>
+        </div>
+
+        <div class="whitening-demerit">
+          <h3 class="whitening-subheading">デメリット</h3>
+          <ul class="whitening-check-list">
+            <li class="whitening-check-item"><span class="icon-check" aria-hidden="true"></span><p>人によってはホームホワイトニングに比べしみやすい</p></li>
+          </ul>
+        </div>
+
+        <p class="whitening-note">経年的に後戻りがあります。</p>
+      </div>
+    </section>
+
+    <!-- ========================================
+      ホームホワイトニング
+    ======================================== -->
+    <section class="whitening-home">
+      <div class="inner">
+        <h2 class="whitening-badge">ホームホワイトニング</h2>
+        <p class="whitening-lead">医院にて歯型を取りオーダーメイドのカスタムトレーを作成し、ご自宅でホワイトニングを行う方法です。</p>
+
+        <div class="whitening-merit">
+          <h3 class="whitening-subheading">メリット</h3>
+          <ul class="whitening-check-list">
+            <li class="whitening-check-item"><span class="icon-check" aria-hidden="true"></span><p>自分の好きなタイミングでホワイトニングが出来る</p></li>
+            <li class="whitening-check-item"><span class="icon-check" aria-hidden="true"></span><p>じっくり白くしていくため、しみるなどの症状が出にくい</p></li>
+            <li class="whitening-check-item"><span class="icon-check" aria-hidden="true"></span><p>症状と相談しながら出来て後戻りも少ない</p></li>
+          </ul>
+        </div>
+
+        <div class="whitening-demerit">
+          <h3 class="whitening-subheading">デメリット</h3>
+          <ul class="whitening-check-list">
+            <li class="whitening-check-item"><span class="icon-check" aria-hidden="true"></span><p>すぐに白くしたいなど急いでいる方には不向き</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+      デュアルホワイトニング
+    ======================================== -->
+    <section class="whitening-dual">
+      <div class="inner">
+        <h2 class="whitening-badge">デュアルホワイトニング</h2>
+        <div class="text-body whitening-dual__text">
+          <p>オフィスホワイトニングで短時間で歯を白くし、さらにご自宅でホームホワイトニングを行う方法です。</p>
+          <p>オフィスホワイトニングとホームホワイトニングの併用により早く歯を白くし、後戻りを防ぎます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+      予約・相談
+    ======================================== -->
+    <div class="whitening-reserve">
+      <div class="inner">
+        @@include('../../parts/cta.html')
+      </div>
+    </div>
+
+  </main>
+
+  @@include('../../parts/footer.html')
+
+</body>
+</html>

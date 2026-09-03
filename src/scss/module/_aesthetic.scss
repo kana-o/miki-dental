@@ -1,0 +1,322 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（審美歯科）
+======================================== */
+
+/* --- 見出し（青バッジ）------------------------------------------------ */
+// 4ブロック（審美歯科／審美歯科素材と保険素材／保証制度／保証がきかないケース）で共通の見出し。
+// 意匠は module/_common.scss の .heading-band と完全一致のため、HTMLに .heading-band を併記する。
+
+/* --- サブ見出し（下線・素材名／ご相談／保証リード文）------------------------------------------------ */
+// 意匠は module/_common.scss の .heading-sub と完全一致のため、HTMLに .heading-sub を併記する。
+
+/* --- ラベル帯（メリット／デメリット／導入文キャッチ）------------------------------------------------ */
+.aesthetic-label {
+  display: flex;
+  align-items: center;
+  min-height: rem(43);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg-tint;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    // カンプ実測: SPは高さ約32px（PC用のmin-height:43がそのまま残っていた）
+    min-height: rem(32);
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- チェックアイコン（丸チェック・共通）------------------------------------------------ */
+.aesthetic-check-icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(24);
+  height: rem(24);
+  margin-top: rem(3);
+  background-image: url("/assets/img/common/icon-check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* --- 審美歯科（導入）------------------------------------------------ */
+
+.aesthetic-intro {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.aesthetic-intro__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.aesthetic-intro__photo {
+  flex-shrink: 0;
+  width: rem(285);
+  height: rem(217);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(192);
+    border-radius: rem(10);
+  }
+}
+
+.aesthetic-intro__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  // SPカンプは写真・キャッチ・本文が同列の縦積み（gap24）になる。
+  // body を display:contents にして、子を row の flex アイテムに合流させる。
+  @include mq("sp") {
+    display: contents;
+  }
+}
+
+.aesthetic-intro__text {
+  margin-top: rem(14);
+  display: flex;
+  flex-direction: column;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: 0;
+  }
+}
+
+/* --- 審美歯科素材と保険素材 ------------------------------------------------ */
+
+.aesthetic-materials {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.aesthetic-material__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.aesthetic-material__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  margin-top: rem(30);
+
+  // カンプ実測（SP）: 見出し帯も本文ブロックも inner 幅いっぱいの左寄せ。写真だけ中央。
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.aesthetic-material__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: rem(352);
+
+  @include mq("sp") {
+    width: rem(252);
+  }
+}
+
+.aesthetic-material__img {
+  width: 100%;
+  height: rem(280);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    margin-inline: auto;
+    height: rem(200);
+    border-radius: rem(10);
+  }
+}
+
+.aesthetic-material__caption {
+  margin-top: rem(16);
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(8);
+    font-size: rem(13);
+  }
+}
+
+.aesthetic-material__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  min-width: 0;
+
+  // SPカンプは写真→メリット→デメリットが同列の縦積み（gap24）になる。
+  @include mq("sp") {
+    display: contents;
+  }
+}
+
+.aesthetic-material__block {
+  display: flex;
+  flex-direction: column;
+}
+
+.aesthetic-material__points {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  margin-top: rem(14);
+
+  @include mq("sp") {
+    gap: rem(14);
+  }
+}
+
+.aesthetic-material__point {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* --- 審美歯科のご相談はお気軽にどうぞ ------------------------------------------------ */
+
+.aesthetic-invite {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.aesthetic-invite__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- 保証制度 ------------------------------------------------ */
+
+.aesthetic-warranty {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.aesthetic-warranty__lead {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.aesthetic-warranty__note {
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(10);
+  }
+}
+
+/* --- 保証がきかないケース ------------------------------------------------ */
+
+.aesthetic-exclusion {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* --- チェックリスト（保証制度／保証がきかないケース共通）------------------------------------------------ */
+
+.aesthetic-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.aesthetic-check-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8);
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.aesthetic-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    // カンプ実測: CTAインスタンスの前後に約100pxずつの余白（旧70pxは類推値）
+    padding-block: rem(100);
+  }
+}
+

@@ -1,0 +1,174 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（小児シーラント）
+======================================== */
+
+/* --- 見出し（青バッジ）------------------------------------------------ */
+// 3ブロック（シーラント治療／シーラントって？／シーラント実際の写真）で共通の見出し。
+// 意匠は module/_common.scss の .heading-band と完全一致のため、HTMLに .heading-band を併記する。
+
+/* --- サブ見出し（下線・シーラント治療をしなかった場合）------------------------------------------------ */
+// 見た目は module/_common.scss の .heading-sub と共通。margin-topのみページ固有。
+.sealant-subheading {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- シーラント治療 ------------------------------------------------ */
+
+.sealant-treatment {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+/* --- シーラントって？ ------------------------------------------------ */
+
+.sealant-what {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* --- 比較行（画像＋矢印＋画像。シーラント治療／シーラントって？ 共通） ------------------------------------------------ */
+
+.sealant-compare {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: rem(28);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(10);
+    margin-top: rem(24);
+  }
+}
+
+.sealant-compare__item {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  width: rem(410);
+
+  @include mq("sp") {
+    align-items: center;
+    gap: rem(14);
+    width: rem(252);
+  }
+}
+
+.sealant-compare__img {
+  width: 100%;
+  height: rem(317);
+  object-fit: cover;
+  border-radius: rem(29);
+
+  @include mq("sp") {
+    height: rem(232);
+    border-radius: rem(10);
+  }
+}
+
+.sealant-compare__text {
+  display: flex;
+  flex-direction: column;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    width: rem(252);
+  }
+}
+
+// 図版の矢印（共通SVGをCSSのrotateでPC/SP切り替え。PC=右向き／SP=下向き）
+.sealant-compare__arrow {
+  display: block;
+  flex-shrink: 0;
+  width: rem(147);
+  height: rem(48);
+  margin-top: rem(85);
+  background-image: url("/assets/img/common/triangle-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(90deg);
+
+  @include mq("sp") {
+    width: rem(96);
+    height: rem(31);
+    margin-top: 0;
+    transform: rotate(180deg);
+  }
+}
+
+/* --- シーラント実際の写真 ------------------------------------------------ */
+
+.sealant-photo {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.sealant-photo__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.sealant-photo__img {
+  flex-shrink: 0;
+  width: rem(280);
+  height: rem(215);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(193.5);
+    border-radius: rem(10);
+  }
+}
+
+.sealant-photo__text {
+  display: flex;
+  flex-direction: column;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.sealant-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}

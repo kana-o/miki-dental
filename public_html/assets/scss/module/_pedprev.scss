@@ -1,0 +1,278 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（小児予防歯科）
+======================================== */
+
+/* --- チャプター見出し（青バッジ）------------------------------------------------ */
+// 4チャプター（予防歯科とは／何歳から／プログラム／頻度）で共通の見出し。
+.pedprev-badge {
+  width: 100%;
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+/* --- サブ見出し（下線付き） ------------------------------------------------ */
+.pedprev-subheading {
+  width: 100%;
+  margin-top: rem(30);
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+  border-bottom: rem(2) solid $color-accent;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    padding-block: rem(4);
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- 本文テキスト ------------------------------------------------ */
+.pedprev-text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+// 「※」の注釈記号（本文中でひとまわり小さく）
+.pedprev-sup {
+  font-size: rem(10);
+}
+
+.pedprev-note {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+// 「※知識の例：」に続く注釈リスト（カンプは行頭記号なし）
+.pedprev-note-list {
+  margin-top: rem(4);
+  list-style: none;
+}
+
+.pedprev-note-list li {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text;
+  line-height: 1.8;
+}
+
+/* --- 写真＋本文の横並び行 ------------------------------------------------ */
+// PC: 横並び（写真 + テキスト） / SP: 縦並び（写真 → テキスト）
+.pedprev-row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  width: 100%;
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.pedprev-row__photo {
+  flex-shrink: 0;
+  width: rem(230);
+  height: rem(215);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    border-radius: rem(10);
+  }
+}
+
+// フッ素／PMTCの写真は280px幅（年齢セクションの写真だけ230px）
+.pedprev-row__photo--wide {
+  width: rem(280);
+
+  @include mq("sp") {
+    width: rem(230);
+    height: rem(176);
+  }
+}
+
+.pedprev-row__text {
+  flex: 1;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text;
+  line-height: 1.8;
+}
+
+/* --- 3ステップ（染め出し→PMTC→仕上がり） ------------------------------------------------ */
+// カンプは薄グレーのカード内に3つの丸写真＋バッジ＋吹き出しキャプションが並ぶ。
+// 矢印は各項目の疑似要素で表現し、最後の項目には出さない。
+.pedprev-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: rem(70);
+  margin-top: rem(30);
+  padding-block: rem(45) rem(28);
+  padding-inline: rem(20);
+  background-color: $color-bg-tint;
+  border-radius: rem(20);
+  list-style: none;
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(50);
+    margin-top: rem(24);
+    padding-block: rem(30);
+    padding-inline: rem(15);
+    border-radius: rem(10);
+  }
+}
+
+.pedprev-flow__item {
+  position: relative;
+  z-index: 0;
+  width: rem(244);
+
+  @include mq("sp") {
+    width: rem(237);
+  }
+}
+
+// 次の項目への矢印（最後の項目には出さない）
+.pedprev-flow__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 100%;
+  width: rem(50);
+  height: rem(107);
+  margin-left: rem(10);
+  background-image: url("/assets/img/pedprev/arrow-pc.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateY(-50%);
+
+  @include mq("sp") {
+    top: 100%;
+    left: 50%;
+    width: rem(107);
+    height: rem(30);
+    margin-top: rem(10);
+    margin-left: 0;
+    background-image: url("/assets/img/pedprev/arrow-sp.svg");
+    transform: translateX(-50%);
+  }
+}
+
+.pedprev-flow__badge {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: rem(36);
+  padding-block: rem(4) rem(6);
+  padding-inline: rem(10);
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.4;
+  white-space: nowrap;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    left: rem(15);
+    font-size: rem(17);
+  }
+}
+
+.pedprev-flow__photo {
+  display: block;
+  width: rem(244);
+  height: rem(244);
+  margin-top: rem(11);
+  object-fit: cover;
+  border-radius: 50%;
+
+  @include mq("sp") {
+    width: rem(237);
+    height: rem(237);
+    margin-top: rem(10);
+  }
+}
+
+.pedprev-flow__caption {
+  width: rem(220);
+  margin-top: calc(#{rem(35)} * -1);
+  margin-inline: auto;
+  padding-block: rem(16) rem(20);
+  padding-inline: rem(20);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text;
+  line-height: 1.8;
+  text-align: center;
+  background-color: $color-bg;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    width: rem(213);
+    margin-top: calc(#{rem(30)} * -1);
+  }
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+.pedprev-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(100);
+  }
+}
+
+/* --- チャプター間の余白（セクション単位） ------------------------------------------------ */
+.pedprev-intro {
+  padding-top: rem(140);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.pedprev-age,
+.pedprev-program,
+.pedprev-freq {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}

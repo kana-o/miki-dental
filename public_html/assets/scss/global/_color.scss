@@ -9,6 +9,9 @@ $color-cta: #61b8ff; // SP固定CTA背景
 $color-bg: #fff; // ページ／カードの基本背景
 $color-bg-sub: #f2f2f2; // セクション背景（薄グレー）
 $color-bg-light: #d8ecfd; // 淡い水色の面（ナビのドロップダウン／アコーディオン）
+// サブ見出しの帯・カード面。カンプは #f2f2f2 に Figma の NOISE エフェクト（#145aa6 20%）を
+// 重ねており、書き出し実測は #dce3ea。$color-bg-sub のままだとページ背景と同色で面が見えなくなる。
+$color-bg-tint: #dce3ea;
 // バナー専用色。制作前チェックで「用途不明・1回のみ」と挙がっていたが、
 // 実データを追ったところ両方ともバナーの意匠色だった（入力ミスではない）。
 $color-instagram: #a61490; // Instagramバナーの枠

@@ -1,0 +1,602 @@
+@use "global" as *;
+
+/* ========================================
+  スタッフ募集ページ（recruit）
+======================================== */
+
+/* --- 募集状況の告知 ------------------------------------------------ */
+
+// カンプ上「募集中」「募集停止」の相反する文言が両方存在するため、
+// 現在有効な「募集中」を表示している（HTML側にコメントで両方の状態を残している）。
+// ボーダー・文字色 #e81e17 はカンプ実値。既存のカラー変数に無い赤のため、
+// _pedortho.scss の赤文字と同様にこのページ専用でベタ書きする（グローバル変数化しない）。
+.recruit-notice {
+  margin-top: rem(140);
+
+  @include mq("sp") {
+    margin-top: rem(70);
+  }
+}
+
+.recruit-notice__text {
+  width: 100%;
+  max-width: rem(686);
+  margin-inline: auto;
+  padding-block: rem(18);
+  padding-inline: rem(20);
+  font-size: rem(24);
+  font-weight: $bold;
+  color: #e81e17;
+  line-height: 1.5;
+  text-align: center;
+  border: rem(1) solid #e81e17;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    max-width: rem(341);
+    padding-block: rem(12);
+    padding-inline: rem(9);
+    font-size: rem(12);
+    border-radius: rem(5);
+  }
+}
+
+/* --- 三木歯科・小児歯科で一緒に働きませんか ------------------------------------------------ */
+
+.recruit-join {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.recruit-join__row {
+  position: relative;
+  z-index: 0;
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: rem(40);
+  }
+}
+
+// 写真の背面に伸びる青帯（左端まで塗り足し）
+.recruit-join__band {
+  position: absolute;
+  z-index: -1;
+  top: rem(25);
+  left: 0;
+  display: block;
+  width: calc(50% - #{rem(21)});
+  height: rem(396);
+  background-color: $color-accent;
+  border-radius: rem(20) 0 0 rem(20);
+
+  @include mq("sp") {
+    top: rem(20);
+    width: rem(304);
+    height: rem(187);
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+.recruit-join__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(45);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(42);
+  }
+}
+
+.recruit-join__photo {
+  flex-shrink: 0;
+  width: rem(550);
+  height: rem(385);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(270);
+    height: rem(189);
+    margin-inline: auto;
+    border-radius: rem(10);
+  }
+}
+
+.recruit-join__body {
+  flex: 1;
+}
+
+.recruit-join__lead {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2;
+
+  @include mq("sp") {
+    line-height: 2.2;
+  }
+}
+
+// カンプでは1行目の一部に白いマーカー帯が敷かれるが、テキスト幅と一致しない
+// 装飾的な配置のため、可読性を優先しシンプルなテキストとして実装している。
+.recruit-join__status {
+  margin-top: rem(12);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2;
+
+  @include mq("sp") {
+    margin-top: rem(8);
+    line-height: 2.2;
+  }
+}
+
+.recruit-join__tel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: rem(12);
+  padding-block: rem(8);
+  padding-inline: rem(16);
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 2;
+  border: rem(1) solid $color-main;
+  border-radius: rem(4);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    padding-block: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- 三木歯科・小児歯科の魅力 ------------------------------------------------ */
+
+.recruit-charm {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.recruit-charm__title {
+  margin-bottom: rem(70);
+
+  @include mq("sp") {
+    margin-bottom: rem(40);
+  }
+}
+
+.recruit-charm__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+
+  @include mq("sp") {
+    gap: rem(30);
+  }
+}
+
+.recruit-charm__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: rem(45);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(24);
+  }
+}
+
+.recruit-charm__item--reverse .recruit-charm__inner {
+  flex-direction: row-reverse;
+
+  @include mq("sp") {
+    flex-direction: column;
+  }
+}
+
+.recruit-charm__photo {
+  flex-shrink: 0;
+  width: rem(530);
+  height: rem(376);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: 100%;
+    height: rem(179);
+    border-radius: rem(10);
+  }
+}
+
+// 白文字（カンプ）を表示するための紺色カード。
+// カンプは幅の異なる2枚の矩形（グレー＋紺）が写真の裏へ塗り足される意匠だが、
+// 可読性とメンテナンス性を優先し、内容に合わせて伸縮する単色カードに簡略化している。
+.recruit-charm__body {
+  position: relative;
+  z-index: 0;
+  flex: 1;
+  max-width: rem(482);
+  margin-top: rem(20);
+  padding: rem(40) rem(36) rem(36);
+  background-color: $color-accent;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    max-width: none;
+    margin-top: rem(24);
+    padding: rem(30) rem(20) rem(24);
+    border-radius: rem(10);
+  }
+}
+
+.recruit-charm__label {
+  display: inline-block;
+  margin-bottom: rem(20);
+  padding-block: rem(2);
+  padding-inline: rem(10);
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 2.2;
+  background-color: $color-bg;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    margin-bottom: rem(16);
+    font-size: rem(20);
+  }
+}
+
+.recruit-charm__text {
+  font-size: rem(18);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 2;
+
+  @include mq("sp") {
+    font-size: rem(16);
+    line-height: 2.2;
+  }
+}
+
+.recruit-charm__text + .recruit-charm__text {
+  margin-top: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(16);
+  }
+}
+
+.recruit-charm__perks {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2);
+  margin-top: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(16);
+  }
+}
+
+.recruit-charm__perk {
+  position: relative;
+  padding-left: rem(18);
+  font-size: rem(18);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: rem(13);
+    left: 0;
+    width: rem(10);
+    height: rem(10);
+    background-color: $color-text-inverse;
+    border-radius: 50%;
+  }
+
+  @include mq("sp") {
+    padding-left: rem(16);
+    font-size: rem(16);
+    line-height: 2.2;
+
+    &::before {
+      top: rem(15);
+      width: rem(8);
+      height: rem(8);
+    }
+  }
+}
+
+.recruit-charm__perks + .recruit-charm__text {
+  margin-top: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(16);
+  }
+}
+
+/* --- 募集要項 ------------------------------------------------ */
+
+.recruit-requirements {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.recruit-requirements__table {
+  width: 100%;
+  max-width: rem(900);
+  margin-top: rem(70);
+  margin-inline: auto;
+  border-collapse: collapse;
+
+  @include mq("sp") {
+    margin-top: rem(40);
+  }
+}
+
+.recruit-requirements__table tr {
+  display: flex;
+  padding-block: rem(28) rem(30);
+  padding-inline: rem(24);
+  border-bottom: rem(2) dotted $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(16) rem(17);
+    padding-inline: 0;
+  }
+}
+
+.recruit-requirements__table th {
+  flex: 0 0 rem(200);
+  padding-right: rem(50);
+  font-family: $base-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  text-align: left;
+
+  @include mq("sp") {
+    flex-basis: rem(90);
+    padding-right: rem(16);
+    font-size: rem(14);
+  }
+}
+
+.recruit-requirements__table td {
+  flex: 1;
+  min-width: 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+
+  @include mq("sp") {
+    font-size: rem(14);
+  }
+}
+
+/* --- 求人用CTA ------------------------------------------------ */
+
+// 共通の parts/cta.html とは別コンポーネント（文言・レイアウトが異なるため）。
+// 電話アイコン・電話番号・受付時間の各要素は見た目が共通CTAと完全一致するため、
+// 共通クラス（.cta__tel-icon / .cta__tel-number / .cta__hours-label 等）をHTMLに直接付与し、
+// ここでは異なる部分（inner の余白・lead の行間・中央寄せ）だけを定義する。
+// 1箇所目（募集要項の直後）と2箇所目（働くスタッフの声の直後・footer直前）で
+// 前後の余白が異なるため、隣接セレクタで個別に指定する。
+.recruit-requirements + .recruit-cta {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.recruit-voice + .recruit-cta {
+  margin-top: rem(160);
+  margin-bottom: rem(160);
+
+  @include mq("sp") {
+    margin-top: rem(80);
+    margin-bottom: rem(80);
+  }
+}
+
+// カンプでは丸ロゴマーク（image 27）が非表示（visible: false）に設定されているため、
+// テキストのみを中央揃えで配置する構成で実装している。
+.recruit-cta__inner {
+  width: 100%;
+  max-width: rem(900);
+  padding-block: rem(30) rem(34);
+  padding-inline: rem(60);
+  margin-inline: auto;
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    max-width: rem(330);
+    padding: rem(24) rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.recruit-cta__lead {
+  font-size: rem(20);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.8;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(16);
+    line-height: 1.5;
+    text-align: left;
+  }
+}
+
+.recruit-cta__tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(7);
+  margin-top: rem(10);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(4);
+  }
+
+  @include mq("sp") {
+    justify-content: flex-start;
+    gap: rem(8);
+  }
+}
+
+.recruit-cta__hours {
+  margin-top: rem(7);
+  font-size: rem(16);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.2;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(16);
+    text-align: left;
+  }
+}
+
+/* --- 働くスタッフの声 ------------------------------------------------ */
+
+.recruit-voice {
+  padding-top: rem(160);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.recruit-voice__title {
+  margin-bottom: rem(70);
+
+  @include mq("sp") {
+    margin-bottom: rem(40);
+  }
+}
+
+.recruit-voice__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+}
+
+.recruit-voice__question {
+  width: 100%;
+  padding-block: rem(16) rem(18);
+  padding-inline: rem(24);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.45;
+  text-align: center;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-inline: rem(16);
+    font-size: rem(20);
+    text-align: left;
+  }
+}
+
+.recruit-voice__answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(28);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+    gap: rem(14);
+    margin-top: rem(24);
+  }
+}
+
+.recruit-voice__answers--three {
+  grid-template-columns: repeat(3, 1fr);
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recruit-voice__card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  padding: rem(22);
+  background-color: $color-bg;
+  border-radius: rem(10);
+}
+
+.recruit-voice__text {
+  font-family: $second-font;
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+.recruit-voice__person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(12);
+}
+
+.recruit-voice__name {
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.2;
+}
+
+.recruit-voice__avatar {
+  flex-shrink: 0;
+  width: rem(86);
+  height: rem(86);
+  border-radius: 50%;
+
+  @include mq("sp") {
+    width: rem(60);
+    height: rem(60);
+  }
+}

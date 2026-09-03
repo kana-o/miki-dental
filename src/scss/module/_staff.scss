@@ -1,0 +1,359 @@
+@use "global" as *;
+
+/* ========================================
+  スタッフ紹介ページ
+======================================== */
+
+/* --- 院長／副院長 共通ブロック ------------------------------------------------ */
+
+.staff-doctor {
+  position: relative;
+  z-index: 0;
+  margin-top: rem(138);
+
+  @include mq("sp") {
+    margin-top: rem(73);
+  }
+}
+
+// 2件目（副院長）は1件目（院長）との間隔だけを持つ
+.staff-doctor + .staff-doctor {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// 写真の背面に敷く色帯（画面左端から。about-row__band と同じ考え方）
+.staff-doctor__band {
+  position: absolute;
+  z-index: -1;
+  top: rem(16);
+  left: 0;
+  display: block;
+  width: rem(602);
+  height: rem(642);
+  background-color: $color-accent;
+  border-radius: 0 rem(20) rem(20) 0;
+
+  @include mq("sp") {
+    width: rem(265);
+    height: rem(297);
+    border-radius: 0 rem(10) rem(10) 0;
+  }
+}
+
+.staff-doctor__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(50);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(24);
+  }
+}
+
+.staff-doctor__photo {
+  flex-shrink: 0;
+  width: rem(374);
+  height: rem(455);
+  object-fit: cover;
+  object-position: top;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(246);
+    height: rem(299);
+    margin-inline: rem(19) auto;
+    border-radius: rem(10);
+  }
+}
+
+.staff-doctor__body {
+  flex: 1;
+}
+
+.staff-doctor__text {
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    line-height: 2.2;
+  }
+}
+
+.staff-doctor__text p {
+  margin: 0;
+}
+
+.staff-doctor__name {
+  margin-top: rem(30);
+  font-family: $second-font;
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.6;
+
+  // SPカンプは氏名だけ右寄せ（文字揃えは左のまま）
+  @include mq("sp") {
+    width: fit-content;
+    margin-top: rem(16);
+    margin-inline-start: auto;
+  }
+}
+
+.staff-doctor__role {
+  display: block;
+  font-size: rem(14);
+}
+
+.staff-doctor__person {
+  display: block;
+  font-size: rem(20);
+}
+
+/* --- 略歴／治療方針カード ------------------------------------------------ */
+
+.staff-doctor__card {
+  display: flex;
+  justify-content: center;
+  gap: rem(30);
+  margin-top: rem(50);
+  padding: rem(40);
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(28);
+    margin-top: rem(30);
+    padding-block: rem(24);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.staff-doctor__history {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(18);
+  padding-right: rem(36);
+  border-right: rem(3) dashed $color-accent;
+
+  @include mq("sp") {
+    gap: rem(14);
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: rem(20);
+    border-right: 0;
+    border-bottom: rem(2) dashed $color-accent;
+  }
+}
+
+.staff-doctor__history-body {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  width: rem(327);
+
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.staff-doctor__history-text {
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+.staff-doctor__item {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4);
+}
+
+.staff-doctor__item-label {
+  display: flex;
+  align-items: center;
+  gap: rem(6);
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+.staff-doctor__dot {
+  flex-shrink: 0;
+  width: rem(11);
+  height: rem(11);
+  background-color: $color-accent;
+  border-radius: 50%;
+}
+
+.staff-doctor__item-text {
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+.staff-doctor__policy {
+  display: flex;
+  flex-direction: column;
+  gap: rem(18);
+  width: rem(610);
+
+  @include mq("sp") {
+    gap: rem(14);
+    width: 100%;
+  }
+}
+
+.staff-doctor__policy-text p {
+  margin: 0;
+}
+
+// 認定資格の「※」だけ小さく
+.staff-doctor__sup {
+  font-size: 0.645em;
+}
+
+// 副院長のみ表示される注釈（※小児歯科専門医とは）
+.staff-doctor__note {
+  font-size: rem(11);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.staff-doctor__note-title {
+  font-weight: $bold;
+  font-size: rem(12);
+}
+
+/* --- スタッフ ------------------------------------------------ */
+
+.staff-team {
+  margin-top: rem(160);
+
+  @include mq("sp") {
+    margin-top: rem(100);
+  }
+}
+
+.staff-team__lead {
+  margin-top: rem(70);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(40);
+    line-height: 2;
+  }
+}
+
+.staff-team__lead p {
+  margin: 0;
+}
+
+.staff-team__list {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(45);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(30);
+  }
+}
+
+.staff-team__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(330);
+
+  @include mq("sp") {
+    width: rem(345);
+  }
+}
+
+.staff-team__photo {
+  width: 100%;
+  height: rem(261);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(273);
+    border-radius: rem(10);
+  }
+}
+
+.staff-team__item-title {
+  margin-top: rem(30);
+}
+
+.staff-team__item-text {
+  margin-top: rem(12);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(14);
+  }
+}
+
+.staff-team__item-text p {
+  margin: 0;
+}
+
+// 集合写真（全幅・帯からのはみ出しを防ぐため overflow: hidden）
+.staff-team__group {
+  overflow: hidden;
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.staff-team__group-img {
+  display: block;
+  width: 100%;
+  height: rem(681);
+  object-fit: cover;
+  object-position: bottom;
+
+  @include mq("sp") {
+    height: rem(255);
+  }
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.staff-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+

@@ -1,0 +1,403 @@
+@use "global" as *;
+
+/* ========================================
+  料金ページ
+======================================== */
+
+/* --- 料金表 目次 ------------------------------------------------ */
+
+.price-toc {
+  margin-top: rem(141);
+
+  @include mq("sp") {
+    margin-top: rem(78);
+  }
+}
+
+// 3グループ（一般歯科／小児歯科／保証制度）を縦に並べる
+.price-toc__inner {
+  display: flex;
+  flex-direction: column;
+  gap: rem(50);
+}
+
+// グループ内は見出し帯（.price-band）+ リストが縦に流れるだけなので固有スタイルなし
+.price-toc__group {
+}
+
+// 見出し帯（.price-band）に併記して使う。固有スタイルなし
+.price-toc__label {
+}
+
+// PC: 330px幅のリンクを3列×折り返し（カンプ実測: gap 40 / row-gap 22）
+.price-toc__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: rem(40);
+  row-gap: rem(22);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+    row-gap: rem(22);
+    margin-top: rem(24);
+  }
+}
+
+// grid item。固有スタイルなし（幅は .price-toc__list のグリッドトラックに従う）
+.price-toc__item {
+}
+
+.price-toc__link {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.2;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+
+  @include mq("sp") {
+    font-size: rem(15);
+  }
+}
+
+/* --- 見出し帯（お支払い方法／一般歯科／小児歯科／保証制度・目次ラベル共通） ------------------------------------------------ */
+
+// カンプ実測: 高さ56（PC）/ 38（SP）の紺色帯。目次のグループ見出しも同じ意匠のため共用する。
+.price-band {
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+/* --- お支払い方法 ------------------------------------------------ */
+
+.price-payment {
+  margin-top: rem(120);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.price-payment__text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- 一般歯科／小児歯科 ------------------------------------------------ */
+
+.price-category {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// 見出し帯・各テーブルブロックとも同じ間隔（カンプ実測: 30 / 24）で並ぶ
+.price-table-block {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+// カンプ実測: 下端2pxの罫線（$color-accent）で見出しとバッジを区切る
+.price-table-block__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(10);
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  border-bottom: rem(2) solid $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(4);
+    padding-inline: rem(10);
+  }
+}
+
+.price-table-block__title {
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    font-size: rem(18);
+  }
+}
+
+.price-table-block__badge {
+  flex-shrink: 0;
+  font-size: rem(14);
+  font-weight: $medium;
+  color: $color-accent;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    font-size: rem(12);
+  }
+}
+
+.price-table-block__note {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.price-table-block__list {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+// カンプ実測: 薄灰色（$color-bg-sub）の角丸バッジ。保証条件見出し（.price-warranty__tier-title）と共通の意匠
+.price-table-block__list-title {
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg-tint;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- 料金テーブル ------------------------------------------------ */
+
+// カンプ実測: 各セル天面＋1列目左右／3列目左右に $color-accent の1px罫線（border-collapse で格子状に統合）
+.price-table {
+  width: 100%;
+  margin-top: rem(30);
+  border: rem(1) solid $color-accent;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.price-table__name,
+.price-table__desc,
+.price-table__price {
+  padding-block: rem(10);
+  padding-inline: rem(20);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-accent;
+  line-height: 1.8;
+  text-align: left;
+  vertical-align: middle;
+  border: rem(1) solid $color-accent;
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(13);
+  }
+}
+
+// カンプ実測（PC 1080px中）260/450/370 → SP実測（345px中）100/140/105
+// table-layout: fixed は「1行目のセル幅」で列幅を決めるが、1行目(thead)は .u-sr-only の
+// position:absolute で表のレイアウトから外れているため、セル側の width は効かない。
+// colgroup の <col> で列幅を指定する。
+.price-table__col--name {
+  width: 24.07%;
+
+  @include mq("sp") {
+    width: 28.99%;
+  }
+}
+
+.price-table__col--desc {
+  width: 41.67%;
+
+  @include mq("sp") {
+    width: 40.58%;
+  }
+}
+
+.price-table__col--price {
+  width: 34.26%;
+
+  @include mq("sp") {
+    width: 30.43%;
+  }
+}
+
+.price-table__name {
+  background-color: $color-bg-light;
+}
+
+// インプラント表の「オプション」行（colspan="3" のグループ見出し行）
+.price-table__group {
+  padding-block: rem(10);
+  padding-inline: rem(20);
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  text-align: left;
+  background-color: $color-bg-tint;
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(15);
+  }
+}
+
+/* --- チェックリスト（表の補足・保証条件） ------------------------------------------------ */
+
+.price-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(9);
+  margin-top: rem(14);
+
+  @include mq("sp") {
+    gap: rem(6);
+    margin-top: rem(10);
+  }
+}
+
+.price-check-list__item {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    align-items: flex-start;
+    font-size: rem(13);
+  }
+}
+
+/* --- 保証制度 ------------------------------------------------ */
+
+.price-warranty {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.price-warranty__intro {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.price-warranty__block {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.price-warranty__tier {
+  margin-top: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(16);
+  }
+}
+
+// .price-table-block__list-title と同じ薄灰色バッジ意匠
+.price-warranty__tier-title {
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg-tint;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+.price-warranty__tier-text {
+  margin-top: rem(6);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    font-size: rem(13);
+  }
+}
+
+.price-warranty__note {
+  margin-top: rem(14);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(10);
+    font-size: rem(13);
+  }
+}
+
+/* ========================================
+  予約・相談
+======================================== */
+
+.price-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}
+

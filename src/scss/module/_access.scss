@@ -1,0 +1,432 @@
+@use "global" as *;
+
+/* ========================================
+  予約・相談 / 診療時間・アクセス 共通ページ
+======================================== */
+
+/* --- 診療時間テーブル（共通コンポーネント） ------------------------------------------------ */
+
+// 「予約・相談」「診療時間・アクセス」の2ページで共用。
+// parts/footer.html に実装済みのテーブル（濃色背景・白文字）と構造・寸法をできる限り揃え、
+// 白背景ページ用に配色のみ反転している（$color-text-inverse → $color-main、罫線は $color-border）。
+// カンプ実測: 塗り潰しバッジ（$color-accent背景・白文字、PC 156×42）。
+// 従来は footer 内の小さい版（100×30・アウトライン風）と混同されていた。
+.hours__label {
+  width: rem(156);
+  padding-block: rem(11);
+  font-family: $second-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  letter-spacing: 0.3em;
+  line-height: 1;
+  text-align: center;
+  text-indent: 0.3em; // 字間が末尾にも付くぶんを打ち消して中央に見せる
+  background-color: $color-accent;
+  border-radius: rem(5);
+
+  @include mq("sp") {
+    width: rem(89);
+    padding-block: rem(6);
+    font-size: rem(13);
+  }
+}
+
+.hours__table {
+  width: 100%;
+  margin-top: rem(20);
+  border-top: rem(2) dotted $color-border;
+  border-bottom: rem(2) dotted $color-border;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  @include mq("sp") {
+    margin-top: rem(16);
+  }
+}
+
+.hours__table th,
+.hours__table td {
+  padding-block: rem(12);
+  font-family: $en-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    padding-block: rem(6);
+    font-size: rem(11);
+  }
+}
+
+.hours__table thead th {
+  padding-block: rem(18);
+  font-weight: $medium;
+  border-bottom: rem(2) dotted $color-border;
+
+  @include mq("sp") {
+    padding-block: rem(10);
+  }
+}
+
+.hours__table th:first-child {
+  width: 32%;
+}
+
+.hours__note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(10) rem(28);
+  margin-top: rem(20);
+  padding-left: rem(28);
+
+  @include mq("sp") {
+    gap: rem(6) rem(10);
+    margin-top: rem(10);
+    padding-left: rem(6);
+  }
+}
+
+.hours__note-item {
+  font-family: $en-font;
+  font-size: rem(13);
+  font-weight: $regular;
+  color: $color-main;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+
+  @include mq("sp") {
+    font-size: rem(10);
+  }
+}
+
+/* ========================================
+  予約・相談ページ（reservation/）
+======================================== */
+
+/* --- リード文 ------------------------------------------------ */
+
+.reserve-lead {
+  margin-top: rem(140);
+
+  @include mq("sp") {
+    margin-top: rem(70);
+  }
+}
+
+.reserve-lead__text {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2;
+
+  @include mq("sp") {
+    line-height: 2.2;
+  }
+}
+
+/* --- 診療時間 ------------------------------------------------ */
+
+.reserve-hours {
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: rem(40);
+  }
+}
+
+/* --- キャンセルポリシー ------------------------------------------------ */
+
+.reserve-cancel {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    // カンプ実測: 予約制ブロック終端からカード開始まで50px（従来60pxは実測より過大）
+    margin-top: rem(50);
+  }
+}
+
+.reserve-cancel__box {
+  padding-block: rem(37) rem(39);
+  padding-inline: rem(80);
+  background-color: $color-bg-tint;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    // カンプ実測（Frame 298 paddingTop/Bottom/Left/Right）: 30 / 26 / 20 / 20
+    padding-block: rem(30) rem(26);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.reserve-cancel__title {
+  font-family: $second-font;
+  font-size: rem(32);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    // カンプ実測: fontSize 20 / lineHeightPercentFontSize 200%
+    font-size: rem(20);
+    line-height: 2;
+  }
+}
+
+.reserve-cancel__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    // カンプ実測: タイトル→本文の間隔24px、段落間の間隔8px（fontSize/line-heightは14/1.8のまま変更なし）
+    gap: rem(8);
+    margin-top: rem(24);
+    font-size: rem(14);
+  }
+}
+
+.reserve-cancel__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  margin-top: rem(12);
+
+  @include mq("sp") {
+    // カンプ実測: Frame 260は個別カードではなく単一の枠線ボックス（fills無し・$color-main の1pxボーダー・角丸10・内側パディング20・項目間隔6）
+    // 本文→リストの間隔は8px（従来20pxは実測より過大）
+    gap: rem(6);
+    margin-top: rem(8);
+    padding: rem(20);
+    border: rem(1) solid $color-main;
+    border-radius: rem(10);
+  }
+}
+
+.reserve-cancel__item {
+  padding: rem(20);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    // カンプ実測: 項目は個別の白背景カードではなく素のテキスト（親.reserve-cancel__listが単一の枠線ボックス）。
+    // fontSize 16 / lineHeightPercentFontSize 200%（従来14pxへの縮小は実測と不一致だったため修正）
+    padding: 0;
+    font-size: rem(16);
+    line-height: 2;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+.reserve-cancel__item-label {
+  font-family: $second-font;
+  font-weight: $bold;
+  color: $color-accent;
+}
+
+/* --- 予約・相談（CTA） ------------------------------------------------ */
+
+.reserve-cta {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    // カンプ実測: cta前後の余白は各100px（カンプのCTA枠自体は260pxだが、
+    // 共通パーツ parts/cta.html の実描画高さは279px。共通パーツ側は編集不可のため、
+    // このラッパーpaddingで合計スパン（余白100+CTA260+余白100=460px相当）に寄せる）
+    padding-block: rem(90);
+  }
+}
+
+/* ========================================
+  診療時間・アクセスページ（access/）
+======================================== */
+
+/* --- 診療時間 ------------------------------------------------ */
+
+.access-hours {
+  margin-top: rem(140);
+
+  @include mq("sp") {
+    margin-top: rem(70);
+  }
+}
+
+.access-hours .hours__label {
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: rem(30);
+  }
+}
+
+/* --- アクセス ------------------------------------------------ */
+
+.access-info {
+  margin-top: rem(160);
+
+  @include mq("sp") {
+    margin-top: rem(100);
+  }
+}
+
+.access-info__lead {
+  max-width: rem(980);
+  margin-top: rem(70);
+  margin-inline: auto;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 2;
+  text-align: center;
+
+  @include mq("sp") {
+    margin-top: rem(40);
+    line-height: 2.2;
+    text-align: left;
+  }
+}
+
+// 情報カード（左）＋地図（右）の2カラム。SPは縦積み。
+.access-info__row {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(60);
+  margin-top: rem(50);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(40);
+    margin-top: rem(30);
+  }
+}
+
+.access-clinic {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: rem(20);
+  width: rem(460);
+
+  @include mq("sp") {
+    gap: rem(16);
+    width: 100%;
+  }
+}
+
+// カンプ実測（SP）: バッジ列は中央ではなく左端（x=15）にそろう。
+// 共通の .badge-list はSPで中央寄せなので、このページだけ上書きする。
+.access-clinic__badges {
+  @include mq("sp") {
+    justify-content: flex-start;
+  }
+}
+
+.access-clinic__name {
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+}
+
+.access-clinic__label {
+  font-family: $second-font;
+  font-size: rem(14);
+  font-weight: $bold;
+  color: $color-accent;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.access-clinic__text {
+  margin-top: rem(8);
+  font-size: rem(16);
+  font-style: normal;
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(6);
+    font-size: rem(14);
+  }
+}
+
+.access-clinic__tel-link {
+  font-weight: $bold;
+  color: $color-accent;
+
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+}
+
+/* 右カラムの外観写真（カンプ実測 516×324） */
+.access-info__photo {
+  flex-shrink: 0;
+  width: rem(516);
+  height: rem(324);
+  object-fit: cover;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    // カンプSPは外観写真を含まない（情報カードの直後が地図）ため非表示。
+    display: none;
+  }
+}
+
+/* 地図は情報＋写真の下に全幅で置く（カンプ実測 1080×452） */
+.access-map {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  margin-top: rem(50);
+
+  @include mq("sp") {
+    gap: rem(34);
+    margin-top: rem(30);
+  }
+}
+
+.access-map__iframe {
+  width: 100%;
+  height: rem(452);
+  border: 0;
+  border-radius: rem(10);
+
+  @include mq("sp") {
+    height: rem(430);
+  }
+}
+
+// カンプ実測: PC/SPとも右端にそろう（SP: more の右端 361 ≒ inner右端 360）
+.access-map__link {
+  align-self: flex-end;
+}
+
+/* --- 予約・相談（CTA） ------------------------------------------------ */
+
+.access-cta {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(100);
+  }
+}
+

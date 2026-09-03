@@ -1,0 +1,340 @@
+@use "global" as *;
+
+/* ========================================
+  PERIOページ（歯周病）
+======================================== */
+
+/* --- 見出し共通 ------------------------------------------------ */
+
+// 各ブロックの大見出し（濃紺背景の白文字バー）。全ブロック共通。
+.perio-heading {
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+// 帯なしの中見出し（淡グレー背景の箱）。「無自覚で進行してしまう」「処置」で使用。
+.perio-subheading {
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  background-color: $color-bg-tint;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+// 本文段落（見出し直後の共通ブロックすべてで使用。PC/SPともに16px）
+.perio-text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.perio-text p {
+  margin: 0;
+}
+
+.perio-text strong {
+  font-weight: $bold;
+}
+
+// カンプで空行になっている箇所（段落グループの区切り）を1行分あける
+// `.perio-text p { margin: 0 }`（詳細度0,1,1）に負けて効いていなかったため、
+// 同じ詳細度になるよう p を含めたセレクタにする
+.perio-text p.perio-text__gap {
+  margin-top: rem(29); // カンプの空行1行ぶん（line-height 1.8 × 16px）
+}
+
+.perio-notice__link {
+  font-weight: $bold;
+  color: inherit;
+  text-decoration: underline;
+
+  // ホバー時のopacity: 0.7とtransitionはfoundation/_base.scssのaタグ共通スタイルに準拠（ここでは指定しない）
+  &:focus-visible {
+    outline: rem(2) solid $color-accent;
+    outline-offset: rem(2);
+  }
+}
+
+/* --- 当院の歯周病治療の特徴（1ブロック目） ------------------------------------------------ */
+
+.perio-feature {
+  margin-top: rem(141);
+
+  @include mq("sp") {
+    margin-top: rem(78);
+  }
+}
+
+/* --- 2ブロック目以降の共通の間隔 ------------------------------------------------ */
+
+.perio-block {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* --- 検査が必要な訳 ------------------------------------------------ */
+
+.perio-reason .perio-subheading {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.perio-reason__figure {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.perio-reason__img {
+  // カンプ実測: 759×284（1080幅いっぱいではなく左寄せの759px）
+  width: 100%;
+  max-width: rem(759);
+  height: rem(284);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  // カンプ実測（SP）: 345×129（inner幅いっぱい）
+  @include mq("sp") {
+    max-width: 100%;
+    height: rem(129);
+    border-radius: rem(10);
+  }
+}
+
+/* --- 主な検査内容 ------------------------------------------------ */
+
+.perio-exam__lead {
+  margin-top: rem(30);
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.perio-exam__list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+    margin-top: rem(24);
+  }
+}
+
+.perio-exam__item {
+  width: rem(240);
+
+  @include mq("sp") {
+    width: rem(180);
+  }
+}
+
+.perio-exam__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(16);
+
+  @include mq("sp") {
+    gap: rem(8);
+  }
+}
+
+.perio-exam__img {
+  width: 100%;
+  height: rem(300);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(225);
+    border-radius: rem(10);
+  }
+}
+
+.perio-exam__caption {
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(13);
+  }
+}
+
+/* --- 症状と治療法 ------------------------------------------------ */
+
+.perio-symptom__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+// 帯なし・下線のみの中見出し（正常／歯肉炎／歯周病 等の段階ラベル）
+.perio-symptom__label {
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+  border-bottom: rem(2) solid $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(4);
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+// PC: 画像(左)＋本文・処置(右)の2カラム／SP: 画像→本文→処置の縦積み
+// grid-template-areasでPC/SPの配置替えをHTML構造そのままで行う
+.perio-symptom__grid {
+  display: grid;
+  column-gap: rem(40);
+  grid-template-columns: rem(182) 1fr;
+  grid-template-areas: "pic desc" "pic sub" "pic treat";
+  align-items: start;
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    column-gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas: "pic" "desc" "sub" "treat";
+    margin-top: rem(24);
+  }
+}
+
+.perio-symptom__figure {
+  grid-area: pic;
+
+  @include mq("sp") {
+    justify-self: center;
+  }
+}
+
+.perio-symptom__img {
+  width: rem(182);
+  height: rem(230);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    border-radius: rem(10);
+  }
+}
+
+.perio-symptom__desc {
+  grid-area: desc;
+  margin-top: 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(14);
+  }
+}
+
+.perio-symptom__sub {
+  grid-area: sub;
+  margin-top: rem(24);
+}
+
+.perio-symptom__treatment {
+  grid-area: treat;
+  margin-top: rem(14);
+}
+
+.perio-symptom__treatment p {
+  margin: 0;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* --- こんな方は要注意です ------------------------------------------------ */
+
+.perio-warning__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.perio-warning__item {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+}
+
+.perio-warning__item p {
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+/* --- 予約・相談（見出しテキストがカンプに無いためdiv実装） ------------------------------------------------ */
+
+.perio-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(100);
+  }
+}

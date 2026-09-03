@@ -8,7 +8,7 @@
 | ローカルURL（WP） | http://260813-miki-dental.local/ |
 | WP管理画面 | http://260813-miki-dental.local/wp-admin/（test / testtest） |
 | 本番URL | <!-- 未確定 --> |
-| Figmaファイル | https://www.figma.com/design/lhhDCpLMrA1oE634jXwFfL/★歯科HPリニューアル |
+| Figmaファイル | https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル |
 | リポジトリ | https://github.com/kana-o/miki-dental |
 
 > **AI向け**: 上記が未記入のままPlaywright操作が必要になった場合、**ユーザーに質問して記入すること**。
@@ -59,8 +59,8 @@ node .coding-md/05-screenshot-comparison/compare-screenshots.cjs \
 - **HTMLファイル**: `src/html/index.html`
 - **SCSS**: `src/scss/module/_top.scss`
 - **クラスプレフィックス**: `top-`（例: `.top-fv`, `.top-about__title`）
-- **PC**: https://www.figma.com/design/lhhDCpLMrA1oE634jXwFfL/★歯科HPリニューアル?node-id=1133-4902
-- **SP**: https://www.figma.com/design/lhhDCpLMrA1oE634jXwFfL/★歯科HPリニューアル?node-id=1137-5893
+- **PC**: https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル?node-id=1133-4902
+- **SP**: https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル?node-id=1137-5893
 - **セクション構成**: FV / 当院について / 治療について / パララックス / 院内紹介 / スタッフ紹介 / お知らせ / FAQ / 予約・相談
 - **状態**: ⬜ 未着手
 
@@ -70,8 +70,8 @@ node .coding-md/05-screenshot-comparison/compare-screenshots.cjs \
 - **HTMLファイル**: `src/html/about/index.html`
 - **SCSS**: `src/scss/module/_about.scss`
 - **クラスプレフィックス**: `about-`（例: `.about-hero`, `.about-feature__title`）
-- **PC**: https://www.figma.com/design/lhhDCpLMrA1oE634jXwFfL/★歯科HPリニューアル?node-id=1254-8265
-- **SP**: https://www.figma.com/design/lhhDCpLMrA1oE634jXwFfL/★歯科HPリニューアル?node-id=1254-10850
+- **PC**: https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル?node-id=1254-8265
+- **SP**: https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル?node-id=1254-10850
 - **セクション構成**: 特徴 / 専門性 / 連携（SP=診療体制） / 環境 / 治療体制 / カウンセリング（SPなし） / 予約・相談 / 他にも / 宣言文 / 誓い
 - **状態**: ⬜ 未着手
 

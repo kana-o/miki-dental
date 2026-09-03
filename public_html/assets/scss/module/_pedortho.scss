@@ -1,0 +1,366 @@
+@use "global" as *;
+
+/* ========================================
+  下層ページ（小児矯正）
+======================================== */
+
+/* --- チャプター見出し（青バッジ）------------------------------------------------ */
+// 7チャプター共通の見出し。
+.pedortho-badge {
+  width: 100%;
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+/* --- サブ見出し（下線付き・マイオブレース矯正とは？） ------------------------------------------------ */
+.pedortho-subheading {
+  width: 100%;
+  margin-top: rem(30);
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+  border-bottom: rem(2) solid $color-accent;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+    padding-block: rem(4);
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
+/* --- 本文テキスト ------------------------------------------------ */
+.pedortho-text {
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+// カンプでは連続する2つの文章が1つの文章として続けて流れており、段落間の余白は無い
+.pedortho-text + .pedortho-text {
+  margin-top: 0;
+}
+
+/* --- カード間の接続矢印（青の三角形）------------------------------------------------ */
+// 小児矯正では主に顎の骨にアプローチします／治療のイメージ の2箇所で共有。
+// PC: 横並びの間で右向き / SP: 縦積みに変わるため下向きに切り替える。
+.pedortho-connector {
+  flex-shrink: 0;
+  align-self: center;
+  width: rem(48);
+  height: rem(147);
+  background-color: $color-cta;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+
+  @include mq("sp") {
+    width: rem(147);
+    height: rem(48);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+}
+
+/* --- 小児矯正では主に顎の骨にアプローチします ------------------------------------------------ */
+.pedortho-jaw {
+  padding-top: rem(140);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+.pedortho-jaw__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: rem(26);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+    margin-top: rem(24);
+  }
+}
+
+.pedortho-jaw__card {
+  width: rem(410);
+
+  @include mq("sp") {
+    width: rem(252);
+  }
+}
+
+.pedortho-jaw__photo {
+  display: block;
+  width: 100%;
+  height: rem(317);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(195);
+    border-radius: rem(10);
+  }
+}
+
+.pedortho-jaw__caption {
+  margin-top: rem(16);
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $color-text;
+  line-height: 1.5;
+
+  @include mq("sp") {
+    margin-top: rem(8);
+    font-size: rem(16);
+  }
+}
+
+/* --- 治療のイメージ ------------------------------------------------ */
+.pedortho-diagram {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+// カンプでは「顎の幅を広げる」ラベルが矢印に重なって配置され、行の高さに含まれる（position: relative の基準）
+.pedortho-diagram__row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: rem(24);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+    margin-top: rem(24);
+  }
+}
+
+// 図版内に注意喚起の赤(#e81e17)を含むイラストのため、このページ専用画像として書き出し済み（要確認）
+.pedortho-diagram__card {
+  display: flex;
+  justify-content: center;
+  width: rem(410);
+  height: rem(304);
+  padding-top: rem(33);
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(187);
+    padding-top: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.pedortho-diagram__img {
+  display: block;
+  height: auto;
+}
+
+.pedortho-diagram__img--before {
+  width: rem(309);
+
+  @include mq("sp") {
+    width: rem(190);
+  }
+}
+
+.pedortho-diagram__img--after {
+  width: rem(352);
+
+  @include mq("sp") {
+    width: rem(216);
+  }
+}
+
+// カンプ唯一のブランド外カラー(#e81e17)。注意喚起用途のためこのページ専用値としてベタ書き（要確認）
+// カンプ実測: row 上端からの位置に矢印へ重ねて配置（行の高さを増やさない）
+.pedortho-diagram__label {
+  position: absolute;
+  top: rem(239);
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%);
+  font-size: rem(20);
+  font-weight: $bold;
+  color: #e81e17;
+  line-height: 1.5;
+  text-align: center;
+
+  @include mq("sp") {
+    top: rem(213);
+    font-size: rem(16);
+  }
+}
+
+/* --- どんな装置を使うの？ ------------------------------------------------ */
+.pedortho-device {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.pedortho-device__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: rem(43);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(24);
+    margin-top: rem(24);
+  }
+}
+
+.pedortho-device__photo {
+  display: block;
+  width: rem(410);
+  height: rem(317);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(195);
+    border-radius: rem(10);
+  }
+}
+
+/* --- 何歳くらいに相談に行ったら良いの？ ------------------------------------------------ */
+.pedortho-timing {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* --- 経過観察って？ ------------------------------------------------ */
+.pedortho-observe {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* --- 小児矯正症例 ------------------------------------------------ */
+.pedortho-case {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+.pedortho-case__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  margin-top: rem(30);
+
+  @include mq("sp") {
+    gap: rem(11);
+    margin-top: rem(24);
+  }
+}
+
+.pedortho-case__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(26);
+
+  @include mq("sp") {
+    gap: rem(9);
+  }
+}
+
+.pedortho-case__photo {
+  display: block;
+  // .pic が display:contents のため img 自身が flex アイテムになる。
+  // min-width の初期値 auto だと画像の実寸（566px等）より縮まず、横にはみ出す
+  min-width: 0;
+  flex: 1;
+  width: 100%;
+  height: rem(200);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(70);
+    border-radius: rem(8);
+  }
+}
+
+.pedortho-case__photo--lg {
+  height: rem(254);
+
+  @include mq("sp") {
+    height: rem(89);
+  }
+}
+
+.pedortho-case__arrow {
+  flex-shrink: 0;
+  width: rem(48);
+  height: rem(118);
+  background-color: $color-cta;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+
+  @include mq("sp") {
+    width: rem(17);
+    height: rem(41);
+  }
+}
+
+/* --- マイオブレース矯正にも対応しています ------------------------------------------------ */
+.pedortho-myobrace {
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(50);
+  }
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+.pedortho-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(100);
+  }
+}

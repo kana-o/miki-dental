@@ -1,0 +1,1100 @@
+@use "global" as *;
+
+/* ========================================
+  小児歯科TOP（pediatric/index.html）
+======================================== */
+
+/* --- 治療メニューのボタン群 ------------------------------------------------ */
+
+.pediatric-menu {
+  margin-top: rem(142);
+
+  @include mq("sp") {
+    margin-top: rem(75);
+  }
+}
+
+// カンプ実測（SP）: PCの2段組み（5個＋3個）ではなく、3列グリッドに左上から順に流し込む。
+// 足りない分は右下が空く（8個 → 3・3・2）。行を display:contents にして inner のグリッドへ直接載せる。
+.pediatric-menu__inner {
+  @include mq("sp") {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(10.5) rem(15);
+    // カンプはボタン群が inner よりさらに7px内側（3列×100 + gap15×2 = 330px）
+    padding-inline: rem(7);
+  }
+}
+
+.pediatric-menu__row {
+  display: flex;
+  gap: rem(25);
+
+  @include mq("sp") {
+    display: contents;
+  }
+}
+
+.pediatric-menu__row--1 {
+  margin-bottom: rem(33);
+
+  @include mq("sp") {
+    margin-bottom: 0;
+  }
+}
+
+.pediatric-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(8);
+  width: rem(196);
+  height: rem(96);
+  padding-inline: rem(22) rem(20);
+  background-color: $color-accent;
+  border-radius: rem(48);
+
+  &:focus-visible {
+    outline: rem(2) solid $color-main;
+    outline-offset: rem(2);
+  }
+
+  @include mq("sp") {
+    width: 100%;
+    height: rem(58);
+    padding-inline: rem(16) rem(12);
+    border-radius: rem(29);
+  }
+}
+
+.pediatric-menu__label {
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $medium;
+  color: $color-text-inverse;
+  line-height: 1.3;
+
+  @include mq("sp") {
+    font-size: rem(13);
+  }
+}
+
+// カンプの矢印アイコンは小さな下向きシェブロン（単純図形のためCSS疑似要素で実装）
+
+/* --- 特徴3項目＋写真 ------------------------------------------------ */
+
+.pediatric-intro {
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: rem(60);
+  }
+}
+
+.pediatric-intro__card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  // カンプ実測: カードは inner(1080) いっぱいではなく 980 を中央に置く（一般歯科と同じ）
+  width: 100%;
+  max-width: rem(980);
+  min-height: rem(287);
+  margin-inline: auto;
+  padding-inline: rem(82) rem(260);
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  // カンプ実測（SP）: カード 345×413。リスト下端(286)からカード下端まで127px。
+  // 写真はカード下端から37pxはみ出し、カードでクリップされる。
+  @include mq("sp") {
+    min-height: 0;
+    padding-bottom: rem(127);
+    padding-inline: 0;
+    border-radius: rem(10);
+    overflow: hidden;
+  }
+}
+
+.pediatric-intro__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4);
+  width: 100%;
+  max-width: rem(501);
+
+  // カンプ実測: カード左端(15)からリスト左端(50)まで35px（中央寄せではない）
+  @include mq("sp") {
+    gap: rem(14);
+    max-width: rem(275);
+    margin-inline: rem(35) auto;
+    padding-top: rem(42);
+  }
+}
+
+.pediatric-intro__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(10);
+}
+
+.pediatric-intro__item p {
+  flex: 1;
+  font-family: $base-font;
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.8;
+  font-size: rem(20);
+
+  @include mq("sp") {
+    font-size: rem(18);
+    line-height: 1.5;
+  }
+}
+
+.pediatric-intro__icon {
+  display: block;
+  flex-shrink: 0;
+  width: rem(28);
+  height: rem(28);
+  margin-top: rem(2);
+  background-image: url("/assets/img/common/icon-check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include mq("sp") {
+    width: rem(26);
+    height: rem(26);
+    margin-top: 0;
+  }
+}
+
+.pediatric-intro__photo {
+  position: absolute;
+  top: calc(#{rem(3)} * -1);
+  right: 0;
+  width: rem(230);
+  height: rem(345);
+  // 背景透過PNG（カンプの元画像も透過）。切り抜き済みなのでトリミング・角丸はしない
+  object-fit: contain;
+
+  // カンプ実測: カード上端から255px・右端から10px。リストの最終行より下に来るので文字と重ならない
+  @include mq("sp") {
+    top: rem(255);
+    right: rem(10);
+    bottom: auto;
+    width: rem(130);
+    height: rem(195);
+  }
+}
+
+/* --- 小児歯科専門医とは？ ------------------------------------------------ */
+
+.pediatric-specialist {
+  // カンプ実測: intro カード下端(1262)→specialist カード上端(1362) = 100
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(80);
+  }
+}
+
+// カンプ実測 980×566。980px幅のカードを1080px幅の.innerに中央寄せする。
+.pediatric-specialist__card {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: rem(980);
+  margin-inline: auto;
+  padding-block: rem(59) rem(50);
+  padding-inline: rem(57);
+  background-color: $color-bg-tint;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    max-width: 100%;
+    padding-block: rem(30) rem(50);
+    padding-inline: rem(20);
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-specialist__tag {
+  text-align: center;
+}
+
+.pediatric-specialist__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+  width: 100%;
+  max-width: rem(866);
+  // カンプ実測: タグ下端→本文上端 = 30
+  margin-top: rem(30);
+  margin-inline: auto;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.6;
+
+  @include mq("sp") {
+    max-width: 100%;
+    margin-top: rem(56);
+  }
+}
+
+// カンプ実測: 後半2段落は本文866px幅ではなく655px幅。右下の丸写真（183px）を避けている
+.pediatric-specialist__narrow {
+  max-width: rem(655);
+
+  @include mq("sp") {
+    max-width: 100%;
+  }
+}
+
+.pediatric-specialist__note {
+  // カンプ実測: 幅655pxの段落の右端にそろう
+  max-width: rem(655);
+  font-size: rem(10);
+  line-height: 1.6;
+  text-align: right;
+
+  @include mq("sp") {
+    max-width: 100%;
+  }
+}
+
+// カンプ実測: カード左上(0,0)基準で 左725 / 上340 に183円photoを配置
+.pediatric-specialist__photo {
+  position: absolute;
+  z-index: 1;
+  top: rem(340);
+  left: rem(725);
+  width: rem(183);
+  height: rem(183);
+  object-fit: cover;
+  border-radius: 50%;
+
+  // SPカードは345幅。カンプ実測は 183,707 の位置に 114×114
+  // （PCの183×183のままだと 183+183=366 でカード345をはみ出し、横スクロールが出る）
+  @include mq("sp") {
+    top: rem(707);
+    left: rem(183);
+    width: rem(114);
+    height: rem(114);
+  }
+}
+
+// カンプは吹き出しイラストの近似（斜めの短い2本線＋テキスト）。
+// カード左上基準で 左895 / 上310（134.49×82.74）に配置。カード右端からはみ出す。
+.pediatric-specialist__balloon {
+  position: absolute;
+  z-index: 2;
+  top: rem(310);
+  left: rem(895);
+  width: rem(135);
+  font-family: $second-font;
+  font-size: rem(13);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: rem(25);
+    left: calc(#{rem(11)} * -1);
+    width: rem(52);
+    height: rem(2);
+    background-color: $color-main;
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: rem(82);
+    left: rem(15);
+    width: rem(52);
+    height: rem(2);
+    background-color: $color-main;
+    transform: rotate(-7.77deg);
+  }
+
+  // SPカードは実測(241.98,667.57)・95.42×82.62
+  @include mq("sp") {
+    top: rem(668);
+    left: rem(242);
+    width: rem(95);
+
+    &::before {
+      top: rem(25);
+      left: calc(#{rem(8)} * -1);
+      width: rem(37);
+    }
+
+    &::after {
+      top: rem(82);
+      left: rem(11);
+      width: rem(37);
+    }
+  }
+}
+
+/* --- 導入文 ------------------------------------------------ */
+
+.pediatric-lead {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(60);
+  }
+}
+
+/* --- カメさんコース／ウサギさんコース ------------------------------------------------ */
+
+.pediatric-course {
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+.pediatric-course__list {
+  display: flex;
+  gap: rem(45);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(30);
+  }
+}
+
+.pediatric-course__item {
+  display: flex;
+  align-items: center;
+  gap: rem(20);
+  flex: 1;
+  padding: rem(20);
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  // カンプ実測（SP）: イラスト70pxと見出しを横並び（間隔16）、本文はその下に全幅（間隔14）
+  @include mq("sp") {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: rem(16);
+    row-gap: rem(14);
+    padding-block: rem(24);
+    padding-inline: rem(18);
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-course__icon {
+  flex-shrink: 0;
+  width: rem(176);
+  height: rem(176);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include mq("sp") {
+    width: rem(70);
+    height: rem(70);
+  }
+}
+
+.pediatric-course__icon--turtle {
+  background-image: url("/assets/img/pediatric/icon-turtle.svg");
+}
+
+.pediatric-course__icon--rabbit {
+  background-image: url("/assets/img/pediatric/icon-rabbit.svg");
+}
+
+.pediatric-course__body {
+  // SPでは見出し・本文を item のグリッドに直接載せる（イラストと見出しを横並びにするため）
+  @include mq("sp") {
+    display: contents;
+  }
+}
+
+.pediatric-course__title {
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+
+  @include mq("sp") {
+    font-size: rem(20);
+  }
+}
+
+.pediatric-course__text {
+  // カンプ実測: 見出し下端(2251)→本文上端(2267) = 16px（52pxは過大だった）
+  margin-top: rem(16);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.6;
+
+  @include mq("sp") {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    line-height: 2;
+  }
+}
+
+/* --- ０歳からぜひお越しください ------------------------------------------------ */
+
+.pediatric-visit {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(58);
+  }
+}
+
+.pediatric-visit__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: rem(56);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(45);
+  }
+}
+
+/* --- こんな悩みもぜひご相談ください ------------------------------------------------ */
+
+.pediatric-worry {
+  margin-top: rem(100);
+
+  @include mq("sp") {
+    margin-top: rem(60);
+  }
+}
+
+// カンプ実測: 悩みセクションは白カード。PC 980×645（白86%・角丸20）/ SP 330×1284（白・角丸10）
+.pediatric-worry__inner {
+  max-width: rem(980);
+  padding-block: rem(48);
+  background-color: rgb(255 255 255 / 86%);
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    max-width: rem(330);
+    padding-block: rem(30);
+    background-color: $color-bg;
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-worry__title {
+  text-align: center;
+}
+
+// カンプはもくもくした雲形の吹き出し（SVG）。about-care__fear-item と同じ手法。
+.pediatric-worry__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // カンプ実測: 列間30 / 行間10（4個＋3個の2段。1段目894px・2段目は中央寄せ）
+  gap: rem(10) rem(30);
+  // カンプ実測: タグ下端(2962)→リスト上端(2992) = 30
+  margin-top: rem(30);
+  max-width: rem(894);
+  margin-inline: auto;
+
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: rem(66);
+  }
+}
+
+.pediatric-worry__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(200);
+  height: rem(125);
+  padding-inline: rem(10);
+  background-image: url("/assets/img/pediatric/cloud.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.pediatric-worry__item p {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $color-main;
+  // カンプ実測: lineHeightPercentFontSize 160%
+  line-height: 1.6;
+  text-align: center;
+
+  // カンプ実測: SPは fontSize 13
+  @include mq("sp") {
+    font-size: rem(13);
+  }
+}
+
+.pediatric-worry__note {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-height: rem(174);
+  // カンプ実測: カード内 866幅・雲リスト下端から43px
+  max-width: rem(866);
+  margin-top: rem(43);
+  margin-inline: auto;
+  padding-block: rem(20);
+  padding-inline: rem(200) rem(40);
+  background-color: $color-bg-light;
+  border-radius: rem(10);
+
+  // カンプ実測: SPは 269幅の帯。院長写真が帯の上に114pxはみ出して重なるので、その分の余白を確保する
+  @include mq("sp") {
+    flex-direction: column;
+    min-height: 0;
+    max-width: rem(269);
+    margin-top: rem(138);
+    padding: rem(24);
+  }
+}
+
+.pediatric-worry__photo {
+  position: absolute;
+  top: rem(3);
+  left: rem(33);
+  width: rem(152);
+  height: rem(171);
+  // 背景透過PNG。切り抜き済みなのでトリミング・角丸はしない
+  object-fit: contain;
+
+  // カンプ実測: SPは水色帯の上に重なる（帯の上端より124-10=114px上から始まる）
+  @include mq("sp") {
+    top: calc(#{rem(114)} * -1);
+    left: 50%;
+    width: rem(110);
+    height: rem(124);
+    transform: translateX(-50%);
+  }
+}
+
+.pediatric-worry__note-text {
+  font-size: rem(20);
+  font-weight: $medium;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(20);
+    font-size: rem(16);
+    text-align: center;
+  }
+}
+
+/* --- 楽しい歯医者さん ------------------------------------------------ */
+
+.pediatric-fun {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  margin-top: rem(136);
+  padding-block: rem(98) rem(143);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: rem(281);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $color-accent;
+  }
+
+  @include mq("sp") {
+    margin-top: rem(80);
+    padding-block: rem(58) rem(51);
+
+    &::before {
+      top: rem(281);
+    }
+  }
+}
+
+.pediatric-fun__bg {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: rem(2114);
+  height: rem(1083);
+  background-color: $color-accent;
+  border-radius: 50%;
+  transform: translateX(-50%);
+
+  @include mq("sp") {
+    width: rem(1020);
+    height: rem(1020);
+  }
+}
+
+.pediatric-fun__title {
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.pediatric-fun__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(40);
+  row-gap: rem(46);
+  margin-top: rem(110);
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+    row-gap: rem(41);
+    margin-top: rem(58);
+  }
+}
+
+.pediatric-fun__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(30);
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(20);
+  }
+}
+
+.pediatric-fun__photo {
+  flex-shrink: 0;
+  width: rem(270);
+  height: rem(313);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    width: rem(252);
+    height: rem(292);
+    margin-inline: auto;
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-fun__body {
+  padding-top: rem(6);
+
+  @include mq("sp") {
+    width: 100%;
+    padding-top: 0;
+  }
+}
+
+.pediatric-fun__label .tag {
+  font-size: rem(20);
+  line-height: 1.5;
+  padding-block: rem(2);
+  padding-inline: rem(6);
+}
+
+.pediatric-fun__text {
+  margin-top: rem(44);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+.pediatric-fun__more {
+  // .more は inline-flex のため、ブロック内では margin-left:auto が効かない。
+  // 右端そろえのために block レベルの flex に上書きする
+  display: flex;
+  margin-top: rem(48);
+  margin-left: auto;
+  width: fit-content;
+
+  @include mq("sp") {
+    margin-top: rem(46);
+  }
+}
+
+/* --- 子育てママに優しい歯医者さんです ------------------------------------------------ */
+
+// カンプでは「楽しい歯医者さん」の青面とほぼ隙間なく連続する
+.pediatric-mom {
+  padding-block: rem(90);
+  background-color: $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(60);
+  }
+}
+
+.pediatric-mom__title {
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.1;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.pediatric-mom__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: rem(45);
+  row-gap: rem(70);
+  margin-top: rem(114);
+
+  @include mq("sp") {
+    flex-direction: column;
+    row-gap: rem(45);
+    margin-top: rem(58);
+  }
+}
+
+.pediatric-mom__item {
+  width: rem(330);
+
+  @include mq("sp") {
+    width: 100%;
+  }
+}
+
+.pediatric-mom__photo {
+  width: 100%;
+  height: rem(261);
+  object-fit: cover;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    height: rem(273);
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-mom__label {
+  margin-top: rem(30);
+}
+
+.pediatric-mom__label .tag {
+  font-size: rem(20);
+  line-height: 1.5;
+  padding-block: rem(2);
+  padding-inline: rem(6);
+}
+
+.pediatric-mom__text {
+  margin-top: rem(14);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-text-inverse;
+  line-height: 1.8;
+}
+
+.pediatric-mom__more {
+  // .more は inline-flex のため、ブロック内では margin-left:auto が効かない。
+  // 右端そろえのために block レベルの flex に上書きする
+  display: flex;
+  margin-top: rem(70);
+  margin-left: auto;
+  width: fit-content;
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+/* --- 治療メニュー ------------------------------------------------ */
+
+.pediatric-treatment {
+  // カンプ実測: mom セクション下端(5946)→「治療メニュー」上端(6046) = 100
+  padding-top: rem(100);
+
+  @include mq("sp") {
+    padding-top: rem(70);
+  }
+}
+
+.pediatric-treatment__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(20);
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1;
+  white-space: nowrap;
+
+  @include mq("sp") {
+    gap: rem(10);
+    font-size: rem(30);
+  }
+}
+
+.pediatric-treatment__line {
+  flex: 1;
+  display: block;
+  // カンプ実測: Line 36/37 は strokeWeight 3 / #10355d（$color-main）
+  height: rem(3);
+  max-width: rem(383);
+  background-color: $color-main;
+
+  @include mq("sp") {
+    max-width: rem(72);
+  }
+}
+
+.pediatric-treatment__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    gap: rem(30);
+    margin-top: rem(40);
+  }
+}
+
+.pediatric-treatment__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(40);
+  padding: rem(50);
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  // カンプ実測（SP）: イラストだけ中央、本文ブロックはカード幅いっぱいの左寄せ
+  @include mq("sp") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem(20);
+    padding-block: rem(24);
+    padding-inline: rem(18);
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-treatment__icon {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 0;
+  width: rem(200);
+  height: rem(200);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include mq("sp") {
+    width: rem(140);
+    height: rem(140);
+    margin-inline: auto;
+  }
+}
+
+.pediatric-treatment__icon--preventive {
+  background-image: url("/assets/img/pediatric/icon-preventive.svg");
+}
+
+.pediatric-treatment__icon--orthodontics {
+  background-image: url("/assets/img/pediatric/icon-orthodontics.svg");
+}
+
+.pediatric-treatment__icon--fluoride {
+  background-image: url("/assets/img/pediatric/icon-fluoride.svg");
+}
+
+.pediatric-treatment__icon--sealant {
+  background-image: url("/assets/img/pediatric/icon-sealant.svg");
+}
+
+.pediatric-treatment__icon--tbi {
+  background-image: url("/assets/img/pediatric/icon-tbi.svg");
+}
+
+.pediatric-treatment__icon--painless {
+  background-image: url("/assets/img/pediatric/icon-painless.svg");
+}
+
+// 保隙のみ円背景＋歯アイコン2枚をカンプ実測位置で個別に重ねる
+.pediatric-treatment__icon--space-maintainer {
+  background-color: $color-accent;
+  border-radius: 50%;
+}
+
+.pediatric-treatment__icon-tooth {
+  position: absolute;
+  top: 37%;
+  width: 23.7%;
+  height: 25.6%;
+  background-image: url("/assets/img/pediatric/icon-space-maintainer-tooth.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pediatric-treatment__icon-tooth:first-child {
+  left: 25%;
+}
+
+.pediatric-treatment__icon-tooth:last-child {
+  left: 51.3%;
+}
+
+.pediatric-treatment__name {
+  font-family: $second-font;
+  font-size: rem(26);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+}
+
+.pediatric-treatment__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  // カンプ実測: 項目名下端→本文上端 = 20
+  margin-top: rem(20);
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(30);
+  }
+}
+
+.pediatric-treatment__more {
+  // .more は inline-flex のため、ブロック内では margin-left:auto が効かない。
+  // 右端そろえのために block レベルの flex に上書きする
+  display: flex;
+  margin-top: rem(30);
+  margin-left: auto;
+  width: fit-content;
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
+}
+
+/* --- 年齢別ケア ------------------------------------------------ */
+
+// カンプ実測: 治療メニューの各項目と同じ白カード（PC 1080×1240 角丸20 / SP 345×2026 角丸10）
+.pediatric-age {
+  margin-top: rem(40);
+  padding: rem(70);
+  background-color: $color-bg;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    margin-top: rem(70);
+    padding: rem(24) rem(18);
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-age__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  // カンプ実測: 「年齢別ケア」見出し下端→リスト上端 = 40
+  margin-top: rem(40);
+
+  @include mq("sp") {
+    gap: rem(30);
+    margin-top: rem(50);
+  }
+}
+
+.pediatric-age__item {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+  padding: rem(20);
+  background-color: $color-bg-light;
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    flex-direction: column;
+    border-radius: rem(10);
+  }
+}
+
+.pediatric-age__badge {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: rem(140);
+  height: rem(140);
+  background-color: $color-bg;
+  border-radius: 50%;
+}
+
+.pediatric-age__badge-text {
+  font-family: $second-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.pediatric-age__text {
+  flex: 1;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+
+  @include mq("sp") {
+    margin-top: rem(20);
+  }
+}
+
+/* --- 予約・相談 ------------------------------------------------ */
+
+.pediatric-reserve {
+  padding-block: rem(160);
+
+  @include mq("sp") {
+    padding-block: rem(70);
+  }
+}

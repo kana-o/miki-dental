@@ -21,6 +21,78 @@
   }
 }
 
+// セクション見出し（丸ゴシック・中央寄せ・PC 40px / SP 30px）。
+// 下層ページの「アクセス」「診療時間」「０歳からぜひお越しください」等で使う。
+// 余白は持たせない（案件ルール: 共通クラスは見た目のみ。余白はページ固有クラスを併記して制御）。
+.heading-lg {
+  font-family: $second-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  color: $color-main;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(30);
+  }
+}
+
+// 本文テキスト（PC/SP共通 16px・行間1.8）。下層ページの説明文で最も多く使う組み合わせ。
+// 余白は持たせない（上下の間隔はページ固有クラスを同じ要素に併記して制御する）。
+.text-body {
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $color-main;
+  line-height: 1.8;
+}
+
+// ピル型メニューボタンの下向きシェブロン（PC 15×8 / SP 8×5）。
+// 一般歯科・小児歯科のメニューボタンで共用（カンプでも同一の Group 23）。
+.icon-chevron {
+  display: block;
+  flex-shrink: 0;
+  width: rem(15.164);
+  height: rem(8.168);
+  background-image: url("/assets/img/common/icon-chevron.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include mq("sp") {
+    width: rem(7.734);
+    height: rem(4.973);
+  }
+}
+
+// チェックマークのアイコン（24×24・SVG背景）。
+// 歯周病の注意リスト／料金の目次・注意書き／ホワイトニングのおすすめ・メリットで共用。
+// 余白は持たせない（隣接要素との間隔は親の gap で制御する）。
+.icon-check {
+  display: block;
+  flex-shrink: 0;
+  width: rem(24);
+  height: rem(24);
+  background-image: url("/assets/img/common/icon-check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// 視覚的には非表示だがスクリーンリーダーには読み上げさせる。
+// 診療時間テーブルの記号（●／△／／）の代替テキストや、table の caption に使う。
+// 予約・相談 / 診療時間・アクセス / 料金 の3ページで使用。
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 // <picture> はレイアウトに影響させない（中の <img> をそのまま flex/grid アイテムにする）
 .pic {
   display: contents;
@@ -259,6 +331,52 @@
   }
 }
 
+/* --- 下層ページ 見出し帯・サブ見出し ------------------------------------------------ */
+
+// 審美歯科／シーラント／保隙で共通の見出し（青バッジ）。3ページとも実測が完全一致。
+.heading-band {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: rem(56);
+  padding-block: rem(10) rem(12);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-text-inverse;
+  line-height: 1.2;
+  background-color: $color-accent;
+  border-radius: rem(4);
+
+  @include mq("sp") {
+    height: auto;
+    padding-block: rem(5) rem(7);
+    padding-inline: rem(10);
+    font-size: rem(22);
+  }
+}
+
+// 下線付きサブ見出し。共通クラスは見た目のみ。margin-top・SPのpadding-block差分は
+// ページ固有クラスを併記して上書きする（審美歯科は差分なしで完全一致）。
+.heading-sub {
+  width: 100%;
+  padding-block: rem(10);
+  padding-inline: rem(12);
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $color-accent;
+  line-height: 1.8;
+  border-bottom: 2px solid $color-accent;
+
+  @include mq("sp") {
+    padding-block: rem(4);
+    padding-inline: rem(10);
+    font-size: rem(18);
+  }
+}
+
 /* --- もっと詳しく／矢印リンク ------------------------------------------------ */
 
 // 共通クラスは見た目のみ。配置・余白は併記するページ固有クラスで制御する。
@@ -431,7 +549,8 @@
   height: rem(48);
   background-color: $color-main;
   mask-image: url("/assets/img/common/icon-tel-solid.png");
-  transform: scaleY(-1);
+  // カンプは元画像を180°回転（rotation = π）。scaleY(-1) は上下反転なので受話器が鏡像になる
+  transform: rotate(180deg);
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -655,7 +774,8 @@
   height: rem(430);
 
   @include mq("sp") {
-    height: rem(220);
+    // カンプ実測: SP FV は 375x242（従来の220はカンプ未確認値）
+    height: rem(242);
   }
 }
 
@@ -672,18 +792,22 @@
   transform: translateX(-50%);
 
   @include mq("sp") {
-    top: calc(#{rem(120)} * -1);
-    width: rem(1100);
-    height: rem(340);
+    // カンプ実測: Ellipse 12 = (-247, -357) 870x599（下端がFV下端242に一致）
+    top: calc(#{rem(357)} * -1);
+    width: rem(870);
+    height: rem(599);
   }
 }
 
 .page-head__watermark {
-  // カンプ座標は PC (260, -371) 1081×1081 / SP (26, -23) 322×322。
-  // 以前は楕円マスクのオフセット(-385, -561)を足してしまっていた。
+  // カンプのページ基準座標は PC (260, -371) 1081×1081 / SP (26, -23) 322×322。
+  // この要素の基準は親 .page-head__bg（PC: 中央基準で幅2114・top -169 / SP: 幅870・top -357）なので、
+  // その分を差し引いた値を入れる。楕円で clip したいので親の中に置いたままにする。
+  //   PC: left  = 1057 - 540 = 517 / top = -371 - (-169) = -202
+  //   SP: left  =  435 - 161.5 = 273.5 / top = -23 - (-357) = 334
   position: absolute;
-  top: calc(#{rem(371)} * -1);
-  left: rem(260);
+  top: calc(#{rem(202)} * -1);
+  left: rem(517);
   display: block;
   width: rem(1081);
   height: rem(1081);
@@ -692,8 +816,8 @@
   background-repeat: no-repeat;
 
   @include mq("sp") {
-    top: calc(#{rem(23)} * -1);
-    left: rem(26);
+    top: rem(334);
+    left: rem(273.5);
     width: rem(322);
     height: rem(322);
   }
@@ -711,8 +835,9 @@
   text-align: center;
 
   @include mq("sp") {
-    padding-top: rem(120);
-    font-size: rem(24);
+    // カンプ実測: h1 は y=127 / fontSize 30（従来の120・24はカンプ未確認値）
+    padding-top: rem(127);
+    font-size: rem(30);
   }
 }
 

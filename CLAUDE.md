@@ -15,7 +15,7 @@
 - 静的プレビュー: http://localhost:3000/（`npx gulp` で BrowserSync 起動）
 - サイト種別: WordPress（**静的HTML先行 → 後で wp-build でテーマ化**）
 - デザインソース: Figma
-- Figmaファイル: https://www.figma.com/design/lhhDCpLMrA1oE634jXwFfL/★歯科HPリニューアル
+- Figmaファイル: https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル
 - リポジトリ: https://github.com/kana-o/miki-dental
 - コーディング実行: **`/static-code` スキルを使う**（ユーザー指定）
 
@@ -34,6 +34,10 @@
 - `$color-cta`: #61b8ff（SP固定CTA背景）
 - `$color-bg`: #fff（ページ／カードの基本背景）
 - `$color-bg-sub`: #f2f2f2（セクション背景）
+- `$color-bg-light`: #d8ecfd（淡い水色の面。ナビのドロップダウン／アコーディオン／料金表の1列目）
+- `$color-bg-tint`: #dce3ea（サブ見出しの帯・カード面）
+- `$color-instagram`: #a61490（Instagramバナーの枠）
+- `$color-banner`: #100e48（推薦バナーの帯）
 - `$color-text`: `$color-main`（本文文字色）
 - `$color-text-inverse`: #fff（濃色背景上の白抜き文字）
 - `$color-border`: `$color-accent`（罫線・区切り線）
@@ -41,8 +45,13 @@
 > デザインに無い色が出たら、既存に寄せず**用途ベースの変数を追加**してから使う。
 > Figma Variables は未定義（空）のため、値は生値から採取している。
 
-> Figma 内に `#100e48`（1回）と `#a61490`（1回）が存在するが、配色から浮いており入力ミスの疑い。
-> **変数化しない**。実装で遭遇したら最寄りの変数に寄せ、ユーザーに報告する。
+> **`$color-bg-tint` は Figma の塗り値ではない**。カンプのサブ見出し帯・カード面は塗り `#f2f2f2` に
+> Figma の **NOISE エフェクト**（`#145aa6` 20%）が重なっており、書き出し実測が `#dce3ea`。
+> REST も MCP も塗り値しか返さないため、`$color-bg-sub` のまま実装するとページ背景と同色になり面が消える。
+> 該当ノードはカンプ全体で `Frame 167`（帯）が114箇所ほかカード7箇所。
+
+> 制作前チェックで「入力ミスの疑い」としていた `#100e48` / `#a61490` は、実データを追った結果
+> **どちらもバナーの意匠色**だった（誤りではない）。`$color-banner` / `$color-instagram` として変数化済み。
 
 ### フォント（global/_font-family.scss）
 - `$base-font`: "Noto Sans JP"（本文・UI）
@@ -74,9 +83,32 @@
 
 新規作成前に既存を確認し、再利用すること。
 
-| クラス名 | ファイル | 用途 |
-|---------|----------|------|
-| `.inner` | _common.scss | コンテンツ幅制限（max-width: rem(1080)） |
+すべて `src/scss/module/_common.scss` に定義。**見た目のみを持ち、余白は持たない**
+（上下の間隔はページ固有クラスを同じ要素に併記して制御する）。
+
+| クラス名 | 用途 |
+|---------|------|
+| `.inner` | コンテンツ幅制限（max-width: rem(1080)） |
+| `.pic` | `<picture>` をレイアウトから外す（`display: contents`）。**サイズ・位置指定は中の `<img>` に書く** |
+| `.heading-lg` | セクション見出し（丸ゴシック・中央寄せ・PC 40px / SP 30px） |
+| `.section-title` | セクション上部の英字ラベル |
+| `.heading-band` | 下層ページの帯見出し（濃色背景・白抜き・28px） |
+| `.heading-sub` | 下層ページのサブ見出し（薄グレー背景・24px） |
+| `.text-body` | 本文テキスト（PC/SP共通 16px・行間1.8）。下層ページの説明文で最も多く使う |
+| `.icon-check` | チェックマークアイコン（24×24・SVG背景） |
+| `.marker` | 本文中の太字＋マーカー帯 |
+| `.tag` | 見出し下の小見出しラベル |
+| `.badge-list` / `.badge` | バッジ（駐車場完備 等） |
+| `.more` | 「もっと詳しく」矢印リンク（`--light` で白抜き） |
+| `.btn` | ボタン |
+| `.cta` | 予約CTA（`parts/cta.html`）。求人ページも `.cta__tel-icon` 等を再利用する |
+| `.logo` | ロゴ |
+| `.page-head` | 下層ページのFV |
+| `.breadcrumb` | パンくず |
+| `.side-nav` | PC固定サイドナビ |
+| `.sp-cta` | SP固定CTA |
+| `.u-sr-only` | 視覚的に非表示・スクリーンリーダーには読ませる |
+| `.br-sp` / `.tab-none` / `.sp-none` / `.tab-show` / `.sp-show` | 表示切替ユーティリティ |
 <!-- Phase 3 で作成したものをここに追記していく -->
 
 ## 共通パーツ（src/html/parts/）

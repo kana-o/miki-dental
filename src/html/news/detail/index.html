@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- meta情報 -->
+  <title>夏季休診日のおしらせ｜三木歯科・小児歯科（川越市）</title>
+  <meta name="description" content="三木歯科・小児歯科（川越市）からのお知らせ。8/9(日)～8/13(木)は夏季休診とさせていただきます。8月14日(金)より通常診療となります。" />
+
+  <!-- ogp -->
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ファビコン -->
+  <link rel="icon" href="/assets/img/favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- css -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- JavaScript -->
+  <script src="/assets/js/script.js" defer></script>
+</head>
+
+<body>
+
+  @@include('../../parts/header.html', { "isTop": false })
+  @@include('../../parts/fixed-nav.html')
+
+  <main class="main">
+
+    <!-- ========================================
+      ページヘッダー
+    ======================================== -->
+    <div class="page-head">
+      <div class="page-head__bg" aria-hidden="true">
+        <span class="page-head__watermark"></span>
+      </div>
+      <h1 class="page-head__title">お知らせ</h1>
+    </div>
+
+    <nav class="breadcrumb" aria-label="パンくず">
+      <div class="inner">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">TOP</a></li>
+          <li class="breadcrumb__item"><a href="/news/" class="breadcrumb__link">お知らせ</a></li>
+          <li class="breadcrumb__item" aria-current="page">夏季休診日のおしらせ</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ========================================
+      記事本文
+    ======================================== -->
+    <article class="news-detail-article">
+      <div class="inner news-inner">
+        <header class="news-detail-article__header">
+          <time class="news-detail-article__date" datetime="2026-07-29">2026.07.29</time>
+          <h2 class="news-detail-article__title">夏季休診日のおしらせ</h2>
+        </header>
+
+        <div class="news-detail-article__body">
+          <p>当院は8/9(日)～8/13(木)まで休診とさせて頂きます。</p>
+          <p>ご迷惑をおかけして申し訳ありません。</p>
+          <p>8月14日(金)より通常診療となりますので、宜しくお願い致します。</p>
+          <p>急患の方は、下記をご参考ください。</p>
+          <p><a href="#" class="news-detail-article__link" target="_blank" rel="noopener noreferrer">休日診療| 一般社団法人 川越市歯科医師会(kda.or.jp)</a></p>
+        </div>
+
+        <a href="/news/" class="more news-detail-article__back">
+          <span class="more__text">一覧へ</span>
+          <span class="more__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </article>
+
+    <!-- ========================================
+      予約・相談
+    ======================================== -->
+    <div class="news-detail-reserve">
+      <div class="inner">
+        @@include('../../parts/cta.html')
+      </div>
+    </div>
+
+  </main>
+
+  @@include('../../parts/footer.html')
+
+</body>
+</html>

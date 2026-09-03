@@ -6,20 +6,6 @@
 
 /* --- 見出し＋左右2カラムの共通ブロック ------------------------------------------------ */
 
-// 各セクションの大見出し（TOPの .section-title より小さい 40px）
-.about-heading {
-  font-family: $second-font;
-  font-size: rem(40);
-  font-weight: $bold;
-  color: $color-main;
-  line-height: 1.4;
-  text-align: center;
-
-  @include mq("sp") {
-    font-size: rem(30);
-  }
-}
-
 // 写真＋本文の2カラム。背面に青帯が画面端まで伸びる。
 .about-row {
   position: relative;
@@ -258,7 +244,7 @@
   z-index: 0;
   height: rem(331);
   margin-top: rem(131);
-  background-color: $color-bg-sub;
+  background-color: $color-bg-tint;
   border-radius: rem(20);
 
   @include mq("tab") {
@@ -1655,18 +1641,3 @@
   }
 }
 
-.about-reserve__title {
-  margin-bottom: rem(50);
-  font-family: $second-font;
-  font-size: rem(40);
-  font-weight: $bold;
-  color: $color-main;
-  line-height: 1.4;
-  text-align: center;
-
-  @include mq("sp") {
-    display: none;
-    margin-bottom: rem(30);
-    font-size: rem(24);
-  }
-}
