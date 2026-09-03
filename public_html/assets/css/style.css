@@ -6655,7 +6655,7 @@ select::-ms-expand {
   width: clamp(92.4875 * 1rem, 132.125 * 1rem * var(--rem-scale), 171.7625 * 1rem);
   height: 100%;
   min-height: clamp(47.38125 * 1rem, 67.6875 * 1rem * var(--rem-scale), 87.99375 * 1rem);
-  background-color: #10355d;
+  background-color: #145aa6;
   border-radius: 50% 50% 0 0/clamp(13.125 * 1rem, 18.75 * 1rem * var(--rem-scale), 24.375 * 1rem) clamp(13.125 * 1rem, 18.75 * 1rem * var(--rem-scale), 24.375 * 1rem) 0 0;
   transform: translateX(-50%);
 }
@@ -6668,10 +6668,13 @@ select::-ms-expand {
   display: block;
   width: 100%;
   max-width: clamp(47.25 * 1rem, 67.5 * 1rem * var(--rem-scale), 87.75 * 1rem);
-  height: 0;
   margin-block: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
   margin-inline: auto;
-  border-top: clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem) dashed rgba(255, 255, 255, 0.4);
+  background-image: radial-gradient(circle closest-side, #fff 0 46%, transparent 54%);
+  background-repeat: repeat-x;
+  height: clamp(0.21875 * 1rem, 0.3125 * 1rem * var(--rem-scale), 0.40625 * 1rem);
+  background-size: clamp(0.525 * 1rem, 0.75 * 1rem * var(--rem-scale), 0.975 * 1rem) clamp(0.21875 * 1rem, 0.3125 * 1rem * var(--rem-scale), 0.40625 * 1rem);
+  background-position: left center;
 }
 
 .clinic-child__wave {

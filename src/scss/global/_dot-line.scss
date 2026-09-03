@@ -1,0 +1,26 @@
+@use "function" as *;
+
+// カンプの区切り線は「丸ドット」で描かれている。
+// Figma 側は strokeDashes [0.1, gap] ＋ strokeCap: ROUND ＝ 直径 strokeWeight の点が gap 間隔で並ぶ形。
+// CSS の `border: dotted` は点が四角く、間隔もブラウザ任せで合わないため、radial-gradient で描く。
+//
+//   $color … 点の色
+//   $size  … 点の直径（px、カンプの strokeWeight）
+//   $gap   … 点の間隔（px、カンプの strokeDashes の2つめ）
+//   $dir   … horizontal（横線）/ vertical（縦線）
+@mixin dot-line($color, $size: 3, $gap: 8, $dir: horizontal) {
+  $pitch: $size + $gap;
+  // ハードな色止めだとジャギーが出るので、わずかにぼかす
+  background-image: radial-gradient(circle closest-side, $color 0 46%, transparent 54%);
+  background-repeat: if($dir == horizontal, repeat-x, repeat-y);
+
+  @if $dir == horizontal {
+    height: rem($size);
+    background-size: rem($pitch) rem($size);
+    background-position: left center;
+  } @else {
+    width: rem($size);
+    background-size: rem($size) rem($pitch);
+    background-position: center top;
+  }
+}
