@@ -49,11 +49,13 @@
   min-height: rem(1083);
   // カンプ実測: #145aa6（$color-accent）。$color-main では濃すぎる
   background-color: $color-accent;
-  border-radius: 50% 50% 0 0 / rem(300) rem(300) 0 0;
+  // カンプ実測: アーチは楕円。PC Ellipse 2114x1083（縦半径541.5）/ SP Ellipse 1020x1020（縦半径510）
+  border-radius: 50% 50% 0 0 / rem(541.5) rem(541.5) 0 0;
   transform: translateX(-50%);
 
   @include mq("sp") {
-    border-radius: 50% 50% 0 0 / rem(150) rem(150) 0 0;
+    width: rem(1020);
+    border-radius: 50% 50% 0 0 / rem(510) rem(510) 0 0;
   }
 }
 
@@ -177,10 +179,15 @@
   background-color: $color-accent;
   border-radius: rem(20) 0 0 rem(20);
 
+  // カンプ実測（SP）: 青帯はブロック上部ではなく、最下部のメイン写真の背後にある。
+  // 写真(78,876) 270x188 に対し 帯(111,906) 279x177 ＝ 右に33・下に19はみ出す。
   @include mq("sp") {
-    top: rem(16);
-    width: calc(100% - #{rem(15)});
-    height: rem(220);
+    top: auto;
+    bottom: calc(#{rem(19)} * -1);
+    left: rem(111);
+    right: auto;
+    width: rem(279);
+    height: rem(177);
     border-radius: rem(10) 0 0 rem(10);
   }
 }
@@ -190,7 +197,9 @@
   left: 0;
   border-radius: 0 rem(20) rem(20) 0;
 
+  // カンプ実測（SP・reverse）: 帯は x=-6（左に食い出す）
   @include mq("sp") {
+    left: calc(#{rem(6)} * -1);
     border-radius: 0 rem(10) rem(10) 0;
   }
 }
