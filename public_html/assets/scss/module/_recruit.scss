@@ -330,11 +330,12 @@
   object-fit: cover;
   border-radius: rem(20);
 
-  // カンプ実測（SP）: 幅252で右寄り（reverse は左寄り）に置かれる
+  // カンプ実測（SP）: 幅252で右寄り（reverse は左寄り）。
+  // .inner の内側（左端15）からの距離なので margin は 15。
   @include mq("sp") {
     width: rem(252);
     height: rem(179);
-    margin-right: rem(30);
+    margin-right: rem(15);
     margin-left: auto;
     border-radius: rem(10);
   }
@@ -343,7 +344,7 @@
 .recruit-charm__item--reverse .recruit-charm__photo {
   @include mq("sp") {
     margin-right: auto;
-    margin-left: rem(30);
+    margin-left: rem(15);
   }
 }
 

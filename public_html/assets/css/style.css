@@ -11513,14 +11513,14 @@ select::-ms-expand {
   .recruit-charm__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
     height: clamp(7.83125 * 1rem, 11.1875 * 1rem * var(--rem-scale), 14.54375 * 1rem);
-    margin-right: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
+    margin-right: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
     margin-left: auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
   .recruit-charm__item--reverse .recruit-charm__photo {
     margin-right: auto;
-    margin-left: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
+    margin-left: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
   }
 
   .recruit-charm__body {
