@@ -142,6 +142,13 @@
   align-items: center;
   justify-content: center;
   margin-top: rem(12);
+
+  // カンプ実測（SP）: ボタンは inner 幅いっぱい（345x56）
+  @include mq("sp") {
+    display: flex;
+    width: 100%;
+    min-height: rem(56);
+  }
   padding-block: rem(8);
   padding-inline: rem(16);
   font-family: $base-font;
@@ -372,8 +379,9 @@
 }
 
 .recruit-requirements__table th {
-  flex: 0 0 rem(200);
-  padding-right: rem(50);
+  // 「診療科目・サービス形態」が200pxでは2行に折り返すため、列幅を広げる
+  flex: 0 0 rem(250);
+  padding-right: rem(30);
   font-family: $base-font;
   font-size: rem(18);
   font-weight: $bold;
@@ -575,11 +583,13 @@
   line-height: 1.8;
 }
 
+// カンプ実測: 回答の文量によらずカードの下端にそろう
 .recruit-voice__person {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: rem(12);
+  margin-top: auto;
 }
 
 .recruit-voice__name {

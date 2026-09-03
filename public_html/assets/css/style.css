@@ -7449,8 +7449,8 @@ select::-ms-expand {
 }
 
 .recruit-requirements__table th {
-  flex: 0 0 clamp(8.75 * 1rem, 12.5 * 1rem * var(--rem-scale), 16.25 * 1rem);
-  padding-right: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  flex: 0 0 clamp(10.9375 * 1rem, 15.625 * 1rem * var(--rem-scale), 20.3125 * 1rem);
+  padding-right: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
   font-family: "Noto Sans JP", sans-serif;
   font-size: clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem);
   font-weight: 700;
@@ -7584,6 +7584,7 @@ select::-ms-expand {
   align-items: center;
   justify-content: space-between;
   gap: clamp(0.525 * 1rem, 0.75 * 1rem * var(--rem-scale), 0.975 * 1rem);
+  margin-top: auto;
 }
 
 .recruit-voice__name {
@@ -11353,6 +11354,12 @@ select::-ms-expand {
   .recruit-join__status {
     margin-top: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
     line-height: 2.2;
+  }
+
+  .recruit-join__tel {
+    display: flex;
+    width: 100%;
+    min-height: clamp(2.45 * 1rem, 3.5 * 1rem * var(--rem-scale), 4.55 * 1rem);
   }
 
   .recruit-join__tel {
