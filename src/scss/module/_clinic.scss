@@ -279,9 +279,11 @@
   height: rem(172);
   margin-top: rem(40);
   object-fit: cover;
-  border-radius: rem(10);
+  // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
+  border-radius: rem(20);
 
   @include mq("sp") {
+    border-radius: rem(10);
     // カンプ実測（バリアフリー equip-02: 160×125）
     width: rem(160);
     height: rem(125);
@@ -320,7 +322,12 @@
   display: block;
   position: absolute;
   object-fit: cover;
-  border-radius: rem(10);
+  // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
+  border-radius: rem(20);
+
+  @include mq("sp") {
+    border-radius: rem(10);
+  }
 }
 
 // カンプ実測: 297×210（上・右寄り）
@@ -647,9 +654,11 @@
   width: rem(270);
   height: rem(219);
   object-fit: cover;
-  border-radius: rem(10);
+  // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
+  border-radius: rem(20);
 
   @include mq("sp") {
+    border-radius: rem(10);
     width: rem(152);
     height: rem(123);
   }
@@ -700,9 +709,11 @@
   width: rem(270);
   height: rem(219);
   object-fit: cover;
-  border-radius: rem(10);
+  // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
+  border-radius: rem(20);
 
   @include mq("sp") {
+    border-radius: rem(10);
     width: rem(152);
     height: rem(123);
   }
@@ -762,9 +773,11 @@
   width: rem(270);
   height: rem(219);
   object-fit: cover;
-  border-radius: rem(10);
+  // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
+  border-radius: rem(20);
 
   @include mq("sp") {
+    border-radius: rem(10);
     width: rem(252);
     height: rem(204);
   }
