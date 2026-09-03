@@ -95,9 +95,10 @@
   justify-content: center;
   min-width: rem(44);
   height: rem(44);
-  font-size: rem(18);
-  font-weight: $bold;
-  color: $color-main;
+  // カンプ実測: 16px / weight 500 / #145aa6
+  font-size: rem(16);
+  font-weight: $medium;
+  color: $color-accent;
   line-height: 1.4;
 
   &[aria-current="page"] {
@@ -131,19 +132,20 @@
   }
 }
 
+// カンプ実測: 矢印だけでなく 44x44 の円（#145aa6 40%）に白矢印が入る
 .news-pagination__arrow-icon {
   display: block;
-  width: rem(10);
-  height: rem(16);
-  background-color: $color-main;
-  mask-image: url("/assets/img/news/news-icon-arrow.svg");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
+  width: rem(44);
+  height: rem(44);
+  background-image: url("/assets/img/news/icon-pager-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.news-pagination__link--prev .news-pagination__arrow-icon {
-  transform: scaleX(-1);
+// カンプでは「次へ」だけ濃い青の塗り（「前へ」は40%の淡色）
+.news-pagination__link--next .news-pagination__arrow-icon {
+  background-image: url("/assets/img/news/icon-pager-arrow-next.svg");
 }
 
 /* --- 予約・相談 ------------------------------------------------ */
@@ -244,6 +246,8 @@
 }
 
 .news-detail-article__back {
+  // .more は inline-flex のため、ブロック内では margin-inline:auto が効かない
+  display: flex;
   width: fit-content;
   margin-top: rem(60);
   margin-inline: auto;

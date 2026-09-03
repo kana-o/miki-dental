@@ -166,7 +166,9 @@
   object-fit: cover;
   border-radius: rem(20);
 
+  // カンプ実測: SPは中央寄せ
   @include mq("sp") {
+    align-self: center;
     margin-inline: auto;
     height: rem(200);
     border-radius: rem(10);

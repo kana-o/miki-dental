@@ -248,10 +248,13 @@
 // カンプにはこのページ専用の「予約・相談」見出しが無い（.cta と同じ位置・同じ高さのフレームのみ）。
 // 見出し階層を保つため<h2>は残しつつ、視覚的には非表示にする（サイト共通の目視できる見出しではないため）。
 .preventive-reserve {
+  // カンプ実測: CTA下端(4155)〜フッター(4315) = 160px。下側の余白が無かった
   margin-top: rem(150);
+  padding-bottom: rem(160);
 
   @include mq("sp") {
     margin-top: rem(100);
+    padding-bottom: rem(100);
   }
 }
 

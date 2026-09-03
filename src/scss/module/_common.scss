@@ -881,6 +881,13 @@
 }
 
 .breadcrumb__link {
+  // 訪問済みでも色を変えない（ブラウザ既定の紫が出るため）
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+
   &:focus-visible {
     outline: rem(2) solid $color-accent;
     outline-offset: rem(2);
