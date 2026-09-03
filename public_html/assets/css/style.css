@@ -6275,6 +6275,11 @@ select::-ms-expand {
   text-align: center;
 }
 
+.pediatric-worry__title .tag {
+  font-size: clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem);
+  line-height: 2.2;
+}
+
 .pediatric-worry__list {
   display: flex;
   flex-wrap: wrap;
@@ -6344,8 +6349,8 @@ select::-ms-expand {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  margin-top: clamp(5.95 * 1rem, 8.5 * 1rem * var(--rem-scale), 11.05 * 1rem);
-  padding-block: clamp(4.2875 * 1rem, 6.125 * 1rem * var(--rem-scale), 7.9625 * 1rem) clamp(6.25625 * 1rem, 8.9375 * 1rem * var(--rem-scale), 11.61875 * 1rem);
+  margin-top: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
+  padding-block: clamp(4.2875 * 1rem, 6.125 * 1rem * var(--rem-scale), 7.9625 * 1rem) clamp(6.78125 * 1rem, 9.6875 * 1rem * var(--rem-scale), 12.59375 * 1rem);
 }
 
 .pediatric-fun::before {
@@ -6387,7 +6392,7 @@ select::-ms-expand {
   -moz-column-gap: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
        column-gap: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
   row-gap: clamp(2.0125 * 1rem, 2.875 * 1rem * var(--rem-scale), 3.7375 * 1rem);
-  margin-top: clamp(4.8125 * 1rem, 6.875 * 1rem * var(--rem-scale), 8.9375 * 1rem);
+  margin-top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
 }
 
 .pediatric-fun__item {
@@ -6435,7 +6440,7 @@ select::-ms-expand {
 /* --- 子育てママに優しい歯医者さんです ------------------------------------------------ */
 
 .pediatric-mom {
-  padding-block: clamp(3.9375 * 1rem, 5.625 * 1rem * var(--rem-scale), 7.3125 * 1rem);
+  padding-block: 0 clamp(3.9375 * 1rem, 5.625 * 1rem * var(--rem-scale), 7.3125 * 1rem);
   background-color: #145aa6;
 }
 
@@ -6455,7 +6460,7 @@ select::-ms-expand {
   -moz-column-gap: clamp(1.96875 * 1rem, 2.8125 * 1rem * var(--rem-scale), 3.65625 * 1rem);
        column-gap: clamp(1.96875 * 1rem, 2.8125 * 1rem * var(--rem-scale), 3.65625 * 1rem);
   row-gap: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
-  margin-top: clamp(4.9875 * 1rem, 7.125 * 1rem * var(--rem-scale), 9.2625 * 1rem);
+  margin-top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
 }
 
 .pediatric-mom__item {
@@ -6754,7 +6759,7 @@ select::-ms-expand {
 
 .clinic-equip {
   margin-top: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
-  padding-top: clamp(5.5125 * 1rem, 7.875 * 1rem * var(--rem-scale), 10.2375 * 1rem);
+  padding-top: 0;
   background-color: #f2f2f2;
 }
 
@@ -6784,6 +6789,14 @@ select::-ms-expand {
 
 .clinic-room--light {
   margin-top: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
+}
+
+.inner + .clinic-room {
+  margin-top: clamp(1.44375 * 1rem, 2.0625 * 1rem * var(--rem-scale), 2.68125 * 1rem);
+}
+
+.inner + .clinic-room--light {
+  margin-top: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
 }
 
 .clinic-room__band {
@@ -7356,6 +7369,10 @@ select::-ms-expand {
   padding-bottom: clamp(5.64375 * 1rem, 8.0625 * 1rem * var(--rem-scale), 10.48125 * 1rem);
 }
 
+.recruit-charm__item:last-of-type {
+  padding-bottom: clamp(1.88125 * 1rem, 2.6875 * 1rem * var(--rem-scale), 3.49375 * 1rem);
+}
+
 .recruit-charm__item::before {
   content: "";
   position: absolute;
@@ -7421,7 +7438,7 @@ select::-ms-expand {
   z-index: 1;
   flex: 1;
   max-width: clamp(19.075 * 1rem, 27.25 * 1rem * var(--rem-scale), 35.425 * 1rem);
-  margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  margin-top: clamp(5.46875 * 1rem, 7.8125 * 1rem * var(--rem-scale), 10.15625 * 1rem);
   margin-left: clamp(2.275 * 1rem, 3.25 * 1rem * var(--rem-scale), 4.225 * 1rem);
   padding: 0;
 }
@@ -10147,16 +10164,17 @@ select::-ms-expand {
   .sealant-compare__item {
     align-items: center;
     gap: clamp(0.6125 * 1rem, 0.875 * 1rem * var(--rem-scale), 1.1375 * 1rem);
-    width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
+    width: 100%;
   }
 
   .sealant-compare__img {
+    width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
     height: clamp(10.15 * 1rem, 14.5 * 1rem * var(--rem-scale), 18.85 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
   .sealant-compare__text {
-    width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
+    width: 100%;
   }
 
   .sealant-compare__arrow {
@@ -10226,7 +10244,8 @@ select::-ms-expand {
   }
 
   .spacer-flow__figure {
-    max-width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
+    width: 100%;
+    max-width: none;
     gap: clamp(0.6125 * 1rem, 0.875 * 1rem * var(--rem-scale), 1.1375 * 1rem);
   }
 
@@ -10235,15 +10254,17 @@ select::-ms-expand {
   }
 
   .spacer-flow__figure--lg {
-    max-width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
+    max-width: none;
   }
 
   .spacer-flow__img {
+    width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
     height: clamp(8.992375 * 1rem, 12.84625 * 1rem * var(--rem-scale), 16.700125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
   .spacer-flow__figure--lg .spacer-flow__img {
+    width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
     height: clamp(10.1303125 * 1rem, 14.471875 * 1rem * var(--rem-scale), 18.8134375 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -10506,7 +10527,8 @@ select::-ms-expand {
 
   .pedortho-jaw__caption {
     margin-top: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
-    font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+    font-size: clamp(0.56875 * 1rem, 0.8125 * 1rem * var(--rem-scale), 1.05625 * 1rem);
+    line-height: 1.54;
   }
 
   .pedortho-diagram {
@@ -10914,7 +10936,7 @@ select::-ms-expand {
     flex-direction: column;
     align-items: center;
     gap: 0;
-    margin-top: clamp(2.8875 * 1rem, 4.125 * 1rem * var(--rem-scale), 5.3625 * 1rem);
+    margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
   }
 
   .pediatric-worry__item p {
@@ -10926,7 +10948,7 @@ select::-ms-expand {
     min-height: 0;
     max-width: clamp(11.76875 * 1rem, 16.8125 * 1rem * var(--rem-scale), 21.85625 * 1rem);
     margin-top: clamp(6.0375 * 1rem, 8.625 * 1rem * var(--rem-scale), 11.2125 * 1rem);
-    padding: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+    padding: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
   }
 
   .pediatric-worry__photo {
@@ -10938,7 +10960,7 @@ select::-ms-expand {
   }
 
   .pediatric-worry__note-text {
-    margin-top: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+    margin-top: 0;
     font-size: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
     text-align: center;
   }
@@ -10993,7 +11015,7 @@ select::-ms-expand {
   }
 
   .pediatric-mom {
-    padding-block: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
+    padding-block: 0 clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
   }
 
   .pediatric-mom__title {
@@ -11111,7 +11133,7 @@ select::-ms-expand {
   }
 
   .clinic-equip {
-    padding-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+    padding-top: clamp(1.88125 * 1rem, 2.6875 * 1rem * var(--rem-scale), 3.49375 * 1rem);
   }
 
   .clinic-room {
@@ -11136,6 +11158,7 @@ select::-ms-expand {
 
   .clinic-room--photo-mid.clinic-room--reverse .clinic-room__text {
     order: 2;
+    margin-top: 0;
   }
 
   .clinic-room--photo-mid.clinic-room--reverse .clinic-room__photo {
@@ -11144,9 +11167,18 @@ select::-ms-expand {
 
   .clinic-room--photo-mid.clinic-room--reverse .clinic-room__sub-photo-group {
     order: 4;
+    margin-top: 0;
   }
 
   .clinic-room--light {
+    margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  }
+
+  .inner + .clinic-room {
+    margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  }
+
+  .inner + .clinic-room--light {
     margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
   }
 
@@ -11479,6 +11511,10 @@ select::-ms-expand {
     padding-bottom: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
   }
 
+  .recruit-charm__item:last-of-type {
+    padding-bottom: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
+  }
+
   .recruit-charm__item::before {
     top: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
     width: clamp(15.75 * 1rem, 22.5 * 1rem * var(--rem-scale), 29.25 * 1rem);
@@ -11503,7 +11539,7 @@ select::-ms-expand {
 
   .recruit-charm__inner {
     flex-direction: column;
-    gap: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+    gap: 0;
   }
 
   .recruit-charm__item--reverse .recruit-charm__inner {
@@ -11525,8 +11561,9 @@ select::-ms-expand {
 
   .recruit-charm__body {
     max-width: none;
-    margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
-    padding: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem) clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+    margin-top: 0;
+    margin-left: 0;
+    padding: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem) clamp(0.74375 * 1rem, 1.0625 * 1rem * var(--rem-scale), 1.38125 * 1rem) clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -11738,13 +11775,12 @@ select::-ms-expand {
   }
 
   .price-check-list {
-    gap: clamp(0.2625 * 1rem, 0.375 * 1rem * var(--rem-scale), 0.4875 * 1rem);
-    margin-top: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
+    gap: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
+    margin-top: clamp(0.6125 * 1rem, 0.875 * 1rem * var(--rem-scale), 1.1375 * 1rem);
   }
 
   .price-check-list__item {
     align-items: flex-start;
-    font-size: clamp(0.56875 * 1rem, 0.8125 * 1rem * var(--rem-scale), 1.05625 * 1rem);
   }
 
   .price-warranty {
@@ -11760,7 +11796,7 @@ select::-ms-expand {
   }
 
   .price-warranty__tier {
-    margin-top: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+    margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
   }
 
   .price-warranty__tier-title {
@@ -11769,12 +11805,11 @@ select::-ms-expand {
   }
 
   .price-warranty__tier-text {
-    font-size: clamp(0.56875 * 1rem, 0.8125 * 1rem * var(--rem-scale), 1.05625 * 1rem);
+    margin-top: clamp(0.6125 * 1rem, 0.875 * 1rem * var(--rem-scale), 1.1375 * 1rem);
   }
 
   .price-warranty__note {
     margin-top: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
-    font-size: clamp(0.56875 * 1rem, 0.8125 * 1rem * var(--rem-scale), 1.05625 * 1rem);
   }
 
   .price-reserve {

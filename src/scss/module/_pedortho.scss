@@ -131,9 +131,11 @@
   color: $color-text;
   line-height: 1.5;
 
+  // カンプ実測（SP）: 13px / 行送り20px。16pxのままだと写真幅252に収まらず3行になる
   @include mq("sp") {
     margin-top: rem(8);
-    font-size: rem(16);
+    font-size: rem(13);
+    line-height: 1.54;
   }
 }
 

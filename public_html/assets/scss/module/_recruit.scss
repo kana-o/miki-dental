@@ -232,6 +232,15 @@
     padding-bottom: rem(60);
   }
 }
+.recruit-charm__item:last-of-type {
+  // 3つめだけ本文が写真より長く、帯の下端は本文の43px下で終わる（カンプ実測 591px の帯）。
+  // 129のままだと次の「募集要項」まで86px余分に空く。
+  padding-bottom: rem(43);
+
+  @include mq("sp") {
+    padding-bottom: rem(60);
+  }
+}
 
 // 薄い帯（#f2f2f2＋ノイズ）
 .recruit-charm__item::before {
@@ -303,9 +312,10 @@
   justify-content: space-between;
   gap: rem(45);
 
+  // カンプ実測（SP）: 本文ブロックの上端は写真の下端とぴったり接する
   @include mq("sp") {
     flex-direction: column;
-    gap: rem(24);
+    gap: 0;
   }
 }
 
@@ -357,14 +367,18 @@
   flex: 1;
   // カンプ実測: 本文は436px幅、青い帯の内側から54px。青い地は項目側の帯が担当する
   max-width: rem(436);
-  margin-top: rem(50);
+  // カンプ実測: 見出しラベルの上端は写真上端＋125（PC）／写真下端ぴったり（SP）
+  margin-top: rem(125);
   margin-left: rem(52);
   padding: 0;
 
+  // カンプ実測（SP）: 本文は 311px 幅（左右17のパディング）。PCの margin-left:52 が
+  // 残ると 293px になり、1項目あたり2行ぶん余計に折り返す。
   @include mq("sp") {
     max-width: none;
-    margin-top: rem(24);
-    padding: rem(30) rem(20) rem(24);
+    margin-top: 0;
+    margin-left: 0;
+    padding: rem(30) rem(17) rem(24);
     border-radius: rem(10);
   }
 }

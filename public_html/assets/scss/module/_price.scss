@@ -300,9 +300,10 @@
   gap: rem(9);
   margin-top: rem(14);
 
+  // カンプ実測（SP）: 行間10・見出し帯の下端から14
   @include mq("sp") {
-    gap: rem(6);
-    margin-top: rem(10);
+    gap: rem(10);
+    margin-top: rem(14);
   }
 }
 
@@ -316,9 +317,9 @@
   color: $color-main;
   line-height: 1.8;
 
+  // カンプ実測（SP）: 16px・行送り29のまま（13pxではない）
   @include mq("sp") {
     align-items: flex-start;
-    font-size: rem(13);
   }
 }
 
@@ -351,8 +352,9 @@
 .price-warranty__tier {
   margin-top: rem(20);
 
+  // カンプ実測（SP）: 保証区分どうしの間隔は24
   @include mq("sp") {
-    margin-top: rem(16);
+    margin-top: rem(24);
   }
 }
 
@@ -380,8 +382,10 @@
   color: $color-main;
   line-height: 1.8;
 
+  // カンプ実測（SP）: 本文は16px・行送り29のまま（13pxではない）。
+  // 見出し帯の下端から14px空く。
   @include mq("sp") {
-    font-size: rem(13);
+    margin-top: rem(14);
   }
 }
 
@@ -395,9 +399,9 @@
   color: $color-main;
   line-height: 1.8;
 
+  // カンプ実測（SP）: 16px のまま
   @include mq("sp") {
     margin-top: rem(10);
-    font-size: rem(13);
   }
 }
 

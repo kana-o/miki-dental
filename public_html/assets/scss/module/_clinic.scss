@@ -109,11 +109,15 @@
 
 .clinic-equip {
   margin-top: rem(0);
-  padding-top: rem(126);
+  // カンプ実測: 見出しは波（.clinic-child__wave）の下端よりわずかに上に食い込む位置にある
+  // （PC 波上端+317 / 波の高さ343、SP はセクション枠の上端＝見出し上端）。
+  // 上パディングを持たせるとカンプより見出しが 126px（SP 50px）下がる。
+  padding-top: 0;
   background-color: $color-bg-sub;
 
+  // SPは波の重なりが浅く、見出しまで43px空く
   @include mq("sp") {
-    padding-top: rem(50);
+    padding-top: rem(43);
   }
 }
 
@@ -176,6 +180,9 @@
 
     .clinic-room__text {
       order: 2;
+      // display:contents で本文が .clinic-room__inner の直接の子になるため、
+      // margin-top が inner の gap(24) に加算されて倍になる。カンプは24。
+      margin-top: 0;
     }
 
     .clinic-room__photo {
@@ -184,12 +191,31 @@
 
     .clinic-room__sub-photo-group {
       order: 4;
+      // 同上。写真とサブ写真群の間隔はカンプ24（gapのみで足りる）
+      margin-top: 0;
     }
   }
 }
 
 .clinic-room--light {
   margin-top: rem(60);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// セクション見出し直後の1つめ。カンプ実測（PC）は見出し上端から
+// 一般歯科/設備エリア=126・小児歯科エリア=110 で、2つめ以降より詰まっている。
+.inner + .clinic-room {
+  margin-top: rem(33);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+.inner + .clinic-room--light {
+  margin-top: rem(20);
 
   @include mq("sp") {
     margin-top: rem(50);
