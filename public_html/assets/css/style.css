@@ -4781,7 +4781,7 @@ select::-ms-expand {
 .sealant-compare {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(1.225 * 1rem, 1.75 * 1rem * var(--rem-scale), 2.275 * 1rem);
   margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
 }
@@ -4813,14 +4813,12 @@ select::-ms-expand {
 .sealant-compare__arrow {
   display: block;
   flex-shrink: 0;
-  width: clamp(6.43125 * 1rem, 9.1875 * 1rem * var(--rem-scale), 11.94375 * 1rem);
-  height: clamp(2.1 * 1rem, 3 * 1rem * var(--rem-scale), 3.9 * 1rem);
+  width: clamp(2.05625 * 1rem, 2.9375 * 1rem * var(--rem-scale), 3.81875 * 1rem);
+  height: clamp(6.43125 * 1rem, 9.1875 * 1rem * var(--rem-scale), 11.94375 * 1rem);
   margin-top: clamp(3.71875 * 1rem, 5.3125 * 1rem * var(--rem-scale), 6.90625 * 1rem);
-  background-image: url("/assets/img/common/triangle-arrow.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: rotate(90deg);
+  background-color: #61b8ff;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
 /* --- シーラント実際の写真 ------------------------------------------------ */
@@ -5534,8 +5532,8 @@ select::-ms-expand {
 .pedortho-connector {
   flex-shrink: 0;
   align-self: center;
-  width: clamp(2.1 * 1rem, 3 * 1rem * var(--rem-scale), 3.9 * 1rem);
-  height: clamp(6.43125 * 1rem, 9.1875 * 1rem * var(--rem-scale), 11.94375 * 1rem);
+  width: clamp(6.43125 * 1rem, 9.1875 * 1rem * var(--rem-scale), 11.94375 * 1rem);
+  height: clamp(2.05625 * 1rem, 2.9375 * 1rem * var(--rem-scale), 3.81875 * 1rem);
   background-color: #61b8ff;
   -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
           clip-path: polygon(0 0, 100% 50%, 0 100%);
@@ -10097,7 +10095,6 @@ select::-ms-expand {
     width: clamp(4.2 * 1rem, 6 * 1rem * var(--rem-scale), 7.8 * 1rem);
     height: clamp(1.35625 * 1rem, 1.9375 * 1rem * var(--rem-scale), 2.51875 * 1rem);
     margin-top: 0;
-    transform: rotate(180deg);
   }
 
   .sealant-photo {

@@ -66,8 +66,9 @@
 .pedortho-connector {
   flex-shrink: 0;
   align-self: center;
-  width: rem(48);
-  height: rem(147);
+  // カンプ実測: 47x147 を90°回転＝描画は 147x47（横長）。実装は 48x147 で縦長すぎた
+  width: rem(147);
+  height: rem(47);
   background-color: $color-cta;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 

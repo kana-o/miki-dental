@@ -43,7 +43,8 @@
 .sealant-compare {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  // カンプ実測: 写真は 260..670 と 773..1183 で inner の左端から並ぶ（中央寄せではない）
+  justify-content: flex-start;
   gap: rem(28);
   margin-top: rem(30);
 
@@ -97,20 +98,18 @@
 .sealant-compare__arrow {
   display: block;
   flex-shrink: 0;
-  width: rem(147);
-  height: rem(48);
+  // カンプ実測: 47x147。transform で回転すると레イアウト幅が147のままになり
+  // 右の写真が100pxずれるため、clip-path で描く（小児矯正の矢印と同じ手法）
+  width: rem(47);
+  height: rem(147);
   margin-top: rem(85);
-  background-image: url("/assets/img/common/triangle-arrow.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: rotate(90deg);
+  background-color: $color-cta;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
 
   @include mq("sp") {
     width: rem(96);
     height: rem(31);
     margin-top: 0;
-    transform: rotate(180deg);
   }
 }
 
