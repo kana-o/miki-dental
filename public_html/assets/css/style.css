@@ -10698,6 +10698,7 @@ select::-ms-expand {
   }
 
   .staff-team__item {
+    align-items: flex-start;
     width: clamp(15.09375 * 1rem, 21.5625 * 1rem * var(--rem-scale), 28.03125 * 1rem);
   }
 

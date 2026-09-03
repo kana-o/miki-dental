@@ -309,7 +309,10 @@
   align-items: center;
   width: rem(330);
 
+  // カンプ実測（SP）: 肩書きタグはカード左端にそろう。align-items:center のままだと
+  // text-align:left を指定してもフレックスアイテムごと中央に寄ってしまう
   @include mq("sp") {
+    align-items: flex-start;
     width: rem(345);
   }
 }
