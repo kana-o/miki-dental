@@ -134,6 +134,27 @@
 }
 
 // 濃色背景（小児歯科エリア）用。帯を持たず、テキストが白抜きになる。
+// カンプの「模様」＝ドットの格子（あしらい）。Figmaのノードは書き出すと空になるため、
+// 書き出し画像から採寸してCSSで描く（直径7px・ピッチ13.7px・#145aa6 の上に $color-bg-light 46%）。
+// 治療ルームのブロックだけに入る。
+.clinic-room--dots::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  // カンプ実測: ドット領域の左上は (152, 4542)。.clinic-room の上端は 4051
+  top: rem(491);
+  left: rem(152);
+  display: block;
+  width: rem(235);
+  height: rem(190);
+  background-image: radial-gradient(circle closest-side, rgba($color-bg-light, 0.46) 0 46%, transparent 54%);
+  background-size: rem(13.7) rem(13.7);
+
+  @include mq("sp") {
+    display: none;
+  }
+}
+
 .clinic-room--light {
   margin-top: rem(60);
 

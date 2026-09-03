@@ -6711,6 +6711,19 @@ select::-ms-expand {
   margin-top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
 }
 
+.clinic-room--dots::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: clamp(21.48125 * 1rem, 30.6875 * 1rem * var(--rem-scale), 39.89375 * 1rem);
+  left: clamp(6.65 * 1rem, 9.5 * 1rem * var(--rem-scale), 12.35 * 1rem);
+  display: block;
+  width: clamp(10.28125 * 1rem, 14.6875 * 1rem * var(--rem-scale), 19.09375 * 1rem);
+  height: clamp(8.3125 * 1rem, 11.875 * 1rem * var(--rem-scale), 15.4375 * 1rem);
+  background-image: radial-gradient(circle closest-side, rgba(216, 236, 253, 0.46) 0 46%, transparent 54%);
+  background-size: clamp(0.599375 * 1rem, 0.85625 * 1rem * var(--rem-scale), 1.113125 * 1rem) clamp(0.599375 * 1rem, 0.85625 * 1rem * var(--rem-scale), 1.113125 * 1rem);
+}
+
 .clinic-room--light {
   margin-top: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
 }
@@ -10941,6 +10954,10 @@ select::-ms-expand {
 
   .clinic-room {
     margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  }
+
+  .clinic-room--dots::before {
+    display: none;
   }
 
   .clinic-room--light {
