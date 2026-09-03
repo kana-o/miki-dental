@@ -46,6 +46,28 @@ await pg.evaluate(async () => {
 });
 await pg.waitForLoadState('networkidle');
 await pg.waitForTimeout(600);
+// 動きのある演出は静止画比較では毎回ズレるため止める。
+// パララックス（スクロール量で位置が変わる）と、FVスライダー（自動再生）が対象。
+await pg.addStyleTag({ content: `*, *::before, *::after {
+  animation-play-state: paused !important;
+  transition: none !important;
+}` });
+await pg.evaluate(() => {
+  document.getAnimations?.().forEach((a) => { try { a.cancel(); } catch {} });
+  // JSが付けたインライン transform だけ外す。'none' にすると CSS 側の
+  // translate(-50%,-50%)（中央寄せ）まで消えて位置がずれるため。
+  for (const el of document.querySelectorAll('[class*="parallax"], .swiper-wrapper')) {
+    el.style.removeProperty('transform');
+    el.style.willChange = 'auto';
+    el.style.transitionDuration = '0s';
+  }
+  // パララックスの画像は動かすぶん 120% に拡大してあるが、カンプは静止の100%。
+  // 計測のあいだだけ枠と同じ幅にそろえる（実装を変えるものではない）
+  for (const img of document.querySelectorAll('[class*="parallax"] img')) {
+    img.style.width = '100%';
+  }
+});
+await pg.waitForTimeout(300);
 const shotPath = path.join(outDir, '_impl.png');
 await pg.screenshot({ path: shotPath, fullPage: true });
 await br.close();
