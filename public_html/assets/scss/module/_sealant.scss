@@ -98,7 +98,7 @@
 .sealant-compare__arrow {
   display: block;
   flex-shrink: 0;
-  // カンプ実測: 47x147。transform で回転すると레イアウト幅が147のままになり
+  // カンプ実測: 47x147。transform で回転するとレイアウト幅が147のままになり
   // 右の写真が100pxずれるため、clip-path で描く（小児矯正の矢印と同じ手法）
   width: rem(47);
   height: rem(147);
