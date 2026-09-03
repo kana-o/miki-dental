@@ -174,10 +174,31 @@
 /* --- 三木歯科・小児歯科の魅力 ------------------------------------------------ */
 
 .recruit-charm {
+  position: relative;
+  z-index: 0;
   padding-top: rem(160);
+
+  // カンプ実測: 見出しの下から全幅の暖色地（#e4ded9・ノイズ地）が敷かれる
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: rem(354);
+    right: 0;
+    left: 0;
+    height: rem(1230);
+    background-color: $color-bg-warm;
+    background-image: url("/assets/img/common/texture-gray.png");
+    background-repeat: repeat;
+  }
 
   @include mq("sp") {
     padding-top: rem(80);
+
+    &::before {
+      top: rem(200);
+      height: rem(1700);
+    }
   }
 }
 
@@ -199,8 +220,59 @@
   }
 }
 
+// カンプ実測: 1項目は「薄い帯(1232x411)」と「青い帯(1342x432)」の2層が
+// 左右にずれて重なる構成。実装は482px幅の青い箱ひとつだけだった。
+.recruit-charm__item {
+  position: relative;
+  z-index: 0;
+  // カンプ実測: 青い帯は写真の下端より129px下まで伸びる
+  padding-bottom: rem(129);
+
+  @include mq("sp") {
+    padding-bottom: rem(60);
+  }
+}
+
+// 薄い帯（#f2f2f2＋ノイズ）
+.recruit-charm__item::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: rem(35);
+  left: 0;
+  width: rem(1232);
+  height: rem(411);
+  background-color: $color-bg-sub;
+  background-image: url("/assets/img/common/texture-gray.png");
+  background-repeat: repeat;
+}
+
+// 青い帯（右端まで抜ける）
+.recruit-charm__item::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: rem(70);
+  right: 0;
+  left: rem(258);
+  height: calc(100% - #{rem(70)});
+  background-color: $color-accent;
+}
+
+.recruit-charm__item--reverse::before {
+  right: 0;
+  left: auto;
+}
+
+.recruit-charm__item--reverse::after {
+  right: rem(258);
+  left: 0;
+}
+
 .recruit-charm__inner {
   display: flex;
+  // DOM順は「写真 → 本文」。カンプの1・3項目は写真が右なので既定を row-reverse にする
+  flex-direction: row-reverse;
   align-items: flex-start;
   justify-content: space-between;
   gap: rem(45);
@@ -211,8 +283,14 @@
   }
 }
 
+.recruit-charm__item--reverse .recruit-charm__body {
+  margin-right: rem(52);
+  margin-left: 0;
+}
+
 .recruit-charm__item--reverse .recruit-charm__inner {
-  flex-direction: row-reverse;
+  // 2項目めは写真が左
+  flex-direction: row;
 
   @include mq("sp") {
     flex-direction: column;
@@ -238,13 +316,13 @@
 // 可読性とメンテナンス性を優先し、内容に合わせて伸縮する単色カードに簡略化している。
 .recruit-charm__body {
   position: relative;
-  z-index: 0;
+  z-index: 1;
   flex: 1;
-  max-width: rem(482);
-  margin-top: rem(20);
-  padding: rem(40) rem(36) rem(36);
-  background-color: $color-accent;
-  border-radius: rem(20);
+  // カンプ実測: 本文は436px幅、青い帯の内側から54px。青い地は項目側の帯が担当する
+  max-width: rem(436);
+  margin-top: rem(50);
+  margin-left: rem(52);
+  padding: 0;
 
   @include mq("sp") {
     max-width: none;

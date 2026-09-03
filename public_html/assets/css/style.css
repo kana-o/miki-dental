@@ -7322,7 +7322,22 @@ select::-ms-expand {
 /* --- 三木歯科・小児歯科の魅力 ------------------------------------------------ */
 
 .recruit-charm {
+  position: relative;
+  z-index: 0;
   padding-top: clamp(7 * 1rem, 10 * 1rem * var(--rem-scale), 13 * 1rem);
+}
+
+.recruit-charm::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: clamp(15.4875 * 1rem, 22.125 * 1rem * var(--rem-scale), 28.7625 * 1rem);
+  right: 0;
+  left: 0;
+  height: clamp(53.8125 * 1rem, 76.875 * 1rem * var(--rem-scale), 99.9375 * 1rem);
+  background-color: #e4ded9;
+  background-image: url("/assets/img/common/texture-gray.png");
+  background-repeat: repeat;
 }
 
 .recruit-charm__title {
@@ -7335,15 +7350,61 @@ select::-ms-expand {
   gap: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
 }
 
+.recruit-charm__item {
+  position: relative;
+  z-index: 0;
+  padding-bottom: clamp(5.64375 * 1rem, 8.0625 * 1rem * var(--rem-scale), 10.48125 * 1rem);
+}
+
+.recruit-charm__item::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: clamp(1.53125 * 1rem, 2.1875 * 1rem * var(--rem-scale), 2.84375 * 1rem);
+  left: 0;
+  width: clamp(53.9 * 1rem, 77 * 1rem * var(--rem-scale), 100.1 * 1rem);
+  height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
+  background-color: #f2f2f2;
+  background-image: url("/assets/img/common/texture-gray.png");
+  background-repeat: repeat;
+}
+
+.recruit-charm__item::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+  right: 0;
+  left: clamp(11.2875 * 1rem, 16.125 * 1rem * var(--rem-scale), 20.9625 * 1rem);
+  height: calc(100% - clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem));
+  background-color: #145aa6;
+}
+
+.recruit-charm__item--reverse::before {
+  right: 0;
+  left: auto;
+}
+
+.recruit-charm__item--reverse::after {
+  right: clamp(11.2875 * 1rem, 16.125 * 1rem * var(--rem-scale), 20.9625 * 1rem);
+  left: 0;
+}
+
 .recruit-charm__inner {
   display: flex;
+  flex-direction: row-reverse;
   align-items: flex-start;
   justify-content: space-between;
   gap: clamp(1.96875 * 1rem, 2.8125 * 1rem * var(--rem-scale), 3.65625 * 1rem);
 }
 
+.recruit-charm__item--reverse .recruit-charm__body {
+  margin-right: clamp(2.275 * 1rem, 3.25 * 1rem * var(--rem-scale), 4.225 * 1rem);
+  margin-left: 0;
+}
+
 .recruit-charm__item--reverse .recruit-charm__inner {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .recruit-charm__photo {
@@ -7357,13 +7418,12 @@ select::-ms-expand {
 
 .recruit-charm__body {
   position: relative;
-  z-index: 0;
+  z-index: 1;
   flex: 1;
-  max-width: clamp(21.0875 * 1rem, 30.125 * 1rem * var(--rem-scale), 39.1625 * 1rem);
-  margin-top: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
-  padding: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem) clamp(1.575 * 1rem, 2.25 * 1rem * var(--rem-scale), 2.925 * 1rem) clamp(1.575 * 1rem, 2.25 * 1rem * var(--rem-scale), 2.925 * 1rem);
-  background-color: #145aa6;
-  border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  max-width: clamp(19.075 * 1rem, 27.25 * 1rem * var(--rem-scale), 35.425 * 1rem);
+  margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  margin-left: clamp(2.275 * 1rem, 3.25 * 1rem * var(--rem-scale), 4.225 * 1rem);
+  padding: 0;
 }
 
 .recruit-charm__label {
@@ -11369,12 +11429,21 @@ select::-ms-expand {
     padding-top: clamp(3.5 * 1rem, 5 * 1rem * var(--rem-scale), 6.5 * 1rem);
   }
 
+  .recruit-charm::before {
+    top: clamp(8.75 * 1rem, 12.5 * 1rem * var(--rem-scale), 16.25 * 1rem);
+    height: clamp(74.375 * 1rem, 106.25 * 1rem * var(--rem-scale), 138.125 * 1rem);
+  }
+
   .recruit-charm__title {
     margin-bottom: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
   }
 
   .recruit-charm__list {
     gap: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
+  }
+
+  .recruit-charm__item {
+    padding-bottom: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
   }
 
   .recruit-charm__inner {
