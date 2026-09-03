@@ -35,8 +35,8 @@
 .hours__table {
   width: 100%;
   margin-top: rem(20);
-  border-top: rem(2) dotted $color-border;
-  border-bottom: rem(2) dotted $color-border;
+  // カンプ実測: 丸ドット（直径2px・ピッチ9px）。border: dotted では点が四角く間隔も合わない
+  @include dot-border($color-border, 2, 7, both);
   border-collapse: collapse;
   table-layout: fixed;
 
@@ -65,7 +65,7 @@
 .hours__table thead th {
   padding-block: rem(18);
   font-weight: $medium;
-  border-bottom: rem(2) dotted $color-border;
+  @include dot-border($color-border, 2, 7, bottom);
 
   @include mq("sp") {
     padding-block: rem(10);

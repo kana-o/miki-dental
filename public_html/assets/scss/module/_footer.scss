@@ -190,8 +190,8 @@
 .footer__table {
   width: 100%;
   margin-top: rem(16);
-  border-top: rem(2) dotted $color-text-inverse;
-  border-bottom: rem(2) dotted $color-text-inverse;
+  // カンプ実測: 丸ドット（直径2px・ピッチ9px）
+  @include dot-border($color-text-inverse, 2, 7, both);
   border-collapse: collapse;
   table-layout: fixed;
 
@@ -219,7 +219,7 @@
 
 .footer__table thead th {
   padding-block: rem(11);
-  border-bottom: rem(2) dotted $color-text-inverse;
+  @include dot-border($color-text-inverse, 2, 7, bottom);
 
   @include mq("sp") {
     padding-block: rem(8);

@@ -363,7 +363,7 @@
   display: flex;
   padding-block: rem(28) rem(30);
   padding-inline: rem(24);
-  border-bottom: rem(2) dotted $color-accent;
+  @include dot-border($color-accent, 2, 7, bottom);
 
   @include mq("sp") {
     padding-block: rem(16) rem(17);

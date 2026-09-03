@@ -24,3 +24,26 @@
     background-position: center top;
   }
 }
+
+// 上下の枠線を丸ドットで描く。border では点が四角くなるため背景レイヤーで描画する。
+//   $sides … top / bottom / both
+@mixin dot-border($color, $size: 2, $gap: 7, $sides: both) {
+  $pitch: $size + $gap;
+  // 2〜3px の点では radial-gradient が十字状に潰れるため、角の立った点にする
+  // （カンプの書き出しでもこのサイズの点は正方形に見える）
+  $dot: linear-gradient(90deg, $color 0 rem($size), transparent rem($size));
+
+  @if $sides == both {
+    background-image: $dot, $dot;
+    background-position: left top, left bottom;
+  } @else if $sides == top {
+    background-image: $dot;
+    background-position: left top;
+  } @else {
+    background-image: $dot;
+    background-position: left bottom;
+  }
+
+  background-size: rem($pitch) rem($size);
+  background-repeat: repeat-x;
+}
