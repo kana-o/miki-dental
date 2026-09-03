@@ -37,6 +37,18 @@
   }
 }
 
+// 下向き矢印のアイコン（24×24・青丸に白矢印）。料金ページの目次で使う。
+.icon-arrow-down {
+  display: block;
+  flex-shrink: 0;
+  width: rem(24);
+  height: rem(24);
+  background-image: url("/assets/img/common/icon-arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 // 本文テキスト（PC/SP共通 16px・行間1.8）。下層ページの説明文で最も多く使う組み合わせ。
 // 余白は持たせない（上下の間隔はページ固有クラスを同じ要素に併記して制御する）。
 .text-body {

@@ -143,12 +143,16 @@
   }
 }
 
+// カンプ実測: 見出しは 1080x63 の枠に入り、下端に #145aa6 の1px罫線が入る
 .price-table-block__title {
+  padding-block: rem(10);
+  padding-inline: rem(12);
   font-family: $second-font;
   font-size: rem(24);
   font-weight: $bold;
   color: $color-accent;
   line-height: 1.8;
+  border-bottom: rem(1) solid $color-accent;
 
   @include mq("sp") {
     font-size: rem(18);
@@ -204,8 +208,10 @@
 
 // カンプ実測: 各セル天面＋1列目左右／3列目左右に $color-accent の1px罫線（border-collapse で格子状に統合）
 .price-table {
+  // カンプ実測: 行の地は白（ページ背景のグレーが透けていた）
   width: 100%;
   margin-top: rem(30);
+  background-color: $color-bg;
   border: rem(1) solid $color-accent;
   border-collapse: collapse;
   table-layout: fixed;
@@ -225,7 +231,8 @@
   color: $color-accent;
   line-height: 1.8;
   text-align: left;
-  vertical-align: middle;
+  // カンプ実測: セル内のテキストは上寄せ（中央ではない）
+  vertical-align: top;
   border: rem(1) solid $color-accent;
 
   @include mq("sp") {
@@ -263,7 +270,8 @@
 }
 
 .price-table__name {
-  background-color: $color-bg-light;
+  // カンプ実測: #d8ecfd の不透明度81%
+  background-color: rgba($color-bg-light, 0.81);
 }
 
 // インプラント表の「オプション」行（colspan="3" のグループ見出し行）
@@ -303,7 +311,8 @@
   align-items: center;
   gap: rem(8);
   font-size: rem(16);
-  font-weight: $regular;
+  // カンプ実測: 保証条件のリストは太字
+  font-weight: $bold;
   color: $color-main;
   line-height: 1.8;
 
@@ -377,6 +386,9 @@
 }
 
 .price-warranty__note {
+  // カンプ実測: 2行目以降は「※ 」ぶん字下げする（ぶら下げインデント）
+  padding-left: 1.5em;
+  text-indent: -1.5em;
   margin-top: rem(14);
   font-size: rem(16);
   font-weight: $regular;
@@ -401,3 +413,8 @@
   }
 }
 
+
+// カンプ実測: 注意書きの「※」だけ赤字（本文は $color-main のまま）
+.price-note-mark {
+  color: $color-alert;
+}
