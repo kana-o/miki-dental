@@ -130,7 +130,8 @@
   position: relative;
   z-index: 0;
   margin-top: rem(141);
-  padding-block: 0 rem(112);
+  // カンプ実測: 本文下端(1300)→「専門性・特徴」上端(1508) = 208
+  padding-block: 0 rem(160);
 
   &::before {
     content: "";
@@ -230,7 +231,9 @@
 /* --- 専門性・特徴 ------------------------------------------------ */
 
 .about-spec {
-  padding-top: rem(160);
+  // カンプ実測: セクション枠の上端＝見出しの上端（上パディングなし）。
+  // 見出しまでの余白は直前の .about-feature の下パディングが持つ。
+  padding-top: 0;
 
   @include mq("sp") {
     padding-top: rem(80);
@@ -955,13 +958,16 @@
 /* --- 治療体制／カウンセリング ------------------------------------------------ */
 
 .about-care {
+  // カンプ実測: 院内環境の最後の写真の下端から、この帯の上端まで PC160 / SP128 空く
+  margin-top: rem(160);
   padding-top: rem(160);
   background-color: #d1dbe7;
   background-image: url("/assets/img/common/texture-gray.png");
   background-repeat: repeat;
 
   @include mq("sp") {
-    padding-top: rem(80);
+    margin-top: rem(128);
+    padding-top: rem(100);
   }
 }
 
@@ -1185,11 +1191,12 @@
   z-index: 0;
   overflow: hidden;
   margin-top: rem(90);
-  padding-block: rem(93) rem(120);
+  // カンプ実測: このセクションの上端は「具体的な対策」タグの上端と同じ（上パディングなし）
+  padding-block: 0 rem(120);
 
   @include mq("sp") {
     margin-top: rem(50);
-    padding-block: rem(50) rem(70);
+    padding-block: 0 rem(70);
   }
 }
 
@@ -1208,7 +1215,8 @@
 
   // SPカンプは楕円ではなく直線で区切られた帯
   @include mq("sp") {
-    top: rem(120);
+    // カンプ実測: 帯の上端はタグの上端＋20
+    top: rem(20);
     left: 0;
     width: 100%;
     height: calc(100% - #{rem(120)});
