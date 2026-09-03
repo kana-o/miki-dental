@@ -33,8 +33,11 @@
 }
 
 .hours__table {
+  // カンプ実測: inner(1080)いっぱいではなく 780px を中央に置く
   width: 100%;
+  max-width: rem(780);
   margin-top: rem(20);
+  margin-inline: auto;
   // カンプ実測: 丸ドット（直径2px・ピッチ9px）。border: dotted では点が四角く間隔も合わない
   @include dot-border($color-border, 2, 7, both);
   border-collapse: collapse;
@@ -79,9 +82,12 @@
 .hours__note {
   display: flex;
   flex-wrap: wrap;
+  // カンプ実測: 687px幅・中央寄せ（左寄せではない）
+  justify-content: center;
   gap: rem(10) rem(28);
+  max-width: rem(687);
   margin-top: rem(20);
-  padding-left: rem(28);
+  margin-inline: auto;
 
   @include mq("sp") {
     gap: rem(6) rem(10);
@@ -150,9 +156,14 @@
 }
 
 .reserve-cancel__box {
+  // カンプ実測: 782px幅。地は単色ではなく青みグレーのノイズ（TOPの帯と同じ素材）
+  max-width: rem(782);
+  margin-inline: auto;
   padding-block: rem(37) rem(39);
-  padding-inline: rem(80);
+  padding-inline: rem(40);
   background-color: $color-bg-tint;
+  background-image: url("/assets/img/common/texture-gray.png");
+  background-repeat: repeat;
   border-radius: rem(20);
 
   @include mq("sp") {
@@ -163,19 +174,9 @@
   }
 }
 
+// カンプ実測: 濃紺の大見出しではなく、青地・白文字のタグ（200x42）
 .reserve-cancel__title {
-  font-family: $second-font;
-  font-size: rem(32);
-  font-weight: $bold;
-  color: $color-main;
-  line-height: 1.4;
   text-align: center;
-
-  @include mq("sp") {
-    // カンプ実測: fontSize 20 / lineHeightPercentFontSize 200%
-    font-size: rem(20);
-    line-height: 2;
-  }
 }
 
 .reserve-cancel__text {
@@ -196,11 +197,16 @@
   }
 }
 
+// カンプ実測（Frame 260）: 個別カードではなく単一の枠線ボックス。
+// PC 702x104 / $color-main の1pxボーダー / 角丸10 / 内側パディング20 / 項目間隔6
 .reserve-cancel__list {
   display: flex;
   flex-direction: column;
-  gap: rem(16);
+  gap: rem(6);
   margin-top: rem(12);
+  padding: rem(20);
+  border: rem(1) solid $color-main;
+  border-radius: rem(10);
 
   @include mq("sp") {
     // カンプ実測: Frame 260は個別カードではなく単一の枠線ボックス（fills無し・$color-main の1pxボーダー・角丸10・内側パディング20・項目間隔6）
@@ -214,13 +220,10 @@
 }
 
 .reserve-cancel__item {
-  padding: rem(20);
   font-size: rem(16);
   font-weight: $regular;
   color: $color-main;
   line-height: 1.8;
-  background-color: $color-bg;
-  border-radius: rem(10);
 
   @include mq("sp") {
     // カンプ実測: 項目は個別の白背景カードではなく素のテキスト（親.reserve-cancel__listが単一の枠線ボックス）。
@@ -264,6 +267,12 @@
   @include mq("sp") {
     margin-top: rem(70);
   }
+}
+
+// カンプ実測: 「予約制」バッジはテーブル(780px幅・中央)の左端にそろう
+.hours__label {
+  margin-inline: auto;
+  margin-left: calc(50% - #{rem(390)});
 }
 
 .access-hours .hours__label {
@@ -315,17 +324,24 @@
   }
 }
 
+// カンプ実測: 医院名(260,1425)の右にバッジ(563,1446)が並ぶ。以降のブロックは全幅。
 .access-clinic {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
   flex-shrink: 0;
-  gap: rem(20);
-  width: rem(460);
+  column-gap: rem(33);
+  row-gap: rem(20);
+  width: rem(512);
 
   @include mq("sp") {
-    gap: rem(16);
+    row-gap: rem(16);
     width: 100%;
   }
+}
+
+.access-clinic__block {
+  grid-column: 1 / -1;
 }
 
 // カンプ実測（SP）: バッジ列は中央ではなく左端（x=15）にそろう。
