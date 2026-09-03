@@ -66,6 +66,16 @@ await pg.evaluate(() => {
   for (const img of document.querySelectorAll('[class*="parallax"] img')) {
     img.style.width = '100%';
   }
+  // position: fixed の要素（SP固定CTA・PC固定サイドナビ・ヘッダー）は
+  // fullPage 撮影ではページの途中に写り込んでしまうので隠す。
+  // カンプにはスクロール追従の状態が描かれていないため、これが毎ページの差分になっていた。
+  // ただしヘッダーはカンプにも描かれているので残す（画面上端にあるものは対象外）。
+  for (const el of document.querySelectorAll('body *')) {
+    const cs = getComputedStyle(el);
+    if (cs.position !== 'fixed' || cs.display === 'none') continue;
+    const r = el.getBoundingClientRect();
+    if (r.top > 130) el.style.visibility = 'hidden';
+  }
 });
 await pg.waitForTimeout(300);
 const shotPath = path.join(outDir, '_impl.png');
