@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', function () {
       drawerToggle.setAttribute('aria-label', 'メニューを閉じる');
       drawer.classList.add('is-active');
       drawer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-drawer-open');
       document.body.style.overflow = 'hidden';
     };
 
@@ -21,6 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
       drawerToggle.setAttribute('aria-label', 'メニューを開く');
       drawer.classList.remove('is-active');
       drawer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('is-drawer-open');
       document.body.style.overflow = '';
     };
 
@@ -134,7 +136,8 @@ window.addEventListener('DOMContentLoaded', function () {
     toggle.addEventListener('click', function () {
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-      panel.hidden = isOpen;
+      // hidden の付け外しだと高さがアニメーションしないので、クラスでCSSに任せる
+      panel.classList.toggle('is-open', !isOpen);
     });
   });
 });

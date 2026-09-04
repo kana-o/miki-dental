@@ -756,6 +756,8 @@
   width: rem(20);
   height: rem(20);
   background-color: $color-text-inverse;
+  // 素材は受話器が右上がり。カンプは左上が受話口なので左右反転する
+  transform: scaleX(-1);
   mask-image: url("/assets/img/common/icon-tel.png");
   mask-size: contain;
   mask-repeat: no-repeat;

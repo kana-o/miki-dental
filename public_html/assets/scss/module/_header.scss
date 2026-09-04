@@ -342,7 +342,8 @@
 }
 
 .drawer__item {
-  border-bottom: rem(2) dashed $color-accent;
+  // カンプ実測: 破線ではなく丸ドット（strokeWeight 2 / dash [0.1, 6] / cap ROUND）
+  @include dot-border($color-accent, 2, 6, bottom);
 }
 
 .drawer__link {
@@ -395,12 +396,30 @@
   transform: translateY(rem(2)) rotate(-135deg);
 }
 
+// 開閉は hidden の付け外しではなく grid の行サイズで行い、高さをアニメーションさせる
 .drawer__panel {
-  margin-top: rem(4);
-  margin-bottom: rem(20);
-  padding: rem(20);
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  overflow: hidden;
+  margin-block: 0;
+  padding-block: 0;
+  padding-inline: rem(20);
   background-color: $color-bg-light;
   border-radius: rem(20);
+  transition: grid-template-rows 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0.3s;
+}
+.drawer__panel.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  margin-top: rem(4);
+  margin-bottom: rem(20);
+  padding-block: rem(20);
+}
+// grid アイテムは既定で min-height:auto のため、0fr でも中身の高さが残ってしまう
+.drawer__panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .drawer__tel {
@@ -433,6 +452,11 @@
   mask-position: center;
 }
 
+// ドロワーを開いている間はSP固定CTAを隠す（カンプのnav-openには写っていない）
+.is-drawer-open .sp-cta {
+  display: none;
+}
+
 .drawer__sns {
   display: block;
   width: rem(20);
@@ -444,4 +468,8 @@
     outline: rem(2) solid $color-text-inverse;
     outline-offset: rem(4);
   }
+}
+.drawer__sns img {
+  // 素材は黒の線画。紺地の上で見えないので白に反転する
+  filter: brightness(0) invert(1);
 }

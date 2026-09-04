@@ -653,6 +653,7 @@ select::-ms-expand {
   width: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
   height: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
   background-color: #fff;
+  transform: scaleX(-1);
   -webkit-mask-image: url("/assets/img/common/icon-tel.png");
           mask-image: url("/assets/img/common/icon-tel.png");
   -webkit-mask-size: contain;
@@ -1053,7 +1054,10 @@ select::-ms-expand {
 }
 
 .drawer__item {
-  border-bottom: clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem) dashed #145aa6;
+  background-image: linear-gradient(90deg, #145aa6 0 clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem), transparent clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem));
+  background-position: left bottom;
+  background-size: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem) clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem);
+  background-repeat: repeat-x;
 }
 
 .drawer__link {
@@ -1106,11 +1110,29 @@ select::-ms-expand {
 }
 
 .drawer__panel {
-  margin-top: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
-  margin-bottom: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
-  padding: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  overflow: hidden;
+  margin-block: 0;
+  padding-block: 0;
+  padding-inline: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
   background-color: #d8ecfd;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  transition: grid-template-rows 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0.3s;
+}
+
+.drawer__panel.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  margin-top: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
+  margin-bottom: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  padding-block: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+}
+
+.drawer__panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .drawer__tel {
@@ -1147,6 +1169,10 @@ select::-ms-expand {
           mask-position: center;
 }
 
+.is-drawer-open .sp-cta {
+  display: none;
+}
+
 .drawer__sns {
   display: block;
   width: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -1158,6 +1184,10 @@ select::-ms-expand {
 .drawer__sns:focus-visible {
   outline: clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem) solid #fff;
   outline-offset: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
+}
+
+.drawer__sns img {
+  filter: brightness(0) invert(1);
 }
 
 /* ========================================
@@ -1556,6 +1586,27 @@ select::-ms-expand {
   height: 118.16%;
 }
 
+.top-fv__img--06 {
+  top: -22.65%;
+  left: -97.52%;
+  width: 259.75%;
+  height: 142.24%;
+}
+
+.top-fv__img--07 {
+  top: -9.92%;
+  left: -57.42%;
+  width: 215.48%;
+  height: 118.07%;
+}
+
+.top-fv__img--08 {
+  top: -32.82%;
+  left: -65.47%;
+  width: 244.27%;
+  height: 133.84%;
+}
+
 /* --- 当院について ------------------------------------------------ */
 
 .top-about {
@@ -1659,6 +1710,7 @@ select::-ms-expand {
 
 .top-about__sup {
   font-size: 0.645em;
+  vertical-align: super;
 }
 
 .top-about__note {
@@ -2423,8 +2475,8 @@ select::-ms-expand {
   left: 0;
   width: 100%;
   height: clamp(26.29375 * 1rem, 37.5625 * 1rem * var(--rem-scale), 48.83125 * 1rem);
-  background-image: -webkit-image-set(url("/assets/img/about/about-05.webp") type("image/webp"), url("/assets/img/about/about-05.jpg") type("image/jpeg"));
-  background-image: image-set(url("/assets/img/about/about-05.webp") type("image/webp"), url("/assets/img/about/about-05.jpg") type("image/jpeg"));
+  background-image: linear-gradient(rgba(20, 90, 166, 0.1), rgba(20, 90, 166, 0.1)), -webkit-image-set(url("/assets/img/about/about-05.webp") type("image/webp"), url("/assets/img/about/about-05.jpg") type("image/jpeg"));
+  background-image: linear-gradient(rgba(20, 90, 166, 0.1), rgba(20, 90, 166, 0.1)), image-set(url("/assets/img/about/about-05.webp") type("image/webp"), url("/assets/img/about/about-05.jpg") type("image/jpeg"));
   background-size: cover;
   background-position: center;
 }
@@ -2941,8 +2993,13 @@ select::-ms-expand {
   line-height: 2;
 }
 
+.about-care__lead-em {
+  color: #145aa6;
+}
+
 .about-care__sup {
   font-size: 0.645em;
+  vertical-align: super;
 }
 
 .about-care__note {
@@ -2956,6 +3013,8 @@ select::-ms-expand {
 /* --- 歯医者さんが怖い理由 --- */
 
 .about-care__fear {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: clamp(42.875 * 1rem, 61.25 * 1rem * var(--rem-scale), 79.625 * 1rem);
   margin-top: calc(clamp(1.96875 * 1rem, 2.8125 * 1rem * var(--rem-scale), 3.65625 * 1rem) * -1);
@@ -3021,7 +3080,7 @@ select::-ms-expand {
   width: clamp(6.65 * 1rem, 9.5 * 1rem * var(--rem-scale), 12.35 * 1rem);
   height: clamp(6.7375 * 1rem, 9.625 * 1rem * var(--rem-scale), 12.5125 * 1rem);
   background-image: url("/assets/img/care/care-doctor.png");
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: bottom;
 }
@@ -3044,7 +3103,7 @@ select::-ms-expand {
   display: block;
   width: clamp(92.4875 * 1rem, 132.125 * 1rem * var(--rem-scale), 171.7625 * 1rem);
   height: clamp(49.39375 * 1rem, 70.5625 * 1rem * var(--rem-scale), 91.73125 * 1rem);
-  background-color: #d8ecfd;
+  background-color: rgba(255, 255, 255, 0.36);
   border-radius: 50%;
   transform: translateX(-50%);
 }
@@ -5889,6 +5948,7 @@ select::-ms-expand {
 
 .staff-doctor__sup {
   font-size: 0.645em;
+  vertical-align: super;
 }
 
 .staff-doctor__note {
@@ -8440,7 +8500,7 @@ select::-ms-expand {
   .top-about__band {
     top: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
     width: clamp(15.75 * 1rem, 22.5 * 1rem * var(--rem-scale), 29.25 * 1rem);
-    height: clamp(23.49375 * 1rem, 33.5625 * 1rem * var(--rem-scale), 43.63125 * 1rem);
+    height: calc(100% - clamp(2.45 * 1rem, 3.5 * 1rem * var(--rem-scale), 4.55 * 1rem));
     border-radius: 0 clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem) 0;
   }
 
@@ -8711,7 +8771,10 @@ select::-ms-expand {
   .top-staff__doctor + .top-staff__doctor {
     margin-top: clamp(1.225 * 1rem, 1.75 * 1rem * var(--rem-scale), 2.275 * 1rem);
     padding-top: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
-    border-top: clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem) dashed #fff;
+    background-image: linear-gradient(90deg, #fff 0 clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem), transparent clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem));
+    background-position: left top;
+    background-size: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem) clamp(0.0875 * 1rem, 0.125 * 1rem * var(--rem-scale), 0.1625 * 1rem);
+    background-repeat: repeat-x;
   }
 
   .top-staff__photo {
@@ -8901,8 +8964,8 @@ select::-ms-expand {
   .about-feature::before {
     top: clamp(1.09375 * 1rem, 1.5625 * 1rem * var(--rem-scale), 2.03125 * 1rem);
     height: clamp(34.475 * 1rem, 49.25 * 1rem * var(--rem-scale), 64.025 * 1rem);
-    background-image: -webkit-image-set(url("/assets/img/about/about-05-sp.webp") type("image/webp"), url("/assets/img/about/about-05-sp.jpg") type("image/jpeg"));
-    background-image: image-set(url("/assets/img/about/about-05-sp.webp") type("image/webp"), url("/assets/img/about/about-05-sp.jpg") type("image/jpeg"));
+    background-image: linear-gradient(rgba(20, 90, 166, 0.1), rgba(20, 90, 166, 0.1)), -webkit-image-set(url("/assets/img/about/about-05-sp.webp") type("image/webp"), url("/assets/img/about/about-05-sp.jpg") type("image/jpeg"));
+    background-image: linear-gradient(rgba(20, 90, 166, 0.1), rgba(20, 90, 166, 0.1)), image-set(url("/assets/img/about/about-05-sp.webp") type("image/webp"), url("/assets/img/about/about-05-sp.jpg") type("image/jpeg"));
   }
 
   .about-feature__title {
