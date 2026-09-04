@@ -36,6 +36,11 @@
 - `$color-bg-sub`: #f2f2f2（セクション背景）
 - `$color-bg-light`: #d8ecfd（淡い水色の面。ナビのドロップダウン／アコーディオン／料金表の1列目）
 - `$color-bg-tint`: #dce3ea（サブ見出しの帯・カード面）
+- `$color-bg-noise`: #d1dbe7（当院について「治療体制」の帯。texture-gray.png の下地）
+- `$color-bg-noise-light`: #dfe4eb（TOP「当院について」ブロックの帯。同上）
+- `$color-bg-noise-blue`: #6b8fc0（TOP「スタッフ紹介」などの青いノイズ地。texture-blue.png の下地）
+- `$color-bg-warm`: #e4ded9（スタッフ募集「魅力」セクションの全幅の地）
+- `$color-alert`: #e81e17（注意書きの「※」に使う赤）
 - `$color-instagram`: #a61490（Instagramバナーの枠）
 - `$color-banner`: #100e48（推薦バナーの帯）
 - `$color-text`: `$color-main`（本文文字色）
