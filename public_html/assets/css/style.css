@@ -1991,12 +1991,16 @@ select::-ms-expand {
 /* --- パララックス ------------------------------------------------ */
 
 .top-parallax {
-  height: 300vh;
+  height: 400vh;
 }
 
 /* --- 院内紹介 ------------------------------------------------ */
 
 .top-clinic {
+  position: relative;
+  z-index: 1;
+  margin-top: -100vh;
+  margin-top: -100svh;
   padding-block: clamp(7 * 1rem, 10 * 1rem * var(--rem-scale), 13 * 1rem) clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
   background-color: #f2f2f2;
 }
