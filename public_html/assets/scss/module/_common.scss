@@ -380,7 +380,7 @@
   font-weight: $bold;
   color: $color-accent;
   line-height: 1.8;
-  border-bottom: 2px solid $color-accent;
+  border-bottom: rem(2) solid $color-accent;
 
   @include mq("sp") {
     padding-block: rem(4);

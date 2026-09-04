@@ -26,10 +26,10 @@
   padding-inline: rem(20);
   font-size: rem(24);
   font-weight: $bold;
-  color: #e81e17;
+  color: $color-alert;
   line-height: 1.5;
   text-align: center;
-  border: rem(1) solid #e81e17;
+  border: rem(1) solid $color-alert;
   border-radius: rem(10);
 
   @include mq("sp") {
@@ -560,12 +560,10 @@
 }
 
 .recruit-voice + .recruit-cta {
-  margin-top: rem(160);
-  margin-bottom: rem(160);
+  margin-block: rem(160);
 
   @include mq("sp") {
-    margin-top: rem(80);
-    margin-bottom: rem(80);
+    margin-block: rem(80);
   }
 }
 

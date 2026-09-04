@@ -14,6 +14,12 @@ $color-bg-light: #d8ecfd; // 淡い水色の面（ナビのドロップダウン
 $color-bg-tint: #dce3ea;
 // スタッフ募集「魅力」セクションの全幅の地（暖色グレー）
 $color-bg-warm: #e4ded9;
+// ノイズテクスチャ（texture-gray.png / texture-blue.png）を敷く面の下地。
+// カンプは単色ではなく粒状の地で、get_design_context は #f2f2f2 としか返さないため
+// 書き出し画像から採取した実測値を使う。
+$color-bg-noise: #d1dbe7; // 当院について「治療体制」の帯
+$color-bg-noise-light: #dfe4eb; // TOP「当院について」ブロックの帯
+$color-bg-noise-blue: #6b8fc0; // TOP「スタッフ紹介」などの青いノイズ地
 // バナー専用色。制作前チェックで「用途不明・1回のみ」と挙がっていたが、
 // 実データを追ったところ両方ともバナーの意匠色だった（入力ミスではない）。
 // 注意書きの「※」に使う赤。図版内でも使用されている（制作前チェックで検出済み）

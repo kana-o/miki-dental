@@ -965,7 +965,7 @@
   // カンプ実測: 院内環境の最後の写真の下端から、この帯の上端まで PC160 / SP128 空く
   margin-top: rem(160);
   padding-top: rem(160);
-  background-color: #d1dbe7;
+  background-color: $color-bg-noise;
   background-image: url("/assets/img/common/texture-gray.png");
   background-repeat: repeat;
 

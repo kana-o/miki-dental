@@ -164,36 +164,39 @@
 // プレイルームだけ SP の並びが「タグ → 本文 → メイン写真 → サブ写真2枚」で、
 // 単純な column / column-reverse では作れない。body を display:contents にして
 // 中身を inner のフレックスに直接載せ、order で並べ替える。
-.clinic-room--photo-mid.clinic-room--reverse {
+.clinic-room--photo-mid.clinic-room--reverse .clinic-room__inner {
   @include mq("sp") {
-    .clinic-room__inner {
-      flex-direction: column;
-    }
-
-    .clinic-room__body {
-      display: contents;
-    }
-
-    .clinic-room__tag {
-      order: 1;
-    }
-
-    .clinic-room__text {
-      order: 2;
-      // display:contents で本文が .clinic-room__inner の直接の子になるため、
-      // margin-top が inner の gap(24) に加算されて倍になる。カンプは24。
-      margin-top: 0;
-    }
-
-    .clinic-room__photo {
-      order: 3;
-    }
-
-    .clinic-room__sub-photo-group {
-      order: 4;
-      // 同上。写真とサブ写真群の間隔はカンプ24（gapのみで足りる）
-      margin-top: 0;
-    }
+    flex-direction: column;
+  }
+}
+.clinic-room--photo-mid.clinic-room--reverse .clinic-room__body {
+  @include mq("sp") {
+    display: contents;
+  }
+}
+.clinic-room--photo-mid.clinic-room--reverse .clinic-room__tag {
+  @include mq("sp") {
+    order: 1;
+  }
+}
+.clinic-room--photo-mid.clinic-room--reverse .clinic-room__text {
+  @include mq("sp") {
+    order: 2;
+    // display:contents で本文が .clinic-room__inner の直接の子になるため、
+    // margin-top が inner の gap(24) に加算されて倍になる。カンプは24。
+    margin-top: 0;
+  }
+}
+.clinic-room--photo-mid.clinic-room--reverse .clinic-room__photo {
+  @include mq("sp") {
+    order: 3;
+  }
+}
+.clinic-room--photo-mid.clinic-room--reverse .clinic-room__sub-photo-group {
+  @include mq("sp") {
+    // 写真とサブ写真群の間隔はカンプ24（inner の gap のみで足りる）
+    order: 4;
+    margin-top: 0;
   }
 }
 
@@ -791,14 +794,13 @@
 /* --- トレーニングルーム・セミナールーム（2カラム） ------------------------------------------------ */
 
 .clinic-equip-pair {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: rem(40);
+  display: flex;
+  gap: rem(40);
   margin-top: rem(70);
 
   @include mq("sp") {
-    grid-template-columns: 1fr;
-    row-gap: rem(30);
+    flex-direction: column;
+    gap: rem(30);
     margin-top: rem(50);
   }
 }
@@ -806,6 +808,8 @@
 .clinic-equip-pair__item {
   display: flex;
   align-items: center;
+  flex: 1;
+  min-width: 0;
   gap: rem(16);
 }
 

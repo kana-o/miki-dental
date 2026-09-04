@@ -265,7 +265,7 @@
   height: rem(411);
   // カンプは単色ではなく青みグレーの細かいノイズ地。
   // get_design_context は #f2f2f2 としか返さないため、カンプ画像から切り出したタイルを敷く。
-  background-color: #dfe4eb;
+  background-color: $color-bg-noise-light;
   background-image: url("/assets/img/common/texture-gray.png");
   background-repeat: repeat;
   border-radius: 0 rem(20) rem(20) 0;
@@ -636,7 +636,7 @@
     width: 100%;
     height: calc(100% - #{rem(29)});
     // カンプは青いノイズ地（get_design_context は #f2f2f2 と返すが実際は画像塗り）
-    background-color: #6b8fc0;
+    background-color: $color-bg-noise-blue;
     background-image: url("/assets/img/common/texture-blue.png");
     background-repeat: repeat;
   }
@@ -1310,8 +1310,7 @@
 }
 
 .top-news__link {
-  display: grid;
-  grid-template-columns: minmax(0, rem(128)) minmax(0, 1fr);
+  display: flex;
   gap: rem(20);
   padding-block: rem(28) rem(30);
   padding-inline: rem(24);
@@ -1322,7 +1321,7 @@
   }
 
   @include mq("sp") {
-    grid-template-columns: minmax(0, 1fr);
+    flex-direction: column;
     gap: rem(4);
     padding-block: rem(18);
     padding-inline: rem(10);
@@ -1330,6 +1329,8 @@
 }
 
 .top-news__date {
+  // 日付は固定幅、タイトルが残りを埋める。SPは縦積みなので幅指定を外す
+  flex: 0 0 rem(128);
   align-self: center;
   font-size: rem(16);
   font-weight: $regular;
@@ -1337,11 +1338,14 @@
   line-height: 1.4;
 
   @include mq("sp") {
+    flex: 0 0 auto;
+    align-self: stretch;
     font-size: rem(13);
   }
 }
 
 .top-news__label {
+  min-width: 0;
   font-size: rem(16);
   font-weight: $bold;
   color: $color-main;

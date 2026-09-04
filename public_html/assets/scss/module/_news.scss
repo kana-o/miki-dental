@@ -29,10 +29,9 @@
 
 // PC/SPとも日付＋タイトルを横並びのまま1行分の高さで揃える（カンプ実測 PC 900×87 / SP 345×87）
 .news-list__link {
-  display: grid;
-  grid-template-columns: minmax(0, rem(128)) minmax(0, 1fr);
-  column-gap: rem(20);
+  display: flex;
   align-items: center;
+  gap: rem(20);
   min-height: rem(87);
   padding-inline: rem(24);
 
@@ -42,24 +41,27 @@
   }
 
   @include mq("sp") {
-    grid-template-columns: minmax(0, rem(78)) minmax(0, 1fr);
-    column-gap: rem(10);
+    gap: rem(10);
     padding-inline: rem(10);
   }
 }
 
 .news-list__date {
+  // 日付は固定幅、タイトルが残りを埋める（カンプ実測 PC 128 / SP 78）
+  flex: 0 0 rem(128);
   font-size: rem(16);
   font-weight: $regular;
   color: $color-main;
   line-height: 1.4;
 
   @include mq("sp") {
+    flex-basis: rem(78);
     font-size: rem(13);
   }
 }
 
 .news-list__label {
+  min-width: 0;
   font-size: rem(16);
   font-weight: $bold;
   color: $color-main;
@@ -176,8 +178,7 @@
 
   @include mq("sp") {
     // カンプ実測（Frame 58 paddingTop/Bottom）: 上下とも18px。従来は上パディングが無かったため追加。
-    padding-top: rem(18);
-    padding-bottom: rem(18);
+    padding-block: rem(18);
   }
 }
 
