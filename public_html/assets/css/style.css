@@ -183,7 +183,7 @@ select::-ms-expand {
 .js-sticky-cover {
   --sc-progress: 0;
   --sc-reveal: 0;
-  --sc-scale: 1.15;
+  --sc-scale: 1;
 }
 
 .js-sticky-cover__stage {
