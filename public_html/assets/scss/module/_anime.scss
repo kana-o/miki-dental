@@ -1,0 +1,115 @@
+@use "global" as *;
+
+/* ========================================
+  アニメーション共通
+======================================== */
+
+/* --- js-sticky-cover ------------------------------------------------ */
+/*
+  画面いっぱいの画像を貼り付かせ、スクロールに合わせて次の画像が
+  下からせり上がって切り替わる演出。
+
+  仕組み:
+  - 親（.js-sticky-cover）に高さを持たせ、中の .js-sticky-cover__stage を
+    position: sticky で貼り付ける。position: fixed は使わない
+    （.main の container-type: inline-size が fixed の包含ブロックになるため）
+  - 画像は grid の同一セルに重ね、2枚目以降を clip-path で下から開く
+  - 画像自体は scale で拡大しておき、枠の中を縦にずらす（パララックス本体）
+
+  JS（anime.js）が流し込む値:
+  --sc-progress … 貼り付き区間の進捗 0〜1（画像のスライドに使う）
+  --sc-reveal   … 切り替えの進捗 0〜1（前後に静止区間を持たせたもの）
+*/
+
+.js-sticky-cover {
+  --sc-progress: 0;
+  --sc-reveal: 0;
+  // 画像をどれだけ拡大しておくか。この拡大ぶんが縦の可動域になる
+  --sc-scale: 1.15;
+}
+
+.js-sticky-cover__stage {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  // svh はアドレスバーの伸縮で高さが変わらない。非対応ブラウザは vh に落ちる
+  height: 100vh;
+  height: 100svh;
+}
+
+.js-sticky-cover__list {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.js-sticky-cover-item {
+  // 全アイテムを同じセルに重ねる
+  grid-area: 1 / 1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+// 2枚目以降。--sc-reveal が 0 のとき下端に隠れ、1 で全面に出る
+.js-sticky-cover-item + .js-sticky-cover-item {
+  clip-path: inset(calc((1 - var(--sc-reveal)) * 100%) 0 0 0);
+}
+
+// 拡大した画像を枠の中で縦にずらす。
+// scale の原点が下端なので、拡大ぶん（scale - 1）が上方向のはみ出しになり、
+// それを進捗に応じて下へ戻すことで背景がゆっくり付いてくるように見える
+.js-sticky-cover-item__inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, calc((var(--sc-scale) - 1) * 100% * var(--sc-progress)), 0);
+}
+
+.js-sticky-cover-item__inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--sc-scale));
+  transform-origin: bottom center;
+}
+
+// 貼り付いている間だけ合成を予約する（常時付けると常にレイヤーを持ち続ける）
+.js-sticky-cover.is-sticky-cover-active .js-sticky-cover-item__inner {
+  will-change: transform;
+}
+
+/* アニメーション効果を削除・軽減の設定をした場合に有効化するスタイル */
+@media (prefers-reduced-motion: reduce) {
+  // 貼り付き・切り替えをやめ、画像を通常フローで縦に並べて見せる
+  .js-sticky-cover {
+    height: auto !important;
+  }
+
+  .js-sticky-cover__stage {
+    position: static !important;
+    height: auto !important;
+  }
+
+  .js-sticky-cover__list {
+    display: block !important;
+  }
+
+  .js-sticky-cover-item {
+    height: auto !important;
+  }
+
+  .js-sticky-cover-item + .js-sticky-cover-item {
+    clip-path: none !important;
+  }
+
+  .js-sticky-cover-item__inner {
+    transform: none !important;
+  }
+
+  .js-sticky-cover-item__inner img {
+    height: auto !important;
+    transform: none !important;
+  }
+}

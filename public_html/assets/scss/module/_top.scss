@@ -798,38 +798,12 @@
 
 /* --- パララックス ------------------------------------------------ */
 
-// カンプは 1600×770 の帯が2本。スクロールで2枚が逆方向にずれる
-// （移動量・速度の指定はカンプに無いため実装側で決めている）。
+// 画面いっぱいの画像が貼り付き、スクロールで2枚目が下からせり上がって切り替わる。
+// 動きの定義は module/_anime.scss の js-sticky-cover 側にあり、ここは
+// 「貼り付いていられる距離」だけを決める。100svh のステージが2画面ぶん動く。
+// overflow: hidden は付けない（sticky の貼り付きが壊れるため）。
 .top-parallax {
-  overflow: hidden;
-}
-
-.top-parallax__band {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 1600 / 770;
-
-  @include mq("sp") {
-    aspect-ratio: 375 / 794;
-  }
-}
-
-// はみ出し分を左右に持たせて、その範囲内で動かす
-.top-parallax__img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-
-  @include mq("sp") {
-    width: 180%;
-  }
+  height: 300vh;
 }
 
 /* --- 院内紹介 ------------------------------------------------ */

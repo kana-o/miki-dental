@@ -159,6 +159,83 @@ select::-ms-expand {
 }
 
 /* ========================================
+  アニメーション共通
+======================================== */
+
+/* --- js-sticky-cover ------------------------------------------------ */
+
+/*
+  画面いっぱいの画像を貼り付かせ、スクロールに合わせて次の画像が
+  下からせり上がって切り替わる演出。
+
+  仕組み:
+  - 親（.js-sticky-cover）に高さを持たせ、中の .js-sticky-cover__stage を
+    position: sticky で貼り付ける。position: fixed は使わない
+    （.main の container-type: inline-size が fixed の包含ブロックになるため）
+  - 画像は grid の同一セルに重ね、2枚目以降を clip-path で下から開く
+  - 画像自体は scale で拡大しておき、枠の中を縦にずらす（パララックス本体）
+
+  JS（anime.js）が流し込む値:
+  --sc-progress … 貼り付き区間の進捗 0〜1（画像のスライドに使う）
+  --sc-reveal   … 切り替えの進捗 0〜1（前後に静止区間を持たせたもの）
+*/
+
+.js-sticky-cover {
+  --sc-progress: 0;
+  --sc-reveal: 0;
+  --sc-scale: 1.15;
+}
+
+.js-sticky-cover__stage {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+}
+
+.js-sticky-cover__list {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.js-sticky-cover-item {
+  grid-area: 1/1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.js-sticky-cover-item + .js-sticky-cover-item {
+  -webkit-clip-path: inset(calc((1 - var(--sc-reveal)) * 100%) 0 0 0);
+          clip-path: inset(calc((1 - var(--sc-reveal)) * 100%) 0 0 0);
+}
+
+.js-sticky-cover-item__inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, calc((var(--sc-scale) - 1) * 100% * var(--sc-progress)), 0);
+}
+
+.js-sticky-cover-item__inner img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: scale(var(--sc-scale));
+  transform-origin: bottom center;
+}
+
+.js-sticky-cover.is-sticky-cover-active .js-sticky-cover-item__inner {
+  will-change: transform;
+}
+
+/* アニメーション効果を削除・軽減の設定をした場合に有効化するスタイル */
+
+/* ========================================
   共通パーツ
 ======================================== */
 
@@ -1914,27 +1991,7 @@ select::-ms-expand {
 /* --- パララックス ------------------------------------------------ */
 
 .top-parallax {
-  overflow: hidden;
-}
-
-.top-parallax__band {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 1600/770;
-}
-
-.top-parallax__img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transform: translate(-50%, -50%);
-  will-change: transform;
+  height: 300vh;
 }
 
 /* --- 院内紹介 ------------------------------------------------ */
@@ -8668,14 +8725,6 @@ select::-ms-expand {
     line-height: 1.8;
   }
 
-  .top-parallax__band {
-    aspect-ratio: 375/794;
-  }
-
-  .top-parallax__img {
-    width: 180%;
-  }
-
   .top-clinic {
     padding-block: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem) clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
   }
@@ -12000,6 +12049,39 @@ select::-ms-expand {
 
   .footer__pagetop:hover {
     transform: rotate(-90deg) translateX(clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-sticky-cover {
+    height: auto !important;
+  }
+
+  .js-sticky-cover__stage {
+    position: static !important;
+    height: auto !important;
+  }
+
+  .js-sticky-cover__list {
+    display: block !important;
+  }
+
+  .js-sticky-cover-item {
+    height: auto !important;
+  }
+
+  .js-sticky-cover-item + .js-sticky-cover-item {
+    -webkit-clip-path: none !important;
+            clip-path: none !important;
+  }
+
+  .js-sticky-cover-item__inner {
+    transform: none !important;
+  }
+
+  .js-sticky-cover-item__inner img {
+    height: auto !important;
+    transform: none !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
