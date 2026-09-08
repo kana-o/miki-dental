@@ -157,6 +157,19 @@
 }
 
 // 画像の寸法・位置はマスク枠に対する％。SPはPCの0.652倍の相似なので同じ値が使える。
+// カンプ実測: 9枚目は写真ではなく白い歯型の中にロゴマークが入る
+.top-fv__slide--logo {
+  background-color: $color-bg;
+}
+.top-fv__logo {
+  position: absolute;
+  // カンプ実測: マスク枠 323×393 の中に 129×129 を (97, 112) で配置
+  top: 28.5%;
+  left: 30.03%;
+  width: 39.94%;
+  height: auto;
+}
+
 .top-fv__img {
   position: absolute;
   max-width: none;
@@ -1492,14 +1505,34 @@
   transform: translateY(-50%) rotate(0deg);
 }
 
+// 開閉は hidden の付け外しではなく grid の行サイズで行い、高さをアニメーションさせる
+// （ドロワーのアコーディオンと同じ仕組み。開閉状態は script.js が is-open で持つ）
 .top-faq__panel {
-  padding-block: rem(30) rem(34);
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  overflow: hidden;
+  padding-block: 0;
   padding-inline: rem(60);
+  transition: grid-template-rows 0.3s ease, padding 0.3s ease, visibility 0.3s;
+
+  @include mq("sp") {
+    padding-inline: rem(7.5);
+  }
+}
+.top-faq__panel.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  padding-block: rem(30) rem(34);
 
   @include mq("sp") {
     padding-block: rem(16) rem(20);
-    padding-inline: rem(7.5);
   }
+}
+// grid アイテムは既定で min-height:auto のため、0fr でも中身の高さが残ってしまう
+.top-faq__panel-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .top-faq__answer {

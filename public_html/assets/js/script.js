@@ -97,6 +97,10 @@ window.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    // 読み込み時の開閉状態を aria-expanded に合わせる
+    // （FAQの1問目のように最初から開いているものがある）
+    panel.classList.toggle('is-open', toggle.getAttribute('aria-expanded') === 'true');
+
     toggle.addEventListener('click', function () {
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
