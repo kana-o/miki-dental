@@ -9,6 +9,8 @@
 | WP管理画面 | http://260813-miki-dental.local/wp-admin/（test / testtest） |
 | 本番URL | <!-- 未確定 --> |
 | Figmaファイル | https://www.figma.com/design/edrm51jOsbYYhENg6c7ubk/★歯科HPリニューアル |
+| Figmaファイル（共有元・コメント有り） | https://www.figma.com/design/PY96mQIEHkMQlSb14ZncjF/歯科HPリニューアル |
+| デザイナー/ディレクターのコメント | `figma-comments.md`（複製先に引き継がれないため吸い出したもの） |
 | リポジトリ | https://github.com/kana-o/miki-dental |
 
 > **AI向け**: 上記が未記入のままPlaywright操作が必要になった場合、**ユーザーに質問して記入すること**。
