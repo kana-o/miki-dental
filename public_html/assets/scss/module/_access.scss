@@ -320,8 +320,11 @@
 // 情報カード（左）＋地図（右）の2カラム。SPは縦積み。
 .access-info__row {
   display: flex;
+  // 512 + 52 + 516 = 1080 でちょうど .inner に収まる（カンプ実測: 写真は x824〜1339）。
+  // それより狭い幅では写真を折り返して逃がす
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: rem(60);
+  gap: rem(52);
   margin-top: rem(50);
 
   @include mq("sp") {
@@ -402,8 +405,11 @@
 
 /* 右カラムの外観写真（カンプ実測 516×324） */
 .access-info__photo {
-  flex-shrink: 0;
-  width: rem(516);
+  // 情報カード(512)は縮めない。中間幅では写真だけを縮め、
+  // 360を割り込むと次の行へ折り返す
+  flex: 1 1 rem(516);
+  min-width: rem(360);
+  max-width: rem(516);
   aspect-ratio: 516 / 324;
   object-fit: cover;
   border-radius: rem(10);

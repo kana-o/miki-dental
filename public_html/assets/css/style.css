@@ -1941,8 +1941,9 @@ select::-ms-expand {
 .top-treatment__item {
   position: relative;
   z-index: 0;
+  min-width: 0;
   width: clamp(14.875 * 1rem, 21.25 * 1rem * var(--rem-scale), 27.625 * 1rem);
-  height: clamp(16.625 * 1rem, 23.75 * 1rem * var(--rem-scale), 30.875 * 1rem);
+  min-height: clamp(16.625 * 1rem, 23.75 * 1rem * var(--rem-scale), 30.875 * 1rem);
   padding-block: clamp(2.3625 * 1rem, 3.375 * 1rem * var(--rem-scale), 4.3875 * 1rem) clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
   padding-inline: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
   background-color: #fff;
@@ -4655,6 +4656,7 @@ select::-ms-expand {
 .pedprev-flow__item {
   position: relative;
   z-index: 0;
+  min-width: 0;
   width: clamp(10.675 * 1rem, 15.25 * 1rem * var(--rem-scale), 19.825 * 1rem);
 }
 
@@ -4916,7 +4918,7 @@ select::-ms-expand {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  min-width: 0;
   width: clamp(13.5625 * 1rem, 19.375 * 1rem * var(--rem-scale), 25.1875 * 1rem);
   gap: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
 }
@@ -5183,8 +5185,9 @@ select::-ms-expand {
 
 .access-info__row {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
+  gap: clamp(2.275 * 1rem, 3.25 * 1rem * var(--rem-scale), 4.225 * 1rem);
   margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
 }
 
@@ -5242,8 +5245,9 @@ select::-ms-expand {
 /* 右カラムの外観写真（カンプ実測 516×324） */
 
 .access-info__photo {
-  flex-shrink: 0;
-  width: clamp(22.575 * 1rem, 32.25 * 1rem * var(--rem-scale), 41.925 * 1rem);
+  flex: 1 1 clamp(22.575 * 1rem, 32.25 * 1rem * var(--rem-scale), 41.925 * 1rem);
+  min-width: clamp(15.75 * 1rem, 22.5 * 1rem * var(--rem-scale), 29.25 * 1rem);
+  max-width: clamp(22.575 * 1rem, 32.25 * 1rem * var(--rem-scale), 41.925 * 1rem);
   aspect-ratio: 516/324;
   -o-object-fit: cover;
      object-fit: cover;
@@ -5628,6 +5632,8 @@ select::-ms-expand {
 
 .pedortho-device__photo {
   display: block;
+  min-width: 0;
+  max-width: 100%;
   width: clamp(17.9375 * 1rem, 25.625 * 1rem * var(--rem-scale), 33.3125 * 1rem);
   aspect-ratio: 410/317;
   -o-object-fit: cover;
@@ -5982,6 +5988,11 @@ select::-ms-expand {
   gap: clamp(1.09375 * 1rem, 1.5625 * 1rem * var(--rem-scale), 2.03125 * 1rem);
 }
 
+.pediatric-menu__row > li {
+  min-width: 0;
+  flex: 0 1 clamp(8.575 * 1rem, 12.25 * 1rem * var(--rem-scale), 15.925 * 1rem);
+}
+
 .pediatric-menu__row--1 {
   margin-bottom: clamp(1.44375 * 1rem, 2.0625 * 1rem * var(--rem-scale), 2.68125 * 1rem);
 }
@@ -5991,8 +6002,10 @@ select::-ms-expand {
   align-items: center;
   justify-content: space-between;
   gap: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
-  width: clamp(8.575 * 1rem, 12.25 * 1rem * var(--rem-scale), 15.925 * 1rem);
-  height: clamp(4.2 * 1rem, 6 * 1rem * var(--rem-scale), 7.8 * 1rem);
+  min-width: 0;
+  width: 100%;
+  max-width: clamp(8.575 * 1rem, 12.25 * 1rem * var(--rem-scale), 15.925 * 1rem);
+  min-height: clamp(4.2 * 1rem, 6 * 1rem * var(--rem-scale), 7.8 * 1rem);
   padding-inline: clamp(0.9625 * 1rem, 1.375 * 1rem * var(--rem-scale), 1.7875 * 1rem) clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
   background-color: #145aa6;
   border-radius: clamp(2.1 * 1rem, 3 * 1rem * var(--rem-scale), 3.9 * 1rem);
@@ -6078,6 +6091,7 @@ select::-ms-expand {
 /* --- 小児歯科専門医とは？ ------------------------------------------------ */
 
 .pediatric-specialist {
+  overflow-x: clip;
   padding-top: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
 }
 
@@ -6126,9 +6140,9 @@ select::-ms-expand {
   position: absolute;
   z-index: 1;
   top: clamp(14.875 * 1rem, 21.25 * 1rem * var(--rem-scale), 27.625 * 1rem);
-  left: clamp(31.71875 * 1rem, 45.3125 * 1rem * var(--rem-scale), 58.90625 * 1rem);
-  width: clamp(8.00625 * 1rem, 11.4375 * 1rem * var(--rem-scale), 14.86875 * 1rem);
-  aspect-ratio: 183/183;
+  left: 73.98%;
+  width: 18.67%;
+  aspect-ratio: 1;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -6138,8 +6152,9 @@ select::-ms-expand {
   position: absolute;
   z-index: 2;
   top: clamp(13.5625 * 1rem, 19.375 * 1rem * var(--rem-scale), 25.1875 * 1rem);
-  left: clamp(39.15625 * 1rem, 55.9375 * 1rem * var(--rem-scale), 72.71875 * 1rem);
-  width: clamp(5.90625 * 1rem, 8.4375 * 1rem * var(--rem-scale), 10.96875 * 1rem);
+  left: 91.33%;
+  width: 13.78%;
+  min-width: clamp(4.8125 * 1rem, 6.875 * 1rem * var(--rem-scale), 8.9375 * 1rem);
   font-family: "Zen Maru Gothic", sans-serif;
   font-size: clamp(0.56875 * 1rem, 0.8125 * 1rem * var(--rem-scale), 1.05625 * 1rem);
   font-weight: 700;
@@ -6758,6 +6773,7 @@ select::-ms-expand {
 .clinic-room {
   position: relative;
   z-index: 0;
+  overflow-x: clip;
   margin-top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
 }
 
@@ -7051,6 +7067,7 @@ select::-ms-expand {
 /* --- 治療ユニットの写真クラスター（4枚重ね＋装飾） ------------------------------------------------ */
 
 .clinic-unit-cluster {
+  overflow-x: clip;
   margin-top: clamp(-9.14375 * 1rem, -13.0625 * 1rem * var(--rem-scale), -16.98125 * 1rem);
 }
 
@@ -7430,7 +7447,8 @@ select::-ms-expand {
   z-index: -2;
   top: clamp(1.53125 * 1rem, 2.1875 * 1rem * var(--rem-scale), 2.84375 * 1rem);
   left: 0;
-  width: clamp(53.9 * 1rem, 77 * 1rem * var(--rem-scale), 100.1 * 1rem);
+  max-width: 100%;
+  width: calc(50% + clamp(18.9 * 1rem, 27 * 1rem * var(--rem-scale), 35.1 * 1rem));
   height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
   background-color: #f2f2f2;
   background-image: url("/assets/img/common/texture-gray.png");
@@ -7443,7 +7461,7 @@ select::-ms-expand {
   z-index: -1;
   top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
   right: 0;
-  left: clamp(11.2875 * 1rem, 16.125 * 1rem * var(--rem-scale), 20.9625 * 1rem);
+  left: max(clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem), calc(50% - clamp(23.7125 * 1rem, 33.875 * 1rem * var(--rem-scale), 44.0375 * 1rem)));
   height: calc(100% - clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem));
   background-color: #145aa6;
 }
@@ -7454,7 +7472,7 @@ select::-ms-expand {
 }
 
 .recruit-charm__item--reverse::after {
-  right: clamp(11.2875 * 1rem, 16.125 * 1rem * var(--rem-scale), 20.9625 * 1rem);
+  right: max(clamp(0.7875 * 1rem, 1.125 * 1rem * var(--rem-scale), 1.4625 * 1rem), calc(50% - clamp(23.7125 * 1rem, 33.875 * 1rem * var(--rem-scale), 44.0375 * 1rem)));
   left: 0;
 }
 
@@ -10814,13 +10832,14 @@ select::-ms-expand {
     top: clamp(30.93125 * 1rem, 44.1875 * 1rem * var(--rem-scale), 57.44375 * 1rem);
     left: clamp(8.00625 * 1rem, 11.4375 * 1rem * var(--rem-scale), 14.86875 * 1rem);
     width: clamp(4.9875 * 1rem, 7.125 * 1rem * var(--rem-scale), 9.2625 * 1rem);
-    aspect-ratio: 114/114;
+    aspect-ratio: 1;
   }
 
   .pediatric-specialist__balloon {
     top: clamp(29.225 * 1rem, 41.75 * 1rem * var(--rem-scale), 54.275 * 1rem);
     left: clamp(10.5875 * 1rem, 15.125 * 1rem * var(--rem-scale), 19.6625 * 1rem);
     width: clamp(4.15625 * 1rem, 5.9375 * 1rem * var(--rem-scale), 7.71875 * 1rem);
+    min-width: 0;
   }
 
   .pediatric-specialist__balloon::before {

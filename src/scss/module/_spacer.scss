@@ -122,7 +122,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  // 310 + 410 + 310 + gap で .inner をわずかに超えるため、中間幅では縮める
+  min-width: 0;
   width: rem(310);
   gap: rem(16);
 

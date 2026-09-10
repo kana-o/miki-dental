@@ -249,7 +249,10 @@
   z-index: -2;
   top: rem(35);
   left: 0;
-  width: rem(1232);
+  // カンプ(1600)では 0〜1232。中間幅で画面をはみ出さないよう、
+  // 中央から右へ432px という中身基準の式にする（.top-about__band と同じ考え方）
+  max-width: 100%;
+  width: calc(50% + #{rem(432)});
   height: rem(411);
   background-color: $color-bg-sub;
   background-image: url("/assets/img/common/texture-gray.png");
@@ -270,7 +273,9 @@
   z-index: -1;
   top: rem(70);
   right: 0;
-  left: rem(258);
+  // カンプ(1600)では x=258（.inner の内容左端 260 の2px外）。
+  // 中間幅では .inner が画面いっぱいになるので、その内容左端に張り付かせる
+  left: max(#{rem(18)}, calc(50% - #{rem(542)}));
   height: calc(100% - #{rem(70)});
   background-color: $color-accent;
 
@@ -294,7 +299,7 @@
 }
 
 .recruit-charm__item--reverse::after {
-  right: rem(258);
+  right: max(#{rem(18)}, calc(50% - #{rem(542)}));
   left: 0;
 
   // カンプ実測（SP）: 青い帯は左端から360px

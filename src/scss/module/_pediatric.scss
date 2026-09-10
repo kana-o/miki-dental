@@ -35,6 +35,13 @@
   }
 }
 
+// フレックスアイテムは li（クラス無し）。min-width の初期値 auto だと
+// 中の 196px ボタンより縮まず、中間幅で横にはみ出す
+.pediatric-menu__row > li {
+  min-width: 0;
+  flex: 0 1 rem(196);
+}
+
 .pediatric-menu__row--1 {
   margin-bottom: rem(33);
 
@@ -48,8 +55,11 @@
   align-items: center;
   justify-content: space-between;
   gap: rem(8);
-  width: rem(196);
-  height: rem(96);
+  // 196x5 + gap25x4 = 1080 でちょうど .inner いっぱい。中間幅では縮めて収める
+  min-width: 0;
+  width: 100%;
+  max-width: rem(196);
+  min-height: rem(96);
   padding-inline: rem(22) rem(20);
   background-color: $color-accent;
   border-radius: rem(48);
@@ -192,6 +202,9 @@
 
 .pediatric-specialist {
   // カンプ実測: intro カード下端(1262)→specialist カード上端(1362) = 100
+  // ふきだしはカンプでもカード右端から50pxはみ出す意匠。中間幅では画面外に出て
+  // 横スクロールになるので、横だけ切る
+  overflow-x: clip;
   padding-top: rem(100);
 
   @include mq("sp") {
@@ -269,19 +282,20 @@
   position: absolute;
   z-index: 1;
   top: rem(340);
-  left: rem(725);
-  width: rem(183);
-  aspect-ratio: 183 / 183;
+  // カード幅980基準の比率で置く（px固定だと中間幅でカードからはみ出す）
+  left: 73.98%;
+  width: 18.67%;
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: 50%;
 
   // SPカードは345幅。カンプ実測は 183,707 の位置に 114×114
-  // （PCの183×183のままだと 183+183=366 でカード345をはみ出し、横スクロールが出る）
+  // （PCの比率のままだと 183+183=366 でカード345をはみ出し、横スクロールが出る）
   @include mq("sp") {
     top: rem(707);
     left: rem(183);
     width: rem(114);
-    aspect-ratio: 114 / 114;
+    aspect-ratio: 1;
   }
 }
 
@@ -291,8 +305,10 @@
   position: absolute;
   z-index: 2;
   top: rem(310);
-  left: rem(895);
-  width: rem(135);
+  // カード幅980基準の比率。カンプでは右端が .inner の右端にちょうど届く
+  left: 91.33%;
+  width: 13.78%;
+  min-width: rem(110);
   font-family: $second-font;
   font-size: rem(13);
   font-weight: $bold;
@@ -326,6 +342,7 @@
     top: rem(668);
     left: rem(242);
     width: rem(95);
+    min-width: 0;
 
     &::before {
       top: rem(25);

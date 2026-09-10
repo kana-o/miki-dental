@@ -249,6 +249,9 @@
 
 .pedortho-device__photo {
   display: block;
+  // 410x2 + gap43 = 863。中間幅では縮めて収める
+  min-width: 0;
+  max-width: 100%;
   width: rem(410);
   aspect-ratio: 410 / 317;
   object-fit: cover;

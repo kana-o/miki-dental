@@ -133,6 +133,9 @@
 .clinic-room {
   position: relative;
   z-index: 0;
+  // 青帯はカンプでも画面右へ抜ける意匠。中間幅・SPでは画面外まで伸びて
+  // 横スクロールを作るので横だけ切る（overflow:hidden だと下にはみ出す写真まで切れる）
+  overflow-x: clip;
   margin-top: rem(70);
 
   @include mq("sp") {
@@ -738,6 +741,9 @@
 .clinic-unit-cluster {
   // カンプでは4枚のクラスターが治療ユニットの青帯に食い込む（右上の写真 y=1526 は
   // 帯の範囲 1338〜1755 の内側）。実装は帯の下に置いていたため約200px下がっていた。
+  // 渦巻きの装飾は 1600 幅では右に 1448 まで伸びる意匠。狭い幅では横スクロールに
+  // なるので横だけ切る
+  overflow-x: clip;
   margin-top: rem(-209);
 
   @include mq("sp") {

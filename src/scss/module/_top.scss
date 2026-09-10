@@ -695,8 +695,11 @@
 .top-treatment__item {
   position: relative;
   z-index: 0;
+  // 340x3 + gap30x2 = 1080 でちょうど .inner いっぱい。中間幅で溢れないよう
+  // 縮めるのを許可し、縮んで本文が増えても切れないよう高さは下限にする
+  min-width: 0;
   width: rem(340);
-  height: rem(380);
+  min-height: rem(380);
   padding-block: rem(54) rem(60);
   padding-inline: rem(40);
   background-color: $color-bg;
