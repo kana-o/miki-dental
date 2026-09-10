@@ -299,7 +299,9 @@
 .clinic-room__body {
   flex: 1;
   min-width: 0;
-  padding-top: rem(20);
+  // カンプ実測: ラベルの帯の上端はメイン写真の上端とほぼそろう（0〜5px）。
+  // padding-top:20 があると .clinic-room__tag の行送りぶんと合わせて22px下がっていた
+  padding-top: 0;
 }
 
 .clinic-room__tag {
@@ -413,7 +415,9 @@
   position: relative;
   width: rem(441);
   aspect-ratio: 441 / 445;
-  margin-top: rem(40);
+  // カンプ実測: 本文の最終行の下端から1枚目の写真の上端まで50px。
+  // 写真自体が枠の40px下から始まるので、枠の上余白は持たせない
+  margin-top: 0;
 
   @include mq("sp") {
     width: 100%;
@@ -626,7 +630,8 @@
   // 0 幅になり、reset の img { max-width: 100% } が写真を 0 に潰す
   width: 100%;
   height: rem(312);
-  margin-top: rem(32);
+  // カンプ実測: 1枚目の写真の上端はメイン写真の上端＋347
+  margin-top: rem(52);
 
   // カンプ実測（SP）: 小写真2枚の外形は 4005〜4189 の184px
   @include mq("sp") {
@@ -1046,6 +1051,16 @@
 
 .clinic-equip-list__label {
   margin: 0;
+}
+
+// カンプ実測: 設備・共通エリアのラベルは帯の高さが32px（共通 .tag の既定は45px）。
+// .tag は display:inline なので背景の高さがフォントのメトリクス依存になる。
+// ここだけ inline-block にして line-height で高さを確定させる。
+.clinic-equip-pair__label .tag,
+.clinic-equip-list__label .tag {
+  display: inline-block;
+  padding-block: 0;
+  line-height: 1.6;
 }
 
 .clinic-equip-list__text {
