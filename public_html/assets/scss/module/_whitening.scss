@@ -55,13 +55,13 @@
 .whitening-recommend__photo {
   flex-shrink: 0;
   width: rem(285);
-  height: rem(217);
+  aspect-ratio: 285 / 217;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(192);
+    aspect-ratio: 252 / 192;
     border-radius: rem(10);
   }
 }

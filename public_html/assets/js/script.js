@@ -47,8 +47,11 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // PC幅へリサイズしたときにスクロールロックが残らないようにする
-    const pcQuery = window.matchMedia('(min-width: 769px)');
+    // PC幅へリサイズしたときにスクロールロックが残らないようにする。
+    // 境界はドロワーの表示境界（SCSSの mq("tab") = 1024px）と揃える。
+    // 769px にしていると 770〜1024px で開いた状態からPC幅へ広げたときに
+    // change が発火せず、ドロワーだけ消えて body のスクロール禁止が残る。
+    const pcQuery = window.matchMedia('(min-width: 1025px)');
     pcQuery.addEventListener('change', function (event) {
       if (event.matches) {
         closeDrawer();

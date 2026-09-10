@@ -105,13 +105,13 @@
 
 .preventive-checkup__chart-img {
   flex-shrink: 0;
+  // グラフ（図表）なので切ってはいけない。素材 1200x864 と同じ比率で枠を持たせる
   width: rem(600);
-  height: rem(432);
+  aspect-ratio: 600 / 432;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(345);
-    height: rem(248);
     border-radius: rem(10);
   }
 }
@@ -159,12 +159,11 @@
 
 .preventive-periodontal__img {
   width: 100%;
-  height: rem(300);
+  aspect-ratio: 240 / 300;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(225);
     border-radius: rem(10);
   }
 }
@@ -216,14 +215,14 @@
 .preventive-feature__img {
   flex-shrink: 0;
   width: rem(280);
-  height: rem(215);
+  aspect-ratio: 280 / 215;
   object-fit: cover;
   border-radius: rem(20);
 
   // SPは画像幅(252px)がコンテナ(345px)より狭いため中央寄せする
   @include mq("sp") {
     width: rem(252);
-    height: rem(194);
+    aspect-ratio: 252 / 194;
     margin-inline: auto;
     border-radius: rem(10);
   }

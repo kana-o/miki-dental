@@ -1,7 +1,7 @@
 <!-- ========================================
   Header
 ======================================== -->
-<header class="header" id="top">
+<header class="header">
   <div class="header__bar">
     @@if (isTop === true) {
     <h1 class="header__logo">@@include('./logo.html')</h1>
@@ -174,3 +174,8 @@
     </picture>
   </a>
 </div>
+
+<!-- ページトップリンク（footer の #top）の移動先。
+     固定ヘッダーに id を置くと常に画面上端にあるため先頭へ戻れない。
+     通常フローのこの位置＝文書の先頭に置く。 -->
+<span id="top" aria-hidden="true"></span>

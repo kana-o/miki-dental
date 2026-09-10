@@ -95,13 +95,13 @@
 .recruit-join__photo {
   flex-shrink: 0;
   width: rem(550);
-  height: rem(385);
+  aspect-ratio: 550 / 385;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(270);
-    height: rem(189);
+    aspect-ratio: 270 / 189;
     margin-inline: auto;
     border-radius: rem(10);
   }
@@ -336,7 +336,7 @@
 .recruit-charm__photo {
   flex-shrink: 0;
   width: rem(530);
-  height: rem(376);
+  aspect-ratio: 530 / 376;
   object-fit: cover;
   border-radius: rem(20);
 
@@ -344,7 +344,7 @@
   // .inner の内側（左端15）からの距離なので margin は 15。
   @include mq("sp") {
     width: rem(252);
-    height: rem(179);
+    aspect-ratio: 252 / 179;
     margin-right: rem(15);
     margin-left: auto;
     border-radius: rem(10);

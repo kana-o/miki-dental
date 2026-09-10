@@ -96,14 +96,14 @@
 .implant-intro__diagram {
   display: block;
   width: rem(479);
-  height: rem(479);
+  aspect-ratio: 479 / 479;
   margin-top: rem(30);
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(345);
-    height: rem(345);
+    aspect-ratio: 345 / 345;
     margin-top: rem(24);
     border-radius: rem(10);
   }
@@ -140,14 +140,13 @@
   display: block;
   margin-top: rem(30);
   width: rem(664);
-  height: rem(415);
+  aspect-ratio: 664 / 415;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     margin-top: rem(24);
     width: 100%;
-    height: rem(216);
     border-radius: rem(10);
   }
 }
@@ -217,12 +216,11 @@
 .implant-photo-row__img {
   display: block;
   width: 100%;
-  height: rem(261);
+  aspect-ratio: 330 / 261;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(199);
     border-radius: rem(10);
   }
 }
@@ -302,14 +300,14 @@
 .implant-compare__img {
   flex-shrink: 0;
   width: rem(352);
-  height: rem(280);
+  aspect-ratio: 352 / 280;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     margin-inline: auto;
     width: rem(252);
-    height: rem(200);
+    aspect-ratio: 252 / 200;
     border-radius: rem(10);
   }
 }

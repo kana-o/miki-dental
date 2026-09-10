@@ -159,7 +159,7 @@
   top: calc(#{rem(23)} * -1);
   right: rem(77.6);
   width: rem(280.807);
-  height: rem(421);
+  aspect-ratio: 280.807 / 421;
   // 背景透過PNG（カンプの元画像も透過）。切り抜き済みなのでトリミング・角丸はしない
   object-fit: contain;
 
@@ -168,7 +168,7 @@
     top: rem(220.32);
     right: rem(10);
     width: rem(130);
-    height: rem(194.9);
+    aspect-ratio: 130 / 194.9;
   }
 }
 

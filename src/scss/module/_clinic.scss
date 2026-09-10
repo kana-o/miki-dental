@@ -330,14 +330,14 @@
 .clinic-room__photo {
   flex-shrink: 0;
   width: rem(591);
-  height: rem(411);
+  aspect-ratio: 591 / 411;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     // カンプ実測: 幅は100%ではなく345中270（右寄せ・背面の色帯を左に覗かせる構図）
     width: rem(270);
-    height: rem(188);
+    aspect-ratio: 270 / 188;
     margin-left: auto;
     border-radius: rem(10);
   }
@@ -347,11 +347,11 @@
 .clinic-room__photo--tall {
   // カンプ実測: 590×636
   width: rem(590);
-  height: rem(636);
+  aspect-ratio: 590 / 636;
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(271);
+    aspect-ratio: 252 / 271;
     margin-left: 0;
   }
 }
@@ -359,11 +359,11 @@
 // デルフィーノの正方形に近い写真（カンプ実測: 336×294。テキスト量の方が多く、ブロック高はテキスト側で決まる）
 .clinic-room__photo--square {
   width: rem(336);
-  height: rem(294);
+  aspect-ratio: 336 / 294;
 
   @include mq("sp") {
     width: rem(270);
-    height: rem(238);
+    aspect-ratio: 270 / 238;
   }
 }
 
@@ -372,7 +372,7 @@
 .clinic-room__sub-photo {
   display: block;
   width: rem(220);
-  height: rem(172);
+  aspect-ratio: 220 / 172;
   margin-top: rem(40);
   object-fit: cover;
   // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
@@ -382,7 +382,7 @@
     border-radius: rem(10);
     // カンプ実測（バリアフリー equip-02: 160×125）
     width: rem(160);
-    height: rem(125);
+    aspect-ratio: 160 / 125;
     margin-top: rem(24);
   }
 }
@@ -390,12 +390,12 @@
 // 受付・待合室のみ大きいサイズ（カンプ実測 335×240）
 .clinic-room__sub-photo--lg {
   width: rem(335);
-  height: rem(240);
+  aspect-ratio: 335 / 240;
 
   @include mq("sp") {
     // カンプ実測（adult-02: 180×129）
     width: rem(180);
-    height: rem(129);
+    aspect-ratio: 180 / 129;
   }
 }
 
@@ -403,7 +403,7 @@
 .clinic-room__sub-photo-group {
   position: relative;
   width: rem(441);
-  height: rem(445);
+  aspect-ratio: 441 / 445;
   margin-top: rem(40);
 
   @include mq("sp") {
@@ -431,13 +431,13 @@
   top: 0;
   left: rem(144);
   width: rem(297);
-  height: rem(210);
+  aspect-ratio: 297 / 210;
 
   @include mq("sp") {
     top: 0;
     left: rem(164);
     width: rem(175);
-    height: rem(124);
+    aspect-ratio: 175 / 124;
   }
 }
 
@@ -446,14 +446,14 @@
   top: rem(253);
   left: rem(19);
   width: rem(268);
-  height: rem(192);
+  aspect-ratio: 268 / 192;
 
   // カンプ実測（SP）: グループ左端(15)から101px
   @include mq("sp") {
     top: rem(140);
     left: rem(101);
     width: rem(158);
-    height: rem(113);
+    aspect-ratio: 158 / 113;
   }
 }
 
@@ -488,13 +488,13 @@
   top: rem(95);
   left: rem(75);
   width: rem(170);
-  height: rem(245);
+  aspect-ratio: 170 / 245;
 
   @include mq("sp") {
     top: rem(65);
     left: rem(109);
     width: rem(69);
-    height: rem(99);
+    aspect-ratio: 69 / 99;
   }
 }
 
@@ -503,13 +503,13 @@
   top: 0;
   left: rem(266);
   width: rem(325);
-  height: rem(235);
+  aspect-ratio: 325 / 235;
 
   @include mq("sp") {
     top: 0;
     left: rem(190);
     width: rem(143);
-    height: rem(103);
+    aspect-ratio: 143 / 103;
   }
 }
 
@@ -540,14 +540,14 @@
   top: 0;
   right: 0;
   width: rem(591);
-  height: rem(411);
+  aspect-ratio: 591 / 411;
 
   @include mq("sp") {
     top: 0;
     right: auto;
     left: rem(47);
     width: rem(298);
-    height: rem(207);
+    aspect-ratio: 298 / 207;
   }
 }
 
@@ -555,14 +555,14 @@
   bottom: 0;
   left: 0;
   width: rem(230);
-  height: rem(170);
+  aspect-ratio: 230 / 170;
 
   @include mq("sp") {
     top: rem(227);
     bottom: auto;
     left: 0;
     width: rem(127);
-    height: rem(158);
+    aspect-ratio: 127 / 158;
   }
 }
 
@@ -570,7 +570,7 @@
   right: rem(20);
   bottom: 0;
   width: rem(210);
-  height: rem(150);
+  aspect-ratio: 210 / 150;
 
   @include mq("sp") {
     top: rem(298);
@@ -578,7 +578,7 @@
     right: auto;
     left: rem(146);
     width: rem(143);
-    height: rem(113);
+    aspect-ratio: 143 / 113;
   }
 }
 
@@ -598,12 +598,12 @@
   top: 0;
   right: 0;
   width: rem(591);
-  height: rem(411);
+  aspect-ratio: 591 / 411;
 
   @include mq("sp") {
     // カンプ実測（equip-01、右寄せ）
     width: rem(270);
-    height: rem(188);
+    aspect-ratio: 270 / 188;
   }
 }
 
@@ -611,13 +611,13 @@
   bottom: 0;
   left: rem(40);
   width: rem(221);
-  height: rem(160);
+  aspect-ratio: 221 / 160;
 
   @include mq("sp") {
     // カンプ実測（equip-03）
     left: rem(15);
     width: rem(161);
-    height: rem(116);
+    aspect-ratio: 161 / 116;
   }
 }
 
@@ -683,14 +683,14 @@
   top: rem(296);
   left: rem(343);
   width: rem(335);
-  height: rem(240);
+  aspect-ratio: 335 / 240;
 
   @include mq("sp") {
     // カンプ実測（4枚クラスター）
     top: rem(110);
     left: rem(79);
     width: rem(124);
-    height: rem(89);
+    aspect-ratio: 124 / 89;
   }
 }
 
@@ -698,13 +698,13 @@
   top: rem(348);
   left: rem(766);
   width: rem(335);
-  height: rem(240);
+  aspect-ratio: 335 / 240;
 
   @include mq("sp") {
     top: rem(129);
     left: rem(236);
     width: rem(124);
-    height: rem(89);
+    aspect-ratio: 124 / 89;
   }
 }
 
@@ -712,13 +712,13 @@
   top: rem(634);
   left: rem(343);
   width: rem(335);
-  height: rem(240);
+  aspect-ratio: 335 / 240;
 
   @include mq("sp") {
     top: rem(235);
     left: rem(79);
     width: rem(124);
-    height: rem(89);
+    aspect-ratio: 124 / 89;
   }
 }
 
@@ -726,13 +726,13 @@
   top: rem(0);
   left: rem(766);
   width: rem(335);
-  height: rem(240);
+  aspect-ratio: 335 / 240;
 
   @include mq("sp") {
     top: rem(0);
     left: rem(236);
     width: rem(124);
-    height: rem(89);
+    aspect-ratio: 124 / 89;
   }
 }
 
@@ -760,7 +760,7 @@
 .clinic-amenity__photo {
   flex-shrink: 0;
   width: rem(270);
-  height: rem(219);
+  aspect-ratio: 270 / 219;
   object-fit: cover;
   // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
   border-radius: rem(20);
@@ -768,7 +768,7 @@
   @include mq("sp") {
     border-radius: rem(10);
     width: rem(152);
-    height: rem(123);
+    aspect-ratio: 152 / 123;
   }
 }
 
@@ -816,7 +816,7 @@
 .clinic-equip-pair__photo {
   flex-shrink: 0;
   width: rem(270);
-  height: rem(219);
+  aspect-ratio: 270 / 219;
   object-fit: cover;
   // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
   border-radius: rem(20);
@@ -824,7 +824,7 @@
   @include mq("sp") {
     border-radius: rem(10);
     width: rem(152);
-    height: rem(123);
+    aspect-ratio: 152 / 123;
   }
 }
 
@@ -906,7 +906,7 @@
 .clinic-equip-list__photo {
   flex-shrink: 0;
   width: rem(270);
-  height: rem(219);
+  aspect-ratio: 270 / 219;
   object-fit: cover;
   // カンプ実測: PC 20 / SP 10。10のままだと素材に焼き込まれた角丸マスクの黒がはみ出す
   border-radius: rem(20);
@@ -914,7 +914,7 @@
   @include mq("sp") {
     border-radius: rem(10);
     width: rem(252);
-    height: rem(204);
+    aspect-ratio: 252 / 204;
   }
 }
 

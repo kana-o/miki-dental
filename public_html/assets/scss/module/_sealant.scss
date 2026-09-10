@@ -72,13 +72,13 @@
 
 .sealant-compare__img {
   width: 100%;
-  height: rem(317);
+  aspect-ratio: 410 / 317;
   object-fit: cover;
   border-radius: rem(29);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(232);
+    aspect-ratio: 252 / 232;
     border-radius: rem(10);
   }
 }
@@ -142,13 +142,13 @@
 .sealant-photo__img {
   flex-shrink: 0;
   width: rem(280);
-  height: rem(215);
+  aspect-ratio: 280 / 215;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(193.5);
+    aspect-ratio: 252 / 193.5;
     border-radius: rem(10);
   }
 }

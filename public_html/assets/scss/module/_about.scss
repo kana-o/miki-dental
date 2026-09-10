@@ -82,13 +82,13 @@
 .about-row__photo {
   flex-shrink: 0;
   width: rem(400);
-  height: rem(399);
+  aspect-ratio: 400 / 399;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(251);
+    aspect-ratio: 252 / 251;
     margin-inline: rem(27) auto;
     border-radius: rem(10);
   }
@@ -478,12 +478,11 @@
 
 .about-spec__doctor-img {
   width: 100%;
-  height: rem(462);
+  aspect-ratio: 308 / 462;
   object-fit: cover;
   object-position: top;
 
   @include mq("sp") {
-    height: rem(163);
   }
 }
 
@@ -640,13 +639,13 @@
 
 .about-team__photo {
   width: rem(190);
-  height: rem(260);
+  aspect-ratio: 190 / 260;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(120);
-    height: rem(164);
+    aspect-ratio: 120 / 164;
     border-radius: rem(10);
   }
 }
@@ -788,6 +787,8 @@
   position: relative;
   z-index: 0;
   flex: 1;
+  // 中の写真が absolute の散らし配置なので、親は高さを持たないと潰れる。
+  // aspect-ratio 化できない例外（PCは width が flex 依存で確定しないため）
   height: rem(368);
 
   // SPも散らし配置のまま。カンプのグループ寸法は 252×220。
@@ -826,14 +827,14 @@
   top: calc(#{rem(89)} * -1);
   right: rem(11);
   width: rem(299);
-  height: rem(337);
+  aspect-ratio: 299 / 337;
 
   @include mq("sp") {
     top: rem(0);
     right: auto;
     left: rem(123);
     width: rem(125);
-    height: rem(140);
+    aspect-ratio: 125 / 140;
   }
 }
 
@@ -841,14 +842,14 @@
   top: rem(140);
   right: rem(335);
   width: rem(271);
-  height: rem(295);
+  aspect-ratio: 271 / 295;
 
   @include mq("sp") {
     top: rem(95);
     right: auto;
     left: rem(0);
     width: rem(113);
-    height: rem(123);
+    aspect-ratio: 113 / 123;
   }
 }
 
@@ -856,14 +857,14 @@
   top: rem(276);
   right: 0;
   width: rem(262);
-  height: rem(169);
+  aspect-ratio: 262 / 169;
 
   @include mq("sp") {
     top: rem(152);
     right: auto;
     left: rem(143);
     width: rem(109);
-    height: rem(71);
+    aspect-ratio: 109 / 71;
   }
 }
 
@@ -872,14 +873,14 @@
   top: calc(#{rem(89)} * -1);
   left: 0;
   width: rem(432);
-  height: rem(314);
+  aspect-ratio: 432 / 314;
 
   @include mq("sp") {
     top: rem(0);
     right: auto;
     left: rem(0);
     width: rem(179);
-    height: rem(130);
+    aspect-ratio: 179 / 130;
   }
 }
 
@@ -887,14 +888,14 @@
   top: rem(240);
   left: rem(367);
   width: rem(241);
-  height: rem(168);
+  aspect-ratio: 241 / 168;
 
   @include mq("sp") {
     top: rem(136);
     right: auto;
     left: rem(152);
     width: rem(100);
-    height: rem(70);
+    aspect-ratio: 100 / 70;
   }
 }
 
@@ -902,14 +903,14 @@
   top: rem(273);
   left: rem(57);
   width: rem(273);
-  height: rem(169);
+  aspect-ratio: 273 / 169;
 
   @include mq("sp") {
     top: rem(150);
     right: auto;
     left: rem(24);
     width: rem(113);
-    height: rem(70);
+    aspect-ratio: 113 / 70;
   }
 }
 
@@ -918,14 +919,14 @@
   top: rem(154);
   right: 0;
   width: rem(392);
-  height: rem(285);
+  aspect-ratio: 392 / 285;
 
   @include mq("sp") {
     top: rem(101);
     right: auto;
     left: rem(89);
     width: rem(163);
-    height: rem(119);
+    aspect-ratio: 163 / 119;
   }
 }
 
@@ -933,14 +934,14 @@
   top: calc(#{rem(89)} * -1);
   right: rem(294);
   width: rem(271);
-  height: rem(187);
+  aspect-ratio: 271 / 187;
 
   @include mq("sp") {
     top: rem(0);
     right: auto;
     left: rem(17);
     width: rem(113);
-    height: rem(78);
+    aspect-ratio: 113 / 78;
   }
 }
 
@@ -948,14 +949,14 @@
   top: rem(123);
   right: rem(429);
   width: rem(176);
-  height: rem(226);
+  aspect-ratio: 176 / 226;
 
   @include mq("sp") {
     top: rem(88);
     right: auto;
     left: rem(0);
     width: rem(73);
-    height: rem(94);
+    aspect-ratio: 73 / 94;
   }
 }
 
@@ -1271,12 +1272,11 @@
 
 .about-care__measure-img {
   width: 100%;
-  height: rem(215);
+  aspect-ratio: 335 / 215;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(222);
     border-radius: rem(10);
   }
 }
@@ -1433,12 +1433,11 @@
 
 .about-other__img {
   width: 100%;
-  height: rem(261);
+  aspect-ratio: 330 / 261;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(273);
     border-radius: rem(10);
   }
 }

@@ -76,13 +76,13 @@
 .spacer-actual__img {
   flex-shrink: 0;
   width: rem(280);
-  height: rem(215);
+  aspect-ratio: 280 / 215;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(193.5);
+    aspect-ratio: 252 / 193.5;
     border-radius: rem(10);
   }
 }
@@ -162,31 +162,34 @@
     max-width: rem(410);
   }
 
+  // 基本クラスの SP 指定（width: 100%）をこの modifier が上書きしてしまうため、
+  // SP でも親幅に収まるよう明示的に戻す
   @include mq("sp") {
+    width: 100%;
     max-width: none;
   }
 }
 
 .spacer-flow__img {
   width: 100%;
-  height: rem(252.84);
+  aspect-ratio: 310 / 252.84;
   object-fit: cover;
   border-radius: rem(28);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(205.54);
+    aspect-ratio: 252 / 205.54;
     border-radius: rem(10);
   }
 }
 
 .spacer-flow__figure--lg .spacer-flow__img {
-  height: rem(317);
+  aspect-ratio: 410 / 317;
   border-radius: rem(29);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(231.55);
+    aspect-ratio: 252 / 231.55;
     border-radius: rem(10);
   }
 }

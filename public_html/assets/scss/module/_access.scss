@@ -269,10 +269,17 @@
   }
 }
 
-// カンプ実測: 「予約制」バッジはテーブル(780px幅・中央)の左端にそろう
+// カンプ実測: 「予約制」バッジはテーブル(780px幅・中央)の左端にそろう。
+// テーブルが 780px 未満まで縮む幅では負のマージンがラベルを画面外へ押し出すため、
+// 780px を確保できる幅のときだけ左端そろえにする。
 .hours__label {
   margin-inline: auto;
-  margin-left: calc(50% - #{rem(390)});
+}
+
+@media screen and (min-width: 820px) {
+  .hours__label {
+    margin-left: calc(50% - #{rem(390)});
+  }
 }
 
 .access-hours .hours__label {
@@ -397,7 +404,7 @@
 .access-info__photo {
   flex-shrink: 0;
   width: rem(516);
-  height: rem(324);
+  aspect-ratio: 516 / 324;
   object-fit: cover;
   border-radius: rem(10);
 

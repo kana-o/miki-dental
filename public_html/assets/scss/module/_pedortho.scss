@@ -114,12 +114,11 @@
 .pedortho-jaw__photo {
   display: block;
   width: 100%;
-  height: rem(317);
+  aspect-ratio: 410 / 317;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(195);
     border-radius: rem(10);
   }
 }
@@ -251,13 +250,13 @@
 .pedortho-device__photo {
   display: block;
   width: rem(410);
-  height: rem(317);
+  aspect-ratio: 410 / 317;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(195);
+    aspect-ratio: 252 / 195;
     border-radius: rem(10);
   }
 }
@@ -319,21 +318,21 @@
   min-width: 0;
   flex: 1;
   width: 100%;
-  height: rem(200);
+  aspect-ratio: 490 / 200;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(70);
+    aspect-ratio: 155 / 70;
     border-radius: rem(8);
   }
 }
 
 .pedortho-case__photo--lg {
-  height: rem(254);
+  aspect-ratio: 490 / 254;
 
   @include mq("sp") {
-    height: rem(89);
+    aspect-ratio: 155 / 89;
   }
 }
 

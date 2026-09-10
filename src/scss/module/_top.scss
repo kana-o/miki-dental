@@ -467,13 +467,12 @@
 
 .top-about__photo {
   width: 100%;
-  height: rem(376);
+  aspect-ratio: 530 / 376;
   object-fit: cover;
   object-position: bottom;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(179);
     border-radius: rem(10);
   }
 }
@@ -495,11 +494,10 @@
 
 .top-about__block--pair .top-about__photo {
   width: rem(240);
-  height: rem(360);
+  aspect-ratio: 240 / 360;
 
   @include mq("sp") {
     width: rem(120);
-    height: rem(180);
   }
 }
 
@@ -970,13 +968,13 @@
 
 .top-clinic__photo {
   width: rem(195);
-  height: rem(355);
+  aspect-ratio: 195 / 355;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(100);
-    height: rem(182);
+    aspect-ratio: 100 / 182;
     border-radius: rem(10);
   }
 }
@@ -1130,14 +1128,14 @@
 .top-staff__photo {
   flex-shrink: 0;
   width: rem(374);
-  height: rem(455);
+  aspect-ratio: 374 / 455;
   object-fit: cover;
   object-position: top;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(246);
-    height: rem(299);
+    aspect-ratio: 246 / 299;
     border-radius: rem(10);
   }
 }
@@ -1255,11 +1253,11 @@
 
 .top-staff__group-img {
   width: 100%;
-  height: rem(600);
+  aspect-ratio: 1600 / 600;
   object-fit: cover;
 
   @include mq("sp") {
-    height: rem(553);
+    aspect-ratio: 375 / 553;
   }
 }
 

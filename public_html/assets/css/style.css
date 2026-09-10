@@ -1818,7 +1818,7 @@ select::-ms-expand {
 
 .top-about__photo {
   width: 100%;
-  height: clamp(16.45 * 1rem, 23.5 * 1rem * var(--rem-scale), 30.55 * 1rem);
+  aspect-ratio: 530/376;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: bottom;
@@ -1835,7 +1835,7 @@ select::-ms-expand {
 
 .top-about__block--pair .top-about__photo {
   width: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
-  height: clamp(15.75 * 1rem, 22.5 * 1rem * var(--rem-scale), 29.25 * 1rem);
+  aspect-ratio: 240/360;
 }
 
 .top-about__block--pair .pic:last-child .top-about__photo {
@@ -2083,7 +2083,7 @@ select::-ms-expand {
 
 .top-clinic__photo {
   width: clamp(8.53125 * 1rem, 12.1875 * 1rem * var(--rem-scale), 15.84375 * 1rem);
-  height: clamp(15.53125 * 1rem, 22.1875 * 1rem * var(--rem-scale), 28.84375 * 1rem);
+  aspect-ratio: 195/355;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -2148,7 +2148,7 @@ select::-ms-expand {
 .top-staff__photo {
   flex-shrink: 0;
   width: clamp(16.3625 * 1rem, 23.375 * 1rem * var(--rem-scale), 30.3875 * 1rem);
-  height: clamp(19.90625 * 1rem, 28.4375 * 1rem * var(--rem-scale), 36.96875 * 1rem);
+  aspect-ratio: 374/455;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -2238,7 +2238,7 @@ select::-ms-expand {
 
 .top-staff__group-img {
   width: 100%;
-  height: clamp(26.25 * 1rem, 37.5 * 1rem * var(--rem-scale), 48.75 * 1rem);
+  aspect-ratio: 1600/600;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -2522,7 +2522,7 @@ select::-ms-expand {
 .about-row__photo {
   flex-shrink: 0;
   width: clamp(17.5 * 1rem, 25 * 1rem * var(--rem-scale), 32.5 * 1rem);
-  height: clamp(17.45625 * 1rem, 24.9375 * 1rem * var(--rem-scale), 32.41875 * 1rem);
+  aspect-ratio: 400/399;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -2771,7 +2771,7 @@ select::-ms-expand {
 
 .about-spec__doctor-img {
   width: 100%;
-  height: clamp(20.2125 * 1rem, 28.875 * 1rem * var(--rem-scale), 37.5375 * 1rem);
+  aspect-ratio: 308/462;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -2865,7 +2865,7 @@ select::-ms-expand {
 
 .about-team__photo {
   width: clamp(8.3125 * 1rem, 11.875 * 1rem * var(--rem-scale), 15.4375 * 1rem);
-  height: clamp(11.375 * 1rem, 16.25 * 1rem * var(--rem-scale), 21.125 * 1rem);
+  aspect-ratio: 190/260;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -2962,21 +2962,21 @@ select::-ms-expand {
   top: calc(clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem) * -1);
   right: clamp(0.48125 * 1rem, 0.6875 * 1rem * var(--rem-scale), 0.89375 * 1rem);
   width: clamp(13.08125 * 1rem, 18.6875 * 1rem * var(--rem-scale), 24.29375 * 1rem);
-  height: clamp(14.74375 * 1rem, 21.0625 * 1rem * var(--rem-scale), 27.38125 * 1rem);
+  aspect-ratio: 299/337;
 }
 
 .about-env__photos--a .about-env__photo--2 {
   top: clamp(6.125 * 1rem, 8.75 * 1rem * var(--rem-scale), 11.375 * 1rem);
   right: clamp(14.65625 * 1rem, 20.9375 * 1rem * var(--rem-scale), 27.21875 * 1rem);
   width: clamp(11.85625 * 1rem, 16.9375 * 1rem * var(--rem-scale), 22.01875 * 1rem);
-  height: clamp(12.90625 * 1rem, 18.4375 * 1rem * var(--rem-scale), 23.96875 * 1rem);
+  aspect-ratio: 271/295;
 }
 
 .about-env__photos--a .about-env__photo--3 {
   top: clamp(12.075 * 1rem, 17.25 * 1rem * var(--rem-scale), 22.425 * 1rem);
   right: 0;
   width: clamp(11.4625 * 1rem, 16.375 * 1rem * var(--rem-scale), 21.2875 * 1rem);
-  height: clamp(7.39375 * 1rem, 10.5625 * 1rem * var(--rem-scale), 13.73125 * 1rem);
+  aspect-ratio: 262/169;
 }
 
 /* --- 2ブロック目（大人） --- */
@@ -2985,21 +2985,21 @@ select::-ms-expand {
   top: calc(clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem) * -1);
   left: 0;
   width: clamp(18.9 * 1rem, 27 * 1rem * var(--rem-scale), 35.1 * 1rem);
-  height: clamp(13.7375 * 1rem, 19.625 * 1rem * var(--rem-scale), 25.5125 * 1rem);
+  aspect-ratio: 432/314;
 }
 
 .about-env__photos--b .about-env__photo--2 {
   top: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
   left: clamp(16.05625 * 1rem, 22.9375 * 1rem * var(--rem-scale), 29.81875 * 1rem);
   width: clamp(10.54375 * 1rem, 15.0625 * 1rem * var(--rem-scale), 19.58125 * 1rem);
-  height: clamp(7.35 * 1rem, 10.5 * 1rem * var(--rem-scale), 13.65 * 1rem);
+  aspect-ratio: 241/168;
 }
 
 .about-env__photos--b .about-env__photo--3 {
   top: clamp(11.94375 * 1rem, 17.0625 * 1rem * var(--rem-scale), 22.18125 * 1rem);
   left: clamp(2.49375 * 1rem, 3.5625 * 1rem * var(--rem-scale), 4.63125 * 1rem);
   width: clamp(11.94375 * 1rem, 17.0625 * 1rem * var(--rem-scale), 22.18125 * 1rem);
-  height: clamp(7.39375 * 1rem, 10.5625 * 1rem * var(--rem-scale), 13.73125 * 1rem);
+  aspect-ratio: 273/169;
 }
 
 /* --- 3ブロック目（託児） --- */
@@ -3008,21 +3008,21 @@ select::-ms-expand {
   top: clamp(6.7375 * 1rem, 9.625 * 1rem * var(--rem-scale), 12.5125 * 1rem);
   right: 0;
   width: clamp(17.15 * 1rem, 24.5 * 1rem * var(--rem-scale), 31.85 * 1rem);
-  height: clamp(12.46875 * 1rem, 17.8125 * 1rem * var(--rem-scale), 23.15625 * 1rem);
+  aspect-ratio: 392/285;
 }
 
 .about-env__photos--c .about-env__photo--2 {
   top: calc(clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem) * -1);
   right: clamp(12.8625 * 1rem, 18.375 * 1rem * var(--rem-scale), 23.8875 * 1rem);
   width: clamp(11.85625 * 1rem, 16.9375 * 1rem * var(--rem-scale), 22.01875 * 1rem);
-  height: clamp(8.18125 * 1rem, 11.6875 * 1rem * var(--rem-scale), 15.19375 * 1rem);
+  aspect-ratio: 271/187;
 }
 
 .about-env__photos--c .about-env__photo--3 {
   top: clamp(5.38125 * 1rem, 7.6875 * 1rem * var(--rem-scale), 9.99375 * 1rem);
   right: clamp(18.76875 * 1rem, 26.8125 * 1rem * var(--rem-scale), 34.85625 * 1rem);
   width: clamp(7.7 * 1rem, 11 * 1rem * var(--rem-scale), 14.3 * 1rem);
-  height: clamp(9.8875 * 1rem, 14.125 * 1rem * var(--rem-scale), 18.3625 * 1rem);
+  aspect-ratio: 176/226;
 }
 
 /* --- 治療体制／カウンセリング ------------------------------------------------ */
@@ -3216,7 +3216,7 @@ select::-ms-expand {
 
 .about-care__measure-img {
   width: 100%;
-  height: clamp(9.40625 * 1rem, 13.4375 * 1rem * var(--rem-scale), 17.46875 * 1rem);
+  aspect-ratio: 335/215;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -3313,7 +3313,7 @@ select::-ms-expand {
 
 .about-other__img {
   width: 100%;
-  height: clamp(11.41875 * 1rem, 16.3125 * 1rem * var(--rem-scale), 21.20625 * 1rem);
+  aspect-ratio: 330/261;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -3502,7 +3502,7 @@ select::-ms-expand {
 .whitening-recommend__photo {
   flex-shrink: 0;
   width: clamp(12.46875 * 1rem, 17.8125 * 1rem * var(--rem-scale), 23.15625 * 1rem);
-  height: clamp(9.49375 * 1rem, 13.5625 * 1rem * var(--rem-scale), 17.63125 * 1rem);
+  aspect-ratio: 285/217;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -3675,7 +3675,7 @@ select::-ms-expand {
 .aesthetic-intro__photo {
   flex-shrink: 0;
   width: clamp(12.46875 * 1rem, 17.8125 * 1rem * var(--rem-scale), 23.15625 * 1rem);
-  height: clamp(9.49375 * 1rem, 13.5625 * 1rem * var(--rem-scale), 17.63125 * 1rem);
+  aspect-ratio: 285/217;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -3728,7 +3728,7 @@ select::-ms-expand {
 
 .aesthetic-material__img {
   width: 100%;
-  height: clamp(12.25 * 1rem, 17.5 * 1rem * var(--rem-scale), 22.75 * 1rem);
+  aspect-ratio: 352/280;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -3897,7 +3897,7 @@ select::-ms-expand {
 .preventive-checkup__chart-img {
   flex-shrink: 0;
   width: clamp(26.25 * 1rem, 37.5 * 1rem * var(--rem-scale), 48.75 * 1rem);
-  height: clamp(18.9 * 1rem, 27 * 1rem * var(--rem-scale), 35.1 * 1rem);
+  aspect-ratio: 600/432;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
 }
 
@@ -3928,7 +3928,7 @@ select::-ms-expand {
 
 .preventive-periodontal__img {
   width: 100%;
-  height: clamp(13.125 * 1rem, 18.75 * 1rem * var(--rem-scale), 24.375 * 1rem);
+  aspect-ratio: 240/300;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -3961,7 +3961,7 @@ select::-ms-expand {
 .preventive-feature__img {
   flex-shrink: 0;
   width: clamp(12.25 * 1rem, 17.5 * 1rem * var(--rem-scale), 22.75 * 1rem);
-  height: clamp(9.40625 * 1rem, 13.4375 * 1rem * var(--rem-scale), 17.46875 * 1rem);
+  aspect-ratio: 280/215;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4083,7 +4083,7 @@ select::-ms-expand {
   top: calc(clamp(1.00625 * 1rem, 1.4375 * 1rem * var(--rem-scale), 1.86875 * 1rem) * -1);
   right: clamp(3.395 * 1rem, 4.85 * 1rem * var(--rem-scale), 6.305 * 1rem);
   width: clamp(12.28530625 * 1rem, 17.5504375 * 1rem * var(--rem-scale), 22.81556875 * 1rem);
-  height: clamp(18.41875 * 1rem, 26.3125 * 1rem * var(--rem-scale), 34.20625 * 1rem);
+  aspect-ratio: 280.807/421;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -4271,7 +4271,7 @@ select::-ms-expand {
 .implant-intro__diagram {
   display: block;
   width: clamp(20.95625 * 1rem, 29.9375 * 1rem * var(--rem-scale), 38.91875 * 1rem);
-  height: clamp(20.95625 * 1rem, 29.9375 * 1rem * var(--rem-scale), 38.91875 * 1rem);
+  aspect-ratio: 479/479;
   margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
   -o-object-fit: cover;
      object-fit: cover;
@@ -4298,7 +4298,7 @@ select::-ms-expand {
   display: block;
   margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
   width: clamp(29.05 * 1rem, 41.5 * 1rem * var(--rem-scale), 53.95 * 1rem);
-  height: clamp(18.15625 * 1rem, 25.9375 * 1rem * var(--rem-scale), 33.71875 * 1rem);
+  aspect-ratio: 664/415;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4344,7 +4344,7 @@ select::-ms-expand {
 .implant-photo-row__img {
   display: block;
   width: 100%;
-  height: clamp(11.41875 * 1rem, 16.3125 * 1rem * var(--rem-scale), 21.20625 * 1rem);
+  aspect-ratio: 330/261;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4396,7 +4396,7 @@ select::-ms-expand {
 .implant-compare__img {
   flex-shrink: 0;
   width: clamp(15.4 * 1rem, 22 * 1rem * var(--rem-scale), 28.6 * 1rem);
-  height: clamp(12.25 * 1rem, 17.5 * 1rem * var(--rem-scale), 22.75 * 1rem);
+  aspect-ratio: 352/280;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4565,7 +4565,7 @@ select::-ms-expand {
 .perio-reason__img {
   width: 100%;
   max-width: clamp(33.20625 * 1rem, 47.4375 * 1rem * var(--rem-scale), 61.66875 * 1rem);
-  height: clamp(12.425 * 1rem, 17.75 * 1rem * var(--rem-scale), 23.075 * 1rem);
+  aspect-ratio: 759/284;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4601,7 +4601,7 @@ select::-ms-expand {
 
 .perio-exam__img {
   width: 100%;
-  height: clamp(13.125 * 1rem, 18.75 * 1rem * var(--rem-scale), 24.375 * 1rem);
+  aspect-ratio: 240/300;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4651,7 +4651,7 @@ select::-ms-expand {
 
 .perio-symptom__img {
   width: clamp(7.9625 * 1rem, 11.375 * 1rem * var(--rem-scale), 14.7875 * 1rem);
-  height: clamp(10.0625 * 1rem, 14.375 * 1rem * var(--rem-scale), 18.6875 * 1rem);
+  aspect-ratio: 182/230;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4785,7 +4785,7 @@ select::-ms-expand {
 .pedprev-row__photo {
   flex-shrink: 0;
   width: clamp(10.0625 * 1rem, 14.375 * 1rem * var(--rem-scale), 18.6875 * 1rem);
-  height: clamp(9.40625 * 1rem, 13.4375 * 1rem * var(--rem-scale), 17.46875 * 1rem);
+  aspect-ratio: 230/215;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -4860,7 +4860,7 @@ select::-ms-expand {
 .pedprev-flow__photo {
   display: block;
   width: clamp(10.675 * 1rem, 15.25 * 1rem * var(--rem-scale), 19.825 * 1rem);
-  height: clamp(10.675 * 1rem, 15.25 * 1rem * var(--rem-scale), 19.825 * 1rem);
+  aspect-ratio: 244/244;
   margin-top: clamp(0.48125 * 1rem, 0.6875 * 1rem * var(--rem-scale), 0.89375 * 1rem);
   -o-object-fit: cover;
      object-fit: cover;
@@ -4945,7 +4945,7 @@ select::-ms-expand {
 
 .sealant-compare__img {
   width: 100%;
-  height: clamp(13.86875 * 1rem, 19.8125 * 1rem * var(--rem-scale), 25.75625 * 1rem);
+  aspect-ratio: 410/317;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(1.26875 * 1rem, 1.8125 * 1rem * var(--rem-scale), 2.35625 * 1rem);
@@ -4987,7 +4987,7 @@ select::-ms-expand {
 .sealant-photo__img {
   flex-shrink: 0;
   width: clamp(12.25 * 1rem, 17.5 * 1rem * var(--rem-scale), 22.75 * 1rem);
-  height: clamp(9.40625 * 1rem, 13.4375 * 1rem * var(--rem-scale), 17.46875 * 1rem);
+  aspect-ratio: 280/215;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -5054,7 +5054,7 @@ select::-ms-expand {
 .spacer-actual__img {
   flex-shrink: 0;
   width: clamp(12.25 * 1rem, 17.5 * 1rem * var(--rem-scale), 22.75 * 1rem);
-  height: clamp(9.40625 * 1rem, 13.4375 * 1rem * var(--rem-scale), 17.46875 * 1rem);
+  aspect-ratio: 280/215;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -5097,14 +5097,14 @@ select::-ms-expand {
 
 .spacer-flow__img {
   width: 100%;
-  height: clamp(11.06175 * 1rem, 15.8025 * 1rem * var(--rem-scale), 20.54325 * 1rem);
+  aspect-ratio: 310/252.84;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(1.225 * 1rem, 1.75 * 1rem * var(--rem-scale), 2.275 * 1rem);
 }
 
 .spacer-flow__figure--lg .spacer-flow__img {
-  height: clamp(13.86875 * 1rem, 19.8125 * 1rem * var(--rem-scale), 25.75625 * 1rem);
+  aspect-ratio: 410/317;
   border-radius: clamp(1.26875 * 1rem, 1.8125 * 1rem * var(--rem-scale), 2.35625 * 1rem);
 }
 
@@ -5324,7 +5324,6 @@ select::-ms-expand {
 
 .hours__label {
   margin-inline: auto;
-  margin-left: calc(50% - clamp(17.0625 * 1rem, 24.375 * 1rem * var(--rem-scale), 31.6875 * 1rem));
 }
 
 .access-hours .hours__label {
@@ -5411,7 +5410,7 @@ select::-ms-expand {
 .access-info__photo {
   flex-shrink: 0;
   width: clamp(22.575 * 1rem, 32.25 * 1rem * var(--rem-scale), 41.925 * 1rem);
-  height: clamp(14.175 * 1rem, 20.25 * 1rem * var(--rem-scale), 26.325 * 1rem);
+  aspect-ratio: 516/324;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
@@ -5713,7 +5712,7 @@ select::-ms-expand {
 .pedortho-jaw__photo {
   display: block;
   width: 100%;
-  height: clamp(13.86875 * 1rem, 19.8125 * 1rem * var(--rem-scale), 25.75625 * 1rem);
+  aspect-ratio: 410/317;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -5796,7 +5795,7 @@ select::-ms-expand {
 .pedortho-device__photo {
   display: block;
   width: clamp(17.9375 * 1rem, 25.625 * 1rem * var(--rem-scale), 33.3125 * 1rem);
-  height: clamp(13.86875 * 1rem, 19.8125 * 1rem * var(--rem-scale), 25.75625 * 1rem);
+  aspect-ratio: 410/317;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -5839,14 +5838,14 @@ select::-ms-expand {
   min-width: 0;
   flex: 1;
   width: 100%;
-  height: clamp(8.75 * 1rem, 12.5 * 1rem * var(--rem-scale), 16.25 * 1rem);
+  aspect-ratio: 490/200;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
 }
 
 .pedortho-case__photo--lg {
-  height: clamp(11.1125 * 1rem, 15.875 * 1rem * var(--rem-scale), 20.6375 * 1rem);
+  aspect-ratio: 490/254;
 }
 
 .pedortho-case__arrow {
@@ -5907,7 +5906,7 @@ select::-ms-expand {
 .staff-doctor__photo {
   flex-shrink: 0;
   width: clamp(16.3625 * 1rem, 23.375 * 1rem * var(--rem-scale), 30.3875 * 1rem);
-  height: clamp(19.90625 * 1rem, 28.4375 * 1rem * var(--rem-scale), 36.96875 * 1rem);
+  aspect-ratio: 374/455;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -6091,7 +6090,7 @@ select::-ms-expand {
 
 .staff-team__photo {
   width: 100%;
-  height: clamp(11.41875 * 1rem, 16.3125 * 1rem * var(--rem-scale), 21.20625 * 1rem);
+  aspect-ratio: 330/261;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -6121,7 +6120,7 @@ select::-ms-expand {
 .staff-team__group-img {
   display: block;
   width: 100%;
-  height: clamp(29.79375 * 1rem, 42.5625 * 1rem * var(--rem-scale), 55.33125 * 1rem);
+  aspect-ratio: 1600/681;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -6237,7 +6236,7 @@ select::-ms-expand {
   top: calc(clamp(0.13125 * 1rem, 0.1875 * 1rem * var(--rem-scale), 0.24375 * 1rem) * -1);
   right: 0;
   width: clamp(10.0625 * 1rem, 14.375 * 1rem * var(--rem-scale), 18.6875 * 1rem);
-  height: clamp(15.09375 * 1rem, 21.5625 * 1rem * var(--rem-scale), 28.03125 * 1rem);
+  aspect-ratio: 230/345;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -6295,7 +6294,7 @@ select::-ms-expand {
   top: clamp(14.875 * 1rem, 21.25 * 1rem * var(--rem-scale), 27.625 * 1rem);
   left: clamp(31.71875 * 1rem, 45.3125 * 1rem * var(--rem-scale), 58.90625 * 1rem);
   width: clamp(8.00625 * 1rem, 11.4375 * 1rem * var(--rem-scale), 14.86875 * 1rem);
-  height: clamp(8.00625 * 1rem, 11.4375 * 1rem * var(--rem-scale), 14.86875 * 1rem);
+  aspect-ratio: 183/183;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -6485,7 +6484,7 @@ select::-ms-expand {
   top: clamp(0.13125 * 1rem, 0.1875 * 1rem * var(--rem-scale), 0.24375 * 1rem);
   left: clamp(1.44375 * 1rem, 2.0625 * 1rem * var(--rem-scale), 2.68125 * 1rem);
   width: clamp(6.65 * 1rem, 9.5 * 1rem * var(--rem-scale), 12.35 * 1rem);
-  height: clamp(7.48125 * 1rem, 10.6875 * 1rem * var(--rem-scale), 13.89375 * 1rem);
+  aspect-ratio: 152/171;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -6558,7 +6557,7 @@ select::-ms-expand {
 .pediatric-fun__photo {
   flex-shrink: 0;
   width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-  height: clamp(13.69375 * 1rem, 19.5625 * 1rem * var(--rem-scale), 25.43125 * 1rem);
+  aspect-ratio: 270/313;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -6623,7 +6622,7 @@ select::-ms-expand {
 
 .pediatric-mom__photo {
   width: 100%;
-  height: clamp(11.41875 * 1rem, 16.3125 * 1rem * var(--rem-scale), 21.20625 * 1rem);
+  aspect-ratio: 330/261;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -7004,7 +7003,7 @@ select::-ms-expand {
 .clinic-room__photo {
   flex-shrink: 0;
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
-  height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
+  aspect-ratio: 591/411;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -7012,18 +7011,18 @@ select::-ms-expand {
 
 .clinic-room__photo--tall {
   width: clamp(25.8125 * 1rem, 36.875 * 1rem * var(--rem-scale), 47.9375 * 1rem);
-  height: clamp(27.825 * 1rem, 39.75 * 1rem * var(--rem-scale), 51.675 * 1rem);
+  aspect-ratio: 590/636;
 }
 
 .clinic-room__photo--square {
   width: clamp(14.7 * 1rem, 21 * 1rem * var(--rem-scale), 27.3 * 1rem);
-  height: clamp(12.8625 * 1rem, 18.375 * 1rem * var(--rem-scale), 23.8875 * 1rem);
+  aspect-ratio: 336/294;
 }
 
 .clinic-room__sub-photo {
   display: block;
   width: clamp(9.625 * 1rem, 13.75 * 1rem * var(--rem-scale), 17.875 * 1rem);
-  height: clamp(7.525 * 1rem, 10.75 * 1rem * var(--rem-scale), 13.975 * 1rem);
+  aspect-ratio: 220/172;
   margin-top: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
   -o-object-fit: cover;
      object-fit: cover;
@@ -7032,13 +7031,13 @@ select::-ms-expand {
 
 .clinic-room__sub-photo--lg {
   width: clamp(14.65625 * 1rem, 20.9375 * 1rem * var(--rem-scale), 27.21875 * 1rem);
-  height: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
+  aspect-ratio: 335/240;
 }
 
 .clinic-room__sub-photo-group {
   position: relative;
   width: clamp(19.29375 * 1rem, 27.5625 * 1rem * var(--rem-scale), 35.83125 * 1rem);
-  height: clamp(19.46875 * 1rem, 27.8125 * 1rem * var(--rem-scale), 36.15625 * 1rem);
+  aspect-ratio: 441/445;
   margin-top: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
 }
 
@@ -7055,14 +7054,14 @@ select::-ms-expand {
   top: 0;
   left: clamp(6.3 * 1rem, 9 * 1rem * var(--rem-scale), 11.7 * 1rem);
   width: clamp(12.99375 * 1rem, 18.5625 * 1rem * var(--rem-scale), 24.13125 * 1rem);
-  height: clamp(9.1875 * 1rem, 13.125 * 1rem * var(--rem-scale), 17.0625 * 1rem);
+  aspect-ratio: 297/210;
 }
 
 .clinic-room__sub-photo--b {
   top: clamp(11.06875 * 1rem, 15.8125 * 1rem * var(--rem-scale), 20.55625 * 1rem);
   left: clamp(0.83125 * 1rem, 1.1875 * 1rem * var(--rem-scale), 1.54375 * 1rem);
   width: clamp(11.725 * 1rem, 16.75 * 1rem * var(--rem-scale), 21.775 * 1rem);
-  height: clamp(8.4 * 1rem, 12 * 1rem * var(--rem-scale), 15.6 * 1rem);
+  aspect-ratio: 268/192;
 }
 
 /* --- room__cluster（写真2〜3枚の重ね配置） ------------------------------------------------ */
@@ -7088,14 +7087,14 @@ select::-ms-expand {
   top: clamp(4.15625 * 1rem, 5.9375 * 1rem * var(--rem-scale), 7.71875 * 1rem);
   left: clamp(3.28125 * 1rem, 4.6875 * 1rem * var(--rem-scale), 6.09375 * 1rem);
   width: clamp(7.4375 * 1rem, 10.625 * 1rem * var(--rem-scale), 13.8125 * 1rem);
-  height: clamp(10.71875 * 1rem, 15.3125 * 1rem * var(--rem-scale), 19.90625 * 1rem);
+  aspect-ratio: 170/245;
 }
 
 .clinic-room__cluster--wash .clinic-room__cluster-photo--2 {
   top: 0;
   left: clamp(11.6375 * 1rem, 16.625 * 1rem * var(--rem-scale), 21.6125 * 1rem);
   width: clamp(14.21875 * 1rem, 20.3125 * 1rem * var(--rem-scale), 26.40625 * 1rem);
-  height: clamp(10.28125 * 1rem, 14.6875 * 1rem * var(--rem-scale), 19.09375 * 1rem);
+  aspect-ratio: 325/235;
 }
 
 .clinic-room__cluster--wash {
@@ -7113,21 +7112,21 @@ select::-ms-expand {
   top: 0;
   right: 0;
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
-  height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
+  aspect-ratio: 591/411;
 }
 
 .clinic-room__cluster--treat .clinic-room__cluster-photo--2 {
   bottom: 0;
   left: 0;
   width: clamp(10.0625 * 1rem, 14.375 * 1rem * var(--rem-scale), 18.6875 * 1rem);
-  height: clamp(7.4375 * 1rem, 10.625 * 1rem * var(--rem-scale), 13.8125 * 1rem);
+  aspect-ratio: 230/170;
 }
 
 .clinic-room__cluster--treat .clinic-room__cluster-photo--3 {
   right: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
   bottom: 0;
   width: clamp(9.1875 * 1rem, 13.125 * 1rem * var(--rem-scale), 17.0625 * 1rem);
-  height: clamp(6.5625 * 1rem, 9.375 * 1rem * var(--rem-scale), 12.1875 * 1rem);
+  aspect-ratio: 210/150;
 }
 
 /* バリアフリー（大きい外観写真＋車イスの小写真） */
@@ -7141,14 +7140,14 @@ select::-ms-expand {
   top: 0;
   right: 0;
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
-  height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
+  aspect-ratio: 591/411;
 }
 
 .clinic-room__cluster--barrier .clinic-room__cluster-photo--2 {
   bottom: 0;
   left: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
   width: clamp(9.66875 * 1rem, 13.8125 * 1rem * var(--rem-scale), 17.95625 * 1rem);
-  height: clamp(7 * 1rem, 10 * 1rem * var(--rem-scale), 13 * 1rem);
+  aspect-ratio: 221/160;
 }
 
 /* --- 治療ユニットの写真クラスター（4枚重ね＋装飾） ------------------------------------------------ */
@@ -7189,28 +7188,28 @@ select::-ms-expand {
   top: clamp(12.95 * 1rem, 18.5 * 1rem * var(--rem-scale), 24.05 * 1rem);
   left: clamp(15.00625 * 1rem, 21.4375 * 1rem * var(--rem-scale), 27.86875 * 1rem);
   width: clamp(14.65625 * 1rem, 20.9375 * 1rem * var(--rem-scale), 27.21875 * 1rem);
-  height: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
+  aspect-ratio: 335/240;
 }
 
 .clinic-unit-cluster__photo--2 {
   top: clamp(15.225 * 1rem, 21.75 * 1rem * var(--rem-scale), 28.275 * 1rem);
   left: clamp(33.5125 * 1rem, 47.875 * 1rem * var(--rem-scale), 62.2375 * 1rem);
   width: clamp(14.65625 * 1rem, 20.9375 * 1rem * var(--rem-scale), 27.21875 * 1rem);
-  height: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
+  aspect-ratio: 335/240;
 }
 
 .clinic-unit-cluster__photo--3 {
   top: clamp(27.7375 * 1rem, 39.625 * 1rem * var(--rem-scale), 51.5125 * 1rem);
   left: clamp(15.00625 * 1rem, 21.4375 * 1rem * var(--rem-scale), 27.86875 * 1rem);
   width: clamp(14.65625 * 1rem, 20.9375 * 1rem * var(--rem-scale), 27.21875 * 1rem);
-  height: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
+  aspect-ratio: 335/240;
 }
 
 .clinic-unit-cluster__photo--4 {
   top: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
   left: clamp(33.5125 * 1rem, 47.875 * 1rem * var(--rem-scale), 62.2375 * 1rem);
   width: clamp(14.65625 * 1rem, 20.9375 * 1rem * var(--rem-scale), 27.21875 * 1rem);
-  height: clamp(10.5 * 1rem, 15 * 1rem * var(--rem-scale), 19.5 * 1rem);
+  aspect-ratio: 335/240;
 }
 
 /* --- アメニティ一覧（授乳室／子ども用トイレ／オムツ替え／ガチャガチャ） ------------------------------------------------ */
@@ -7232,7 +7231,7 @@ select::-ms-expand {
 .clinic-amenity__photo {
   flex-shrink: 0;
   width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-  height: clamp(9.58125 * 1rem, 13.6875 * 1rem * var(--rem-scale), 17.79375 * 1rem);
+  aspect-ratio: 270/219;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -7274,7 +7273,7 @@ select::-ms-expand {
 .clinic-equip-pair__photo {
   flex-shrink: 0;
   width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-  height: clamp(9.58125 * 1rem, 13.6875 * 1rem * var(--rem-scale), 17.79375 * 1rem);
+  aspect-ratio: 270/219;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -7347,7 +7346,7 @@ select::-ms-expand {
 .clinic-equip-list__photo {
   flex-shrink: 0;
   width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-  height: clamp(9.58125 * 1rem, 13.6875 * 1rem * var(--rem-scale), 17.79375 * 1rem);
+  aspect-ratio: 270/219;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -7440,7 +7439,7 @@ select::-ms-expand {
 .recruit-join__photo {
   flex-shrink: 0;
   width: clamp(24.0625 * 1rem, 34.375 * 1rem * var(--rem-scale), 44.6875 * 1rem);
-  height: clamp(16.84375 * 1rem, 24.0625 * 1rem * var(--rem-scale), 31.28125 * 1rem);
+  aspect-ratio: 550/385;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -7581,7 +7580,7 @@ select::-ms-expand {
 .recruit-charm__photo {
   flex-shrink: 0;
   width: clamp(23.1875 * 1rem, 33.125 * 1rem * var(--rem-scale), 43.0625 * 1rem);
-  height: clamp(16.45 * 1rem, 23.5 * 1rem * var(--rem-scale), 30.55 * 1rem);
+  aspect-ratio: 530/376;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
@@ -8088,6 +8087,12 @@ select::-ms-expand {
 
 .price-check-list__item--plain {
   font-weight: 400;
+}
+
+@media screen and (min-width: 820px) {
+  .hours__label {
+    margin-left: calc(50% - clamp(17.0625 * 1rem, 24.375 * 1rem * var(--rem-scale), 31.6875 * 1rem));
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -8668,7 +8673,6 @@ select::-ms-expand {
   }
 
   .top-about__photo {
-    height: clamp(7.83125 * 1rem, 11.1875 * 1rem * var(--rem-scale), 14.54375 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -8681,7 +8685,6 @@ select::-ms-expand {
 
   .top-about__block--pair .top-about__photo {
     width: clamp(5.25 * 1rem, 7.5 * 1rem * var(--rem-scale), 9.75 * 1rem);
-    height: clamp(7.875 * 1rem, 11.25 * 1rem * var(--rem-scale), 14.625 * 1rem);
   }
 
   .top-about__block--pair .pic:last-child .top-about__photo {
@@ -8821,7 +8824,7 @@ select::-ms-expand {
 
   .top-clinic__photo {
     width: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
-    height: clamp(7.9625 * 1rem, 11.375 * 1rem * var(--rem-scale), 14.7875 * 1rem);
+    aspect-ratio: 100/182;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -8863,7 +8866,7 @@ select::-ms-expand {
 
   .top-staff__photo {
     width: clamp(10.7625 * 1rem, 15.375 * 1rem * var(--rem-scale), 19.9875 * 1rem);
-    height: clamp(13.08125 * 1rem, 18.6875 * 1rem * var(--rem-scale), 24.29375 * 1rem);
+    aspect-ratio: 246/299;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -8899,7 +8902,7 @@ select::-ms-expand {
   }
 
   .top-staff__group-img {
-    height: clamp(24.19375 * 1rem, 34.5625 * 1rem * var(--rem-scale), 44.93125 * 1rem);
+    aspect-ratio: 375/553;
   }
 
   .top-staff__btns {
@@ -9034,7 +9037,7 @@ select::-ms-expand {
 
   .about-row__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(10.98125 * 1rem, 15.6875 * 1rem * var(--rem-scale), 20.39375 * 1rem);
+    aspect-ratio: 252/251;
     margin-inline: clamp(1.18125 * 1rem, 1.6875 * 1rem * var(--rem-scale), 2.19375 * 1rem) auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -9127,10 +9130,6 @@ select::-ms-expand {
     margin-inline: 0;
   }
 
-  .about-spec__doctor-img {
-    height: clamp(7.13125 * 1rem, 10.1875 * 1rem * var(--rem-scale), 13.24375 * 1rem);
-  }
-
   .about-spec__balloon {
     top: clamp(1.4875 * 1rem, 2.125 * 1rem * var(--rem-scale), 2.7625 * 1rem);
     left: clamp(3.28125 * 1rem, 4.6875 * 1rem * var(--rem-scale), 6.09375 * 1rem);
@@ -9194,7 +9193,7 @@ select::-ms-expand {
 
   .about-team__photo {
     width: clamp(5.25 * 1rem, 7.5 * 1rem * var(--rem-scale), 9.75 * 1rem);
-    height: clamp(7.175 * 1rem, 10.25 * 1rem * var(--rem-scale), 13.325 * 1rem);
+    aspect-ratio: 120/164;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9276,7 +9275,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(5.38125 * 1rem, 7.6875 * 1rem * var(--rem-scale), 9.99375 * 1rem);
     width: clamp(5.46875 * 1rem, 7.8125 * 1rem * var(--rem-scale), 10.15625 * 1rem);
-    height: clamp(6.125 * 1rem, 8.75 * 1rem * var(--rem-scale), 11.375 * 1rem);
+    aspect-ratio: 125/140;
   }
 
   .about-env__photos--a .about-env__photo--2 {
@@ -9284,7 +9283,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
     width: clamp(4.94375 * 1rem, 7.0625 * 1rem * var(--rem-scale), 9.18125 * 1rem);
-    height: clamp(5.38125 * 1rem, 7.6875 * 1rem * var(--rem-scale), 9.99375 * 1rem);
+    aspect-ratio: 113/123;
   }
 
   .about-env__photos--a .about-env__photo--3 {
@@ -9292,7 +9291,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(6.25625 * 1rem, 8.9375 * 1rem * var(--rem-scale), 11.61875 * 1rem);
     width: clamp(4.76875 * 1rem, 6.8125 * 1rem * var(--rem-scale), 8.85625 * 1rem);
-    height: clamp(3.10625 * 1rem, 4.4375 * 1rem * var(--rem-scale), 5.76875 * 1rem);
+    aspect-ratio: 109/71;
   }
 
   .about-env__photos--b .about-env__photo--1 {
@@ -9300,7 +9299,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
     width: clamp(7.83125 * 1rem, 11.1875 * 1rem * var(--rem-scale), 14.54375 * 1rem);
-    height: clamp(5.6875 * 1rem, 8.125 * 1rem * var(--rem-scale), 10.5625 * 1rem);
+    aspect-ratio: 179/130;
   }
 
   .about-env__photos--b .about-env__photo--2 {
@@ -9308,7 +9307,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(6.65 * 1rem, 9.5 * 1rem * var(--rem-scale), 12.35 * 1rem);
     width: clamp(4.375 * 1rem, 6.25 * 1rem * var(--rem-scale), 8.125 * 1rem);
-    height: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+    aspect-ratio: 100/70;
   }
 
   .about-env__photos--b .about-env__photo--3 {
@@ -9316,7 +9315,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
     width: clamp(4.94375 * 1rem, 7.0625 * 1rem * var(--rem-scale), 9.18125 * 1rem);
-    height: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+    aspect-ratio: 113/70;
   }
 
   .about-env__photos--c .about-env__photo--1 {
@@ -9324,7 +9323,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem);
     width: clamp(7.13125 * 1rem, 10.1875 * 1rem * var(--rem-scale), 13.24375 * 1rem);
-    height: clamp(5.20625 * 1rem, 7.4375 * 1rem * var(--rem-scale), 9.66875 * 1rem);
+    aspect-ratio: 163/119;
   }
 
   .about-env__photos--c .about-env__photo--2 {
@@ -9332,7 +9331,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(0.74375 * 1rem, 1.0625 * 1rem * var(--rem-scale), 1.38125 * 1rem);
     width: clamp(4.94375 * 1rem, 7.0625 * 1rem * var(--rem-scale), 9.18125 * 1rem);
-    height: clamp(3.4125 * 1rem, 4.875 * 1rem * var(--rem-scale), 6.3375 * 1rem);
+    aspect-ratio: 113/78;
   }
 
   .about-env__photos--c .about-env__photo--3 {
@@ -9340,7 +9339,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
     width: clamp(3.19375 * 1rem, 4.5625 * 1rem * var(--rem-scale), 5.93125 * 1rem);
-    height: clamp(4.1125 * 1rem, 5.875 * 1rem * var(--rem-scale), 7.6375 * 1rem);
+    aspect-ratio: 73/94;
   }
 
   .about-care {
@@ -9446,7 +9445,6 @@ select::-ms-expand {
   }
 
   .about-care__measure-img {
-    height: clamp(9.7125 * 1rem, 13.875 * 1rem * var(--rem-scale), 18.0375 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9502,7 +9500,6 @@ select::-ms-expand {
   }
 
   .about-other__img {
-    height: clamp(11.94375 * 1rem, 17.0625 * 1rem * var(--rem-scale), 22.18125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9586,7 +9583,7 @@ select::-ms-expand {
 
   .whitening-recommend__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.4 * 1rem, 12 * 1rem * var(--rem-scale), 15.6 * 1rem);
+    aspect-ratio: 252/192;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9656,7 +9653,7 @@ select::-ms-expand {
 
   .aesthetic-intro__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.4 * 1rem, 12 * 1rem * var(--rem-scale), 15.6 * 1rem);
+    aspect-ratio: 252/192;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9691,7 +9688,6 @@ select::-ms-expand {
   .aesthetic-material__img {
     align-self: center;
     margin-inline: auto;
-    height: clamp(8.75 * 1rem, 12.5 * 1rem * var(--rem-scale), 16.25 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9776,7 +9772,6 @@ select::-ms-expand {
 
   .preventive-checkup__chart-img {
     width: clamp(15.09375 * 1rem, 21.5625 * 1rem * var(--rem-scale), 28.03125 * 1rem);
-    height: clamp(10.85 * 1rem, 15.5 * 1rem * var(--rem-scale), 20.15 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9796,7 +9791,6 @@ select::-ms-expand {
   }
 
   .preventive-periodontal__img {
-    height: clamp(9.84375 * 1rem, 14.0625 * 1rem * var(--rem-scale), 18.28125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -9820,7 +9814,7 @@ select::-ms-expand {
 
   .preventive-feature__img {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.4875 * 1rem, 12.125 * 1rem * var(--rem-scale), 15.7625 * 1rem);
+    aspect-ratio: 252/194;
     margin-inline: auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -9890,7 +9884,7 @@ select::-ms-expand {
     top: clamp(9.639 * 1rem, 13.77 * 1rem * var(--rem-scale), 17.901 * 1rem);
     right: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     width: clamp(5.6875 * 1rem, 8.125 * 1rem * var(--rem-scale), 10.5625 * 1rem);
-    height: clamp(8.526875 * 1rem, 12.18125 * 1rem * var(--rem-scale), 15.835625 * 1rem);
+    aspect-ratio: 130/194.9;
   }
 
   .general-intro__lead {
@@ -9974,7 +9968,7 @@ select::-ms-expand {
 
   .implant-intro__diagram {
     width: clamp(15.09375 * 1rem, 21.5625 * 1rem * var(--rem-scale), 28.03125 * 1rem);
-    height: clamp(15.09375 * 1rem, 21.5625 * 1rem * var(--rem-scale), 28.03125 * 1rem);
+    aspect-ratio: 345/345;
     margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -9994,7 +9988,6 @@ select::-ms-expand {
   .implant-ct__img {
     margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
     width: 100%;
-    height: clamp(9.45 * 1rem, 13.5 * 1rem * var(--rem-scale), 17.55 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10026,7 +10019,6 @@ select::-ms-expand {
   }
 
   .implant-photo-row__img {
-    height: clamp(8.70625 * 1rem, 12.4375 * 1rem * var(--rem-scale), 16.16875 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10062,7 +10054,7 @@ select::-ms-expand {
   .implant-compare__img {
     margin-inline: auto;
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.75 * 1rem, 12.5 * 1rem * var(--rem-scale), 16.25 * 1rem);
+    aspect-ratio: 252/200;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10132,7 +10124,6 @@ select::-ms-expand {
 
   .perio-reason__img {
     max-width: 100%;
-    height: clamp(5.64375 * 1rem, 8.0625 * 1rem * var(--rem-scale), 10.48125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10156,7 +10147,6 @@ select::-ms-expand {
   }
 
   .perio-exam__img {
-    height: clamp(9.84375 * 1rem, 14.0625 * 1rem * var(--rem-scale), 18.28125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10237,7 +10227,7 @@ select::-ms-expand {
 
   .pedprev-row__photo--wide {
     width: clamp(10.0625 * 1rem, 14.375 * 1rem * var(--rem-scale), 18.6875 * 1rem);
-    height: clamp(7.7 * 1rem, 11 * 1rem * var(--rem-scale), 14.3 * 1rem);
+    aspect-ratio: 230/176;
   }
 
   .pedprev-flow {
@@ -10272,7 +10262,7 @@ select::-ms-expand {
 
   .pedprev-flow__photo {
     width: clamp(10.36875 * 1rem, 14.8125 * 1rem * var(--rem-scale), 19.25625 * 1rem);
-    height: clamp(10.36875 * 1rem, 14.8125 * 1rem * var(--rem-scale), 19.25625 * 1rem);
+    aspect-ratio: 237/237;
     margin-top: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10323,7 +10313,7 @@ select::-ms-expand {
 
   .sealant-compare__img {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(10.15 * 1rem, 14.5 * 1rem * var(--rem-scale), 18.85 * 1rem);
+    aspect-ratio: 252/232;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10350,7 +10340,7 @@ select::-ms-expand {
 
   .sealant-photo__img {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.465625 * 1rem, 12.09375 * 1rem * var(--rem-scale), 15.721875 * 1rem);
+    aspect-ratio: 252/193.5;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10388,7 +10378,7 @@ select::-ms-expand {
 
   .spacer-actual__img {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.465625 * 1rem, 12.09375 * 1rem * var(--rem-scale), 15.721875 * 1rem);
+    aspect-ratio: 252/193.5;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10408,18 +10398,19 @@ select::-ms-expand {
   }
 
   .spacer-flow__figure--lg {
+    width: 100%;
     max-width: none;
   }
 
   .spacer-flow__img {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.992375 * 1rem, 12.84625 * 1rem * var(--rem-scale), 16.700125 * 1rem);
+    aspect-ratio: 252/205.54;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
   .spacer-flow__figure--lg .spacer-flow__img {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(10.1303125 * 1rem, 14.471875 * 1rem * var(--rem-scale), 18.8134375 * 1rem);
+    aspect-ratio: 252/231.55;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10673,7 +10664,6 @@ select::-ms-expand {
   }
 
   .pedortho-jaw__photo {
-    height: clamp(8.53125 * 1rem, 12.1875 * 1rem * var(--rem-scale), 15.84375 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10727,7 +10717,7 @@ select::-ms-expand {
 
   .pedortho-device__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.53125 * 1rem, 12.1875 * 1rem * var(--rem-scale), 15.84375 * 1rem);
+    aspect-ratio: 252/195;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10753,12 +10743,12 @@ select::-ms-expand {
   }
 
   .pedortho-case__photo {
-    height: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+    aspect-ratio: 155/70;
     border-radius: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
   }
 
   .pedortho-case__photo--lg {
-    height: clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem);
+    aspect-ratio: 155/89;
   }
 
   .pedortho-case__arrow {
@@ -10795,7 +10785,7 @@ select::-ms-expand {
 
   .staff-doctor__photo {
     width: clamp(10.7625 * 1rem, 15.375 * 1rem * var(--rem-scale), 19.9875 * 1rem);
-    height: clamp(13.08125 * 1rem, 18.6875 * 1rem * var(--rem-scale), 24.29375 * 1rem);
+    aspect-ratio: 246/299;
     margin-inline: clamp(0.83125 * 1rem, 1.1875 * 1rem * var(--rem-scale), 1.54375 * 1rem) auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -10877,7 +10867,6 @@ select::-ms-expand {
   }
 
   .staff-team__photo {
-    height: clamp(11.94375 * 1rem, 17.0625 * 1rem * var(--rem-scale), 22.18125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -10895,7 +10884,8 @@ select::-ms-expand {
 
   .staff-team__group-img {
     width: clamp(26.25 * 1rem, 37.5 * 1rem * var(--rem-scale), 48.75 * 1rem);
-    height: clamp(11.15625 * 1rem, 15.9375 * 1rem * var(--rem-scale), 20.71875 * 1rem);
+    max-width: none;
+    aspect-ratio: 600/255;
     margin-left: 50%;
     transform: translateX(-50%);
   }
@@ -10969,7 +10959,7 @@ select::-ms-expand {
     right: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     bottom: auto;
     width: clamp(5.6875 * 1rem, 8.125 * 1rem * var(--rem-scale), 10.5625 * 1rem);
-    height: clamp(8.53125 * 1rem, 12.1875 * 1rem * var(--rem-scale), 15.84375 * 1rem);
+    aspect-ratio: 130/195;
   }
 
   .pediatric-specialist {
@@ -11000,7 +10990,7 @@ select::-ms-expand {
     top: clamp(30.93125 * 1rem, 44.1875 * 1rem * var(--rem-scale), 57.44375 * 1rem);
     left: clamp(8.00625 * 1rem, 11.4375 * 1rem * var(--rem-scale), 14.86875 * 1rem);
     width: clamp(4.9875 * 1rem, 7.125 * 1rem * var(--rem-scale), 9.2625 * 1rem);
-    height: clamp(4.9875 * 1rem, 7.125 * 1rem * var(--rem-scale), 9.2625 * 1rem);
+    aspect-ratio: 114/114;
   }
 
   .pediatric-specialist__balloon {
@@ -11107,7 +11097,7 @@ select::-ms-expand {
     top: calc(clamp(4.9875 * 1rem, 7.125 * 1rem * var(--rem-scale), 9.2625 * 1rem) * -1);
     left: 50%;
     width: clamp(4.8125 * 1rem, 6.875 * 1rem * var(--rem-scale), 8.9375 * 1rem);
-    height: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
+    aspect-ratio: 110/124;
     transform: translateX(-50%);
   }
 
@@ -11148,7 +11138,7 @@ select::-ms-expand {
 
   .pediatric-fun__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(12.775 * 1rem, 18.25 * 1rem * var(--rem-scale), 23.725 * 1rem);
+    aspect-ratio: 252/292;
     margin-inline: auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -11185,7 +11175,6 @@ select::-ms-expand {
   }
 
   .pediatric-mom__photo {
-    height: clamp(11.94375 * 1rem, 17.0625 * 1rem * var(--rem-scale), 22.18125 * 1rem);
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
@@ -11369,32 +11358,32 @@ select::-ms-expand {
 
   .clinic-room__photo {
     width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-    height: clamp(8.225 * 1rem, 11.75 * 1rem * var(--rem-scale), 15.275 * 1rem);
+    aspect-ratio: 270/188;
     margin-left: auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
   .clinic-room__photo--tall {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(11.85625 * 1rem, 16.9375 * 1rem * var(--rem-scale), 22.01875 * 1rem);
+    aspect-ratio: 252/271;
     margin-left: 0;
   }
 
   .clinic-room__photo--square {
     width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-    height: clamp(10.4125 * 1rem, 14.875 * 1rem * var(--rem-scale), 19.3375 * 1rem);
+    aspect-ratio: 270/238;
   }
 
   .clinic-room__sub-photo {
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     width: clamp(7 * 1rem, 10 * 1rem * var(--rem-scale), 13 * 1rem);
-    height: clamp(5.46875 * 1rem, 7.8125 * 1rem * var(--rem-scale), 10.15625 * 1rem);
+    aspect-ratio: 160/125;
     margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
   }
 
   .clinic-room__sub-photo--lg {
     width: clamp(7.875 * 1rem, 11.25 * 1rem * var(--rem-scale), 14.625 * 1rem);
-    height: clamp(5.64375 * 1rem, 8.0625 * 1rem * var(--rem-scale), 10.48125 * 1rem);
+    aspect-ratio: 180/129;
   }
 
   .clinic-room__sub-photo-group {
@@ -11412,14 +11401,14 @@ select::-ms-expand {
     top: 0;
     left: clamp(7.175 * 1rem, 10.25 * 1rem * var(--rem-scale), 13.325 * 1rem);
     width: clamp(7.65625 * 1rem, 10.9375 * 1rem * var(--rem-scale), 14.21875 * 1rem);
-    height: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
+    aspect-ratio: 175/124;
   }
 
   .clinic-room__sub-photo--b {
     top: clamp(6.125 * 1rem, 8.75 * 1rem * var(--rem-scale), 11.375 * 1rem);
     left: clamp(4.41875 * 1rem, 6.3125 * 1rem * var(--rem-scale), 8.20625 * 1rem);
     width: clamp(6.9125 * 1rem, 9.875 * 1rem * var(--rem-scale), 12.8375 * 1rem);
-    height: clamp(4.94375 * 1rem, 7.0625 * 1rem * var(--rem-scale), 9.18125 * 1rem);
+    aspect-ratio: 158/113;
   }
 
   .clinic-room__cluster {
@@ -11435,14 +11424,14 @@ select::-ms-expand {
     top: clamp(2.84375 * 1rem, 4.0625 * 1rem * var(--rem-scale), 5.28125 * 1rem);
     left: clamp(4.76875 * 1rem, 6.8125 * 1rem * var(--rem-scale), 8.85625 * 1rem);
     width: clamp(3.01875 * 1rem, 4.3125 * 1rem * var(--rem-scale), 5.60625 * 1rem);
-    height: clamp(4.33125 * 1rem, 6.1875 * 1rem * var(--rem-scale), 8.04375 * 1rem);
+    aspect-ratio: 69/99;
   }
 
   .clinic-room__cluster--wash .clinic-room__cluster-photo--2 {
     top: 0;
     left: clamp(8.3125 * 1rem, 11.875 * 1rem * var(--rem-scale), 15.4375 * 1rem);
     width: clamp(6.25625 * 1rem, 8.9375 * 1rem * var(--rem-scale), 11.61875 * 1rem);
-    height: clamp(4.50625 * 1rem, 6.4375 * 1rem * var(--rem-scale), 8.36875 * 1rem);
+    aspect-ratio: 143/103;
   }
 
   .clinic-room__cluster--wash {
@@ -11459,7 +11448,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(2.05625 * 1rem, 2.9375 * 1rem * var(--rem-scale), 3.81875 * 1rem);
     width: clamp(13.0375 * 1rem, 18.625 * 1rem * var(--rem-scale), 24.2125 * 1rem);
-    height: clamp(9.05625 * 1rem, 12.9375 * 1rem * var(--rem-scale), 16.81875 * 1rem);
+    aspect-ratio: 298/207;
   }
 
   .clinic-room__cluster--treat .clinic-room__cluster-photo--2 {
@@ -11467,7 +11456,7 @@ select::-ms-expand {
     bottom: auto;
     left: 0;
     width: clamp(5.55625 * 1rem, 7.9375 * 1rem * var(--rem-scale), 10.31875 * 1rem);
-    height: clamp(6.9125 * 1rem, 9.875 * 1rem * var(--rem-scale), 12.8375 * 1rem);
+    aspect-ratio: 127/158;
   }
 
   .clinic-room__cluster--treat .clinic-room__cluster-photo--3 {
@@ -11476,7 +11465,7 @@ select::-ms-expand {
     right: auto;
     left: clamp(6.3875 * 1rem, 9.125 * 1rem * var(--rem-scale), 11.8625 * 1rem);
     width: clamp(6.25625 * 1rem, 8.9375 * 1rem * var(--rem-scale), 11.61875 * 1rem);
-    height: clamp(4.94375 * 1rem, 7.0625 * 1rem * var(--rem-scale), 9.18125 * 1rem);
+    aspect-ratio: 143/113;
   }
 
   .clinic-room__cluster--barrier {
@@ -11485,13 +11474,13 @@ select::-ms-expand {
 
   .clinic-room__cluster--barrier .clinic-room__cluster-photo--1 {
     width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-    height: clamp(8.225 * 1rem, 11.75 * 1rem * var(--rem-scale), 15.275 * 1rem);
+    aspect-ratio: 270/188;
   }
 
   .clinic-room__cluster--barrier .clinic-room__cluster-photo--2 {
     left: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
     width: clamp(7.04375 * 1rem, 10.0625 * 1rem * var(--rem-scale), 13.08125 * 1rem);
-    height: clamp(5.075 * 1rem, 7.25 * 1rem * var(--rem-scale), 9.425 * 1rem);
+    aspect-ratio: 161/116;
   }
 
   .clinic-unit-cluster {
@@ -11513,28 +11502,28 @@ select::-ms-expand {
     top: clamp(4.8125 * 1rem, 6.875 * 1rem * var(--rem-scale), 8.9375 * 1rem);
     left: clamp(3.45625 * 1rem, 4.9375 * 1rem * var(--rem-scale), 6.41875 * 1rem);
     width: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
-    height: clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem);
+    aspect-ratio: 124/89;
   }
 
   .clinic-unit-cluster__photo--2 {
     top: clamp(5.64375 * 1rem, 8.0625 * 1rem * var(--rem-scale), 10.48125 * 1rem);
     left: clamp(10.325 * 1rem, 14.75 * 1rem * var(--rem-scale), 19.175 * 1rem);
     width: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
-    height: clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem);
+    aspect-ratio: 124/89;
   }
 
   .clinic-unit-cluster__photo--3 {
     top: clamp(10.28125 * 1rem, 14.6875 * 1rem * var(--rem-scale), 19.09375 * 1rem);
     left: clamp(3.45625 * 1rem, 4.9375 * 1rem * var(--rem-scale), 6.41875 * 1rem);
     width: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
-    height: clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem);
+    aspect-ratio: 124/89;
   }
 
   .clinic-unit-cluster__photo--4 {
     top: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
     left: clamp(10.325 * 1rem, 14.75 * 1rem * var(--rem-scale), 19.175 * 1rem);
     width: clamp(5.425 * 1rem, 7.75 * 1rem * var(--rem-scale), 10.075 * 1rem);
-    height: clamp(3.89375 * 1rem, 5.5625 * 1rem * var(--rem-scale), 7.23125 * 1rem);
+    aspect-ratio: 124/89;
   }
 
   .clinic-amenity {
@@ -11545,7 +11534,7 @@ select::-ms-expand {
   .clinic-amenity__photo {
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     width: clamp(6.65 * 1rem, 9.5 * 1rem * var(--rem-scale), 12.35 * 1rem);
-    height: clamp(5.38125 * 1rem, 7.6875 * 1rem * var(--rem-scale), 9.99375 * 1rem);
+    aspect-ratio: 152/123;
   }
 
   .clinic-equip-pair {
@@ -11557,7 +11546,7 @@ select::-ms-expand {
   .clinic-equip-pair__photo {
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     width: clamp(6.65 * 1rem, 9.5 * 1rem * var(--rem-scale), 12.35 * 1rem);
-    height: clamp(5.38125 * 1rem, 7.6875 * 1rem * var(--rem-scale), 9.99375 * 1rem);
+    aspect-ratio: 152/123;
   }
 
   .clinic-equip-list {
@@ -11575,7 +11564,7 @@ select::-ms-expand {
   .clinic-equip-list__photo {
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(8.925 * 1rem, 12.75 * 1rem * var(--rem-scale), 16.575 * 1rem);
+    aspect-ratio: 252/204;
   }
 
   .clinic-reserve {
@@ -11616,7 +11605,7 @@ select::-ms-expand {
 
   .recruit-join__photo {
     width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
-    height: clamp(8.26875 * 1rem, 11.8125 * 1rem * var(--rem-scale), 15.35625 * 1rem);
+    aspect-ratio: 270/189;
     margin-inline: auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
@@ -11700,7 +11689,7 @@ select::-ms-expand {
 
   .recruit-charm__photo {
     width: clamp(11.025 * 1rem, 15.75 * 1rem * var(--rem-scale), 20.475 * 1rem);
-    height: clamp(7.83125 * 1rem, 11.1875 * 1rem * var(--rem-scale), 14.54375 * 1rem);
+    aspect-ratio: 252/179;
     margin-right: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
     margin-left: auto;
     border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);

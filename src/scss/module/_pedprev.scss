@@ -101,7 +101,7 @@
 .pedprev-row__photo {
   flex-shrink: 0;
   width: rem(230);
-  height: rem(215);
+  aspect-ratio: 230 / 215;
   object-fit: cover;
   border-radius: rem(20);
 
@@ -116,7 +116,7 @@
 
   @include mq("sp") {
     width: rem(230);
-    height: rem(176);
+    aspect-ratio: 230 / 176;
   }
 }
 
@@ -218,14 +218,14 @@
 .pedprev-flow__photo {
   display: block;
   width: rem(244);
-  height: rem(244);
+  aspect-ratio: 244 / 244;
   margin-top: rem(11);
   object-fit: cover;
   border-radius: 50%;
 
   @include mq("sp") {
     width: rem(237);
-    height: rem(237);
+    aspect-ratio: 237 / 237;
     margin-top: rem(10);
   }
 }

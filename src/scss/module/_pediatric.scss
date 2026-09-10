@@ -174,7 +174,7 @@
   top: calc(#{rem(3)} * -1);
   right: 0;
   width: rem(230);
-  height: rem(345);
+  aspect-ratio: 230 / 345;
   // 背景透過PNG（カンプの元画像も透過）。切り抜き済みなのでトリミング・角丸はしない
   object-fit: contain;
 
@@ -184,7 +184,7 @@
     right: rem(10);
     bottom: auto;
     width: rem(130);
-    height: rem(195);
+    aspect-ratio: 130 / 195;
   }
 }
 
@@ -271,7 +271,7 @@
   top: rem(340);
   left: rem(725);
   width: rem(183);
-  height: rem(183);
+  aspect-ratio: 183 / 183;
   object-fit: cover;
   border-radius: 50%;
 
@@ -281,7 +281,7 @@
     top: rem(707);
     left: rem(183);
     width: rem(114);
-    height: rem(114);
+    aspect-ratio: 114 / 114;
   }
 }
 
@@ -586,7 +586,7 @@
   top: rem(3);
   left: rem(33);
   width: rem(152);
-  height: rem(171);
+  aspect-ratio: 152 / 171;
   // 背景透過PNG。切り抜き済みなのでトリミング・角丸はしない
   object-fit: contain;
 
@@ -595,7 +595,7 @@
     top: calc(#{rem(114)} * -1);
     left: 50%;
     width: rem(110);
-    height: rem(124);
+    aspect-ratio: 110 / 124;
     transform: translateX(-50%);
   }
 }
@@ -706,13 +706,13 @@
 .pediatric-fun__photo {
   flex-shrink: 0;
   width: rem(270);
-  height: rem(313);
+  aspect-ratio: 270 / 313;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(252);
-    height: rem(292);
+    aspect-ratio: 252 / 292;
     margin-inline: auto;
     border-radius: rem(10);
   }
@@ -811,12 +811,11 @@
 
 .pediatric-mom__photo {
   width: 100%;
-  height: rem(261);
+  aspect-ratio: 330 / 261;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(273);
     border-radius: rem(10);
   }
 }

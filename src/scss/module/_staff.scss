@@ -58,14 +58,14 @@
 .staff-doctor__photo {
   flex-shrink: 0;
   width: rem(374);
-  height: rem(455);
+  aspect-ratio: 374 / 455;
   object-fit: cover;
   object-position: top;
   border-radius: rem(20);
 
   @include mq("sp") {
     width: rem(246);
-    height: rem(299);
+    aspect-ratio: 246 / 299;
     margin-inline: rem(19) auto;
     border-radius: rem(10);
   }
@@ -321,12 +321,11 @@
 
 .staff-team__photo {
   width: 100%;
-  height: rem(261);
+  aspect-ratio: 330 / 261;
   object-fit: cover;
   border-radius: rem(20);
 
   @include mq("sp") {
-    height: rem(273);
     border-radius: rem(10);
   }
 }
@@ -372,13 +371,15 @@
 .staff-team__group-img {
   display: block;
   width: 100%;
-  height: rem(681);
+  aspect-ratio: 1600 / 681;
   object-fit: cover;
 
-  // カンプSPは画面幅(375)より広い600pxで中央配置
+  // カンプSPは画面幅(375)より広い600pxで中央配置。
+  // reset の img { max-width: 100% } が 600px 指定を画面幅で頭打ちにするため打ち消す
   @include mq("sp") {
     width: rem(600);
-    height: rem(255);
+    max-width: none;
+    aspect-ratio: 600 / 255;
     margin-left: 50%;
     transform: translateX(-50%);
   }
