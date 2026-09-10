@@ -6732,7 +6732,7 @@ select::-ms-expand {
   z-index: 1;
   display: block;
   width: clamp(76.475 * 1rem, 109.25 * 1rem * var(--rem-scale), 142.025 * 1rem);
-  height: clamp(15.00625 * 1rem, 21.4375 * 1rem * var(--rem-scale), 27.86875 * 1rem);
+  height: clamp(6.95625 * 1rem, 9.9375 * 1rem * var(--rem-scale), 12.91875 * 1rem);
   left: 50%;
   margin-top: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
   background-image: url(/assets/img/clinic-page/wave-deco.svg);
@@ -6745,7 +6745,7 @@ select::-ms-expand {
 /* --- 設備・共通エリア ------------------------------------------------ */
 
 .clinic-equip {
-  margin-top: clamp(0 * 1rem, 0 * 1rem * var(--rem-scale), 0 * 1rem);
+  margin-top: clamp(6.7375 * 1rem, 9.625 * 1rem * var(--rem-scale), 12.5125 * 1rem);
   padding-top: 0;
   background-color: #f2f2f2;
 }
@@ -6796,6 +6796,10 @@ select::-ms-expand {
   height: clamp(18.24375 * 1rem, 26.0625 * 1rem * var(--rem-scale), 33.88125 * 1rem);
   background-color: #145aa6;
   border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem) 0 0 clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+}
+
+.clinic-room--band-sm .clinic-room__band {
+  height: clamp(11.375 * 1rem, 16.25 * 1rem * var(--rem-scale), 21.125 * 1rem);
 }
 
 .clinic-room--reverse .clinic-room__band {
@@ -6935,39 +6939,106 @@ select::-ms-expand {
   height: clamp(14.875 * 1rem, 21.25 * 1rem * var(--rem-scale), 27.625 * 1rem);
 }
 
-/* 治療ルーム（大きい海モチーフ写真＋小さい写真2枚） */
+/* 治療ルーム（右に大きい海モチーフ写真＋ドットのあしらい／左は本文の下に小写真2枚） */
 
 .clinic-room__cluster--treat {
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
-  height: clamp(28.875 * 1rem, 41.25 * 1rem * var(--rem-scale), 53.625 * 1rem);
+  height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
 }
 
 .clinic-room__cluster--treat .clinic-room__cluster-photo--1 {
+  z-index: 1;
   top: 0;
   right: 0;
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
   aspect-ratio: 591/411;
 }
 
-.clinic-room__cluster--treat .clinic-room__cluster-photo--2 {
-  bottom: 0;
-  left: 0;
-  width: clamp(10.0625 * 1rem, 14.375 * 1rem * var(--rem-scale), 18.6875 * 1rem);
-  aspect-ratio: 230/170;
+.clinic-treat__deco {
+  position: absolute;
+  z-index: 0;
+  top: clamp(2.40625 * 1rem, 3.4375 * 1rem * var(--rem-scale), 4.46875 * 1rem);
+  left: clamp(3.71875 * 1rem, 5.3125 * 1rem * var(--rem-scale), 6.90625 * 1rem);
+  overflow: hidden;
+  display: block;
+  width: clamp(23.625 * 1rem, 33.75 * 1rem * var(--rem-scale), 43.875 * 1rem);
+  height: clamp(15.75 * 1rem, 22.5 * 1rem * var(--rem-scale), 29.25 * 1rem);
+  transform-origin: 100% 0;
+  transform: rotate(-11deg);
 }
 
-.clinic-room__cluster--treat .clinic-room__cluster-photo--3 {
-  right: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
-  bottom: 0;
-  width: clamp(9.1875 * 1rem, 13.125 * 1rem * var(--rem-scale), 17.0625 * 1rem);
-  aspect-ratio: 210/150;
+.clinic-treat__deco::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background-image: radial-gradient(circle closest-side, rgba(216, 236, 253, 0.46) 0 46%, transparent 54%);
+  background-size: clamp(0.599375 * 1rem, 0.85625 * 1rem * var(--rem-scale), 1.113125 * 1rem) clamp(0.599375 * 1rem, 0.85625 * 1rem * var(--rem-scale), 1.113125 * 1rem);
+  transform: rotate(11deg);
+}
+
+/* 治療ルームの本文下に置く小写真2枚（カンプ実測 215×269 / 244×192） */
+
+.clinic-treat__photos {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: clamp(13.65 * 1rem, 19.5 * 1rem * var(--rem-scale), 25.35 * 1rem);
+  margin-top: clamp(1.4 * 1rem, 2 * 1rem * var(--rem-scale), 2.6 * 1rem);
+}
+
+.clinic-treat__photo {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+}
+
+.clinic-treat__photo--1 {
+  top: 0;
+  left: 0;
+  width: clamp(9.40625 * 1rem, 13.4375 * 1rem * var(--rem-scale), 17.46875 * 1rem);
+  aspect-ratio: 215/269;
+}
+
+.clinic-treat__photo--2 {
+  top: clamp(5.29375 * 1rem, 7.5625 * 1rem * var(--rem-scale), 9.83125 * 1rem);
+  left: clamp(11.24375 * 1rem, 16.0625 * 1rem * var(--rem-scale), 20.88125 * 1rem);
+  width: clamp(10.675 * 1rem, 15.25 * 1rem * var(--rem-scale), 19.825 * 1rem);
+  aspect-ratio: 244/192;
 }
 
 /* バリアフリー（大きい外観写真＋車イスの小写真） */
 
 .clinic-room__cluster--barrier {
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
-  height: clamp(20.08125 * 1rem, 28.6875 * 1rem * var(--rem-scale), 37.29375 * 1rem);
+  height: clamp(17.98125 * 1rem, 25.6875 * 1rem * var(--rem-scale), 33.39375 * 1rem);
+}
+
+/* バリアフリーの小写真2枚（カンプ実測 220×172 と 221×160・59px下げて右に並ぶ） */
+
+.clinic-barrier__photos {
+  position: relative;
+  width: 100%;
+  height: clamp(9.58125 * 1rem, 13.6875 * 1rem * var(--rem-scale), 17.79375 * 1rem);
+  margin-top: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
+}
+
+.clinic-barrier__photos .clinic-room__sub-photo {
+  margin-top: 0;
+}
+
+.clinic-barrier__photo-sub {
+  position: absolute;
+  top: clamp(2.58125 * 1rem, 3.6875 * 1rem * var(--rem-scale), 4.79375 * 1rem);
+  left: clamp(10.5875 * 1rem, 15.125 * 1rem * var(--rem-scale), 19.6625 * 1rem);
+  width: clamp(9.66875 * 1rem, 13.8125 * 1rem * var(--rem-scale), 17.95625 * 1rem);
+  aspect-ratio: 221/160;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
 }
 
 .clinic-room__cluster--barrier .clinic-room__cluster-photo--1 {
@@ -6975,13 +7046,6 @@ select::-ms-expand {
   right: 0;
   width: clamp(25.85625 * 1rem, 36.9375 * 1rem * var(--rem-scale), 48.01875 * 1rem);
   aspect-ratio: 591/411;
-}
-
-.clinic-room__cluster--barrier .clinic-room__cluster-photo--2 {
-  bottom: 0;
-  left: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
-  width: clamp(9.66875 * 1rem, 13.8125 * 1rem * var(--rem-scale), 17.95625 * 1rem);
-  aspect-ratio: 221/160;
 }
 
 /* --- 治療ユニットの写真クラスター（4枚重ね＋装飾） ------------------------------------------------ */
@@ -7098,10 +7162,10 @@ select::-ms-expand {
 
 .clinic-equip-pair__item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex: 1;
   min-width: 0;
-  gap: clamp(0.7 * 1rem, 1 * 1rem * var(--rem-scale), 1.3 * 1rem);
+  gap: clamp(1.1375 * 1rem, 1.625 * 1rem * var(--rem-scale), 2.1125 * 1rem);
 }
 
 .clinic-equip-pair__photo {
@@ -7143,13 +7207,13 @@ select::-ms-expand {
 .clinic-equip-list::before {
   content: "";
   position: absolute;
-  top: calc(clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem) * -1);
+  top: 0;
   left: 0;
   width: 100%;
   background-image: radial-gradient(circle closest-side, #145aa6 0 46%, transparent 54%);
   background-repeat: repeat-x;
-  height: clamp(0.13125 * 1rem, 0.1875 * 1rem * var(--rem-scale), 0.24375 * 1rem);
-  background-size: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem) clamp(0.13125 * 1rem, 0.1875 * 1rem * var(--rem-scale), 0.24375 * 1rem);
+  height: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
+  background-size: clamp(0.35875 * 1rem, 0.5125 * 1rem * var(--rem-scale), 0.66625 * 1rem) clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
   background-position: left center;
 }
 
@@ -7165,8 +7229,8 @@ select::-ms-expand {
   width: 100%;
   background-image: radial-gradient(circle closest-side, #145aa6 0 46%, transparent 54%);
   background-repeat: repeat-x;
-  height: clamp(0.13125 * 1rem, 0.1875 * 1rem * var(--rem-scale), 0.24375 * 1rem);
-  background-size: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem) clamp(0.13125 * 1rem, 0.1875 * 1rem * var(--rem-scale), 0.24375 * 1rem);
+  height: clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
+  background-size: clamp(0.35875 * 1rem, 0.5125 * 1rem * var(--rem-scale), 0.66625 * 1rem) clamp(0.175 * 1rem, 0.25 * 1rem * var(--rem-scale), 0.325 * 1rem);
   background-position: left center;
 }
 
@@ -11199,48 +11263,78 @@ select::-ms-expand {
   }
 
   .clinic-room__cluster--treat {
-    width: 100%;
-    height: clamp(18.375 * 1rem, 26.25 * 1rem * var(--rem-scale), 34.125 * 1rem);
+    width: clamp(13.0375 * 1rem, 18.625 * 1rem * var(--rem-scale), 24.2125 * 1rem);
+    height: clamp(9.05625 * 1rem, 12.9375 * 1rem * var(--rem-scale), 16.81875 * 1rem);
+    margin-inline: clamp(2.0125 * 1rem, 2.875 * 1rem * var(--rem-scale), 3.7375 * 1rem) auto;
+  }
+
+  .clinic-room--dots .clinic-room__body {
+    display: contents;
+  }
+
+  .clinic-room--dots .clinic-room__text {
+    margin-top: 0;
+  }
+
+  .clinic-room--dots .clinic-treat__photos {
+    order: 1;
   }
 
   .clinic-room__cluster--treat .clinic-room__cluster-photo--1 {
     top: 0;
     right: auto;
-    left: clamp(2.05625 * 1rem, 2.9375 * 1rem * var(--rem-scale), 3.81875 * 1rem);
+    left: 0;
     width: clamp(13.0375 * 1rem, 18.625 * 1rem * var(--rem-scale), 24.2125 * 1rem);
     aspect-ratio: 298/207;
   }
 
-  .clinic-room__cluster--treat .clinic-room__cluster-photo--2 {
-    top: clamp(9.93125 * 1rem, 14.1875 * 1rem * var(--rem-scale), 18.44375 * 1rem);
-    bottom: auto;
-    left: 0;
+  .clinic-treat__deco {
+    display: none;
+  }
+
+  .clinic-treat__photos {
+    height: clamp(8.05 * 1rem, 11.5 * 1rem * var(--rem-scale), 14.95 * 1rem);
+    margin-top: 0;
+  }
+
+  .clinic-treat__photo {
+    border-radius: clamp(0.35 * 1rem, 0.5 * 1rem * var(--rem-scale), 0.65 * 1rem);
+  }
+
+  .clinic-treat__photo--1 {
     width: clamp(5.55625 * 1rem, 7.9375 * 1rem * var(--rem-scale), 10.31875 * 1rem);
     aspect-ratio: 127/158;
   }
 
-  .clinic-room__cluster--treat .clinic-room__cluster-photo--3 {
-    top: clamp(13.0375 * 1rem, 18.625 * 1rem * var(--rem-scale), 24.2125 * 1rem);
-    bottom: auto;
-    right: auto;
+  .clinic-treat__photo--2 {
+    top: clamp(3.10625 * 1rem, 4.4375 * 1rem * var(--rem-scale), 5.76875 * 1rem);
     left: clamp(6.3875 * 1rem, 9.125 * 1rem * var(--rem-scale), 11.8625 * 1rem);
     width: clamp(6.25625 * 1rem, 8.9375 * 1rem * var(--rem-scale), 11.61875 * 1rem);
     aspect-ratio: 143/113;
   }
 
   .clinic-room__cluster--barrier {
-    height: clamp(9.1 * 1rem, 13 * 1rem * var(--rem-scale), 16.9 * 1rem);
+    width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
+    height: clamp(8.225 * 1rem, 11.75 * 1rem * var(--rem-scale), 15.275 * 1rem);
+    margin-inline: auto 0;
+  }
+
+  .clinic-barrier__photos {
+    height: clamp(6.9125 * 1rem, 9.875 * 1rem * var(--rem-scale), 12.8375 * 1rem);
+    margin-top: clamp(1.05 * 1rem, 1.5 * 1rem * var(--rem-scale), 1.95 * 1rem);
+  }
+
+  .clinic-barrier__photo-sub {
+    top: clamp(1.88125 * 1rem, 2.6875 * 1rem * var(--rem-scale), 3.49375 * 1rem);
+    left: clamp(7.6125 * 1rem, 10.875 * 1rem * var(--rem-scale), 14.1375 * 1rem);
+    width: clamp(7.04375 * 1rem, 10.0625 * 1rem * var(--rem-scale), 13.08125 * 1rem);
+    aspect-ratio: 161/116;
+    border-radius: clamp(0.4375 * 1rem, 0.625 * 1rem * var(--rem-scale), 0.8125 * 1rem);
   }
 
   .clinic-room__cluster--barrier .clinic-room__cluster-photo--1 {
     width: clamp(11.8125 * 1rem, 16.875 * 1rem * var(--rem-scale), 21.9375 * 1rem);
     aspect-ratio: 270/188;
-  }
-
-  .clinic-room__cluster--barrier .clinic-room__cluster-photo--2 {
-    left: clamp(0.65625 * 1rem, 0.9375 * 1rem * var(--rem-scale), 1.21875 * 1rem);
-    width: clamp(7.04375 * 1rem, 10.0625 * 1rem * var(--rem-scale), 13.08125 * 1rem);
-    aspect-ratio: 161/116;
   }
 
   .clinic-unit-cluster {
