@@ -7,7 +7,10 @@ const TYPES = { '.html':'text/html', '.css':'text/css', '.js':'text/javascript',
 http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]);
   if (p.endsWith('/')) p += 'index.html';
-  const f = path.join(ROOT, p);
+  // /designs/ はデザイン画像（.page-info/designs/）。比較スクリプトから読むために配信する
+  const f = p.startsWith('/designs/')
+    ? path.join(__dirname, '..', '.page-info', 'designs', p.slice('/designs/'.length))
+    : path.join(ROOT, p);
   fs.readFile(f, (e, data) => {
     if (e) { res.writeHead(404); res.end('404'); return; }
     res.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' });
