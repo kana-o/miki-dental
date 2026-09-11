@@ -100,9 +100,10 @@
   background-size: 100% auto;
   transform: translateX(-50%);
 
+  // SPも同じく、書き出したSVGの下側のベタ塗りを切り落とす（カンプの波は60px）
   @include mq("sp") {
     width: rem(603);
-    height: rem(118);
+    height: rem(60);
     margin-top: rem(30);
     background-image: url(/assets/img/clinic-page/wave-deco-sp.svg);
   }
@@ -116,8 +117,10 @@
   padding-top: 0;
   background-color: $color-bg-sub;
 
-  // SPは波の重なりが浅く、見出しまで43px空く
+  // SPは波の重なりが浅く、見出しまで43px空く。
+  // カンプ実測（SP）: 波の下端からセクション上端まで17px
   @include mq("sp") {
+    margin-top: rem(17);
     padding-top: rem(43);
   }
 }

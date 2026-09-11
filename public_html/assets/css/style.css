@@ -11127,12 +11127,13 @@ select::-ms-expand {
 
   .clinic-child__wave {
     width: clamp(26.38125 * 1rem, 37.6875 * 1rem * var(--rem-scale), 48.99375 * 1rem);
-    height: clamp(5.1625 * 1rem, 7.375 * 1rem * var(--rem-scale), 9.5875 * 1rem);
+    height: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
     margin-top: clamp(1.3125 * 1rem, 1.875 * 1rem * var(--rem-scale), 2.4375 * 1rem);
     background-image: url(/assets/img/clinic-page/wave-deco-sp.svg);
   }
 
   .clinic-equip {
+    margin-top: clamp(0.74375 * 1rem, 1.0625 * 1rem * var(--rem-scale), 1.38125 * 1rem);
     padding-top: clamp(1.88125 * 1rem, 2.6875 * 1rem * var(--rem-scale), 3.49375 * 1rem);
   }
 
