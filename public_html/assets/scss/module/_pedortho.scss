@@ -235,7 +235,8 @@
 .pedortho-device__row {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  // カンプ実測: 410幅の写真が x=260 と x=713（間隔43）
+  justify-content: flex-start;
   gap: rem(43);
   margin-top: rem(30);
 
@@ -306,8 +307,10 @@
 .pedortho-case__item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: rem(26);
+  // カンプ実測: 左端は .inner の内容左端（x=260）。中央寄せだと50pxずれる
+  justify-content: flex-start;
+  // カンプ実測: 写真の間は53px（矢印36 ＋ 左右8.5）
+  gap: rem(8.5);
 
   @include mq("sp") {
     gap: rem(9);
@@ -318,10 +321,11 @@
   display: block;
   // .pic が display:contents のため img 自身が flex アイテムになる。
   // min-width の初期値 auto だと画像の実寸（566px等）より縮まず、横にはみ出す
+  // カンプ実測: 464x200 が x=260 と x=777 に並ぶ（間は矢印36px＋左右8.5px）
   min-width: 0;
-  flex: 1;
-  width: 100%;
-  aspect-ratio: 490 / 200;
+  flex: 0 1 rem(464);
+  width: rem(464);
+  aspect-ratio: 464 / 200;
   object-fit: cover;
   border-radius: rem(20);
 
@@ -332,7 +336,7 @@
 }
 
 .pedortho-case__photo--lg {
-  aspect-ratio: 490 / 254;
+  aspect-ratio: 464 / 254;
 
   @include mq("sp") {
     aspect-ratio: 155 / 89;
@@ -340,9 +344,10 @@
 }
 
 .pedortho-case__arrow {
+  // カンプ実測: 36x62
   flex-shrink: 0;
-  width: rem(48);
-  height: rem(118);
+  width: rem(36);
+  height: rem(62);
   background-color: $color-cta;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 

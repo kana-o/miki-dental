@@ -112,7 +112,9 @@
 
 // フッ素／PMTCの写真は280px幅（年齢セクションの写真だけ230px）
 .pedprev-row__photo--wide {
+  // カンプ実測: 280x215（基本クラスの 230/215 を継ぐと 280x262 になってしまう）
   width: rem(280);
+  aspect-ratio: 280 / 215;
 
   @include mq("sp") {
     width: rem(230);
