@@ -6761,7 +6761,7 @@ select::-ms-expand {
 /* --- 設備・共通エリア ------------------------------------------------ */
 
 .clinic-equip {
-  margin-top: clamp(6.7375 * 1rem, 9.625 * 1rem * var(--rem-scale), 12.5125 * 1rem);
+  margin-top: clamp(7.74375 * 1rem, 11.0625 * 1rem * var(--rem-scale), 14.38125 * 1rem);
   padding-top: 0;
   background-color: #f2f2f2;
 }
@@ -6792,15 +6792,23 @@ select::-ms-expand {
 }
 
 .clinic-room--light {
-  margin-top: clamp(2.625 * 1rem, 3.75 * 1rem * var(--rem-scale), 4.875 * 1rem);
+  margin-top: clamp(3.85 * 1rem, 5.5 * 1rem * var(--rem-scale), 7.15 * 1rem);
+}
+
+.clinic-room--reverse:not(.clinic-room--light):not(.clinic-room--photo-mid) {
+  margin-top: clamp(4.2 * 1rem, 6 * 1rem * var(--rem-scale), 7.8 * 1rem);
+}
+
+.clinic-room--light.clinic-room--dots {
+  margin-top: clamp(5.03125 * 1rem, 7.1875 * 1rem * var(--rem-scale), 9.34375 * 1rem);
 }
 
 .inner + .clinic-room {
-  margin-top: clamp(1.44375 * 1rem, 2.0625 * 1rem * var(--rem-scale), 2.68125 * 1rem);
+  margin-top: clamp(1.88125 * 1rem, 2.6875 * 1rem * var(--rem-scale), 3.49375 * 1rem);
 }
 
 .inner + .clinic-room--light {
-  margin-top: clamp(0.875 * 1rem, 1.25 * 1rem * var(--rem-scale), 1.625 * 1rem);
+  margin-top: clamp(1.53125 * 1rem, 2.1875 * 1rem * var(--rem-scale), 2.84375 * 1rem);
 }
 
 .clinic-room__band {
@@ -6892,7 +6900,7 @@ select::-ms-expand {
 .clinic-room__sub-photo-group {
   position: relative;
   width: clamp(19.29375 * 1rem, 27.5625 * 1rem * var(--rem-scale), 35.83125 * 1rem);
-  aspect-ratio: 441/445;
+  aspect-ratio: 441/485;
   margin-top: 0;
 }
 
@@ -7175,7 +7183,7 @@ select::-ms-expand {
 .clinic-equip-pair {
   display: flex;
   gap: clamp(1.75 * 1rem, 2.5 * 1rem * var(--rem-scale), 3.25 * 1rem);
-  margin-top: clamp(3.0625 * 1rem, 4.375 * 1rem * var(--rem-scale), 5.6875 * 1rem);
+  margin-top: clamp(6.475 * 1rem, 9.25 * 1rem * var(--rem-scale), 12.025 * 1rem);
 }
 
 .clinic-equip-pair__item {
@@ -11163,6 +11171,14 @@ select::-ms-expand {
   }
 
   .clinic-room--light {
+    margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  }
+
+  .clinic-room--reverse:not(.clinic-room--light):not(.clinic-room--photo-mid) {
+    margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
+  }
+
+  .clinic-room--light.clinic-room--dots {
     margin-top: clamp(2.1875 * 1rem, 3.125 * 1rem * var(--rem-scale), 4.0625 * 1rem);
   }
 

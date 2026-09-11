@@ -111,8 +111,8 @@
 /* --- 設備・共通エリア ------------------------------------------------ */
 
 .clinic-equip {
-  // カンプ実測: 波の下端から見出し上端まで154px空く
-  margin-top: rem(154);
+  // カンプ実測: デルフィーノのタグから設備の見出しまで1441px（波の下端から177px）
+  margin-top: rem(177);
   padding-top: 0;
   background-color: $color-bg-sub;
 
@@ -205,24 +205,45 @@
 }
 
 .clinic-room--light {
-  margin-top: rem(60);
+  // カンプ実測: 治療ルーム -> デルフィーノ のタグ間隔は747px（60だと719で28足りない）
+  margin-top: rem(88);
 
   @include mq("sp") {
     margin-top: rem(50);
   }
 }
 
-// セクション見出し直後の1つめ。カンプ実測（PC）は見出し上端から
-// 一般歯科/設備エリア=126・小児歯科エリア=110 で、2つめ以降より詰まっている。
+// 写真が左・本文が右の標準ブロック（治療ユニット／カウンセリングルーム）は、
+// カンプでは前のブロックから96px空く（基本の70だと26px足りない）。
+.clinic-room--reverse:not(.clinic-room--light):not(.clinic-room--photo-mid) {
+  margin-top: rem(96);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// カンプ実測: プレイルーム -> 治療ルーム のタグ間隔は862px。
+// プレイルームは写真群が下に張り出すぶん、次のブロックまで広く空く。
+.clinic-room--light.clinic-room--dots {
+  margin-top: rem(115);
+
+  @include mq("sp") {
+    margin-top: rem(50);
+  }
+}
+
+// セクション見出し直後の1つめ。カンプ実測（PC）は見出しの文字上端からタグの上端まで
+// 一般歯科/設備エリア=116・小児歯科エリア=107 で、2つめ以降より詰まっている。
 .inner + .clinic-room {
-  margin-top: rem(33);
+  margin-top: rem(43);
 
   @include mq("sp") {
     margin-top: rem(50);
   }
 }
 .inner + .clinic-room--light {
-  margin-top: rem(20);
+  margin-top: rem(35);
 
   @include mq("sp") {
     margin-top: rem(50);
@@ -414,7 +435,9 @@
 .clinic-room__sub-photo-group {
   position: relative;
   width: rem(441);
-  aspect-ratio: 441 / 445;
+  // 2枚目の写真が枠の下端（445）より40px下まで出るので、枠自体を485にして
+  // 次のブロックとの間隔が詰まらないようにする
+  aspect-ratio: 441 / 485;
   // カンプ実測: 本文の最終行の下端から1枚目の写真の上端まで50px。
   // 写真自体が枠の40px下から始まるので、枠の上余白は持たせない
   margin-top: 0;
@@ -919,7 +942,8 @@
 .clinic-equip-pair {
   display: flex;
   gap: rem(40);
-  margin-top: rem(70);
+  // カンプ実測: カウンセリングのタグからトレーニングルームのタグまで559px
+  margin-top: rem(148);
 
   @include mq("sp") {
     flex-direction: column;
